@@ -10,7 +10,7 @@ namespace Uttambsolutionsdesktop
         [STAThread]
         static void Main()
         {
-            string databasePath = Path.Combine(Application.StartupPath, "Uttambsolutioninv.db");
+            string databasePath = Path.Combine(Application.StartupPath, "Uttambsolutions.db");
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             // Ensure the database exists
