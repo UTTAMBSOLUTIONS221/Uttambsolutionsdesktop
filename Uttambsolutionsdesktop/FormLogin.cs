@@ -1,5 +1,6 @@
 ﻿using DBL;
 using Microsoft.Extensions.Configuration;
+using System.Data.SQLite;
 using Uttambsolutionsdesktop.Utils;
 using Uttambsolutionsdesktop.Views;
 
@@ -7,6 +8,7 @@ namespace Uttambsolutionsdesktop
 {
     public partial class FormLogin : Form
     {
+        private readonly string _connectionString;
         private readonly BL bl;
         private readonly IConfiguration _config;
 
@@ -14,7 +16,33 @@ namespace Uttambsolutionsdesktop
         {
             InitializeComponent();
             _config = config;
-            bl = new BL(Util.ShareConnectionString(_config));
+            _connectionString = _config.GetConnectionString("DefaultConnection");
+            bl = new BL(_connectionString);
+            InitializeDatabase();            
+        }
+
+        private void InitializeDatabase()
+        {
+            if (!File.Exists("database.db"))
+            {
+                SQLiteConnection.CreateFile("database.db");
+                using (var conn = new SQLiteConnection(_connectionString))
+                {
+                    conn.Open();
+                    string createTableQuery = @"
+                CREATE TABLE Users (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Username TEXT NOT NULL,
+                    Password TEXT NOT NULL
+                );
+                INSERT INTO Users (Username, Password) VALUES ('admin', 'admin');
+            ";
+                    using (var cmd = new SQLiteCommand(createTableQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         private async void btn_Submit_Click(object sender, EventArgs e)
