@@ -3,7 +3,7 @@ using DBL.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace DBL.Repositories
 {
@@ -14,7 +14,7 @@ namespace DBL.Repositories
         }
         public UsermodelResponce VerifySystemStaff(string Username)
         {
-            using (var connection = new SqlConnection(_connString))
+            using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 UsermodelResponce resp = new UsermodelResponce();

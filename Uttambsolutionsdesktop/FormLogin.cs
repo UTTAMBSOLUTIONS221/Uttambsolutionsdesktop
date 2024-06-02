@@ -10,39 +10,12 @@ namespace Uttambsolutionsdesktop
     {
         private readonly string _connectionString;
         private readonly BL bl;
-        private readonly IConfiguration _config;
 
-        public FormLogin(IConfiguration config)
+        public FormLogin(string connectionString)
         {
             InitializeComponent();
-            _config = config;
-            _connectionString = _config.GetConnectionString("DefaultConnection");
+            _connectionString = connectionString;
             bl = new BL(_connectionString);
-            InitializeDatabase();            
-        }
-
-        private void InitializeDatabase()
-        {
-            if (!File.Exists("database.db"))
-            {
-                SQLiteConnection.CreateFile("database.db");
-                using (var conn = new SQLiteConnection(_connectionString))
-                {
-                    conn.Open();
-                    string createTableQuery = @"
-                CREATE TABLE Users (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Username TEXT NOT NULL,
-                    Password TEXT NOT NULL
-                );
-                INSERT INTO Users (Username, Password) VALUES ('admin', 'admin');
-            ";
-                    using (var cmd = new SQLiteCommand(createTableQuery, conn))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
         }
 
         private async void btn_Submit_Click(object sender, EventArgs e)
