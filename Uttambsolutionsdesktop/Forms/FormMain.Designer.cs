@@ -146,12 +146,12 @@ public partial class FormMain : Form, IMainView
         this.panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
         this.panelProductManagementSubmenu.Dock = DockStyle.Top;
         this.panelProductManagementSubmenu.Location = new Point(0, 180);
-        this.panelProductManagementSubmenu.Size = new Size(150, 135);
+        this.panelProductManagementSubmenu.Size = new Size(150, 90);
         this.panelProductManagementSubmenu.Visible = false;
 
         // Product List Button (Submenu)
         Button btnProductList = new Button();
-        btnProductList.Dock = DockStyle.Bottom; // Change to DockStyle.Bottom
+        btnProductList.Dock = DockStyle.Top; // Change to DockStyle.Top
         btnProductList.FlatAppearance.BorderSize = 0;
         btnProductList.FlatStyle = FlatStyle.Flat;
         btnProductList.ForeColor = Color.Gainsboro;
@@ -170,7 +170,6 @@ public partial class FormMain : Form, IMainView
         btnCategoryList.Text = "Category List";
         btnCategoryList.Click += new EventHandler(this.BtnCategoryList_Click); // Add event handler for click
         this.panelProductManagementSubmenu.Controls.Add(btnCategoryList);
-
         this.ResumeLayout(false);
     }
 
