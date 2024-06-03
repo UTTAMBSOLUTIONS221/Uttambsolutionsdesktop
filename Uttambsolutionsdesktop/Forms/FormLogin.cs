@@ -21,10 +21,10 @@ namespace Uttambsolutionsdesktop
             MessageBox.Show(message);
         }
 
-        public void OpenMainForm(UsermodeldataResponce userData)
+        public void OpenMainForm()
         {
             this.Hide();
-            FormMain fm = new FormMain(userData);
+            FormMain fm = new FormMain();
             fm.Show();
         }
 
