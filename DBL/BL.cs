@@ -1,4 +1,5 @@
-﻿using DBL.Helpers;
+﻿using DBL.Entities;
+using DBL.Helpers;
 using DBL.Models;
 using DBL.UOW;
 
@@ -81,6 +82,25 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.SecurityRepository.GetPermissionsForUser(RoleId);
+                return Resp;
+            });
+        }
+        #endregion
+
+        #region Producct Categories
+        public Task<IEnumerable<Category>> GetAllCategories()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.GetAllCategories();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<Category>> GetCategoriesByValue(string SearchValue)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.GetAllCategories();
                 return Resp;
             });
         }

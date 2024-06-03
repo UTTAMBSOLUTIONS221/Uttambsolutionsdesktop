@@ -10,6 +10,7 @@ namespace DBL.UOW
     public interface IUnitOfWork
     {
         ISecurityRepository SecurityRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
         //ISalesTransactionRepository SalesTransactionRepository { get; }
         //IDashboardRepository DashboardRepository { get; }
         //IGeneralRepository GeneralRepository { get; }

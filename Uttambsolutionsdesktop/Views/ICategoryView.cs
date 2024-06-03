@@ -1,24 +1,18 @@
-﻿using DBL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Uttambsolutionsdesktop.Presenters;
+using DBL.Entities;
 
 namespace Uttambsolutionsdesktop.Views
 {
     public interface ICategoryView
     {
-        string SearchValue { get; }
+        string SearchText { get; }
+        void SetCategoryListBindingSource(BindingSource categoryList);
+        void ShowMessage(string message);
+
         event EventHandler SearchEvent;
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
-        event EventHandler CancelEvent;
-
-        void SetCategoryListBindingSource(object dataSource);
-        void Show();
     }
 }

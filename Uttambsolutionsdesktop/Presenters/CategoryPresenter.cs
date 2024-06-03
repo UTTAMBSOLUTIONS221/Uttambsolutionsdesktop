@@ -1,8 +1,8 @@
-﻿using DBL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Uttambsolutionsdesktop.Models;
+using DBL;
+using DBL.Entities;
 using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
@@ -10,73 +10,57 @@ namespace Uttambsolutionsdesktop.Presenters
     public class CategoryPresenter
     {
         private readonly ICategoryView _view;
-        private readonly ICategoryRepository _repository;
         private readonly BindingSource _categoryBindingSource;
-        private IEnumerable<Category> _categoryList;
+        private readonly BL _bl;
+        private List<Category> _categoryList;
 
-        public CategoryPresenter(ICategoryView view, ICategoryRepository repository)
+        public CategoryPresenter(ICategoryView view, BL bl)
         {
-            _categoryBindingSource = new BindingSource();
             _view = view;
-            _repository = repository;
-
-            // Subscribe event handler methods to view events
-            _view.SearchEvent += SearchCategory;
-            _view.AddNewEvent += AddNewCategory;
-            _view.EditEvent += LoadSelectedCategoryToEdit;
-            _view.DeleteEvent += DeleteSelectedCategory;
-            _view.SaveEvent += SaveCategory;
-            _view.CancelEvent += CancelAction;
-
-            // Set category binding source
+            _categoryBindingSource = new BindingSource();
             _view.SetCategoryListBindingSource(_categoryBindingSource);
 
-            // Load category list view
-            LoadAllCategories();
+            _view.SearchEvent += SearchCategory;
+            _view.AddNewEvent += AddNewCategory;
+            _view.EditEvent += EditCategory;
+            _view.DeleteEvent += DeleteCategory;
 
-            // Show view
-            _view.Show();
+            LoadAllCategories();
+            _bl = bl;
         }
 
-        private void LoadAllCategories()
+        private async void LoadAllCategories()
         {
-            _categoryList = _repository.GetAll();
+            _categoryList = (List<Category>)await _bl.GetAllCategories();
             _categoryBindingSource.DataSource = _categoryList;
         }
 
         private void SearchCategory(object sender, EventArgs e)
         {
-            bool emptyValue = string.IsNullOrWhiteSpace(_view.SearchValue);
-            if (!emptyValue)
-                _categoryList = _repository.GetByValue(_view.SearchValue);
-            else
-                _categoryList = _repository.GetAll();
-            _categoryBindingSource.DataSource = _categoryList;
-        }
+            string searchText = _view.SearchText;
+            var filteredList = string.IsNullOrWhiteSpace(searchText)
+                ? _categoryList
+                : _categoryList.FindAll(c => c.CategoryName.Contains(searchText, StringComparison.OrdinalIgnoreCase));
 
-        private void CancelAction(object sender, EventArgs e)
-        {
-            // Implementation for cancel action
-        }
-
-        private void SaveCategory(object sender, EventArgs e)
-        {
-            // Implementation for save action
-        }
-
-        private void DeleteSelectedCategory(object sender, EventArgs e)
-        {
-            // Implementation for delete action
-        }
-
-        private void LoadSelectedCategoryToEdit(object sender, EventArgs e)
-        {
-            // Implementation for loading selected category to edit
+            _categoryBindingSource.DataSource = filteredList;
         }
 
         private void AddNewCategory(object sender, EventArgs e)
         {
-            // Implementation for adding a new category
+            // Logic to add a new category
+            _view.ShowMessage("Add new category clicked");
+        }
+
+        private void EditCategory(object sender, EventArgs e)
+        {
+            // Logic to edit selected category
+            _view.ShowMessage("Edit category clicked");
+        }
+
+        private void DeleteCategory(object sender, EventArgs e)
+        {
+            // Logic to delete selected category
+            _view.ShowMessage("Delete category clicked");
         }
     }
 }
