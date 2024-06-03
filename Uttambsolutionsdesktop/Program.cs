@@ -172,6 +172,22 @@ namespace Uttambsolutionsdesktop
                         cmd.ExecuteNonQuery();
                     }
                 }
+               
+                //Category Table
+                string createCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS Categories (" +
+                                                       "CategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                       "CategoryName TEXT, " +
+                                                       "Createdby INTEGER, " +
+                                                       "Modifiedby INTEGER, " +
+                                                       "DateCreated DATETIME, " +
+                                                       "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createCategoriesTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+
+
             }
         }
     }

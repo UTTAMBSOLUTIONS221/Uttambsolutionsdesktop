@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Uttambsolutionsdesktop.Forms;
 using Uttambsolutionsdesktop.Views;
 
 public partial class FormMain : Form, IMainView
@@ -185,8 +186,10 @@ public partial class FormMain : Form, IMainView
 
     private void BtnCategoryList_Click(object sender, EventArgs e)
     {
-        // Handle Category List button click event
+        CategoryPageForm categoryPageForm = new CategoryPageForm();
+        categoryPageForm.Show();
     }
+
 
     private void BtnProductList_Click(object sender, EventArgs e)
     {
