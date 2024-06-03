@@ -3,19 +3,22 @@ using System.Windows.Forms;
 using DBL.Entities;
 using Uttambsolutionsdesktop.Presenters;
 using Uttambsolutionsdesktop.Views;
-using static Uttambsolutionsdesktop.Program;
 
 namespace Uttambsolutionsdesktop.Forms
 {
-    public partial class CategoryPageForm : Form, ICategoryView
+    public partial class CategoryPageForm : UserControl, ICategoryView
     {
         private CategoryPresenter _presenter;
-       
+
         public CategoryPageForm()
         {
             InitializeComponent();
+        }
+
+        public void Initialize(CategoryPresenter presenter)
+        {
+            _presenter = presenter;
             AssociateAndRaiseViewEvents();
-            _presenter = new CategoryPresenter(this, DatabaseManager.ConnectionString);
         }
 
         private void AssociateAndRaiseViewEvents()

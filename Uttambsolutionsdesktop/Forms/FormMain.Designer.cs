@@ -26,6 +26,8 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnToggleMenu = new System.Windows.Forms.Button();
             this.contentWrapper = new System.Windows.Forms.Panel();
+            this.contentWrapper.Location = new System.Drawing.Point(200, 0);
+            this.contentWrapper.Size = new System.Drawing.Size(this.ClientSize.Width - 200, this.ClientSize.Height);
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -37,10 +39,10 @@
             this.panelMenu.Controls.Add(this.panelSettingsSubmenu);
             this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Size = new System.Drawing.Size(200, this.ClientSize.Height);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(150, 600);
             this.panelMenu.TabIndex = 0;
             // 
             // panelProductManagementSubmenu

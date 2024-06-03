@@ -58,7 +58,7 @@ namespace Uttambsolutionsdesktop.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "CATEGORIES";
+            this.label1.Text = "PRODUCT CATEGORIES";
             // 
             // panel1
             // 

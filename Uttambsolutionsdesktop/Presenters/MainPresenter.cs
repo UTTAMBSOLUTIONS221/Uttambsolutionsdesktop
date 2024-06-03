@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Uttambsolutionsdesktop.Forms;
 using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
@@ -38,7 +39,8 @@ namespace Uttambsolutionsdesktop.Presenters
         }
         public void HandleCategoryListButtonClicked()
         {
-            // Handle category list button click event
+            CategoryPageForm categoryPageForm = new CategoryPageForm();
+            categoryPageForm.Show();
         }
 
         public void HandleProductListButtonClicked()
