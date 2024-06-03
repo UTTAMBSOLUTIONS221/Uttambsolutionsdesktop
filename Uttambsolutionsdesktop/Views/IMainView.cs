@@ -6,6 +6,7 @@
         void SetSettingsButtonClickHandler(EventHandler handler);
         void SetProductsButtonClickHandler(EventHandler handler);
         void SetToggleMenuButtonClickHandler(EventHandler handler);
+        void SetWelcomeMessage(string message);
 
         void ToggleSettingsSubmenuVisibility();
         void ToggleProductManagementSubmenuVisibility();

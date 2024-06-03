@@ -1,41 +1,66 @@
-﻿using Uttambsolutionsdesktop.Views;
+﻿using System;
+using System.Collections.Generic;
+using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
-    // MainPresenter.cs
     public class MainPresenter
     {
-        private readonly IMainView view;
+        private readonly IMainView _view;
+        private readonly string _userId;
+        private readonly string _username;
+        private readonly List<string> _permissions;
 
-        public MainPresenter(IMainView view)
+        public MainPresenter(IMainView view, string userId, string username, List<string> permissions)
         {
-            this.view = view;
-
-            this.view.SetDashboardButtonClickHandler(OnDashboardButtonClick);
-            this.view.SetSettingsButtonClickHandler(OnSettingsButtonClick);
-            this.view.SetProductsButtonClickHandler(OnProductsButtonClick);
-            this.view.SetToggleMenuButtonClickHandler(OnToggleMenuButtonClick);
+            _view = view;
+            _userId = userId;
+            _username = username;
+            _permissions = permissions;
+            Initialize();
         }
 
-        private void OnDashboardButtonClick(object sender, EventArgs e)
+        private void Initialize()
         {
-            // Handle dashboard button click
+            string greeting = GetGreeting();
+            string welcomeMessage = $"{greeting}, {_username}";
+            _view.SetWelcomeMessage(welcomeMessage);
         }
 
-        private void OnSettingsButtonClick(object sender, EventArgs e)
+        public void HandleSettingsButtonClicked()
         {
-            view.ToggleSettingsSubmenuVisibility();
+            _view.ToggleSettingsSubmenuVisibility();
         }
 
-        private void OnProductsButtonClick(object sender, EventArgs e)
+        public void HandleProductManagementButtonClicked()
         {
-            view.ToggleProductManagementSubmenuVisibility();
+            _view.ToggleProductManagementSubmenuVisibility();
+        }
+        public void HandleCategoryListButtonClicked()
+        {
+            // Handle category list button click event
         }
 
-        private void OnToggleMenuButtonClick(object sender, EventArgs e)
+        public void HandleProductListButtonClicked()
         {
-            view.ToggleMenuVisibility();
+            // Handle product list button click event
+        }
+
+        private string GetGreeting()
+        {
+            DateTime currentTime = DateTime.Now;
+            if (currentTime.Hour < 12)
+            {
+                return "Good morning";
+            }
+            else if (currentTime.Hour < 18)
+            {
+                return "Good afternoon";
+            }
+            else
+            {
+                return "Good evening";
+            }
         }
     }
-
 }
