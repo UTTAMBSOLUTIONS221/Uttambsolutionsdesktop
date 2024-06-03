@@ -34,7 +34,6 @@ namespace DBL
                         {
                             RespStatus = resp.RespStatus,
                             RespMessage = resp.RespMessage,
-                            Token = "",
                             Usermodel = new UsermodeldataResponce
                             {
                                 Userid = resp.Usermodel.Userid,

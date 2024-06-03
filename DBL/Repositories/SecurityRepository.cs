@@ -1,9 +1,9 @@
 ﻿using Dapper;
-using DBL.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data;
 using System.Data.SQLite;
+using DBL.Models;
 
 namespace DBL.Repositories
 {
@@ -12,34 +12,54 @@ namespace DBL.Repositories
         public SecurityRepository(string connectionString) : base(connectionString)
         {
         }
+
         public UsermodelResponce VerifySystemStaff(string Username)
         {
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
                 UsermodelResponce resp = new UsermodelResponce();
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Username", Username);
-                parameters.Add("@StaffDetails", dbType: DbType.String, direction: ParameterDirection.Output, size: int.MaxValue);
-                var queryResult = connection.Query("Usp_Verifysystemuser", parameters, commandType: CommandType.StoredProcedure);
-                string staffDetailsJson = parameters.Get<string>("@StaffDetails");
-                JObject responseJson = JObject.Parse(staffDetailsJson);
-                if (Convert.ToInt32(responseJson["RespStatus"]) == 0)
+
+                // Execute the query to get user details
+                var queryResult = connection.QueryFirstOrDefault<UsermodeldataResponce>(
+                    @"SELECT 
+                        Userid,
+                        FirstName || ' ' || LastName AS Fullname,
+                        Phonenumber,
+                        Username,
+                        Emailaddress,
+                        Roleid,
+                        Passharsh,
+                        Passwords,
+                        Isactive,
+                        Isdeleted,
+                        Loginstatus,
+                        Passwordresetdate,
+                        Createdby,
+                        Modifiedby,
+                        Lastlogin,
+                        Datemodified,
+                        Datecreated
+                    FROM 
+                        SystemStaffs 
+                    WHERE 
+                        Username = @Username", new { Username });
+
+                // Check if user exists
+                if (queryResult != null)
                 {
-                    string userModelJson = responseJson["Usermodel"].ToString();
-                    UsermodeldataResponce userResponse = JsonConvert.DeserializeObject<UsermodeldataResponce>(userModelJson);
-                    resp.RespStatus = Convert.ToInt32(responseJson["RespStatus"]);
-                    resp.RespMessage = responseJson["RespMessage"].ToString();
-                    resp.Usermodel = userResponse;
-                    return resp;
+                    resp.RespStatus = 0;
+                    resp.RespMessage = "Login success";
+                    resp.Usermodel = queryResult;
                 }
                 else
                 {
-                    resp.RespStatus = Convert.ToInt32(responseJson["RespStatus"]);
-                    resp.RespMessage = responseJson["RespMessage"].ToString();
-                    resp.Usermodel = new UsermodeldataResponce();
-                    return resp;
+                    resp.RespStatus = 1;
+                    resp.RespMessage = "Invalid username or User does not Exist!";
+                    resp.Usermodel = null;
                 }
+
+                return resp;
             }
         }
     }
