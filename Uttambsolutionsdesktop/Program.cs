@@ -118,68 +118,26 @@ namespace Uttambsolutionsdesktop
                 }
 
                 // Create the SystemStaffs  table if it doesn't exist
-                string createProcedureQuery = @"
-                    CREATE TABLE IF NOT EXISTS SystemStaffs  (
-                        Userid INTEGER PRIMARY KEY AUTOINCREMENT,
-                        FirstName TEXT,
-                        LastName TEXT,
-                        Phonenumber TEXT,
-                        Username TEXT,
-                        Emailaddress TEXT,
-                        Roleid INTEGER,
-                        Passharsh TEXT,
-                        Passwords TEXT,
-                        Isactive BOOLEAN,
-                        Isdeleted BOOLEAN,
-                        Loginstatus INTEGER,
-                        Passwordresetdate DATETIME,
-                        Createdby INTEGER,
-                        Modifiedby INTEGER,
-                        Lastlogin DATETIME,
-                        Datemodified DATETIME,
-                        Datecreated DATETIME
-                    );
-
-                    CREATE PROCEDURE Usp_Verifysystemuser(@Username TEXT, @StaffDetails TEXT OUTPUT)
-                    AS
-                    BEGIN
-                        DECLARE 
-                            @RespStat INTEGER = 0,
-                            @RespMsg TEXT = 'login success';
-
-                        --validate  
-                        -- Add your validation logic here
-
-                        SET @StaffDetails = (
-                            SELECT
-                                @RespStat AS RespStatus,
-                                @RespMsg AS RespMessage,
-                                Userid,
-                                FirstName,
-                                LastName,
-                                Phonenumber,
-                                Username,
-                                Emailaddress,
-                                Roleid,
-                                Passharsh,
-                                Passwords,
-                                Isactive,
-                                Isdeleted,
-                                Loginstatus,
-                                Passwordresetdate,
-                                Createdby,
-                                Modifiedby,
-                                Lastlogin,
-                                Datemodified,
-                                Datecreated
-                            FROM
-                                SystemStaffs
-                            WHERE
-                                Username = @Username
-                        );
-
-                    END";
-                using (SQLiteCommand cmd = new SQLiteCommand(createProcedureQuery, conn))
+                string createSystemStaffsTableQuery = "CREATE TABLE IF NOT EXISTS SystemStaffs  (" +
+                                                               "Userid INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                               "FirstName TEXT, " +
+                                                               "LastName TEXT, " +
+                                                               "Phonenumber TEXT, " +
+                                                               "Username TEXT, " +
+                                                               "Emailaddress TEXT, " +
+                                                               "Roleid INTEGER, " +
+                                                               "Passharsh TEXT, " +
+                                                               "Passwords TEXT, " +
+                                                               "Isactive BOOLEAN, " +
+                                                               "Isdeleted BOOLEAN, " +
+                                                               "Loginstatus INTEGER, " +
+                                                               "Passwordresetdate DATETIME, " +
+                                                               "Createdby INTEGER, " +
+                                                               "Modifiedby INTEGER, " +
+                                                               "Lastlogin DATETIME, " +
+                                                               "Datemodified DATETIME, " +
+                                                               "Datecreated DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createSystemStaffsTableQuery, conn))
                 {
                     cmd.ExecuteNonQuery();
                 }

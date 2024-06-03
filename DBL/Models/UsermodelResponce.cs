@@ -11,7 +11,6 @@ namespace DBL.Models
     {
         public int RespStatus { get; set; }
         public string? RespMessage { get; set; }
-        public string? Token { get; set; }
         public UsermodeldataResponce? Usermodel { get; set; }
     }
     public class UsermodeldataResponce
