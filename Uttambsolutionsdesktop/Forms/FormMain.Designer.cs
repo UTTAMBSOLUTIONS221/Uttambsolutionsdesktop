@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Uttambsolutionsdesktop.Views;
@@ -16,9 +17,9 @@ public partial class FormMain : Form, IMainView
     // Menu buttons
     private Button btnDashboard;
     private Button btnSettings;
-    private Button btnStations;
+    private Button btnProductManagement; // Renamed from btnStations
     private Panel panelSettingsSubmenu;
-    private Panel panelStationsSubmenu;
+    private Panel panelProductManagementSubmenu; // Renamed from panelStationsSubmenu
 
     public FormMain(string userid, string username, List<string> permissions)
     {
@@ -27,13 +28,11 @@ public partial class FormMain : Form, IMainView
         _username = username;
         _permissions = permissions;
 
-        // You can now use _permissions list to check user permissions
-
-
         // Set welcome message with username and time of the day
         SetWelcomeMessage();
     }
-     private void SetWelcomeMessage()
+
+    private void SetWelcomeMessage()
     {
         // Get the current time
         DateTime currentTime = DateTime.Now;
@@ -59,6 +58,7 @@ public partial class FormMain : Form, IMainView
         // Set the welcome message to the button text
         this.btnToggleMenu.Text = welcomeMessage;
     }
+
     private void InitializeComponent()
     {
         this.panelMenu = new Panel();
@@ -68,9 +68,9 @@ public partial class FormMain : Form, IMainView
         // Initialize menu buttons
         this.btnDashboard = new Button();
         this.btnSettings = new Button();
-        this.btnStations = new Button();
+        this.btnProductManagement = new Button(); // Renamed from btnStations
         this.panelSettingsSubmenu = new Panel();
-        this.panelStationsSubmenu = new Panel();
+        this.panelProductManagementSubmenu = new Panel(); // Renamed from panelStationsSubmenu
 
         this.SuspendLayout();
 
@@ -86,8 +86,8 @@ public partial class FormMain : Form, IMainView
         this.panelMenu.Dock = DockStyle.Left;
         this.panelMenu.Location = new Point(0, 0);
         this.panelMenu.Size = new Size(150, 600);
-        this.panelMenu.Controls.Add(this.panelStationsSubmenu);
-        this.panelMenu.Controls.Add(this.btnStations);
+        this.panelMenu.Controls.Add(this.panelProductManagementSubmenu); // Renamed from panelStationsSubmenu
+        this.panelMenu.Controls.Add(this.btnProductManagement); // Renamed from btnStations
         this.panelMenu.Controls.Add(this.panelSettingsSubmenu);
         this.panelMenu.Controls.Add(this.btnSettings);
         this.panelMenu.Controls.Add(this.btnDashboard);
@@ -101,7 +101,6 @@ public partial class FormMain : Form, IMainView
         this.btnToggleMenu.Location = new Point(150, 0);
         this.btnToggleMenu.Size = new Size(900, 45);
 
-
         // Content Wrapper
         this.contentWrapper.Dock = DockStyle.Fill;
         this.contentWrapper.Location = new Point(150, 45);
@@ -112,7 +111,7 @@ public partial class FormMain : Form, IMainView
         this.btnDashboard.FlatAppearance.BorderSize = 0;
         this.btnDashboard.FlatStyle = FlatStyle.Flat;
         this.btnDashboard.ForeColor = Color.Gainsboro;
-        this.btnDashboard.Location = new Point(0, 0);
+        this.btnDashboard.Location = new Point(0, 20);
         this.btnDashboard.Size = new Size(150, 45);
         this.btnDashboard.Text = "Dashboard";
 
@@ -121,7 +120,7 @@ public partial class FormMain : Form, IMainView
         this.btnSettings.FlatAppearance.BorderSize = 0;
         this.btnSettings.FlatStyle = FlatStyle.Flat;
         this.btnSettings.ForeColor = Color.Gainsboro;
-        this.btnSettings.Location = new Point(0, 45);
+        this.btnSettings.Location = new Point(0, 65);
         this.btnSettings.Size = new Size(150, 45);
         this.btnSettings.Text = "Settings";
         this.btnSettings.Click += new EventHandler(this.BtnSettings_Click);
@@ -132,25 +131,45 @@ public partial class FormMain : Form, IMainView
         this.panelSettingsSubmenu.Location = new Point(0, 90);
         this.panelSettingsSubmenu.Size = new Size(150, 90);
         this.panelSettingsSubmenu.Visible = false;
-        // Add submenu buttons to panelSettingsSubmenu here...
 
-        // Stations Button
-        this.btnStations.Dock = DockStyle.Top;
-        this.btnStations.FlatAppearance.BorderSize = 0;
-        this.btnStations.FlatStyle = FlatStyle.Flat;
-        this.btnStations.ForeColor = Color.Gainsboro;
-        this.btnStations.Location = new Point(0, 135);
-        this.btnStations.Size = new Size(150, 45);
-        this.btnStations.Text = "Stations";
-        this.btnStations.Click += new EventHandler(this.BtnStations_Click);
+        // Product Management Button (formerly Stations Button)
+        this.btnProductManagement.Dock = DockStyle.Top;
+        this.btnProductManagement.FlatAppearance.BorderSize = 0;
+        this.btnProductManagement.FlatStyle = FlatStyle.Flat;
+        this.btnProductManagement.ForeColor = Color.Gainsboro;
+        this.btnProductManagement.Location = new Point(0, 110);
+        this.btnProductManagement.Size = new Size(150, 45);
+        this.btnProductManagement.Text = "Product Management";
+        this.btnProductManagement.Click += new EventHandler(this.BtnProductManagement_Click); // Renamed from BtnStations_Click
 
-        // Stations Submenu
-        this.panelStationsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
-        this.panelStationsSubmenu.Dock = DockStyle.Top;
-        this.panelStationsSubmenu.Location = new Point(0, 180);
-        this.panelStationsSubmenu.Size = new Size(150, 90);
-        this.panelStationsSubmenu.Visible = false;
-        // Add submenu buttons to panelStationsSubmenu here...
+        // Product Management Submenu (formerly Stations Submenu)
+        this.panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+        this.panelProductManagementSubmenu.Dock = DockStyle.Top;
+        this.panelProductManagementSubmenu.Location = new Point(0, 180);
+        this.panelProductManagementSubmenu.Size = new Size(150, 135);
+        this.panelProductManagementSubmenu.Visible = false;
+
+        // Category List Button (Submenu)
+        Button btnCategoryList = new Button();
+        btnCategoryList.Dock = DockStyle.Top;
+        btnCategoryList.FlatAppearance.BorderSize = 0;
+        btnCategoryList.FlatStyle = FlatStyle.Flat;
+        btnCategoryList.ForeColor = Color.Gainsboro;
+        btnCategoryList.Size = new Size(150, 45);
+        btnCategoryList.Text = "Category List";
+        btnCategoryList.Click += new EventHandler(this.BtnCategoryList_Click); // Add event handler for click
+        this.panelProductManagementSubmenu.Controls.Add(btnCategoryList);
+
+        // Product List Button (Submenu)
+        Button btnProductList = new Button();
+        btnProductList.Dock = DockStyle.Top;
+        btnProductList.FlatAppearance.BorderSize = 0;
+        btnProductList.FlatStyle = FlatStyle.Flat;
+        btnProductList.ForeColor = Color.Gainsboro;
+        btnProductList.Size = new Size(150, 45);
+        btnProductList.Text = "Product List";
+        btnProductList.Click += new EventHandler(this.BtnProductList_Click); // Add event handler for click
+        this.panelProductManagementSubmenu.Controls.Add(btnProductList);
 
         this.ResumeLayout(false);
     }
@@ -160,7 +179,7 @@ public partial class FormMain : Form, IMainView
         ToggleSettingsSubmenuVisibility();
     }
 
-    private void BtnStations_Click(object sender, EventArgs e)
+    private void BtnProductManagement_Click(object sender, EventArgs e)
     {
         ToggleStationsSubmenuVisibility();
     }
@@ -177,7 +196,7 @@ public partial class FormMain : Form, IMainView
 
     public void SetStationsButtonClickHandler(EventHandler handler)
     {
-        btnStations.Click += handler;
+        btnProductManagement.Click += handler;
     }
 
     public void SetToggleMenuButtonClickHandler(EventHandler handler)
@@ -192,7 +211,7 @@ public partial class FormMain : Form, IMainView
 
     public void ToggleStationsSubmenuVisibility()
     {
-        panelStationsSubmenu.Visible = !panelStationsSubmenu.Visible;
+        panelProductManagementSubmenu.Visible = !panelProductManagementSubmenu.Visible;
     }
 
     public void ToggleMenuVisibility()
