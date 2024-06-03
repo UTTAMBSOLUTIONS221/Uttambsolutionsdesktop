@@ -1,41 +1,82 @@
 ﻿using DBL.Entities;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using Uttambsolutionsdesktop.Models;
 using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
     public class CategoryPresenter
     {
-        private readonly ICategoryRepository _categoryRepository;
         private readonly ICategoryView _view;
+        private readonly ICategoryRepository _repository;
+        private readonly BindingSource _categoryBindingSource;
+        private IEnumerable<Category> _categoryList;
 
-        public CategoryPresenter(ICategoryView view, ICategoryRepository categoryRepository)
+        public CategoryPresenter(ICategoryView view, ICategoryRepository repository)
         {
+            _categoryBindingSource = new BindingSource();
             _view = view;
-            _categoryRepository = categoryRepository;
+            _repository = repository;
+
+            // Subscribe event handler methods to view events
+            _view.SearchEvent += SearchCategory;
+            _view.AddNewEvent += AddNewCategory;
+            _view.EditEvent += LoadSelectedCategoryToEdit;
+            _view.DeleteEvent += DeleteSelectedCategory;
+            _view.SaveEvent += SaveCategory;
+            _view.CancelEvent += CancelAction;
+
+            // Set category binding source
+            _view.SetCategoryListBindingSource(_categoryBindingSource);
+
+            // Load category list view
+            LoadAllCategories();
+
+            // Show view
+            _view.Show();
         }
 
-        public void LoadCategories()
+        private void LoadAllCategories()
         {
-            List<Category> categories = _categoryRepository.GetCategories();
-            _view.DisplayCategories(categories);
+            _categoryList = _repository.GetAll();
+            _categoryBindingSource.DataSource = _categoryList;
         }
 
-        public void AddCategory(Category category)
+        private void SearchCategory(object sender, EventArgs e)
         {
-            _categoryRepository.AddCategory(category);
-            LoadCategories(); // Reload categories after addition
+            bool emptyValue = string.IsNullOrWhiteSpace(_view.SearchValue);
+            if (!emptyValue)
+                _categoryList = _repository.GetByValue(_view.SearchValue);
+            else
+                _categoryList = _repository.GetAll();
+            _categoryBindingSource.DataSource = _categoryList;
         }
 
-        public void UpdateCategory(Category category)
+        private void CancelAction(object sender, EventArgs e)
         {
-            _categoryRepository.UpdateCategory(category);
-            LoadCategories(); // Reload categories after update
+            // Implementation for cancel action
         }
 
-        public void DeleteCategory(int categoryId)
+        private void SaveCategory(object sender, EventArgs e)
         {
-            _categoryRepository.DeleteCategory(categoryId);
-            LoadCategories(); // Reload categories after deletion
+            // Implementation for save action
+        }
+
+        private void DeleteSelectedCategory(object sender, EventArgs e)
+        {
+            // Implementation for delete action
+        }
+
+        private void LoadSelectedCategoryToEdit(object sender, EventArgs e)
+        {
+            // Implementation for loading selected category to edit
+        }
+
+        private void AddNewCategory(object sender, EventArgs e)
+        {
+            // Implementation for adding a new category
         }
     }
 }

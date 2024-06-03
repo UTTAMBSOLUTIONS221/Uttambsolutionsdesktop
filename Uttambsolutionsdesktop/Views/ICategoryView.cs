@@ -10,6 +10,15 @@ namespace Uttambsolutionsdesktop.Views
 {
     public interface ICategoryView
     {
-        void DisplayCategories(List<Category> categories);
+        string SearchValue { get; }
+        event EventHandler SearchEvent;
+        event EventHandler AddNewEvent;
+        event EventHandler EditEvent;
+        event EventHandler DeleteEvent;
+        event EventHandler SaveEvent;
+        event EventHandler CancelEvent;
+
+        void SetCategoryListBindingSource(object dataSource);
+        void Show();
     }
 }
