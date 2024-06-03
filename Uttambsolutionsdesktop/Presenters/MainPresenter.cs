@@ -13,7 +13,7 @@ namespace Uttambsolutionsdesktop.Presenters
 
             this.view.SetDashboardButtonClickHandler(OnDashboardButtonClick);
             this.view.SetSettingsButtonClickHandler(OnSettingsButtonClick);
-            this.view.SetStationsButtonClickHandler(OnStationsButtonClick);
+            this.view.SetProductsButtonClickHandler(OnProductsButtonClick);
             this.view.SetToggleMenuButtonClickHandler(OnToggleMenuButtonClick);
         }
 
@@ -27,9 +27,9 @@ namespace Uttambsolutionsdesktop.Presenters
             view.ToggleSettingsSubmenuVisibility();
         }
 
-        private void OnStationsButtonClick(object sender, EventArgs e)
+        private void OnProductsButtonClick(object sender, EventArgs e)
         {
-            view.ToggleStationsSubmenuVisibility();
+            view.ToggleProductManagementSubmenuVisibility();
         }
 
         private void OnToggleMenuButtonClick(object sender, EventArgs e)

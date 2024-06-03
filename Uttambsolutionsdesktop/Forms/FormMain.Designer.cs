@@ -132,7 +132,7 @@ public partial class FormMain : Form, IMainView
         this.panelSettingsSubmenu.Size = new Size(150, 90);
         this.panelSettingsSubmenu.Visible = false;
 
-        // Product Management Button (formerly Stations Button)
+        // Product Management Button 
         this.btnProductManagement.Dock = DockStyle.Top;
         this.btnProductManagement.FlatAppearance.BorderSize = 0;
         this.btnProductManagement.FlatStyle = FlatStyle.Flat;
@@ -142,27 +142,16 @@ public partial class FormMain : Form, IMainView
         this.btnProductManagement.Text = "Product Management";
         this.btnProductManagement.Click += new EventHandler(this.BtnProductManagement_Click); // Renamed from BtnStations_Click
 
-        // Product Management Submenu (formerly Stations Submenu)
+        // Product Management Submenu 
         this.panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
         this.panelProductManagementSubmenu.Dock = DockStyle.Top;
         this.panelProductManagementSubmenu.Location = new Point(0, 180);
         this.panelProductManagementSubmenu.Size = new Size(150, 135);
         this.panelProductManagementSubmenu.Visible = false;
 
-        // Category List Button (Submenu)
-        Button btnCategoryList = new Button();
-        btnCategoryList.Dock = DockStyle.Top;
-        btnCategoryList.FlatAppearance.BorderSize = 0;
-        btnCategoryList.FlatStyle = FlatStyle.Flat;
-        btnCategoryList.ForeColor = Color.Gainsboro;
-        btnCategoryList.Size = new Size(150, 45);
-        btnCategoryList.Text = "Category List";
-        btnCategoryList.Click += new EventHandler(this.BtnCategoryList_Click); // Add event handler for click
-        this.panelProductManagementSubmenu.Controls.Add(btnCategoryList);
-
         // Product List Button (Submenu)
         Button btnProductList = new Button();
-        btnProductList.Dock = DockStyle.Top;
+        btnProductList.Dock = DockStyle.Bottom; // Change to DockStyle.Bottom
         btnProductList.FlatAppearance.BorderSize = 0;
         btnProductList.FlatStyle = FlatStyle.Flat;
         btnProductList.ForeColor = Color.Gainsboro;
@@ -170,6 +159,17 @@ public partial class FormMain : Form, IMainView
         btnProductList.Text = "Product List";
         btnProductList.Click += new EventHandler(this.BtnProductList_Click); // Add event handler for click
         this.panelProductManagementSubmenu.Controls.Add(btnProductList);
+
+        // Category List Button (Submenu)
+        Button btnCategoryList = new Button();
+        btnCategoryList.Dock = DockStyle.Top; // Change to DockStyle.Top
+        btnCategoryList.FlatAppearance.BorderSize = 0;
+        btnCategoryList.FlatStyle = FlatStyle.Flat;
+        btnCategoryList.ForeColor = Color.Gainsboro;
+        btnCategoryList.Size = new Size(150, 45);
+        btnCategoryList.Text = "Category List";
+        btnCategoryList.Click += new EventHandler(this.BtnCategoryList_Click); // Add event handler for click
+        this.panelProductManagementSubmenu.Controls.Add(btnCategoryList);
 
         this.ResumeLayout(false);
     }
@@ -181,8 +181,19 @@ public partial class FormMain : Form, IMainView
 
     private void BtnProductManagement_Click(object sender, EventArgs e)
     {
-        ToggleStationsSubmenuVisibility();
+        ToggleProductManagementSubmenuVisibility();
     }
+
+    private void BtnCategoryList_Click(object sender, EventArgs e)
+    {
+        // Handle Category List button click event
+    }
+
+    private void BtnProductList_Click(object sender, EventArgs e)
+    {
+        // Handle Product List button click event
+    }
+
 
     public void SetDashboardButtonClickHandler(EventHandler handler)
     {
@@ -194,7 +205,7 @@ public partial class FormMain : Form, IMainView
         btnSettings.Click += handler;
     }
 
-    public void SetStationsButtonClickHandler(EventHandler handler)
+    public void SetProductsButtonClickHandler(EventHandler handler)
     {
         btnProductManagement.Click += handler;
     }
@@ -209,7 +220,7 @@ public partial class FormMain : Form, IMainView
         panelSettingsSubmenu.Visible = !panelSettingsSubmenu.Visible;
     }
 
-    public void ToggleStationsSubmenuVisibility()
+    public void ToggleProductManagementSubmenuVisibility()
     {
         panelProductManagementSubmenu.Visible = !panelProductManagementSubmenu.Visible;
     }
