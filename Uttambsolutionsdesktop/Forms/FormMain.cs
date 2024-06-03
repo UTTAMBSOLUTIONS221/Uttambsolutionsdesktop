@@ -78,20 +78,7 @@ namespace Uttambsolutionsdesktop.Forms
 
         private void BtnCategoryList_Click(object sender, EventArgs e)
         {
-            // Create an instance of CategoryPageForm
-            CategoryPageForm categoryPageForm = new CategoryPageForm();
-
-            // Set the size of the CategoryPageForm
-            categoryPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
-
-            // Set the location of the CategoryPageForm
-            categoryPageForm.Location = new Point(0, 0);
-
-            // Clear the contentWrapper panel
-            contentWrapper.Controls.Clear();
-
-            // Add the CategoryPageForm to the contentWrapper panel
-            contentWrapper.Controls.Add(categoryPageForm);
+            _presenter.HandleCategoryListButtonClicked(contentWrapper);
         }
 
         private void BtnProductList_Click(object sender, EventArgs e)

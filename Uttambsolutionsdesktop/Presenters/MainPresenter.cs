@@ -37,10 +37,22 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             _view.ToggleProductManagementSubmenuVisibility();
         }
-        public void HandleCategoryListButtonClicked()
+        public void HandleCategoryListButtonClicked(Panel contentWrapper)
         {
+            // Create an instance of CategoryPageForm
             CategoryPageForm categoryPageForm = new CategoryPageForm();
-            categoryPageForm.Show();
+
+            // Set the size of the CategoryPageForm
+            categoryPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
+
+            // Set the location of the CategoryPageForm
+            categoryPageForm.Location = new Point(0, 0);
+
+            // Clear the contentWrapper panel
+            contentWrapper.Controls.Clear();
+
+            // Add the CategoryPageForm to the contentWrapper panel
+            contentWrapper.Controls.Add(categoryPageForm);
         }
 
         public void HandleProductListButtonClicked()
