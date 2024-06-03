@@ -23,8 +23,18 @@ public class LoginPresenter
         var resp = await _bl.AuthorizeUser(_view.UserName, _view.Password);
         if (resp.RespStatus == 0)
         {
-            _view.ShowMessage("Login Successful!");
-            _view.OpenMainForm();
+            var permissionsResp = await _bl.GetPermissionsForUser(resp.Usermodel.Roleid);
+            if (permissionsResp !=null)
+            {
+                List<string> permissions = permissionsResp.ToList(); // Convert IEnumerable<string> to List<string>
+                // Open main form with permissions
+                _view.ShowMessage("Login Successful!");
+                _view.OpenMainForm(resp.Usermodel.Userid.ToString(), permissions);
+            }
+            else
+            {
+                _view.ShowMessage("Failed to retrieve permissions.");
+            }
         }
         else if (resp.RespStatus == 1)
         {

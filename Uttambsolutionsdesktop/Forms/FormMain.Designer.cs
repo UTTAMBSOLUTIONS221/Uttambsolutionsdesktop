@@ -5,6 +5,10 @@ using Uttambsolutionsdesktop.Views;
 
 public partial class FormMain : Form, IMainView
 {
+    private string _userid;
+    private string _username;
+    private List<string> _permissions;
+
     private Panel panelMenu;
     private Button btnToggleMenu;
     private Panel contentWrapper;
@@ -16,9 +20,14 @@ public partial class FormMain : Form, IMainView
     private Panel panelSettingsSubmenu;
     private Panel panelStationsSubmenu;
 
-    public FormMain()
+    public FormMain(string userid, string username, List<string> permissions)
     {
         InitializeComponent();
+        _userid = userid;
+        _username = username;
+        _permissions = permissions;
+
+        // You can now use _permissions list to check user permissions
     }
 
     private void InitializeComponent()

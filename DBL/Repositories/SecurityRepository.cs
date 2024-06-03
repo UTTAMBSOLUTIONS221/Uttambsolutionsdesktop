@@ -62,5 +62,37 @@ namespace DBL.Repositories
                 return resp;
             }
         }
+        public IEnumerable<string> GetPermissionsForUser(long RoleId)
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+                IEnumerable<string> resp = Enumerable.Empty<string>();
+
+                // Execute the query to fetch permissions
+                var permissionsQueryResult = connection.Query<string>(
+                    @"SELECT Permission
+              FROM Permission
+              WHERE PermissionId IN (
+                  SELECT PermissionId
+                  FROM LnkPermRole
+                  WHERE RoleId = @RoleId)", new { RoleId });
+
+                // Check if permissions are found
+                if (permissionsQueryResult != null && permissionsQueryResult.Any())
+                {
+                    resp = permissionsQueryResult.ToList();
+                }
+                else
+                {
+                    // If no permissions found, you might want to return null or an empty list
+                    // For simplicity, returning an empty list here
+                    resp = Enumerable.Empty<string>();
+                }
+
+                return resp;
+            }
+        }
+
     }
 }

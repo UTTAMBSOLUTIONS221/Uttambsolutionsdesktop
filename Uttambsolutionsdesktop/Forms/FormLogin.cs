@@ -1,4 +1,5 @@
 ﻿using DBL.Models;
+using Uttambsolutionsdesktop.Models;
 using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop
@@ -21,12 +22,17 @@ namespace Uttambsolutionsdesktop
             MessageBox.Show(message);
         }
 
-        public void OpenMainForm()
+        public void OpenMainForm(string UserId, List<string> permissions)
         {
+            // Set up the session
+            UserSession.StartSession(UserId,UserName, permissions); // Change "User" to the actual user role
+
+            // Open the main form
             this.Hide();
-            FormMain fm = new FormMain();
+            FormMain fm = new FormMain(UserSession.Userid, UserSession.Username, UserSession.Permissions);
             fm.Show();
         }
+
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {

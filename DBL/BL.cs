@@ -74,5 +74,16 @@ namespace DBL
             });
         }
         #endregion
+
+        #region User Role Permissions
+        public Task<IEnumerable<string>> GetPermissionsForUser(long RoleId)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.GetPermissionsForUser(RoleId);
+                return Resp;
+            });
+        }
+        #endregion
     }
 }
