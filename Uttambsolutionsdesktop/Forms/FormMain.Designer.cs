@@ -1,117 +1,159 @@
-﻿using DBL.Models;
+﻿// FormMain.cs
 using System;
+using System.Drawing;
 using System.Windows.Forms;
+using Uttambsolutionsdesktop.Views;
 
-namespace Uttambsolutionsdesktop.Views
+public partial class FormMain : Form, IMainView
 {
-    partial class FormMain : Form, IMainView
+    private Panel panelMenu;
+    private Button btnToggleMenu;
+    private Panel contentWrapper;
+
+    // Menu buttons
+    private Button btnDashboard;
+    private Button btnSettings;
+    private Button btnStations;
+    private Panel panelSettingsSubmenu;
+    private Panel panelStationsSubmenu;
+
+    public FormMain()
     {
-        private Panel sidePanel;
-        private Button btnHome;
-        private Button btnSettings;
-        private Label lblUserName;
-        private Label lblUserRole;
-        private UsermodeldataResponce _currentUser;
+        InitializeComponent();
+    }
 
-        public event EventHandler HomeButtonClicked;
-        public event EventHandler SettingsButtonClicked;
+    private void InitializeComponent()
+    {
+        this.panelMenu = new Panel();
+        this.btnToggleMenu = new Button();
+        this.contentWrapper = new Panel();
 
-        public FormMain(UsermodeldataResponce currentUser)
+        // Initialize menu buttons
+        this.btnDashboard = new Button();
+        this.btnSettings = new Button();
+        this.btnStations = new Button();
+        this.panelSettingsSubmenu = new Panel();
+        this.panelStationsSubmenu = new Panel();
+
+        this.SuspendLayout();
+
+        // Form setup
+        this.ClientSize = new Size(1050, 600);
+        this.Controls.Add(this.contentWrapper);
+        this.Controls.Add(this.btnToggleMenu);
+        this.Controls.Add(this.panelMenu);
+        this.Text = "FormMain";
+
+        // Panel Menu
+        this.panelMenu.BackColor = Color.FromArgb(51, 51, 76);
+        this.panelMenu.Dock = DockStyle.Left;
+        this.panelMenu.Location = new Point(0, 0);
+        this.panelMenu.Size = new Size(250, 600);
+        this.panelMenu.Controls.Add(this.btnDashboard);
+        this.panelMenu.Controls.Add(this.btnSettings);
+        this.panelMenu.Controls.Add(this.panelSettingsSubmenu);
+        this.panelMenu.Controls.Add(this.btnStations);
+        this.panelMenu.Controls.Add(this.panelStationsSubmenu);
+
+        // Toggle Menu Button
+        this.btnToggleMenu.BackColor = Color.FromArgb(51, 51, 76);
+        this.btnToggleMenu.Dock = DockStyle.Top;
+        this.btnToggleMenu.FlatAppearance.BorderSize = 0;
+        this.btnToggleMenu.FlatStyle = FlatStyle.Flat;
+        this.btnToggleMenu.ForeColor = Color.Gainsboro;
+        this.btnToggleMenu.Location = new Point(250, 0);
+        this.btnToggleMenu.Size = new Size(800, 45);
+        this.btnToggleMenu.Text = "Toggle Menu";
+
+        // Content Wrapper
+        this.contentWrapper.Dock = DockStyle.Fill;
+        this.contentWrapper.Location = new Point(250, 45);
+        this.contentWrapper.Size = new Size(800, 555);
+
+        // Dashboard Button
+        this.btnDashboard.Dock = DockStyle.Top;
+        this.btnDashboard.FlatAppearance.BorderSize = 0;
+        this.btnDashboard.FlatStyle = FlatStyle.Flat;
+        this.btnDashboard.ForeColor = Color.Gainsboro;
+        this.btnDashboard.Location = new Point(0, 0);
+        this.btnDashboard.Size = new Size(250, 45);
+        this.btnDashboard.Text = "Dashboard";
+
+        // Settings Button
+        this.btnSettings.Dock = DockStyle.Top;
+        this.btnSettings.FlatAppearance.BorderSize = 0;
+        this.btnSettings.FlatStyle = FlatStyle.Flat;
+        this.btnSettings.ForeColor = Color.Gainsboro;
+        this.btnSettings.Location = new Point(0, 45);
+        this.btnSettings.Size = new Size(250, 45);
+        this.btnSettings.Text = "Settings";
+
+        // Settings Submenu
+        this.panelSettingsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+        this.panelSettingsSubmenu.Dock = DockStyle.Top;
+        this.panelSettingsSubmenu.Location = new Point(0, 90);
+        this.panelSettingsSubmenu.Size = new Size(250, 90);
+        this.panelSettingsSubmenu.Visible = false;
+
+        // Stations Button
+        this.btnStations.Dock = DockStyle.Top;
+        this.btnStations.FlatAppearance.BorderSize = 0;
+        this.btnStations.FlatStyle = FlatStyle.Flat;
+        this.btnStations.ForeColor = Color.Gainsboro;
+        this.btnStations.Location = new Point(0, 180);
+        this.btnStations.Size = new Size(250, 45);
+        this.btnStations.Text = "Stations";
+
+        // Stations Submenu
+        this.panelStationsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+        this.panelStationsSubmenu.Dock = DockStyle.Top;
+        this.panelStationsSubmenu.Location = new Point(0, 225);
+        this.panelStationsSubmenu.Size = new Size(250, 90);
+        this.panelStationsSubmenu.Visible = false;
+
+        this.ResumeLayout(false);
+    }
+
+    public void SetDashboardButtonClickHandler(EventHandler handler)
+    {
+        btnDashboard.Click += handler;
+    }
+
+    public void SetSettingsButtonClickHandler(EventHandler handler)
+    {
+        btnSettings.Click += handler;
+    }
+
+    public void SetStationsButtonClickHandler(EventHandler handler)
+    {
+        btnStations.Click += handler;
+    }
+
+    public void SetToggleMenuButtonClickHandler(EventHandler handler)
+    {
+        btnToggleMenu.Click += handler;
+    }
+
+    public void ToggleSettingsSubmenuVisibility()
+    {
+        panelSettingsSubmenu.Visible = !panelSettingsSubmenu.Visible;
+    }
+
+    public void ToggleStationsSubmenuVisibility()
+    {
+        panelStationsSubmenu.Visible = !panelStationsSubmenu.Visible;
+    }
+
+    public void ToggleMenuVisibility()
+    {
+        panelMenu.Visible = !panelMenu.Visible;
+        if (panelMenu.Visible)
         {
-            InitializeComponent();
-            _currentUser = currentUser;
-            InitializeSideMenu();
+            btnToggleMenu.Dock = DockStyle.Top;
         }
-
-        private void InitializeComponent()
+        else
         {
-            // Initialize form components
-            this.sidePanel = new Panel();
-            this.btnHome = new Button();
-            this.btnSettings = new Button();
-            this.lblUserName = new Label();
-            this.lblUserRole = new Label();
-            this.SuspendLayout();
-            // 
-            // sidePanel
-            // 
-            this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.sidePanel.Dock = DockStyle.Left;
-            this.sidePanel.Width = 200;
-            this.sidePanel.Controls.Add(this.lblUserName);
-            this.sidePanel.Controls.Add(this.lblUserRole);
-            this.sidePanel.Controls.Add(this.btnHome);
-            this.sidePanel.Controls.Add(this.btnSettings);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(30, 50);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(140, 40);
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(39)))), ((int)(((byte)(46)))));
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(30, 110);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(140, 40);
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = false;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(30, 200);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(100, 20);
-            this.lblUserName.Text = _currentUser.Username; // Assign current user's username
-            // 
-            // lblUserRole
-            // 
-            this.lblUserRole.AutoSize = true;
-            this.lblUserRole.ForeColor = System.Drawing.Color.White;
-            this.lblUserRole.Location = new System.Drawing.Point(30, 240);
-            this.lblUserRole.Name = "lblUserRole";
-            this.lblUserRole.Size = new System.Drawing.Size(100, 20);
-            this.lblUserRole.Text = _currentUser.Rolename; // Assign current user's role name
-            // 
-            // FormMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.sidePanel);
-            this.Name = "FormMain";
-            this.Text = "Main Form";
-            this.ResumeLayout(false);
-        }
-
-        private void InitializeSideMenu()
-        {
-            // You can further customize the side menu layout and content here
-        }
-
-        // Event handlers for button clicks
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            HomeButtonClicked?.Invoke(sender, e);
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SettingsButtonClicked?.Invoke(sender, e);
+            btnToggleMenu.Dock = DockStyle.Left;
         }
     }
 }

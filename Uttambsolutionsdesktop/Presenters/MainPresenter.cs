@@ -1,33 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Uttambsolutionsdesktop.Views;
+﻿using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
+    // MainPresenter.cs
     public class MainPresenter
     {
-        private readonly IUserSettingsService _userSettingsService;
-        private readonly IMainView _view;
+        private readonly IMainView view;
 
-        public MainPresenter(IUserSettingsService userSettingsService, IMainView view)
+        public MainPresenter(IMainView view)
         {
-            _userSettingsService = userSettingsService;
-            _view = view;
-            _view.HomeButtonClicked += OnHomeButtonClicked;
-            _view.SettingsButtonClicked += OnSettingsButtonClicked;
+            this.view = view;
+
+            this.view.SetDashboardButtonClickHandler(OnDashboardButtonClick);
+            this.view.SetSettingsButtonClickHandler(OnSettingsButtonClick);
+            this.view.SetStationsButtonClickHandler(OnStationsButtonClick);
+            this.view.SetToggleMenuButtonClickHandler(OnToggleMenuButtonClick);
         }
 
-        private void OnHomeButtonClicked(object sender, EventArgs e)
+        private void OnDashboardButtonClick(object sender, EventArgs e)
         {
-            // Handle Home button click
+            // Handle dashboard button click
         }
 
-        private void OnSettingsButtonClicked(object sender, EventArgs e)
+        private void OnSettingsButtonClick(object sender, EventArgs e)
         {
-            // Handle Settings button click
+            view.ToggleSettingsSubmenuVisibility();
+        }
+
+        private void OnStationsButtonClick(object sender, EventArgs e)
+        {
+            view.ToggleStationsSubmenuVisibility();
+        }
+
+        private void OnToggleMenuButtonClick(object sender, EventArgs e)
+        {
+            view.ToggleMenuVisibility();
         }
     }
+
 }

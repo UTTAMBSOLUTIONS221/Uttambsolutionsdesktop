@@ -16,5 +16,10 @@ namespace Uttambsolutionsdesktop.Views
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+
+        }
     }
 }

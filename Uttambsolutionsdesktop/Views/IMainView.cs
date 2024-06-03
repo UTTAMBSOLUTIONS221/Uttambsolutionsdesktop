@@ -2,7 +2,14 @@
 {
     public interface IMainView
     {
-        event EventHandler HomeButtonClicked;
-        event EventHandler SettingsButtonClicked;
+        void SetDashboardButtonClickHandler(EventHandler handler);
+        void SetSettingsButtonClickHandler(EventHandler handler);
+        void SetStationsButtonClickHandler(EventHandler handler);
+        void SetToggleMenuButtonClickHandler(EventHandler handler);
+
+        void ToggleSettingsSubmenuVisibility();
+        void ToggleStationsSubmenuVisibility();
+        void ToggleMenuVisibility();
     }
+
 }
