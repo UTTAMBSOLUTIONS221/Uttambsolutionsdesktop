@@ -45,5 +45,11 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
+
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            AddNewEvent?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

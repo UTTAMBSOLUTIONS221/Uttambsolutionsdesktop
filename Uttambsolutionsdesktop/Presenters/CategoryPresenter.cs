@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DBL;
 using DBL.Entities;
+using Uttambsolutionsdesktop.Forms;
 using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Presenters
@@ -13,6 +14,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly BindingSource _categoryBindingSource;
         private readonly BL _bl;
         private List<Category> _categoryList;
+        private AddCategoryForm _addCategoryFormWindow;
 
         public CategoryPresenter(ICategoryView view,string connectionString)
         {
@@ -48,8 +50,9 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private void AddNewCategory(object sender, EventArgs e)
         {
-            // Logic to add a new category
-            _view.ShowMessage("Add new category clicked");
+
+            _addCategoryFormWindow = new AddCategoryForm();
+            _addCategoryFormWindow.Show();
         }
 
         private void EditCategory(object sender, EventArgs e)
