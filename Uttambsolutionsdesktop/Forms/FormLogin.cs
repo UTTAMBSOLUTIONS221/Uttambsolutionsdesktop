@@ -1,4 +1,5 @@
-﻿using Uttambsolutionsdesktop.Views;
+﻿using DBL.Models;
+using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop
 {
@@ -20,10 +21,10 @@ namespace Uttambsolutionsdesktop
             MessageBox.Show(message);
         }
 
-        public void OpenMainForm()
+        public void OpenMainForm(UsermodeldataResponce userData)
         {
             this.Hide();
-            FormMain fm = new FormMain();
+            FormMain fm = new FormMain(userData);
             fm.Show();
         }
 
