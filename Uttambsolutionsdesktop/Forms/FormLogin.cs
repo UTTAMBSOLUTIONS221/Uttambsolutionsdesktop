@@ -1,6 +1,7 @@
 ﻿using DBL.Models;
 using Uttambsolutionsdesktop.Models;
 using Uttambsolutionsdesktop.Views;
+using static Uttambsolutionsdesktop.Program;
 
 namespace Uttambsolutionsdesktop
 {
@@ -8,10 +9,10 @@ namespace Uttambsolutionsdesktop
     {
         private readonly LoginPresenter _presenter;
 
-        public FormLogin(string connectionString)
+        public FormLogin()
         {
             InitializeComponent();
-            _presenter = new LoginPresenter(this, connectionString);
+            _presenter = new LoginPresenter(this, DatabaseManager.ConnectionString);
         }
 
         public string UserName => txt_UserName.Text;

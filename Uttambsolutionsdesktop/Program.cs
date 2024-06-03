@@ -13,10 +13,13 @@ namespace Uttambsolutionsdesktop
             // Ensure the database exists
             CreateDatabaseIfNotExists(databasePath, connectionString);
 
+            DatabaseManager.ConnectionString = connectionString;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin(connectionString));
+            Application.Run(new FormLogin());
         }
+
 
         static void CreateDatabaseIfNotExists(string databasePath, string connectionString)
         {
@@ -190,5 +193,38 @@ namespace Uttambsolutionsdesktop
 
             }
         }
+
+
+        public static class DatabaseManager
+        {
+            private static string connectionString;
+
+            public static string ConnectionString
+            {
+                get { return connectionString; }
+                set { connectionString = value; }
+            }
+
+            private static SQLiteConnection connection;
+
+            public static SQLiteConnection Connection
+            {
+                get
+                {
+                    if (connection == null)
+                    {
+                        connection = new SQLiteConnection(connectionString);
+                        connection.Open();
+                    }
+                    else if (connection.State == System.Data.ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+
+                    return connection;
+                }
+            }
+        }
+
     }
 }

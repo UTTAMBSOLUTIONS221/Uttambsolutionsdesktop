@@ -4,7 +4,7 @@ using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Forms
 {
-    partial class CategoryForm
+    partial class CategoryPageForm
     {
         /// <summary>
         /// Required designer variable.

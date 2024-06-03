@@ -14,9 +14,10 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly BL _bl;
         private List<Category> _categoryList;
 
-        public CategoryPresenter(ICategoryView view, BL bl)
+        public CategoryPresenter(ICategoryView view,string connectionString)
         {
             _view = view;
+            _bl = new BL(connectionString);
             _categoryBindingSource = new BindingSource();
             _view.SetCategoryListBindingSource(_categoryBindingSource);
 
@@ -26,7 +27,7 @@ namespace Uttambsolutionsdesktop.Presenters
             _view.DeleteEvent += DeleteCategory;
 
             LoadAllCategories();
-            _bl = bl;
+          
         }
 
         private async void LoadAllCategories()
