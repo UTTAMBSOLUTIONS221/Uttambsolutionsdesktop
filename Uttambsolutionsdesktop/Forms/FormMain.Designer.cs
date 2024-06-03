@@ -28,8 +28,37 @@ public partial class FormMain : Form, IMainView
         _permissions = permissions;
 
         // You can now use _permissions list to check user permissions
-    }
 
+
+        // Set welcome message with username and time of the day
+        SetWelcomeMessage();
+    }
+     private void SetWelcomeMessage()
+    {
+        // Get the current time
+        DateTime currentTime = DateTime.Now;
+
+        // Define the greeting based on the time of the day
+        string greeting = "";
+        if (currentTime.Hour < 12)
+        {
+            greeting = "Good morning, ";
+        }
+        else if (currentTime.Hour < 18)
+        {
+            greeting = "Good afternoon, ";
+        }
+        else
+        {
+            greeting = "Good evening, ";
+        }
+
+        // Concatenate the greeting with the username
+        string welcomeMessage = greeting + _username;
+
+        // Set the welcome message to the button text
+        this.btnToggleMenu.Text = welcomeMessage;
+    }
     private void InitializeComponent()
     {
         this.panelMenu = new Panel();
@@ -71,7 +100,7 @@ public partial class FormMain : Form, IMainView
         this.btnToggleMenu.ForeColor = Color.Gainsboro;
         this.btnToggleMenu.Location = new Point(150, 0);
         this.btnToggleMenu.Size = new Size(900, 45);
-        this.btnToggleMenu.Text = "Uttam Menu";
+
 
         // Content Wrapper
         this.contentWrapper.Dock = DockStyle.Fill;

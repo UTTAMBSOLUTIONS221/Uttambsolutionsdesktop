@@ -29,7 +29,7 @@ public class LoginPresenter
                 List<string> permissions = permissionsResp.ToList(); // Convert IEnumerable<string> to List<string>
                 // Open main form with permissions
                 _view.ShowMessage("Login Successful!");
-                _view.OpenMainForm(resp.Usermodel.Userid.ToString(), permissions);
+                _view.OpenMainForm(resp.Usermodel.Userid.ToString(), resp.Usermodel.Fullname, permissions);
             }
             else
             {

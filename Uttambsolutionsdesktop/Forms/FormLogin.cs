@@ -22,7 +22,7 @@ namespace Uttambsolutionsdesktop
             MessageBox.Show(message);
         }
 
-        public void OpenMainForm(string UserId, List<string> permissions)
+        public void OpenMainForm(string UserId, string UserName, List<string> permissions)
         {
             // Set up the session
             UserSession.StartSession(UserId,UserName, permissions); // Change "User" to the actual user role

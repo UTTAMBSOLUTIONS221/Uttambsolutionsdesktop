@@ -5,6 +5,6 @@
         string UserName { get; }
         string Password { get; }
         void ShowMessage(string message);
-        void OpenMainForm(string UserId,List<string> permissions);
+        void OpenMainForm(string UserId,string UserName, List<string> permissions);
     }
 }
