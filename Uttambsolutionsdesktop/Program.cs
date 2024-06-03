@@ -86,11 +86,11 @@ namespace Uttambsolutionsdesktop
                 }
 
                 // Link all permissions to the 'Super Admin' role if the database was just created
+                int superAdminRoleId = -1;
                 if (!databaseExists)
                 {
                     // Get RoleId of 'Super Admin'
                     string getRoleIdQuery = "SELECT RoleId FROM Roles WHERE RoleName = 'Super Admin'";
-                    int superAdminRoleId;
                     using (SQLiteCommand cmd = new SQLiteCommand(getRoleIdQuery, conn))
                     {
                         superAdminRoleId = Convert.ToInt32(cmd.ExecuteScalar());
@@ -114,6 +114,62 @@ namespace Uttambsolutionsdesktop
                                 }
                             }
                         }
+                    }
+                }
+
+                // Create the SystemStaffs  table if it doesn't exist
+                string createSystemStaffsTableQuery = "CREATE TABLE IF NOT EXISTS SystemStaffs  (" +
+                                                               "Userid INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                               "FirstName TEXT, " +
+                                                               "LastName TEXT, " +
+                                                               "Phonenumber TEXT, " +
+                                                               "Username TEXT, " +
+                                                               "Emailaddress TEXT, " +
+                                                               "Roleid INTEGER, " +
+                                                               "Passharsh TEXT, " +
+                                                               "Passwords TEXT, " +
+                                                               "Isactive BOOLEAN, " +
+                                                               "Isdeleted BOOLEAN, " +
+                                                               "Loginstatus INTEGER, " +
+                                                               "Passwordresetdate DATETIME, " +
+                                                               "Createdby INTEGER, " +
+                                                               "Modifiedby INTEGER, " +
+                                                               "Lastlogin DATETIME, " +
+                                                               "Datemodified DATETIME, " +
+                                                               "Datecreated DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createSystemStaffsTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Insert a new user with the specified data if the database was just created
+                if (!databaseExists)
+                {
+                    string insertUserQuery = "INSERT INTO SystemStaffs  (" +
+                                             "FirstName, LastName, Phonenumber, Username, Emailaddress, Roleid, Passharsh, Passwords, Isactive, Isdeleted, Loginstatus, Passwordresetdate, Createdby, Modifiedby, Lastlogin, Datemodified, Datecreated) " +
+                                             "VALUES (@FirstName, @LastName, @Phonenumber, @Username, @Emailaddress, @Roleid, @Passharsh, @Passwords, @Isactive, @Isdeleted, @Loginstatus, @Passwordresetdate, @Createdby, @Modifiedby, @Lastlogin, @Datemodified, @Datecreated)";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertUserQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@FirstName", "admin");
+                        cmd.Parameters.AddWithValue("@LastName", "admin");
+                        cmd.Parameters.AddWithValue("@Phonenumber", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Username", "admin");
+                        cmd.Parameters.AddWithValue("@Emailaddress", "admin@uttambsolutions.com");
+                        cmd.Parameters.AddWithValue("@Roleid", superAdminRoleId);
+                        cmd.Parameters.AddWithValue("@Passharsh", "TKQLEMJWBCTP");
+                        cmd.Parameters.AddWithValue("@Passwords", "uB0oMs5jTtZ3fSUZPPu+q4Y3gV4e0xXefo8sKWchKOY=");
+                        cmd.Parameters.AddWithValue("@Isactive", true);
+                        cmd.Parameters.AddWithValue("@Isdeleted", false);
+                        cmd.Parameters.AddWithValue("@Loginstatus", 0);
+                        cmd.Parameters.AddWithValue("@Passwordresetdate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@Createdby", 0);
+                        cmd.Parameters.AddWithValue("@Modifiedby", 0);
+                        cmd.Parameters.AddWithValue("@Lastlogin", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@Datemodified", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@Datecreated", DateTime.Now);
+
+                        cmd.ExecuteNonQuery();
                     }
                 }
             }

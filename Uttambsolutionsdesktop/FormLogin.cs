@@ -1,47 +1,36 @@
-﻿using DBL;
-using Microsoft.Extensions.Configuration;
-using System.Data.SQLite;
-using Uttambsolutionsdesktop.Utils;
-using Uttambsolutionsdesktop.Views;
+﻿using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : Form, ILoginView
     {
-        private readonly string _connectionString;
-        private readonly BL bl;
+        private readonly LoginPresenter _presenter;
 
         public FormLogin(string connectionString)
         {
             InitializeComponent();
-            _connectionString = connectionString;
-            bl = new BL(_connectionString);
+            _presenter = new LoginPresenter(this, connectionString);
         }
 
-        private async void btn_Submit_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txt_UserName.Text) || string.IsNullOrWhiteSpace(txt_Password.Text))
-            {
-                MessageBox.Show("Please provide UserName and Password");
-                return;
-            }
+        public string UserName => txt_UserName.Text;
+        public string Password => txt_Password.Text;
 
-            var resp = await bl.AuthorizeUser(txt_UserName.Text, txt_Password.Text);
-            if (resp.RespStatus == 0)
-            {
-                MessageBox.Show("Login Successful!");
-                this.Hide();
-                FormMain fm = new FormMain();
-                fm.Show();
-            }
-            else if (resp.RespStatus == 1)
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            else
-            {
-                MessageBox.Show("Login Failed!");
-            }
+        public void ShowMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
+        public void OpenMainForm()
+        {
+            this.Hide();
+            FormMain fm = new FormMain();
+            fm.Show();
+        }
+
+        private void btn_Submit_Click(object sender, EventArgs e)
+        {
+            _presenter.Login();
         }
     }
+
 }
