@@ -41,7 +41,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch tax categories
                 var taxCategoryQueryResult = connection.Query<SystemTaxCategory>(
-                    @"SELECT Uomid,UomName,UomSymbol FROM UnitOfMeasure");
+                    @"SELECT TaxCategoryId,TaxCategoryName FROM TaxCategory");
 
                 // Return the result
                 return taxCategoryQueryResult;
