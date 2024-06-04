@@ -279,12 +279,16 @@ namespace Uttambsolutionsdesktop
                                                   "ProductName TEXT, " +
                                                   "UomId INTEGER, " +
                                                   "CategoryId INTEGER, " +
+                                                  "BrandId INTEGER, " +
                                                   "TaxCategoryId INTEGER, " +
                                                   "Barcode TEXT, " +
-                                                  "Units REAL, " +
+                                                  "ProductUnits REAL, " +
                                                   "WholeSalePrice REAL, " +
                                                   "RetailSalePrice REAL, " +
                                                   "ProfitMargin REAL, " +
+                                                  "ProductSize TEXT, " +
+                                                  "ProductColor TEXT, " +
+                                                  "ProductWeight REAL, " +
                                                   "Createdby INTEGER, " +
                                                   "Modifiedby INTEGER, " +
                                                   "Datecreated DATETIME, " +
