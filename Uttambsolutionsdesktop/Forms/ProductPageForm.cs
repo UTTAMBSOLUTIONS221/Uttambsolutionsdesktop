@@ -13,7 +13,7 @@ using Uttambsolutionsdesktop.Views;
 
 namespace Uttambsolutionsdesktop.Forms
 {
-    public partial class ProductPageForm : UserControl,IProductView
+    public partial class ProductPageForm : UserControl, IProductView
     {
         private ProductPresenter _presenter;
         private readonly string _userId;
@@ -35,8 +35,8 @@ namespace Uttambsolutionsdesktop.Forms
 
         public int ProductId
         {
-            get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }
-            set { txtCategoryId.Text = value.ToString(); }
+            get { return int.TryParse(txtProductId.Text, out int id) ? id : 0; }
+            set { txtProductId.Text = value.ToString(); }
         }
         public string ProductName
         {
@@ -44,9 +44,9 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtProductName.Text = value; }
         }
 
-        public int UomId { get =>Convert.ToInt32(txtUomId.Text); set => txtUomId.Text = value.ToString(); }
-        public int CategoryId { get => Convert.ToInt32(txtCategoryId.Text); set => txtCategoryId.Text = value.ToString(); }
-        public int TaxCategoryId { get => Convert.ToInt32(txtTaxCategoryId.Text); set => txtTaxCategoryId.Text = value.ToString(); }
+        public int UomId { get => Convert.ToInt32(comboBoxUomId.Text); set => comboBoxUomId.Text = value.ToString(); }
+        public int CategoryId { get => Convert.ToInt32(comboBoxCategoryId.Text); set => comboBoxCategoryId.Text = value.ToString(); }
+        public int TaxCategoryId { get => Convert.ToInt32(comboBoxTaxCategoryId.Text); set => comboBoxTaxCategoryId.Text = value.ToString(); }
         public string? Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
         public decimal Units { get => Convert.ToDecimal(txtUnits.Text); set => txtUnits.Text = value.ToString(); }
         public decimal Price { get => Convert.ToDecimal(txtPrice.Text); set => txtPrice.Text = value.ToString(); }

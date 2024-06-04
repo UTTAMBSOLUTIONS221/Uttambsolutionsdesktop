@@ -58,8 +58,14 @@ namespace Uttambsolutionsdesktop.Presenters
         private async void SaveProduct(object sender, EventArgs e)
         {
             SystemProduct productData = new SystemProduct();
-            productData.CategoryId = _view.CategoryId;
+            productData.ProductId = _view.ProductId;
             productData.ProductName = _view.ProductName;
+            productData.UomId = _view.UomId;
+            productData.CategoryId = _view.CategoryId;
+            productData.TaxCategoryId = _view.TaxCategoryId;
+            productData.Barcode = _view.Barcode;
+            productData.Units = _view.Units;
+            productData.Price = _view.Price;
             productData.CreatedBy = Convert.ToInt32(_userId);
             productData.ModifiedBy = Convert.ToInt32(_userId);
             productData.DateCreated = DateTime.Now;

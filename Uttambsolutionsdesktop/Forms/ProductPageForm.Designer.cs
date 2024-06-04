@@ -20,7 +20,6 @@
             tabControl1 = new TabControl();
             tabPageProductList = new TabPage();
             dataGridView = new DataGridView();
-            label2 = new Label();
             btnDelete = new Button();
             btnEdit = new Button();
             btnAddNew = new Button();
@@ -29,14 +28,21 @@
             tabPageProductDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
-            label3 = new Label();
+            labelProductId = new Label();
             txtProductId = new TextBox();
+            labelProductName = new Label();
             txtProductName = new TextBox();
-            txtUomId = new TextBox();
-            txtCategoryId = new TextBox();
-            txtTaxCategoryId = new TextBox();
+            labelUomId = new Label();
+            comboBoxUomId = new ComboBox();
+            labelCategoryId = new Label();
+            comboBoxCategoryId = new ComboBox();
+            labelTaxCategoryId = new Label();
+            comboBoxTaxCategoryId = new ComboBox();
+            labelBarcode = new Label();
             txtBarcode = new TextBox();
+            labelUnits = new Label();
             txtUnits = new TextBox();
+            labelPrice = new Label();
             txtPrice = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -52,7 +58,7 @@
             label1.Location = new Point(32, 21);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(246, 25);
+            label1.Size = new Size(124, 25);
             label1.TabIndex = 0;
             label1.Text = "PRODUCTS";
             // 
@@ -82,7 +88,6 @@
             // tabPageProductList
             // 
             tabPageProductList.Controls.Add(dataGridView);
-            tabPageProductList.Controls.Add(label2);
             tabPageProductList.Controls.Add(btnDelete);
             tabPageProductList.Controls.Add(btnEdit);
             tabPageProductList.Controls.Add(btnAddNew);
@@ -107,15 +112,6 @@
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(845, 335);
             dataGridView.TabIndex = 6;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(938, 215);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 5;
             // 
             // btnDelete
             // 
@@ -169,9 +165,22 @@
             // 
             tabPageProductDetail.Controls.Add(btnCancel);
             tabPageProductDetail.Controls.Add(btnSave);
-            tabPageProductDetail.Controls.Add(label3);
+            tabPageProductDetail.Controls.Add(labelProductId);
+            tabPageProductDetail.Controls.Add(txtProductId);
+            tabPageProductDetail.Controls.Add(labelProductName);
             tabPageProductDetail.Controls.Add(txtProductName);
-            tabPageProductDetail.Controls.Add(txtCategoryId);
+            tabPageProductDetail.Controls.Add(labelUomId);
+            tabPageProductDetail.Controls.Add(comboBoxUomId);
+            tabPageProductDetail.Controls.Add(labelCategoryId);
+            tabPageProductDetail.Controls.Add(comboBoxCategoryId);
+            tabPageProductDetail.Controls.Add(labelTaxCategoryId);
+            tabPageProductDetail.Controls.Add(comboBoxTaxCategoryId);
+            tabPageProductDetail.Controls.Add(labelBarcode);
+            tabPageProductDetail.Controls.Add(txtBarcode);
+            tabPageProductDetail.Controls.Add(labelUnits);
+            tabPageProductDetail.Controls.Add(txtUnits);
+            tabPageProductDetail.Controls.Add(labelPrice);
+            tabPageProductDetail.Controls.Add(txtPrice);
             tabPageProductDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageProductDetail.Location = new Point(4, 24);
             tabPageProductDetail.Margin = new Padding(4, 3, 4, 3);
@@ -184,7 +193,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(263, 140);
+            btnCancel.Location = new Point(529, 338);
             btnCancel.Margin = new Padding(4, 3, 4, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(183, 44);
@@ -194,7 +203,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(72, 140);
+            btnSave.Location = new Point(258, 338);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(183, 44);
@@ -202,70 +211,149 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
+            // labelProductId
+            // 
+            labelProductId.AutoSize = true;
+            labelProductId.Location = new Point(205, 26);
+            labelProductId.Margin = new Padding(4, 0, 4, 0);
+            labelProductId.Name = "labelProductId";
+            labelProductId.Size = new Size(80, 24);
+            labelProductId.TabIndex = 16;
+            labelProductId.Text = "Product:";
+            // 
             // txtProductId
             // 
-            txtProductId.Location = new Point(63, 20);
+            txtProductId.Location = new Point(205, 53);
             txtProductId.Margin = new Padding(4, 3, 4, 3);
             txtProductId.Name = "txtProductId";
-            txtProductId.Size = new Size(100, 29);
+            txtProductId.Size = new Size(613, 29);
             txtProductId.TabIndex = 17;
-            txtProductId.Visible = false;
+            // 
+            // labelProductName
+            // 
+            labelProductName.AutoSize = true;
+            labelProductName.Location = new Point(204, 97);
+            labelProductName.Margin = new Padding(4, 0, 4, 0);
+            labelProductName.Name = "labelProductName";
+            labelProductName.Size = new Size(136, 24);
+            labelProductName.TabIndex = 12;
+            labelProductName.Text = "Product Name:";
             // 
             // txtProductName
             // 
-            txtProductName.Location = new Point(63, 108);
+            txtProductName.Location = new Point(204, 124);
             txtProductName.Margin = new Padding(4, 3, 4, 3);
             txtProductName.Name = "txtProductName";
-            txtProductName.Size = new Size(380, 29);
+            txtProductName.Size = new Size(614, 29);
             txtProductName.TabIndex = 18;
             // 
-            // txtUomId
+            // labelUomId
             // 
-            txtUomId.Location = new Point(63, 152);
-            txtUomId.Margin = new Padding(4, 3, 4, 3);
-            txtUomId.Name = "txtUomId";
-            txtUomId.Size = new Size(100, 29);
-            txtUomId.TabIndex = 19;
+            labelUomId.AutoSize = true;
+            labelUomId.Location = new Point(205, 167);
+            labelUomId.Margin = new Padding(4, 0, 4, 0);
+            labelUomId.Name = "labelUomId";
+            labelUomId.Size = new Size(55, 24);
+            labelUomId.TabIndex = 19;
+            labelUomId.Text = "Uom:";
             // 
-            // txtCategoryId
+            // comboBoxUomId
             // 
-            txtCategoryId.Location = new Point(63, 196);
-            txtCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtCategoryId.Name = "txtCategoryId";
-            txtCategoryId.Size = new Size(100, 29);
-            txtCategoryId.TabIndex = 20;
+            comboBoxUomId.FormattingEnabled = true;
+            comboBoxUomId.Location = new Point(205, 205);
+            comboBoxUomId.Name = "comboBoxUomId";
+            comboBoxUomId.Size = new Size(183, 32);
+            comboBoxUomId.TabIndex = 20;
             // 
-            // txtTaxCategoryId
+            // labelCategoryId
             // 
-            txtTaxCategoryId.Location = new Point(63, 240);
-            txtTaxCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtTaxCategoryId.Name = "txtTaxCategoryId";
-            txtTaxCategoryId.Size = new Size(100, 29);
-            txtTaxCategoryId.TabIndex = 21;
+            labelCategoryId.AutoSize = true;
+            labelCategoryId.Location = new Point(434, 167);
+            labelCategoryId.Margin = new Padding(4, 0, 4, 0);
+            labelCategoryId.Name = "labelCategoryId";
+            labelCategoryId.Size = new Size(90, 24);
+            labelCategoryId.TabIndex = 13;
+            labelCategoryId.Text = "Category:";
+            // 
+            // comboBoxCategoryId
+            // 
+            comboBoxCategoryId.FormattingEnabled = true;
+            comboBoxCategoryId.Location = new Point(434, 205);
+            comboBoxCategoryId.Name = "comboBoxCategoryId";
+            comboBoxCategoryId.Size = new Size(183, 32);
+            comboBoxCategoryId.TabIndex = 21;
+            // 
+            // labelTaxCategoryId
+            // 
+            labelTaxCategoryId.AutoSize = true;
+            labelTaxCategoryId.Location = new Point(635, 167);
+            labelTaxCategoryId.Margin = new Padding(4, 0, 4, 0);
+            labelTaxCategoryId.Name = "labelTaxCategoryId";
+            labelTaxCategoryId.Size = new Size(127, 24);
+            labelTaxCategoryId.TabIndex = 22;
+            labelTaxCategoryId.Text = "Tax Category:";
+            // 
+            // comboBoxTaxCategoryId
+            // 
+            comboBoxTaxCategoryId.FormattingEnabled = true;
+            comboBoxTaxCategoryId.Location = new Point(635, 205);
+            comboBoxTaxCategoryId.Name = "comboBoxTaxCategoryId";
+            comboBoxTaxCategoryId.Size = new Size(183, 32);
+            comboBoxTaxCategoryId.TabIndex = 23;
+            // 
+            // labelBarcode
+            // 
+            labelBarcode.AutoSize = true;
+            labelBarcode.Location = new Point(205, 249);
+            labelBarcode.Margin = new Padding(4, 0, 4, 0);
+            labelBarcode.Name = "labelBarcode";
+            labelBarcode.Size = new Size(86, 24);
+            labelBarcode.TabIndex = 24;
+            labelBarcode.Text = "Barcode:";
             // 
             // txtBarcode
             // 
-            txtBarcode.Location = new Point(63, 284);
+            txtBarcode.Location = new Point(205, 285);
             txtBarcode.Margin = new Padding(4, 3, 4, 3);
             txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(380, 29);
-            txtBarcode.TabIndex = 22;
+            txtBarcode.Size = new Size(183, 29);
+            txtBarcode.TabIndex = 25;
+            // 
+            // labelUnits
+            // 
+            labelUnits.AutoSize = true;
+            labelUnits.Location = new Point(434, 249);
+            labelUnits.Margin = new Padding(4, 0, 4, 0);
+            labelUnits.Name = "labelUnits";
+            labelUnits.Size = new Size(56, 24);
+            labelUnits.TabIndex = 26;
+            labelUnits.Text = "Units:";
             // 
             // txtUnits
             // 
-            txtUnits.Location = new Point(63, 328);
+            txtUnits.Location = new Point(434, 285);
             txtUnits.Margin = new Padding(4, 3, 4, 3);
             txtUnits.Name = "txtUnits";
-            txtUnits.Size = new Size(100, 29);
-            txtUnits.TabIndex = 23;
+            txtUnits.Size = new Size(183, 29);
+            txtUnits.TabIndex = 27;
+            // 
+            // labelPrice
+            // 
+            labelPrice.AutoSize = true;
+            labelPrice.Location = new Point(635, 249);
+            labelPrice.Margin = new Padding(4, 0, 4, 0);
+            labelPrice.Name = "labelPrice";
+            labelPrice.Size = new Size(58, 24);
+            labelPrice.TabIndex = 28;
+            labelPrice.Text = "Price:";
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(63, 372);
+            txtPrice.Location = new Point(635, 285);
             txtPrice.Margin = new Padding(4, 3, 4, 3);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(100, 29);
-            txtPrice.TabIndex = 24;
+            txtPrice.Size = new Size(183, 29);
+            txtPrice.TabIndex = 29;
             // 
             // ProductPageForm
             // 
@@ -291,7 +379,6 @@
         private TabControl tabControl1;
         private TabPage tabPageProductList;
         private DataGridView dataGridView;
-        private Label label2;
         private Button btnDelete;
         private Button btnEdit;
         private Button btnAddNew;
@@ -300,14 +387,21 @@
         private TabPage tabPageProductDetail;
         private Button btnCancel;
         private Button btnSave;
-        private Label label3;
-        private TextBox txtCategoryId;
+        private Label labelProductId;
         private TextBox txtProductId;
+        private Label labelProductName;
         private TextBox txtProductName;
-        private TextBox txtUomId;
-        private TextBox txtTaxCategoryId;
+        private Label labelUomId;
+        private ComboBox comboBoxUomId;
+        private Label labelCategoryId;
+        private ComboBox comboBoxCategoryId;
+        private Label labelTaxCategoryId;
+        private ComboBox comboBoxTaxCategoryId;
+        private Label labelBarcode;
         private TextBox txtBarcode;
+        private Label labelUnits;
         private TextBox txtUnits;
+        private Label labelPrice;
         private TextBox txtPrice;
     }
 }
