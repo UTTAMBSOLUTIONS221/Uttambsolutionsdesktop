@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,9 +35,9 @@ namespace Uttambsolutionsdesktop.Views
         void Show();
 
         // Methods to populate comboboxes
-        void PopulateUomComboBox(List<string> uomData);
-        void PopulateCategoryComboBox(List<string> categoryData);
-        void PopulateTaxCategoryComboBox(List<string> taxCategoryData);
+        void PopulateUomComboBox(List<SystemUoms> uomData);
+        void PopulateCategoryComboBox(List<SystemCategory> categoryData);
+        void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData);
 
     }
 }

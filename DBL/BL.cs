@@ -87,6 +87,28 @@ namespace DBL
         }
         #endregion
 
+        #region Producct Uoms
+        public Task<IEnumerable<SystemUoms>> GetAllSystemUoms()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SettingsRepository.GetAllSystemUoms();
+                return Resp;
+            });
+        }
+        #endregion
+
+        #region Producct Tax Categories
+        public Task<IEnumerable<SystemTaxCategory>> GetAllSystemTaxCategory()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SettingsRepository.SystemTaxCategory();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region Producct Categories
         public Task<IEnumerable<CategoryData>> GetAllCategories()
         {
@@ -113,6 +135,7 @@ namespace DBL
             });
         }
         #endregion
+       
         #region Produccts
         public Task<IEnumerable<SystemProductData>> GetAllProducts()
         {

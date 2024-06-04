@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static Uttambsolutionsdesktop.Program;
 using Uttambsolutionsdesktop.Presenters;
 using Uttambsolutionsdesktop.Views;
+using DBL.Models;
 
 namespace Uttambsolutionsdesktop.Forms
 {
@@ -66,17 +67,17 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
-        public void PopulateUomComboBox(List<string> uomData)
+        public void PopulateUomComboBox(List<SystemUoms> uomData)
         {
             comboBoxUomId.DataSource = uomData;
         }
 
-        public void PopulateCategoryComboBox(List<string> categoryData)
+        public void PopulateCategoryComboBox(List<SystemCategory> categoryData)
         {
             comboBoxCategoryId.DataSource = categoryData;
         }
 
-        public void PopulateTaxCategoryComboBox(List<string> taxCategoryData)
+        public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
         {
             comboBoxTaxCategoryId.DataSource = taxCategoryData;
         }

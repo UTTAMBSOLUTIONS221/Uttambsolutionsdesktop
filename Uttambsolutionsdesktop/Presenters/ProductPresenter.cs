@@ -39,43 +39,19 @@ namespace Uttambsolutionsdesktop.Presenters
 
         }
 
-        public async Task<List<string>> GetUomData()
+        public async Task<List<SystemUoms>> GetUomData()
         {
-            // Call BL method to retrieve UOM data
-            var uomData = await _bl.GetUomData();
-            // Convert the data to a list of strings
-            var uomList = new List<string>();
-            foreach (var uom in uomData)
-            {
-                uomList.Add(uom.Name); // Assuming UOM object has a property 'Name'
-            }
-            return uomList;
+            return await _bl.GetUomData(); ;
         }
 
-        public async Task<List<string>> GetCategoryData()
+        public async Task<List<SystemCategory>> GetCategoryData()
         {
-            // Call BL method to retrieve category data
-            var categoryData = await _bl.GetCategoryData();
-            // Convert the data to a list of strings
-            var categoryList = new List<string>();
-            foreach (var category in categoryData)
-            {
-                categoryList.Add(category.Name); // Assuming Category object has a property 'Name'
-            }
-            return categoryList;
+            return (List<SystemCategory>)await _bl.GetAllCategories();
         }
 
-        public async Task<List<string>> GetTaxCategoryData()
+        public async Task<List<SystemTaxCategory>> GetTaxCategoryData()
         {
-            // Call BL method to retrieve tax category data
-            var taxCategoryData = await _bl.GetTaxCategoryData();
-            // Convert the data to a list of strings
-            var taxCategoryList = new List<string>();
-            foreach (var taxCategory in taxCategoryData)
-            {
-                taxCategoryList.Add(taxCategory.Name); // Assuming TaxCategory object has a property 'Name'
-            }
-            return taxCategoryList;
+            return await _bl.GetTaxCategoryData();
         }
 
         private async void LoadAllProductsList()
