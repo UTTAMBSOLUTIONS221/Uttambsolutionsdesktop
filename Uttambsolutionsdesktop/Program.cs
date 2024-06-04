@@ -282,7 +282,9 @@ namespace Uttambsolutionsdesktop
                                                   "TaxCategoryId INTEGER, " +
                                                   "Barcode TEXT, " +
                                                   "Units REAL, " +
-                                                  "Price REAL, " +
+                                                  "WholeSalePrice REAL, " +
+                                                  "RetailSalePrice REAL, " +
+                                                  "ProfitMargin REAL, " +
                                                   "Createdby INTEGER, " +
                                                   "Modifiedby INTEGER, " +
                                                   "Datecreated DATETIME, " +
