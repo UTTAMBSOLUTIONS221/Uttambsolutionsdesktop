@@ -220,6 +220,7 @@
             labelProductId.Size = new Size(80, 24);
             labelProductId.TabIndex = 16;
             labelProductId.Text = "Product:";
+            labelProductId.Visible = false;
             // 
             // txtProductId
             // 
