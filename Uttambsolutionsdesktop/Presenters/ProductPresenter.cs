@@ -37,7 +37,45 @@ namespace Uttambsolutionsdesktop.Presenters
             //Show view
             this._view.Show();
 
+        }
 
+        public async Task<List<string>> GetUomData()
+        {
+            // Call BL method to retrieve UOM data
+            var uomData = await _bl.GetUomData();
+            // Convert the data to a list of strings
+            var uomList = new List<string>();
+            foreach (var uom in uomData)
+            {
+                uomList.Add(uom.Name); // Assuming UOM object has a property 'Name'
+            }
+            return uomList;
+        }
+
+        public async Task<List<string>> GetCategoryData()
+        {
+            // Call BL method to retrieve category data
+            var categoryData = await _bl.GetCategoryData();
+            // Convert the data to a list of strings
+            var categoryList = new List<string>();
+            foreach (var category in categoryData)
+            {
+                categoryList.Add(category.Name); // Assuming Category object has a property 'Name'
+            }
+            return categoryList;
+        }
+
+        public async Task<List<string>> GetTaxCategoryData()
+        {
+            // Call BL method to retrieve tax category data
+            var taxCategoryData = await _bl.GetTaxCategoryData();
+            // Convert the data to a list of strings
+            var taxCategoryList = new List<string>();
+            foreach (var taxCategory in taxCategoryData)
+            {
+                taxCategoryList.Add(taxCategory.Name); // Assuming TaxCategory object has a property 'Name'
+            }
+            return taxCategoryList;
         }
 
         private async void LoadAllProductsList()

@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Uttambsolutionsdesktop.Views
 {
@@ -31,5 +32,11 @@ namespace Uttambsolutionsdesktop.Views
         //Methods
         void SetProductListBindingSource(BindingSource productList);
         void Show();
+
+        // Methods to populate comboboxes
+        void PopulateUomComboBox(List<string> uomData);
+        void PopulateCategoryComboBox(List<string> categoryData);
+        void PopulateTaxCategoryComboBox(List<string> taxCategoryData);
+
     }
 }

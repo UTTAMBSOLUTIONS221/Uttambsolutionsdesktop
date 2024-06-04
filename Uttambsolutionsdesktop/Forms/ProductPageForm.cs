@@ -66,6 +66,20 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
+        public void PopulateUomComboBox(List<string> uomData)
+        {
+            comboBoxUomId.DataSource = uomData;
+        }
+
+        public void PopulateCategoryComboBox(List<string> categoryData)
+        {
+            comboBoxCategoryId.DataSource = categoryData;
+        }
+
+        public void PopulateTaxCategoryComboBox(List<string> taxCategoryData)
+        {
+            comboBoxTaxCategoryId.DataSource = taxCategoryData;
+        }
 
         public ProductPageForm(string userId)
         {
@@ -76,8 +90,22 @@ namespace Uttambsolutionsdesktop.Forms
             tabControl1.TabPages.Remove(tabPageProductDetail);
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
-        }
 
+            // Populate comboboxes
+            PopulateComboboxes();
+        }
+        private async void PopulateComboboxes()
+        {
+            // Call presenter methods to retrieve combobox data
+            var uomData = await _presenter.GetUomData();
+            var categoryData = await _presenter.GetCategoryData();
+            var taxCategoryData = await _presenter.GetTaxCategoryData();
+
+            // Populate comboboxes with data
+            PopulateUomComboBox(uomData);
+            PopulateCategoryComboBox(categoryData);
+            PopulateTaxCategoryComboBox(taxCategoryData);
+        }
         private void AssociateAndRaiseViewEvents()
         {
             btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
@@ -158,6 +186,7 @@ namespace Uttambsolutionsdesktop.Forms
             ProductId = 0;
             ProductName = string.Empty;
         }
+
 
         // Optional method to show message boxes
         public void ShowMessage(string message)
