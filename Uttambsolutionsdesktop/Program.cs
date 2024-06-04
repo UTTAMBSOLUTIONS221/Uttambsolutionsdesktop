@@ -263,6 +263,27 @@ namespace Uttambsolutionsdesktop
                     cmd.ExecuteNonQuery();
                 }
 
+                // Create Product table
+                string createProductTableQuery = "CREATE TABLE IF NOT EXISTS Product (" +
+                                                  "ProductId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                  "ProductName TEXT, " +
+                                                  "UomId INTEGER, " +
+                                                  "CategoryId INTEGER, " +
+                                                  "TaxCategoryId INTEGER, " +
+                                                  "Barcode TEXT, " +
+                                                  "Units INTEGER, " +
+                                                  "Price REAL, " +
+                                                  "Createdby INTEGER, " +
+                                                  "Modifiedby INTEGER, " +
+                                                  "Datecreated DATETIME, " +
+                                                  "Datemodified DATETIME, " +
+                                                  "FOREIGN KEY (UomId) REFERENCES UnitOfMeasure(UomId), " +
+                                                  "FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId), " +
+                                                  "FOREIGN KEY (TaxCategoryId) REFERENCES TaxCategory(TaxCategoryId))";
+                using (SQLiteCommand cmd = new SQLiteCommand(createProductTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
 
 
 
