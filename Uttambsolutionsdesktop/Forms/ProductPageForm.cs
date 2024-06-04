@@ -143,16 +143,29 @@ namespace Uttambsolutionsdesktop.Forms
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
                     if (selectedRow.Cells["ProductId"].Value != null &&
-                        selectedRow.Cells["ProductName"].Value != null)
+                        selectedRow.Cells["ProductName"].Value != null &&
+                        selectedRow.Cells["UomId"].Value != null &&
+                        selectedRow.Cells["CategoryId"].Value != null &&
+                        selectedRow.Cells["TaxCategoryId"].Value != null &&
+                        selectedRow.Cells["Barcode"].Value != null &&
+                        selectedRow.Cells["Units"].Value != null &&
+                        selectedRow.Cells["Price"].Value != null)
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         ProductName = selectedRow.Cells["ProductName"].Value.ToString();
+                        UomId = Convert.ToInt32(selectedRow.Cells["UomId"].Value);
+                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
+                        TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
+                        Barcode = selectedRow.Cells["Barcode"].Value.ToString();
+                        Units = Convert.ToDecimal(selectedRow.Cells["Units"].Value);
+                        Price = Convert.ToDecimal(selectedRow.Cells["Price"].Value);
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageProductList);
                 tabControl1.TabPages.Add(tabPageProductDetail);
                 tabPageProductDetail.Text = "Edit Product";
             };
+
 
             // CellClick event handler to select the entire row
             dataGridView.CellClick += (sender, e) =>
