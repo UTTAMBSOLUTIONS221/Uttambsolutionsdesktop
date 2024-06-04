@@ -41,7 +41,7 @@ namespace Uttambsolutionsdesktop.Presenters
 
         public async Task<List<SystemUoms>> GetUomData()
         {
-            return await _bl.GetUomData(); ;
+            return (List<SystemUoms>)await _bl.GetAllSystemUoms(); ;
         }
 
         public async Task<List<SystemCategory>> GetCategoryData()
@@ -51,7 +51,7 @@ namespace Uttambsolutionsdesktop.Presenters
 
         public async Task<List<SystemTaxCategory>> GetTaxCategoryData()
         {
-            return await _bl.GetTaxCategoryData();
+            return (List<SystemTaxCategory>)await _bl.GetAllSystemTaxCategory();
         }
 
         private async void LoadAllProductsList()
