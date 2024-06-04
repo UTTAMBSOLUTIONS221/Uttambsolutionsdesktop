@@ -208,6 +208,12 @@ namespace Uttambsolutionsdesktop.Forms
         {
             ProductId = 0;
             ProductName = string.Empty;
+            UomId = 0;
+            CategoryId = 0;
+            TaxCategoryId = 0;
+            Barcode = string.Empty;
+            Units = 0;
+            Price = 0;
         }
 
 
