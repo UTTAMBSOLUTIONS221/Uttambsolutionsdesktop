@@ -17,7 +17,6 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            btnClose = new Button();
             tabControl1 = new TabControl();
             tabPageCategoryList = new TabPage();
             dataGridView = new DataGridView();
@@ -32,7 +31,7 @@
             btnSave = new Button();
             label3 = new Label();
             txtCategoryName = new TextBox();
-            txtCategoryId = new TextBox(); // Add this line
+            txtCategoryId = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
@@ -44,7 +43,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(62, 20);
+            label1.Location = new Point(32, 21);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(246, 25);
@@ -54,7 +53,6 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(btnClose);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -62,16 +60,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1041, 65);
             panel1.TabIndex = 1;
-            // 
-            // btnClose
-            // 
-            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnClose.Location = new Point(995, 12);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(34, 30);
-            btnClose.TabIndex = 1;
-            btnClose.Text = "X";
-            btnClose.UseVisualStyleBackColor = false;
             // 
             // tabControl1
             // 
@@ -177,7 +165,7 @@
             tabPageCategoryDetail.Controls.Add(btnSave);
             tabPageCategoryDetail.Controls.Add(label3);
             tabPageCategoryDetail.Controls.Add(txtCategoryName);
-            tabPageCategoryDetail.Controls.Add(txtCategoryId); // Add this line
+            tabPageCategoryDetail.Controls.Add(txtCategoryId);
             tabPageCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageCategoryDetail.Location = new Point(4, 24);
             tabPageCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -257,7 +245,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageCategoryList;
         private System.Windows.Forms.DataGridView dataGridView;
