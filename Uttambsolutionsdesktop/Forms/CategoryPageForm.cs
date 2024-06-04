@@ -62,7 +62,6 @@ namespace Uttambsolutionsdesktop.Forms
             _presenter = new CategoryPresenter(this, userId, DatabaseManager.ConnectionString);        
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPageCategoryDetail);
-            btnClose.Click += delegate { this.ParentForm.Close(); };
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
             // Subscribe to the SelectionChanged event
@@ -91,9 +90,10 @@ namespace Uttambsolutionsdesktop.Forms
             btnEdit.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
-                if (dataGridView.SelectedRows.Count > 0)
+                if (dataGridView.SelectedCells.Count > 0)
                 {
-                    var selectedRow = dataGridView.SelectedRows[0];
+                    int rowIndex = dataGridView.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
                     if (selectedRow.Cells["CategoryId"].Value != null &&
                         selectedRow.Cells["CategoryName"].Value != null)
                     {
@@ -105,6 +105,16 @@ namespace Uttambsolutionsdesktop.Forms
                 tabControl1.TabPages.Add(tabPageCategoryDetail);
                 tabPageCategoryDetail.Text = "Edit Category";
             };
+
+            // CellClick event handler to select the entire row
+            dataGridView.CellClick += (sender, e) =>
+            {
+                if (e.RowIndex >= 0)
+                {
+                    dataGridView.Rows[e.RowIndex].Selected = true;
+                }
+            };
+
 
             btnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
 
