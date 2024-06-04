@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace DBL.Repositories
 {
     public interface ISettingsRepository
     {
+        IEnumerable<SystemUoms> GetAllSystemUoms();
+        IEnumerable<SystemTaxCategory> SystemTaxCategory();
     }
 }
