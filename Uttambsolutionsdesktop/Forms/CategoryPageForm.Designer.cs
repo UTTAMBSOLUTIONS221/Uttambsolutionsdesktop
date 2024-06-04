@@ -1,20 +1,9 @@
-﻿using DBL.Entities;
-using Uttambsolutionsdesktop.Presenters;
-using Uttambsolutionsdesktop.Views;
-
-namespace Uttambsolutionsdesktop.Forms
+﻿namespace Uttambsolutionsdesktop.Forms
 {
     partial class CategoryPageForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -24,16 +13,11 @@ namespace Uttambsolutionsdesktop.Forms
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             label1 = new Label();
             panel1 = new Panel();
+            btnClose = new Button();
             tabControl1 = new TabControl();
             tabPageCategoryList = new TabPage();
             dataGridView = new DataGridView();
@@ -43,10 +27,16 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddNew = new Button();
             btnSearch = new Button();
             txtSearch = new TextBox();
+            tabPageCategoryDetail = new TabPage();
+            btnCancel = new Button();
+            btnSave = new Button();
+            label3 = new Label();
+            txtCategoryName = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            tabPageCategoryDetail.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -63,6 +53,7 @@ namespace Uttambsolutionsdesktop.Forms
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnClose);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -71,9 +62,20 @@ namespace Uttambsolutionsdesktop.Forms
             panel1.Size = new Size(1041, 65);
             panel1.TabIndex = 1;
             // 
+            // btnClose
+            // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClose.Location = new Point(995, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(34, 30);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = true;
+            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPageCategoryList);
+            tabControl1.Controls.Add(tabPageCategoryDetail);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 65);
             tabControl1.Margin = new Padding(4, 3, 4, 3);
@@ -104,75 +106,124 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView.BackgroundColor = Color.Gainsboro;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(28, 73);
+            dataGridView.Location = new Point(28, 82);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
             dataGridView.Name = "dataGridView";
-            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView.Size = new Size(860, 354);
-            dataGridView.TabIndex = 7;
+            dataGridView.Size = new Size(845, 335);
+            dataGridView.TabIndex = 6;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(23, 9);
+            label2.Location = new Point(938, 215);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 20);
-            label2.TabIndex = 6;
-            label2.Text = "Search Pet:";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 5;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(895, 155);
+            btnDelete.Location = new Point(883, 160);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(86, 35);
-            btnDelete.TabIndex = 5;
+            btnDelete.Size = new Size(82, 25);
+            btnDelete.TabIndex = 4;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(895, 113);
+            btnEdit.Location = new Point(883, 129);
             btnEdit.Margin = new Padding(4, 3, 4, 3);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(86, 35);
-            btnEdit.TabIndex = 4;
+            btnEdit.Size = new Size(82, 25);
+            btnEdit.TabIndex = 3;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnAddNew
             // 
-            btnAddNew.Location = new Point(895, 72);
+            btnAddNew.Location = new Point(881, 89);
             btnAddNew.Margin = new Padding(4, 3, 4, 3);
             btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(86, 35);
-            btnAddNew.TabIndex = 3;
+            btnAddNew.Size = new Size(84, 25);
+            btnAddNew.TabIndex = 2;
             btnAddNew.Text = "Add New";
             btnAddNew.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSearch.Location = new Point(779, 31);
+            btnSearch.Location = new Point(767, 36);
             btnSearch.Margin = new Padding(4, 3, 4, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(115, 35);
-            btnSearch.TabIndex = 2;
+            btnSearch.Size = new Size(106, 25);
+            btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
             // 
             // txtSearch
             // 
-            txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Location = new Point(28, 36);
             txtSearch.Margin = new Padding(4, 3, 4, 3);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(744, 23);
-            txtSearch.TabIndex = 1;
+            txtSearch.Size = new Size(719, 23);
+            txtSearch.TabIndex = 0;
+            // 
+            // tabPageCategoryDetail
+            // 
+            tabPageCategoryDetail.Controls.Add(btnCancel);
+            tabPageCategoryDetail.Controls.Add(btnSave);
+            tabPageCategoryDetail.Controls.Add(label3);
+            tabPageCategoryDetail.Controls.Add(txtCategoryName);
+            tabPageCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPageCategoryDetail.Location = new Point(4, 24);
+            tabPageCategoryDetail.Margin = new Padding(4, 3, 4, 3);
+            tabPageCategoryDetail.Name = "tabPageCategoryDetail";
+            tabPageCategoryDetail.Padding = new Padding(4, 3, 4, 3);
+            tabPageCategoryDetail.Size = new Size(1033, 446);
+            tabPageCategoryDetail.TabIndex = 1;
+            tabPageCategoryDetail.Text = "Category Detail";
+            tabPageCategoryDetail.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Location = new Point(263, 140);
+            btnCancel.Margin = new Padding(4, 3, 4, 3);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(183, 44);
+            btnCancel.TabIndex = 15;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(72, 140);
+            btnSave.Margin = new Padding(4, 3, 4, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(183, 44);
+            btnSave.TabIndex = 14;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(63, 51);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(123, 20);
+            label3.TabIndex = 13;
+            label3.Text = "Category Name:";
+            // 
+            // txtCategoryName
+            // 
+            txtCategoryName.Location = new Point(63, 74);
+            txtCategoryName.Margin = new Padding(4, 3, 4, 3);
+            txtCategoryName.Name = "txtCategoryName";
+            txtCategoryName.Size = new Size(380, 29);
+            txtCategoryName.TabIndex = 12;
             // 
             // CategoryPageForm
             // 
@@ -180,7 +231,6 @@ namespace Uttambsolutionsdesktop.Forms
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tabControl1);
             Controls.Add(panel1);
-            Margin = new Padding(4, 3, 4, 3);
             Name = "CategoryPageForm";
             Size = new Size(1041, 539);
             panel1.ResumeLayout(false);
@@ -189,13 +239,14 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageCategoryList.ResumeLayout(false);
             tabPageCategoryList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            tabPageCategoryDetail.ResumeLayout(false);
+            tabPageCategoryDetail.PerformLayout();
             ResumeLayout(false);
         }
 
-        #endregion
-
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageCategoryList;
         private System.Windows.Forms.DataGridView dataGridView;
@@ -205,5 +256,10 @@ namespace Uttambsolutionsdesktop.Forms
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TabPage tabPageCategoryDetail;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCategoryName;
     }
 }

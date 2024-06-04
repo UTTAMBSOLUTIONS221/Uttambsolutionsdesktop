@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -14,15 +15,15 @@ namespace DBL.Repositories
         public CategoryRepository(string connectionString) : base(connectionString)
         {
         }
-        public IEnumerable<Category> GetAllCategories()
+        public IEnumerable<CategoryData> GetAllCategories()
         {
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
 
                 // Execute the query to fetch categories
-                var categoryQueryResult = connection.Query<Category>(
-                    @"SELECT CategoryId, CategoryName, Createdby, Modifiedby, DateCreated, DateModified FROM Categories");
+                var categoryQueryResult = connection.Query<CategoryData>(
+                    @"SELECT CategoryName FROM Categories");
 
                 // Return the result
                 return categoryQueryResult;

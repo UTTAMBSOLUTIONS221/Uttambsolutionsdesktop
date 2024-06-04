@@ -88,7 +88,7 @@ namespace DBL
         #endregion
 
         #region Producct Categories
-        public Task<IEnumerable<Category>> GetAllCategories()
+        public Task<IEnumerable<CategoryData>> GetAllCategories()
         {
             return Task.Run(() =>
             {
@@ -96,7 +96,7 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<IEnumerable<Category>> GetCategoriesByValue(string SearchValue)
+        public Task<IEnumerable<CategoryData>> GetCategoriesByValue(string SearchValue)
         {
             return Task.Run(() =>
             {

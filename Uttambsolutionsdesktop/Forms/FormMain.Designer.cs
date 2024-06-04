@@ -16,146 +16,165 @@
 
         private void InitializeComponent()
         {
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelProductManagementSubmenu = new System.Windows.Forms.Panel();
-            this.btnCategoryList = new System.Windows.Forms.Button();
-            this.btnProductList = new System.Windows.Forms.Button();
-            this.btnProductManagement = new System.Windows.Forms.Button();
-            this.panelSettingsSubmenu = new System.Windows.Forms.Panel();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnToggleMenu = new System.Windows.Forms.Button();
-            this.contentWrapper = new System.Windows.Forms.Panel();
-            this.contentWrapper.Location = new System.Drawing.Point(200, 0);
-            this.contentWrapper.Size = new System.Drawing.Size(this.ClientSize.Width - 200, this.ClientSize.Height);
-            this.panelMenu.SuspendLayout();
-            this.SuspendLayout();
+            panelMenu = new Panel();
+            panelProductManagementSubmenu = new Panel();
+            btnCategoryList = new Button();
+            btnProductList = new Button();
+            btnProductManagement = new Button();
+            panelSettingsSubmenu = new Panel();
+            btnSettings = new Button();
+            btnDashboard = new Button();
+            btnToggleMenu = new Button();
+            contentWrapper = new Panel();
+            panelMenu.SuspendLayout();
+            panelProductManagementSubmenu.SuspendLayout();
+            SuspendLayout();
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.panelProductManagementSubmenu);
-            this.panelMenu.Controls.Add(this.btnProductManagement);
-            this.panelMenu.Controls.Add(this.panelSettingsSubmenu);
-            this.panelMenu.Controls.Add(this.btnSettings);
-            this.panelMenu.Controls.Add(this.btnDashboard);
-            this.panelMenu.Size = new System.Drawing.Size(200, this.ClientSize.Height);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.TabIndex = 0;
+            panelMenu.BackColor = Color.FromArgb(51, 51, 76);
+            panelMenu.Controls.Add(panelProductManagementSubmenu);
+            panelMenu.Controls.Add(btnProductManagement);
+            panelMenu.Controls.Add(panelSettingsSubmenu);
+            panelMenu.Controls.Add(btnSettings);
+            panelMenu.Controls.Add(btnDashboard);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(4, 3, 4, 3);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(233, 692);
+            panelMenu.TabIndex = 0;
             // 
             // panelProductManagementSubmenu
             // 
-            this.panelProductManagementSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelProductManagementSubmenu.Controls.Add(this.btnCategoryList);
-            this.panelProductManagementSubmenu.Controls.Add(this.btnProductList);
-            this.panelProductManagementSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProductManagementSubmenu.Location = new System.Drawing.Point(0, 220);
-            this.panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
-            this.panelProductManagementSubmenu.Size = new System.Drawing.Size(150, 90);
-            this.panelProductManagementSubmenu.Visible = false;
+            panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelProductManagementSubmenu.Controls.Add(btnCategoryList);
+            panelProductManagementSubmenu.Controls.Add(btnProductList);
+            panelProductManagementSubmenu.Dock = DockStyle.Top;
+            panelProductManagementSubmenu.Location = new Point(0, 254);
+            panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
+            panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
+            panelProductManagementSubmenu.Size = new Size(233, 104);
+            panelProductManagementSubmenu.TabIndex = 0;
+            panelProductManagementSubmenu.Visible = false;
             // 
             // btnCategoryList
             // 
-            this.btnCategoryList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCategoryList.FlatAppearance.BorderSize = 0;
-            this.btnCategoryList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCategoryList.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCategoryList.Location = new System.Drawing.Point(0, 45);
-            this.btnCategoryList.Name = "btnCategoryList";
-            this.btnCategoryList.Size = new System.Drawing.Size(150, 45);
-            this.btnCategoryList.Text = "Category List";
-            this.btnCategoryList.Click += new System.EventHandler(this.BtnCategoryList_Click);
+            btnCategoryList.Dock = DockStyle.Top;
+            btnCategoryList.FlatAppearance.BorderSize = 0;
+            btnCategoryList.FlatStyle = FlatStyle.Flat;
+            btnCategoryList.ForeColor = Color.Gainsboro;
+            btnCategoryList.Location = new Point(0, 52);
+            btnCategoryList.Margin = new Padding(4, 3, 4, 3);
+            btnCategoryList.Name = "btnCategoryList";
+            btnCategoryList.Size = new Size(233, 52);
+            btnCategoryList.TabIndex = 0;
+            btnCategoryList.Text = "Category List";
+            btnCategoryList.Click += BtnCategoryList_Click;
             // 
             // btnProductList
             // 
-            this.btnProductList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProductList.FlatAppearance.BorderSize = 0;
-            this.btnProductList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductList.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProductList.Location = new System.Drawing.Point(0, 0);
-            this.btnProductList.Name = "btnProductList";
-            this.btnProductList.Size = new System.Drawing.Size(150, 45);
-            this.btnProductList.Text = "Product List";
-            this.btnProductList.Click += new System.EventHandler(this.BtnProductList_Click);
+            btnProductList.Dock = DockStyle.Top;
+            btnProductList.FlatAppearance.BorderSize = 0;
+            btnProductList.FlatStyle = FlatStyle.Flat;
+            btnProductList.ForeColor = Color.Gainsboro;
+            btnProductList.Location = new Point(0, 0);
+            btnProductList.Margin = new Padding(4, 3, 4, 3);
+            btnProductList.Name = "btnProductList";
+            btnProductList.Size = new Size(233, 52);
+            btnProductList.TabIndex = 1;
+            btnProductList.Text = "Product List";
+            btnProductList.Click += BtnProductList_Click;
             // 
             // btnProductManagement
             // 
-            this.btnProductManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProductManagement.FlatAppearance.BorderSize = 0;
-            this.btnProductManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductManagement.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProductManagement.Location = new System.Drawing.Point(0, 175);
-            this.btnProductManagement.Name = "btnProductManagement";
-            this.btnProductManagement.Size = new System.Drawing.Size(150, 45);
-            this.btnProductManagement.Text = "Product Management";
-            this.btnProductManagement.Click += new System.EventHandler(this.BtnProductManagement_Click);
+            btnProductManagement.Dock = DockStyle.Top;
+            btnProductManagement.FlatAppearance.BorderSize = 0;
+            btnProductManagement.FlatStyle = FlatStyle.Flat;
+            btnProductManagement.ForeColor = Color.Gainsboro;
+            btnProductManagement.Location = new Point(0, 202);
+            btnProductManagement.Margin = new Padding(4, 3, 4, 3);
+            btnProductManagement.Name = "btnProductManagement";
+            btnProductManagement.Size = new Size(233, 52);
+            btnProductManagement.TabIndex = 1;
+            btnProductManagement.Text = "Product Management";
+            btnProductManagement.Click += BtnProductManagement_Click;
             // 
             // panelSettingsSubmenu
             // 
-            this.panelSettingsSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelSettingsSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSettingsSubmenu.Location = new System.Drawing.Point(0, 90);
-            this.panelSettingsSubmenu.Name = "panelSettingsSubmenu";
-            this.panelSettingsSubmenu.Size = new System.Drawing.Size(150, 85);
-            this.panelSettingsSubmenu.Visible = false;
+            panelSettingsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelSettingsSubmenu.Dock = DockStyle.Top;
+            panelSettingsSubmenu.Location = new Point(0, 104);
+            panelSettingsSubmenu.Margin = new Padding(4, 3, 4, 3);
+            panelSettingsSubmenu.Name = "panelSettingsSubmenu";
+            panelSettingsSubmenu.Size = new Size(233, 98);
+            panelSettingsSubmenu.TabIndex = 2;
+            panelSettingsSubmenu.Visible = false;
             // 
             // btnSettings
             // 
-            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSettings.Location = new System.Drawing.Point(0, 45);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(150, 45);
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
+            btnSettings.Dock = DockStyle.Top;
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.ForeColor = Color.Gainsboro;
+            btnSettings.Location = new Point(0, 52);
+            btnSettings.Margin = new Padding(4, 3, 4, 3);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(233, 52);
+            btnSettings.TabIndex = 3;
+            btnSettings.Text = "Settings";
+            btnSettings.Click += BtnSettings_Click;
             // 
             // btnDashboard
             // 
-            this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 0);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(150, 45);
-            this.btnDashboard.Text = "Dashboard";
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.ForeColor = Color.Gainsboro;
+            btnDashboard.Location = new Point(0, 0);
+            btnDashboard.Margin = new Padding(4, 3, 4, 3);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(233, 52);
+            btnDashboard.TabIndex = 4;
+            btnDashboard.Text = "Dashboard";
             // 
             // btnToggleMenu
             // 
-            this.btnToggleMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.btnToggleMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnToggleMenu.FlatAppearance.BorderSize = 0;
-            this.btnToggleMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToggleMenu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnToggleMenu.Location = new System.Drawing.Point(150, 0);
-            this.btnToggleMenu.Name = "btnToggleMenu";
-            this.btnToggleMenu.Size = new System.Drawing.Size(900, 45);
+            btnToggleMenu.BackColor = Color.FromArgb(51, 51, 76);
+            btnToggleMenu.Dock = DockStyle.Top;
+            btnToggleMenu.FlatAppearance.BorderSize = 0;
+            btnToggleMenu.FlatStyle = FlatStyle.Flat;
+            btnToggleMenu.ForeColor = Color.Gainsboro;
+            btnToggleMenu.Location = new Point(233, 0);
+            btnToggleMenu.Margin = new Padding(4, 3, 4, 3);
+            btnToggleMenu.Name = "btnToggleMenu";
+            btnToggleMenu.Size = new Size(992, 52);
+            btnToggleMenu.TabIndex = 3;
+            btnToggleMenu.UseVisualStyleBackColor = false;
             // 
             // contentWrapper
             // 
-            this.contentWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentWrapper.Location = new System.Drawing.Point(150, 45);
-            this.contentWrapper.Name = "contentWrapper";
-            this.contentWrapper.Size = new System.Drawing.Size(900, 555);
-            this.contentWrapper.TabIndex = 2;
+            contentWrapper.Dock = DockStyle.Fill;
+            contentWrapper.Location = new Point(233, 52);
+            contentWrapper.Margin = new Padding(4, 3, 4, 3);
+            contentWrapper.Name = "contentWrapper";
+            contentWrapper.Size = new Size(992, 640);
+            contentWrapper.TabIndex = 2;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 600);
-            this.Controls.Add(this.contentWrapper);
-            this.Controls.Add(this.btnToggleMenu);
-            this.Controls.Add(this.panelMenu);
-            this.Name = "FormMain";
-            this.Text = "FormMain";
-            this.panelMenu.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1225, 692);
+            Controls.Add(contentWrapper);
+            Controls.Add(btnToggleMenu);
+            Controls.Add(panelMenu);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormMain";
+            Text = "FormMain";
+            panelMenu.ResumeLayout(false);
+            panelProductManagementSubmenu.ResumeLayout(false);
+            ResumeLayout(false);
         }
     }
 }

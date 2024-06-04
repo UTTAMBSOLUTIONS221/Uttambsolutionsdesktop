@@ -6,13 +6,16 @@ namespace Uttambsolutionsdesktop.Views
 {
     public interface ICategoryView
     {
-        string SearchText { get; }
-        void SetCategoryListBindingSource(BindingSource categoryList);
-        void ShowMessage(string message);
-
+        //Events
         event EventHandler SearchEvent;
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
+        event EventHandler SaveEvent;
+        event EventHandler CancelEvent;
+
+        //Methods
+        void SetCategoryListBindingSource(BindingSource categoryList);
+        void Show();
     }
 }

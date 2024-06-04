@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace DBL.Repositories
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> GetAllCategories();
+        IEnumerable<CategoryData> GetAllCategories();
     }
 }
