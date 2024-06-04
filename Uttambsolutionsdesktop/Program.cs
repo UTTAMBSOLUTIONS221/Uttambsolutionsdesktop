@@ -156,11 +156,11 @@ namespace Uttambsolutionsdesktop
 
                     using (SQLiteCommand cmd = new SQLiteCommand(insertUserQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@FirstName", "admin");
-                        cmd.Parameters.AddWithValue("@LastName", "admin");
+                        cmd.Parameters.AddWithValue("@FirstName", "System");
+                        cmd.Parameters.AddWithValue("@LastName", "Admin");
                         cmd.Parameters.AddWithValue("@Phonenumber", DBNull.Value);
                         cmd.Parameters.AddWithValue("@Username", "admin");
-                        cmd.Parameters.AddWithValue("@Emailaddress", "admin@uttambsolutions.com");
+                        cmd.Parameters.AddWithValue("@Emailaddress", "franciskingori448@gmail.com");
                         cmd.Parameters.AddWithValue("@Roleid", superAdminRoleId);
                         cmd.Parameters.AddWithValue("@Passharsh", "TKQLEMJWBCTP");
                         cmd.Parameters.AddWithValue("@Passwords", "uB0oMs5jTtZ3fSUZPPu+q4Y3gV4e0xXefo8sKWchKOY=");
