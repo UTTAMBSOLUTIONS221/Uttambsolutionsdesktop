@@ -201,6 +201,18 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["ProductId"].Visible = false;
             }
+            if (dataGridView.Columns.Contains("UomId"))
+            {
+                dataGridView.Columns["UomId"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("CategoryId"))
+            {
+                dataGridView.Columns["CategoryId"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("TaxCategoryId"))
+            {
+                dataGridView.Columns["TaxCategoryId"].Visible = false;
+            }
         }
 
         // Method to clear the detail fields
