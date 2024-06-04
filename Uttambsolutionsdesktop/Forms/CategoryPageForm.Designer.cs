@@ -32,6 +32,7 @@
             btnSave = new Button();
             label3 = new Label();
             txtCategoryName = new TextBox();
+            txtCategoryId = new TextBox(); // Add this line
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
@@ -176,6 +177,7 @@
             tabPageCategoryDetail.Controls.Add(btnSave);
             tabPageCategoryDetail.Controls.Add(label3);
             tabPageCategoryDetail.Controls.Add(txtCategoryName);
+            tabPageCategoryDetail.Controls.Add(txtCategoryId); // Add this line
             tabPageCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageCategoryDetail.Location = new Point(4, 24);
             tabPageCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -225,6 +227,15 @@
             txtCategoryName.Size = new Size(380, 29);
             txtCategoryName.TabIndex = 12;
             // 
+            // txtCategoryId
+            // 
+            txtCategoryId.Location = new Point(63, 20);
+            txtCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtCategoryId.Name = "txtCategoryId";
+            txtCategoryId.Size = new Size(100, 29);
+            txtCategoryId.TabIndex = 16;
+            txtCategoryId.Visible = true;
+            // 
             // CategoryPageForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,5 +272,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.TextBox txtCategoryId; // Add this line 
     }
 }

@@ -11,5 +11,6 @@ namespace DBL.Repositories
     public interface ICategoryRepository
     {
         IEnumerable<CategoryData> GetAllCategories();
+        Genericmodel SaveCategory(Category entity);
     }
 }

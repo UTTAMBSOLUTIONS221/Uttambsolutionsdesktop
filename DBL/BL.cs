@@ -104,6 +104,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Genericmodel> SaveCategory(Category obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.SaveCategory(obj);
+                return Resp;
+            });
+        }
         #endregion
     }
 }

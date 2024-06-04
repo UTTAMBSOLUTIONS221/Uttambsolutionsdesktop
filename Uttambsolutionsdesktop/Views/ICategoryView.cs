@@ -6,6 +6,10 @@ namespace Uttambsolutionsdesktop.Views
 {
     public interface ICategoryView
     {
+        // Properties
+        string SearchValue { get; set; }
+        int CategoryId { get; set; }
+        string CategoryName { get; set; }
         //Events
         event EventHandler SearchEvent;
         event EventHandler AddNewEvent;

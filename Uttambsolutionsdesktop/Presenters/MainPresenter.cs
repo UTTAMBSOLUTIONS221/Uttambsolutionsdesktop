@@ -40,7 +40,7 @@ namespace Uttambsolutionsdesktop.Presenters
         public void HandleCategoryListButtonClicked(Panel contentWrapper)
         {
             // Create an instance of CategoryPageForm
-            CategoryPageForm categoryPageForm = new CategoryPageForm();
+            CategoryPageForm categoryPageForm = new CategoryPageForm(_userId);
 
             // Set the size of the CategoryPageForm
             categoryPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
