@@ -11,10 +11,13 @@ namespace DBL.Models
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
         public int UomId { get; set; }
+        public string? UomName { get; set; }
         public int CategoryId { get; set; }
+        public string? CategoryName { get; set; }
         public int TaxCategoryId { get; set; }
+        public string? TaxCategoryName { get; set; }
         public string? Barcode { get; set; }
-        public int Units { get; set; }
+        public decimal Units { get; set; }
         public decimal Price { get; set; }
         public string? CreatedBy { get; set; }
         public string? ModifiedBy { get; set; }
