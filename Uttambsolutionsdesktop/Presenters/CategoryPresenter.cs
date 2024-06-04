@@ -68,11 +68,6 @@ namespace Uttambsolutionsdesktop.Presenters
         }
         private void AddNewCategory(object sender, EventArgs e)
         {
-            AddNewEvent?.Invoke(this, EventArgs.Empty);
-            tabControl1.TabPages.Remove(tabPageCategoryList);
-            tabControl1.TabPages.Add(tabPageCategoryDetail);
-            tabPageCategoryDetail.Text = "Add New Category";
-            _view.AddNewEvent += (sender, args) => ShowCategoryDetailForNew();
         }
     }
 }

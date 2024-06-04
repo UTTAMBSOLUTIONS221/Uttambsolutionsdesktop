@@ -37,6 +37,8 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridView.DataSource = categoryList;
         }
 
+
+
         public CategoryPageForm()
         {
             InitializeComponent();
@@ -93,5 +95,6 @@ namespace Uttambsolutionsdesktop.Forms
         {
             MessageBox.Show(message);
         }
+
     }
 }
