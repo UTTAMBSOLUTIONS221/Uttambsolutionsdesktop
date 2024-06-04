@@ -140,9 +140,9 @@ namespace Uttambsolutionsdesktop.Forms
 
         private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            if (dataGridView.Columns.Contains("CategoryId"))
+            if (dataGridView.Columns.Contains("ProductId"))
             {
-                dataGridView.Columns["CategoryId"].Visible = false;
+                dataGridView.Columns["ProductId"].Visible = false;
             }
         }
 

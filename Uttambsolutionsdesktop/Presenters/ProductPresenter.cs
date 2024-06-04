@@ -42,7 +42,7 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private async void LoadAllProductsList()
         {
-            productList = await _bl.GetAllCategories();
+            productList = await _bl.GetAllProducts();
             productBindingSource.DataSource = productList;//Set data source.
         }
 
