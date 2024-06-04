@@ -13,11 +13,13 @@
         private System.Windows.Forms.Panel panelProductManagementSubmenu;
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnCategoryList;
+        private System.Windows.Forms.Button btnSalesList;
 
         private void InitializeComponent()
         {
             panelMenu = new Panel();
             panelProductManagementSubmenu = new Panel();
+            btnSalesList = new Button(); // Add new button for Sales List
             btnCategoryList = new Button();
             btnProductList = new Button();
             btnProductManagement = new Button();
@@ -48,15 +50,30 @@
             // panelProductManagementSubmenu
             // 
             panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelProductManagementSubmenu.Controls.Add(btnSalesList); // Add Sales List button
             panelProductManagementSubmenu.Controls.Add(btnCategoryList);
             panelProductManagementSubmenu.Controls.Add(btnProductList);
             panelProductManagementSubmenu.Dock = DockStyle.Top;
             panelProductManagementSubmenu.Location = new Point(0, 254);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
-            panelProductManagementSubmenu.Size = new Size(233, 104);
+            panelProductManagementSubmenu.Size = new Size(233, 156); // Increase the size to accommodate the additional button
             panelProductManagementSubmenu.TabIndex = 0;
             panelProductManagementSubmenu.Visible = false;
+            // 
+            // btnSalesList
+            // 
+            btnSalesList.Dock = DockStyle.Top;
+            btnSalesList.FlatAppearance.BorderSize = 0;
+            btnSalesList.FlatStyle = FlatStyle.Flat;
+            btnSalesList.ForeColor = Color.Gainsboro;
+            btnSalesList.Location = new Point(0, 104);
+            btnSalesList.Margin = new Padding(4, 3, 4, 3);
+            btnSalesList.Name = "btnSalesList";
+            btnSalesList.Size = new Size(233, 52);
+            btnSalesList.TabIndex = 2;
+            btnSalesList.Text = "Sales List"; // Set the text for Sales List button
+            btnSalesList.Click += BtnSalesList_Click;
             // 
             // btnCategoryList
             // 
@@ -124,12 +141,7 @@
             btnSettings.TabIndex = 3;
             btnSettings.Text = "Settings";
             btnSettings.Click += BtnSettings_Click;
-            // 
-            // btnDashboard
-            // 
-            btnDashboard.Dock = DockStyle.Top;
-            btnDashboard.FlatAppearance.BorderSize = 0;
-            btnDashboard.FlatStyle = FlatStyle.Flat;
+            // Dashboard button
             btnDashboard.ForeColor = Color.Gainsboro;
             btnDashboard.Location = new Point(0, 0);
             btnDashboard.Margin = new Padding(4, 3, 4, 3);
@@ -137,9 +149,8 @@
             btnDashboard.Size = new Size(233, 52);
             btnDashboard.TabIndex = 4;
             btnDashboard.Text = "Dashboard";
-            // 
-            // btnToggleMenu
-            // 
+
+            // Toggle Menu button
             btnToggleMenu.BackColor = Color.FromArgb(51, 51, 76);
             btnToggleMenu.Dock = DockStyle.Top;
             btnToggleMenu.FlatAppearance.BorderSize = 0;
@@ -151,18 +162,16 @@
             btnToggleMenu.Size = new Size(992, 52);
             btnToggleMenu.TabIndex = 3;
             btnToggleMenu.UseVisualStyleBackColor = false;
-            // 
-            // contentWrapper
-            // 
+
+            // Content Wrapper panel
             contentWrapper.Dock = DockStyle.Fill;
             contentWrapper.Location = new Point(233, 52);
             contentWrapper.Margin = new Padding(4, 3, 4, 3);
             contentWrapper.Name = "contentWrapper";
             contentWrapper.Size = new Size(992, 640);
             contentWrapper.TabIndex = 2;
-            // 
+
             // FormMain
-            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1225, 692);
@@ -176,5 +185,6 @@
             panelProductManagementSubmenu.ResumeLayout(false);
             ResumeLayout(false);
         }
+
     }
 }

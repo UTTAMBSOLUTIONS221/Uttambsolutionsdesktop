@@ -85,5 +85,9 @@ namespace Uttambsolutionsdesktop.Forms
         {
             _presenter.HandleProductListButtonClicked(contentWrapper);
         }
+        private void BtnSalesList_Click(object sender, EventArgs e)
+        {
+            _presenter.HandleCategoryListButtonClicked(contentWrapper);
+        }
     }
 }
