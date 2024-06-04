@@ -13,13 +13,11 @@
         private System.Windows.Forms.Panel panelProductManagementSubmenu;
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnCategoryList;
-        private System.Windows.Forms.Button btnSalesList;
 
         private void InitializeComponent()
         {
             panelMenu = new Panel();
             panelProductManagementSubmenu = new Panel();
-            btnSalesList = new Button(); // Add new button for Sales List
             btnCategoryList = new Button();
             btnProductList = new Button();
             btnProductManagement = new Button();
@@ -50,30 +48,15 @@
             // panelProductManagementSubmenu
             // 
             panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
-            panelProductManagementSubmenu.Controls.Add(btnSalesList); // Add Sales List button
             panelProductManagementSubmenu.Controls.Add(btnCategoryList);
             panelProductManagementSubmenu.Controls.Add(btnProductList);
             panelProductManagementSubmenu.Dock = DockStyle.Top;
             panelProductManagementSubmenu.Location = new Point(0, 254);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
-            panelProductManagementSubmenu.Size = new Size(233, 156); // Increase the size to accommodate the additional button
+            panelProductManagementSubmenu.Size = new Size(233, 104);
             panelProductManagementSubmenu.TabIndex = 0;
             panelProductManagementSubmenu.Visible = false;
-            // 
-            // btnSalesList
-            // 
-            btnSalesList.Dock = DockStyle.Top;
-            btnSalesList.FlatAppearance.BorderSize = 0;
-            btnSalesList.FlatStyle = FlatStyle.Flat;
-            btnSalesList.ForeColor = Color.Gainsboro;
-            btnSalesList.Location = new Point(0, 104);
-            btnSalesList.Margin = new Padding(4, 3, 4, 3);
-            btnSalesList.Name = "btnSalesList";
-            btnSalesList.Size = new Size(233, 52);
-            btnSalesList.TabIndex = 2;
-            btnSalesList.Text = "Sales List"; // Set the text for Sales List button
-            btnSalesList.Click += BtnSalesList_Click;
             // 
             // btnCategoryList
             // 
@@ -81,11 +64,11 @@
             btnCategoryList.FlatAppearance.BorderSize = 0;
             btnCategoryList.FlatStyle = FlatStyle.Flat;
             btnCategoryList.ForeColor = Color.Gainsboro;
-            btnCategoryList.Location = new Point(0, 52);
+            btnCategoryList.Location = new Point(0, 0);
             btnCategoryList.Margin = new Padding(4, 3, 4, 3);
             btnCategoryList.Name = "btnCategoryList";
             btnCategoryList.Size = new Size(233, 52);
-            btnCategoryList.TabIndex = 0;
+            btnCategoryList.TabIndex = 1;
             btnCategoryList.Text = "Category List";
             btnCategoryList.Click += BtnCategoryList_Click;
             // 
@@ -95,11 +78,11 @@
             btnProductList.FlatAppearance.BorderSize = 0;
             btnProductList.FlatStyle = FlatStyle.Flat;
             btnProductList.ForeColor = Color.Gainsboro;
-            btnProductList.Location = new Point(0, 0);
+            btnProductList.Location = new Point(0, 52);
             btnProductList.Margin = new Padding(4, 3, 4, 3);
             btnProductList.Name = "btnProductList";
             btnProductList.Size = new Size(233, 52);
-            btnProductList.TabIndex = 1;
+            btnProductList.TabIndex = 0;
             btnProductList.Text = "Product List";
             btnProductList.Click += BtnProductList_Click;
             // 
@@ -114,7 +97,7 @@
             btnProductManagement.Name = "btnProductManagement";
             btnProductManagement.Size = new Size(233, 52);
             btnProductManagement.TabIndex = 1;
-            btnProductManagement.Text = "Product Management";
+            btnProductManagement.Text = "Warehouse";
             btnProductManagement.Click += BtnProductManagement_Click;
             // 
             // panelSettingsSubmenu
@@ -141,7 +124,12 @@
             btnSettings.TabIndex = 3;
             btnSettings.Text = "Settings";
             btnSettings.Click += BtnSettings_Click;
-            // Dashboard button
+            // 
+            // btnDashboard
+            // 
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.ForeColor = Color.Gainsboro;
             btnDashboard.Location = new Point(0, 0);
             btnDashboard.Margin = new Padding(4, 3, 4, 3);
@@ -149,8 +137,9 @@
             btnDashboard.Size = new Size(233, 52);
             btnDashboard.TabIndex = 4;
             btnDashboard.Text = "Dashboard";
-
-            // Toggle Menu button
+            // 
+            // btnToggleMenu
+            // 
             btnToggleMenu.BackColor = Color.FromArgb(51, 51, 76);
             btnToggleMenu.Dock = DockStyle.Top;
             btnToggleMenu.FlatAppearance.BorderSize = 0;
@@ -162,16 +151,18 @@
             btnToggleMenu.Size = new Size(992, 52);
             btnToggleMenu.TabIndex = 3;
             btnToggleMenu.UseVisualStyleBackColor = false;
-
-            // Content Wrapper panel
+            // 
+            // contentWrapper
+            // 
             contentWrapper.Dock = DockStyle.Fill;
             contentWrapper.Location = new Point(233, 52);
             contentWrapper.Margin = new Padding(4, 3, 4, 3);
             contentWrapper.Name = "contentWrapper";
             contentWrapper.Size = new Size(992, 640);
             contentWrapper.TabIndex = 2;
-
+            // 
             // FormMain
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1225, 692);
@@ -185,6 +176,5 @@
             panelProductManagementSubmenu.ResumeLayout(false);
             ResumeLayout(false);
         }
-
     }
 }
