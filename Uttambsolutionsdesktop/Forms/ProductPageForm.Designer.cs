@@ -193,7 +193,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(529, 338);
+            btnCancel.Location = new Point(501, 338);
             btnCancel.Margin = new Padding(4, 3, 4, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(183, 44);
@@ -203,7 +203,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(258, 338);
+            btnSave.Location = new Point(230, 338);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(183, 44);
@@ -214,7 +214,7 @@
             // labelProductId
             // 
             labelProductId.AutoSize = true;
-            labelProductId.Location = new Point(205, 26);
+            labelProductId.Location = new Point(154, 26);
             labelProductId.Margin = new Padding(4, 0, 4, 0);
             labelProductId.Name = "labelProductId";
             labelProductId.Size = new Size(80, 24);
@@ -224,17 +224,17 @@
             // 
             // txtProductId
             // 
-            txtProductId.Location = new Point(205, 53);
+            txtProductId.Location = new Point(154, 53);
             txtProductId.Margin = new Padding(4, 3, 4, 3);
             txtProductId.Name = "txtProductId";
-            txtProductId.Size = new Size(613, 29);
+            txtProductId.Size = new Size(674, 29);
             txtProductId.TabIndex = 17;
             txtProductId.Visible = false;
             // 
             // labelProductName
             // 
             labelProductName.AutoSize = true;
-            labelProductName.Location = new Point(204, 97);
+            labelProductName.Location = new Point(153, 97);
             labelProductName.Margin = new Padding(4, 0, 4, 0);
             labelProductName.Name = "labelProductName";
             labelProductName.Size = new Size(136, 24);
@@ -243,16 +243,16 @@
             // 
             // txtProductName
             // 
-            txtProductName.Location = new Point(204, 124);
+            txtProductName.Location = new Point(153, 124);
             txtProductName.Margin = new Padding(4, 3, 4, 3);
             txtProductName.Name = "txtProductName";
-            txtProductName.Size = new Size(614, 29);
+            txtProductName.Size = new Size(675, 29);
             txtProductName.TabIndex = 18;
             // 
             // labelUomId
             // 
             labelUomId.AutoSize = true;
-            labelUomId.Location = new Point(205, 167);
+            labelUomId.Location = new Point(154, 167);
             labelUomId.Margin = new Padding(4, 0, 4, 0);
             labelUomId.Name = "labelUomId";
             labelUomId.Size = new Size(55, 24);
@@ -262,15 +262,15 @@
             // comboBoxUomId
             // 
             comboBoxUomId.FormattingEnabled = true;
-            comboBoxUomId.Location = new Point(205, 205);
+            comboBoxUomId.Location = new Point(154, 205);
             comboBoxUomId.Name = "comboBoxUomId";
-            comboBoxUomId.Size = new Size(183, 32);
+            comboBoxUomId.Size = new Size(195, 32);
             comboBoxUomId.TabIndex = 20;
             // 
             // labelCategoryId
             // 
             labelCategoryId.AutoSize = true;
-            labelCategoryId.Location = new Point(434, 167);
+            labelCategoryId.Location = new Point(368, 178);
             labelCategoryId.Margin = new Padding(4, 0, 4, 0);
             labelCategoryId.Name = "labelCategoryId";
             labelCategoryId.Size = new Size(90, 24);
@@ -280,15 +280,15 @@
             // comboBoxCategoryId
             // 
             comboBoxCategoryId.FormattingEnabled = true;
-            comboBoxCategoryId.Location = new Point(434, 205);
+            comboBoxCategoryId.Location = new Point(368, 205);
             comboBoxCategoryId.Name = "comboBoxCategoryId";
-            comboBoxCategoryId.Size = new Size(183, 32);
+            comboBoxCategoryId.Size = new Size(210, 32);
             comboBoxCategoryId.TabIndex = 21;
             // 
             // labelTaxCategoryId
             // 
             labelTaxCategoryId.AutoSize = true;
-            labelTaxCategoryId.Location = new Point(635, 167);
+            labelTaxCategoryId.Location = new Point(597, 167);
             labelTaxCategoryId.Margin = new Padding(4, 0, 4, 0);
             labelTaxCategoryId.Name = "labelTaxCategoryId";
             labelTaxCategoryId.Size = new Size(127, 24);
@@ -298,15 +298,15 @@
             // comboBoxTaxCategoryId
             // 
             comboBoxTaxCategoryId.FormattingEnabled = true;
-            comboBoxTaxCategoryId.Location = new Point(635, 205);
+            comboBoxTaxCategoryId.Location = new Point(597, 205);
             comboBoxTaxCategoryId.Name = "comboBoxTaxCategoryId";
-            comboBoxTaxCategoryId.Size = new Size(183, 32);
+            comboBoxTaxCategoryId.Size = new Size(231, 32);
             comboBoxTaxCategoryId.TabIndex = 23;
             // 
             // labelBarcode
             // 
             labelBarcode.AutoSize = true;
-            labelBarcode.Location = new Point(205, 249);
+            labelBarcode.Location = new Point(154, 249);
             labelBarcode.Margin = new Padding(4, 0, 4, 0);
             labelBarcode.Name = "labelBarcode";
             labelBarcode.Size = new Size(86, 24);
@@ -315,16 +315,16 @@
             // 
             // txtBarcode
             // 
-            txtBarcode.Location = new Point(205, 285);
+            txtBarcode.Location = new Point(154, 285);
             txtBarcode.Margin = new Padding(4, 3, 4, 3);
             txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(183, 29);
+            txtBarcode.Size = new Size(195, 29);
             txtBarcode.TabIndex = 25;
             // 
             // labelUnits
             // 
             labelUnits.AutoSize = true;
-            labelUnits.Location = new Point(434, 249);
+            labelUnits.Location = new Point(368, 249);
             labelUnits.Margin = new Padding(4, 0, 4, 0);
             labelUnits.Name = "labelUnits";
             labelUnits.Size = new Size(56, 24);
@@ -333,16 +333,16 @@
             // 
             // txtUnits
             // 
-            txtUnits.Location = new Point(434, 285);
+            txtUnits.Location = new Point(368, 285);
             txtUnits.Margin = new Padding(4, 3, 4, 3);
             txtUnits.Name = "txtUnits";
-            txtUnits.Size = new Size(183, 29);
+            txtUnits.Size = new Size(210, 29);
             txtUnits.TabIndex = 27;
             // 
             // labelPrice
             // 
             labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(635, 249);
+            labelPrice.Location = new Point(597, 249);
             labelPrice.Margin = new Padding(4, 0, 4, 0);
             labelPrice.Name = "labelPrice";
             labelPrice.Size = new Size(58, 24);
@@ -351,10 +351,10 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(635, 285);
+            txtPrice.Location = new Point(597, 285);
             txtPrice.Margin = new Padding(4, 3, 4, 3);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(183, 29);
+            txtPrice.Size = new Size(231, 29);
             txtPrice.TabIndex = 29;
             // 
             // ProductPageForm
