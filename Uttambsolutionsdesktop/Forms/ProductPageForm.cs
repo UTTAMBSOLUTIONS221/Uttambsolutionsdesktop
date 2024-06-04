@@ -67,19 +67,27 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
+
+
         public void PopulateUomComboBox(List<SystemUoms> uomData)
         {
             comboBoxUomId.DataSource = uomData;
+            comboBoxUomId.ValueMember = "UomId"; // Set the value member to the appropriate property name
+            comboBoxUomId.DisplayMember = "UomName"; // Set the display member to the appropriate property name
         }
 
-        public void PopulateCategoryComboBox(List<SystemCategory> categoryData)
+        public void PopulateCategoryComboBox(List<CategoryData> categoryData)
         {
             comboBoxCategoryId.DataSource = categoryData;
+            comboBoxCategoryId.ValueMember = "CategoryId"; // Set the value member to the appropriate property name
+            comboBoxCategoryId.DisplayMember = "CategoryName"; // Set the display member to the appropriate property name
         }
 
         public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
         {
             comboBoxTaxCategoryId.DataSource = taxCategoryData;
+            comboBoxTaxCategoryId.ValueMember = "TaxCategoryId"; // Set the value member to the appropriate property name
+            comboBoxTaxCategoryId.DisplayMember = "TaxCategoryName"; // Set the display member to the appropriate property name
         }
 
         public ProductPageForm(string userId)
