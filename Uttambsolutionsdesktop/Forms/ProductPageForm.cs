@@ -45,9 +45,10 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtProductName.Text = value; }
         }
 
-        public int UomId { get => Convert.ToInt32(comboBoxUomId.Text); set => comboBoxUomId.Text = value.ToString(); }
-        public int CategoryId { get => Convert.ToInt32(comboBoxCategoryId.Text); set => comboBoxCategoryId.Text = value.ToString(); }
-        public int TaxCategoryId { get => Convert.ToInt32(comboBoxTaxCategoryId.Text); set => comboBoxTaxCategoryId.Text = value.ToString(); }
+        public int UomId { get => Convert.ToInt32(comboBoxUomId.SelectedValue); set => comboBoxUomId.SelectedValue = value; }
+        public int CategoryId { get => Convert.ToInt32(comboBoxCategoryId.SelectedValue); set => comboBoxCategoryId.SelectedValue = value; }
+        public int TaxCategoryId { get => Convert.ToInt32(comboBoxTaxCategoryId.SelectedValue); set => comboBoxTaxCategoryId.SelectedValue = value; }
+
         public string? Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
         public decimal Units { get => Convert.ToDecimal(txtUnits.Text); set => txtUnits.Text = value.ToString(); }
         public decimal Price { get => Convert.ToDecimal(txtPrice.Text); set => txtPrice.Text = value.ToString(); }

@@ -36,60 +36,54 @@ namespace DBL.Repositories
             {
                 connection.Open();
 
-                if (entity.CategoryId > 0)
+                if (entity.ProductId > 0)
                 {
-                    // Update the category
+                    // Update the product
                     var result = connection.Execute(
-                        @"UPDATE Categories 
-                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
-                      DateModified = @DateModified 
-                  WHERE CategoryId = @CategoryId",
-                        new
-                        {
-                            entity.ModifiedBy,
-                            entity.DateModified,
-                            entity.ProductName,
-                            entity.CategoryId
-                        });
+                        @"UPDATE Products 
+                SET ProductName = @ProductName, 
+                    UomId = @UomId,
+                    CategoryId = @CategoryId,
+                    TaxCategoryId = @TaxCategoryId,
+                    Barcode = @Barcode,
+                    Units = @Units,
+                    Price = @Price,
+                    ModifiedBy = @ModifiedBy,
+                    DateModified = @DateModified 
+                WHERE ProductId = @ProductId",
+                        entity);
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Product Updated Successfully" };
                 }
                 else
                 {
-
-                    // Check if the category already exists
-                    var categoryExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
+                    // Check if the product name already exists
+                    var productExists = connection.ExecuteScalar<bool>(
+                        "SELECT COUNT(1) FROM Products WHERE ProductName = @ProductName",
                         new { ProductName = entity.ProductName });
 
-                    if (categoryExists)
+                    if (productExists)
                     {
-                        // Category already exists, return 0 (failure)
-                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                        // Product already exists, return 1 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Product Name Already Exists" };
                     }
 
-                    // Insert the category into the database
+                    // Insert the product into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
-                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
-                        new
-                        {
-                            entity.ProductName,
-                            entity.CreatedBy,
-                            entity.ModifiedBy,
-                            entity.DateCreated,
-                            entity.DateModified
-                        });
+                        @"INSERT INTO Products (ProductName, UomId, CategoryId, TaxCategoryId, Barcode, Units, Price, CreatedBy, ModifiedBy, DateCreated, DateModified) 
+                VALUES (@ProductName, @UomId, @CategoryId, @TaxCategoryId, @Barcode, @Units, @Price, @CreatedBy, @ModifiedBy, @DateCreated, @DateModified)",
+                        entity);
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Product Added Successfully" };
                 }
             }
         }
+
     }
 }
