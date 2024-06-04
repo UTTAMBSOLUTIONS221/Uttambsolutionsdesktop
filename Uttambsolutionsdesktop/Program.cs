@@ -220,6 +220,50 @@ namespace Uttambsolutionsdesktop
                     cmd.ExecuteNonQuery();
                 }
 
+                // Create TaxCategory Table
+                string createTaxCategoryTableQuery = "CREATE TABLE IF NOT EXISTS TaxCategory (" +
+                                                        "TaxCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                        "TaxCategoryName TEXT, " +
+                                                        "Createdby INTEGER, " +
+                                                        "Modifiedby INTEGER, " +
+                                                        "DateCreated DATETIME, " +
+                                                        "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createTaxCategoryTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Insert into TaxCategory Table
+                string insertTaxCategoryDataQuery = "INSERT INTO TaxCategory (TaxCategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                                    "VALUES ('Default Tax Category', 1, 1, DATETIME('now'), DATETIME('now'))";
+                using (SQLiteCommand cmd = new SQLiteCommand(insertTaxCategoryDataQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                // Create TaxCategoryValues Table
+                string createTaxCategoryValuesTableQuery = "CREATE TABLE IF NOT EXISTS TaxCategoryValues (" +
+                                                            "TaxCategoryValueId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                            "TaxCategoryId INTEGER, " +
+                                                            "TaxValue INTEGER DEFAULT 16, " +
+                                                            "Createdby INTEGER, " +
+                                                            "Modifiedby INTEGER, " +
+                                                            "DateCreated DATETIME, " +
+                                                            "DateModified DATETIME, " +
+                                                            "FOREIGN KEY (TaxCategoryId) REFERENCES TaxCategory(TaxCategoryId))";
+                using (SQLiteCommand cmd = new SQLiteCommand(createTaxCategoryValuesTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Insert Default Value into TaxCategoryValues Table
+                string insertDefaultTaxCategoryValueQuery = "INSERT INTO TaxCategoryValues (TaxCategoryId, TaxValue, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                                             "SELECT TaxCategoryId, 16, 1, 1, DATETIME('now'), DATETIME('now') FROM TaxCategory";
+                using (SQLiteCommand cmd = new SQLiteCommand(insertDefaultTaxCategoryValueQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+
 
 
 
