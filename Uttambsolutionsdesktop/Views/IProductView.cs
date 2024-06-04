@@ -21,7 +21,7 @@ namespace Uttambsolutionsdesktop.Views
         event EventHandler CancelEvent;
 
         //Methods
-        void SetProductListBindingSource(BindingSource categoryList);
+        void SetProductListBindingSource(BindingSource productList);
         void Show();
     }
 }

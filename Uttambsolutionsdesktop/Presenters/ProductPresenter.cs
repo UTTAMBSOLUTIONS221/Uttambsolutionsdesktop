@@ -16,7 +16,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly string _userId;
         private readonly BL _bl;
         private BindingSource productBindingSource;
-        private IEnumerable<CategoryData> categoryList;
+        private IEnumerable<CategoryData> productList;
 
         public ProductPresenter(IProductView view, string userId, string connectionString)
         {
@@ -26,24 +26,24 @@ namespace Uttambsolutionsdesktop.Presenters
             this.productBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
             //this._view.SearchEvent += SearchPet;
-            this._view.AddNewEvent += AddNewCategory;
-            this._view.EditEvent += LoadSelectedCategoryToEdit;
-            this._view.DeleteEvent += DeleteSelectedCategory;
-            this._view.SaveEvent += SaveCategory;
+            this._view.AddNewEvent += AddNewProduct;
+            this._view.EditEvent += LoadSelectedProductToEdit;
+            this._view.DeleteEvent += DeleteSelectedProduct;
+            this._view.SaveEvent += SaveProduct;
             //Set pets bindind source
             this._view.SetProductListBindingSource(productBindingSource);
             //Load pet list view
-            LoadAllCategoriesList();
+            LoadAllProductsList();
             //Show view
             this._view.Show();
 
 
         }
 
-        private async void LoadAllCategoriesList()
+        private async void LoadAllProductsList()
         {
-            categoryList = await _bl.GetAllCategories();
-            productBindingSource.DataSource = categoryList;//Set data source.
+            productList = await _bl.GetAllCategories();
+            productBindingSource.DataSource = productList;//Set data source.
         }
 
         //private void SearchPet(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace Uttambsolutionsdesktop.Presenters
         //    petsBindingSource.DataSource = petList;
         //}
 
-        private async void SaveCategory(object sender, EventArgs e)
+        private async void SaveProduct(object sender, EventArgs e)
         {
             Category categoryData = new Category();
             categoryData.CategoryId = _view.CategoryId;
@@ -80,16 +80,16 @@ namespace Uttambsolutionsdesktop.Presenters
             {
                 MessageBox.Show(resp.RespMessage);
             }
-            // Refresh the category list
-            LoadAllCategoriesList();
+            // Refresh the product list
+            LoadAllProductsList();
         }
-        private void DeleteSelectedCategory(object sender, EventArgs e)
+        private void DeleteSelectedProduct(object sender, EventArgs e)
         {
         }
-        private void LoadSelectedCategoryToEdit(object sender, EventArgs e)
+        private void LoadSelectedProductToEdit(object sender, EventArgs e)
         {
         }
-        private void AddNewCategory(object sender, EventArgs e)
+        private void AddNewProduct(object sender, EventArgs e)
         {
         }
     }

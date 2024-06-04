@@ -45,7 +45,7 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
 
-        public void SetCategoryListBindingSource(BindingSource categoryList)
+        public void SetProductListBindingSource(BindingSource categoryList)
         {
             dataGridView.DataSource = categoryList;
             // Ensure the hidden CategoryId column is added
