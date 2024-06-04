@@ -228,6 +228,7 @@
             txtProductId.Name = "txtProductId";
             txtProductId.Size = new Size(613, 29);
             txtProductId.TabIndex = 17;
+            txtProductId.Visible = false;
             // 
             // labelProductName
             // 

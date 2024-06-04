@@ -40,7 +40,7 @@ namespace DBL.Repositories
                 {
                     // Update the product
                     var result = connection.Execute(
-                        @"UPDATE Products 
+                        @"UPDATE Product 
                 SET ProductName = @ProductName, 
                     UomId = @UomId,
                     CategoryId = @CategoryId,
@@ -62,7 +62,7 @@ namespace DBL.Repositories
                 {
                     // Check if the product name already exists
                     var productExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Products WHERE ProductName = @ProductName",
+                        "SELECT COUNT(1) FROM Product WHERE ProductName = @ProductName",
                         new { ProductName = entity.ProductName });
 
                     if (productExists)
@@ -73,7 +73,7 @@ namespace DBL.Repositories
 
                     // Insert the product into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Products (ProductName, UomId, CategoryId, TaxCategoryId, Barcode, Units, Price, CreatedBy, ModifiedBy, DateCreated, DateModified) 
+                        @"INSERT INTO Product (ProductName, UomId, CategoryId, TaxCategoryId, Barcode, Units, Price, CreatedBy, ModifiedBy, DateCreated, DateModified) 
                 VALUES (@ProductName, @UomId, @CategoryId, @TaxCategoryId, @Barcode, @Units, @Price, @CreatedBy, @ModifiedBy, @DateCreated, @DateModified)",
                         entity);
 
