@@ -53,7 +53,7 @@ namespace Uttambsolutionsdesktop.Forms
             tabControl1.TabPages.Remove(tabPageCategoryDetail);
             btnClose.Click += delegate { this.ParentForm.Close(); };
             // Subscribe to the DataBindingComplete event
-            //dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
+            dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -68,6 +68,8 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddNew.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                CategoryId = 0; // Ensure CategoryId is set to 0 for new entries
                 tabControl1.TabPages.Remove(tabPageCategoryList);
                 tabControl1.TabPages.Add(tabPageCategoryDetail);
                 tabPageCategoryDetail.Text = "Add New Category";
@@ -103,6 +105,7 @@ namespace Uttambsolutionsdesktop.Forms
             btnCancel.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
                 tabControl1.TabPages.Remove(tabPageCategoryDetail);
                 tabControl1.TabPages.Add(tabPageCategoryList);
             };
@@ -114,6 +117,13 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["CategoryId"].Visible = false;
             }
+        }
+        
+        // Method to clear the detail fields
+        private void ClearDetailFields()
+        {
+            CategoryId = 0;
+            CategoryName = string.Empty;
         }
 
         // Optional method to show message boxes
