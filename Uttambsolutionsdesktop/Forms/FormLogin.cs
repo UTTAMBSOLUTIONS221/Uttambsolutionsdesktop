@@ -31,7 +31,8 @@ namespace Uttambsolutionsdesktop
 
             // Open the main form
             this.Hide();
-            FormMain fm = new FormMain(UserSession.Userid, UserSession.Username, UserSession.Permissions);
+            //Dashboard fm = new Dashboard(UserSession.Userid, UserSession.Username, UserSession.Permissions);
+            Dashboard fm = new Dashboard();
             fm.Show();
         }
 
