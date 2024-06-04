@@ -59,7 +59,7 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             SystemProduct productData = new SystemProduct();
             productData.CategoryId = _view.CategoryId;
-            productData.ProductName = _view.CategoryName;
+            productData.ProductName = _view.ProductName;
             productData.CreatedBy = Convert.ToInt32(_userId);
             productData.ModifiedBy = Convert.ToInt32(_userId);
             productData.DateCreated = DateTime.Now;

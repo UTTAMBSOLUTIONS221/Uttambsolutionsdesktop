@@ -30,7 +30,7 @@
             btnCancel = new Button();
             btnSave = new Button();
             label3 = new Label();
-            txtCategoryName = new TextBox();
+            txtProductName = new TextBox();
             txtCategoryId = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -164,7 +164,7 @@
             tabPageProductDetail.Controls.Add(btnCancel);
             tabPageProductDetail.Controls.Add(btnSave);
             tabPageProductDetail.Controls.Add(label3);
-            tabPageProductDetail.Controls.Add(txtCategoryName);
+            tabPageProductDetail.Controls.Add(txtProductName);
             tabPageProductDetail.Controls.Add(txtCategoryId);
             tabPageProductDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageProductDetail.Location = new Point(4, 24);
@@ -196,33 +196,70 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // txtProductId
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(63, 51);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(123, 20);
-            label3.TabIndex = 13;
-            label3.Text = "Category Name:";
+            txtProductId.Location = new Point(63, 20);
+            txtProductId.Margin = new Padding(4, 3, 4, 3);
+            txtProductId.Name = "txtProductId";
+            txtProductId.Size = new Size(100, 29);
+            txtProductId.TabIndex = 17;
+            txtProductId.Visible = false;
             // 
-            // txtCategoryName
+            // txtProductName
             // 
-            txtCategoryName.Location = new Point(63, 74);
-            txtCategoryName.Margin = new Padding(4, 3, 4, 3);
-            txtCategoryName.Name = "txtCategoryName";
-            txtCategoryName.Size = new Size(380, 29);
-            txtCategoryName.TabIndex = 12;
+            txtProductName.Location = new Point(63, 108);
+            txtProductName.Margin = new Padding(4, 3, 4, 3);
+            txtProductName.Name = "txtProductName";
+            txtProductName.Size = new Size(380, 29);
+            txtProductName.TabIndex = 18;
+            // 
+            // txtUomId
+            // 
+            txtUomId.Location = new Point(63, 152);
+            txtUomId.Margin = new Padding(4, 3, 4, 3);
+            txtUomId.Name = "txtUomId";
+            txtUomId.Size = new Size(100, 29);
+            txtUomId.TabIndex = 19;
             // 
             // txtCategoryId
             // 
-            txtCategoryId.Location = new Point(63, 20);
+            txtCategoryId.Location = new Point(63, 196);
             txtCategoryId.Margin = new Padding(4, 3, 4, 3);
             txtCategoryId.Name = "txtCategoryId";
             txtCategoryId.Size = new Size(100, 29);
-            txtCategoryId.TabIndex = 16;
-            txtCategoryId.Visible = false;
+            txtCategoryId.TabIndex = 20;
+            // 
+            // txtTaxCategoryId
+            // 
+            txtTaxCategoryId.Location = new Point(63, 240);
+            txtTaxCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtTaxCategoryId.Name = "txtTaxCategoryId";
+            txtTaxCategoryId.Size = new Size(100, 29);
+            txtTaxCategoryId.TabIndex = 21;
+            // 
+            // txtBarcode
+            // 
+            txtBarcode.Location = new Point(63, 284);
+            txtBarcode.Margin = new Padding(4, 3, 4, 3);
+            txtBarcode.Name = "txtBarcode";
+            txtBarcode.Size = new Size(380, 29);
+            txtBarcode.TabIndex = 22;
+            // 
+            // txtUnits
+            // 
+            txtUnits.Location = new Point(63, 328);
+            txtUnits.Margin = new Padding(4, 3, 4, 3);
+            txtUnits.Name = "txtUnits";
+            txtUnits.Size = new Size(100, 29);
+            txtUnits.TabIndex = 23;
+            // 
+            // txtPrice
+            // 
+            txtPrice.Location = new Point(63, 372);
+            txtPrice.Margin = new Padding(4, 3, 4, 3);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(100, 29);
+            txtPrice.TabIndex = 24;
             // 
             // ProductPageForm
             // 
@@ -243,22 +280,28 @@
             ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageProductList;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.TabPage tabPageProductDetail;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCategoryName;
-        private System.Windows.Forms.TextBox txtCategoryId; // Add this line 
+        private Label label1;
+        private Panel panel1;
+        private TabControl tabControl1;
+        private TabPage tabPageProductList;
+        private DataGridView dataGridView;
+        private Label label2;
+        private Button btnDelete;
+        private Button btnEdit;
+        private Button btnAddNew;
+        private Button btnSearch;
+        private TextBox txtSearch;
+        private TabPage tabPageProductDetail;
+        private Button btnCancel;
+        private Button btnSave;
+        private Label label3;
+        private TextBox txtCategoryId;
+        private TextBox txtProductId;
+        private TextBox txtProductName;
+        private TextBox txtUomId;
+        private TextBox txtTaxCategoryId;
+        private TextBox txtBarcode;
+        private TextBox txtUnits;
+        private TextBox txtPrice;
     }
 }

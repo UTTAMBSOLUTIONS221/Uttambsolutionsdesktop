@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Uttambsolutionsdesktop.Views
 {
-    public class IProductView
+    public interface IProductView
     {
         // Properties
         int ProductId { get; set; }

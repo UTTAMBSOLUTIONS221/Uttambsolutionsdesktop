@@ -83,7 +83,7 @@ namespace Uttambsolutionsdesktop.Forms
 
         private void BtnProductList_Click(object sender, EventArgs e)
         {
-            _presenter.HandleProductListButtonClicked();
+            _presenter.HandleProductListButtonClicked(contentWrapper);
         }
     }
 }

@@ -186,17 +186,19 @@ namespace Uttambsolutionsdesktop
                 {
                     cmd.ExecuteNonQuery();
                 }
-
-                //Insert data into UnitOfMeasure table
-                string insertUomDataQuery = "INSERT INTO UnitOfMeasure (UomName, UomSymbol) VALUES " +
+                if (!databaseExists)
+                {
+                    //Insert data into UnitOfMeasure table
+                    string insertUomDataQuery = "INSERT INTO UnitOfMeasure (UomName, UomSymbol) VALUES " +
                                                 "('Gram', 'G'), " +
                                                 "('Milligram', 'Mg'), " +
                                                 "('Kilogram', 'Kg'), " +
                                                 "('Litre', 'L'), " +
                                                 "('Millilitre', 'Ml')";
-                using (SQLiteCommand cmd = new SQLiteCommand(insertUomDataQuery, conn))
-                {
-                    cmd.ExecuteNonQuery();
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertUomDataQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 //Category Table
@@ -212,14 +214,17 @@ namespace Uttambsolutionsdesktop
                     cmd.ExecuteNonQuery();
                 }
 
-                //Insert into Category Table
-                string insertCategoryDataQuery = "INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
-                                    "VALUES ('Default Category', 1, 1, DATETIME('now'), DATETIME('now'))";
-                using (SQLiteCommand cmd = new SQLiteCommand(insertCategoryDataQuery, conn))
+                if (!databaseExists)
                 {
-                    cmd.ExecuteNonQuery();
-                }
+                    //Insert into Category Table
+                    string insertCategoryDataQuery = "INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                    "VALUES ('Default Category', 1, 1, DATETIME('now'), DATETIME('now'))";
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertCategoryDataQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
 
+                }
                 // Create TaxCategory Table
                 string createTaxCategoryTableQuery = "CREATE TABLE IF NOT EXISTS TaxCategory (" +
                                                         "TaxCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -233,12 +238,15 @@ namespace Uttambsolutionsdesktop
                     cmd.ExecuteNonQuery();
                 }
 
-                // Insert into TaxCategory Table
-                string insertTaxCategoryDataQuery = "INSERT INTO TaxCategory (TaxCategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
-                                                    "VALUES ('Default Tax Category', 1, 1, DATETIME('now'), DATETIME('now'))";
-                using (SQLiteCommand cmd = new SQLiteCommand(insertTaxCategoryDataQuery, conn))
+                if (!databaseExists)
                 {
-                    cmd.ExecuteNonQuery();
+                    // Insert into TaxCategory Table
+                    string insertTaxCategoryDataQuery = "INSERT INTO TaxCategory (TaxCategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                                    "VALUES ('Default Tax Category', 1, 1, DATETIME('now'), DATETIME('now'))";
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertTaxCategoryDataQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 // Create TaxCategoryValues Table
                 string createTaxCategoryValuesTableQuery = "CREATE TABLE IF NOT EXISTS TaxCategoryValues (" +
@@ -254,13 +262,15 @@ namespace Uttambsolutionsdesktop
                 {
                     cmd.ExecuteNonQuery();
                 }
-
-                // Insert Default Value into TaxCategoryValues Table
-                string insertDefaultTaxCategoryValueQuery = "INSERT INTO TaxCategoryValues (TaxCategoryId, TaxValue, Createdby, Modifiedby, DateCreated, DateModified) " +
-                                                             "SELECT TaxCategoryId, 16, 1, 1, DATETIME('now'), DATETIME('now') FROM TaxCategory";
-                using (SQLiteCommand cmd = new SQLiteCommand(insertDefaultTaxCategoryValueQuery, conn))
+                if (!databaseExists)
                 {
-                    cmd.ExecuteNonQuery();
+                    // Insert Default Value into TaxCategoryValues Table
+                    string insertDefaultTaxCategoryValueQuery = "INSERT INTO TaxCategoryValues (TaxCategoryId, TaxValue, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                                             "SELECT TaxCategoryId, 16, 1, 1, DATETIME('now'), DATETIME('now') FROM TaxCategory";
+                    using (SQLiteCommand cmd = new SQLiteCommand(insertDefaultTaxCategoryValueQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 // Create Product table

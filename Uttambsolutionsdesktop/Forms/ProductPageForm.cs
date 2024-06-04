@@ -38,12 +38,18 @@ namespace Uttambsolutionsdesktop.Forms
             get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }
             set { txtCategoryId.Text = value.ToString(); }
         }
-        public string CategoryName
+        public string ProductName
         {
-            get { return txtCategoryName.Text; }
-            set { txtCategoryName.Text = value; }
+            get { return txtProductName.Text; }
+            set { txtProductName.Text = value; }
         }
 
+        public int UomId { get =>Convert.ToInt32(txtUomId.Text); set => txtUomId.Text = value.ToString(); }
+        public int CategoryId { get => Convert.ToInt32(txtCategoryId.Text); set => txtCategoryId.Text = value.ToString(); }
+        public int TaxCategoryId { get => Convert.ToInt32(txtTaxCategoryId.Text); set => txtTaxCategoryId.Text = value.ToString(); }
+        public string? Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
+        public decimal Units { get => Convert.ToDecimal(txtUnits.Text); set => txtUnits.Text = value.ToString(); }
+        public decimal Price { get => Convert.ToDecimal(txtPrice.Text); set => txtPrice.Text = value.ToString(); }
 
         public void SetProductListBindingSource(BindingSource productList)
         {
@@ -99,10 +105,10 @@ namespace Uttambsolutionsdesktop.Forms
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
                     if (selectedRow.Cells["ProductId"].Value != null &&
-                        selectedRow.Cells["CategoryName"].Value != null)
+                        selectedRow.Cells["ProductName"].Value != null)
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
-                        CategoryName = selectedRow.Cells["CategoryName"].Value.ToString();
+                        ProductName = selectedRow.Cells["ProductName"].Value.ToString();
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageProductList);
@@ -150,7 +156,7 @@ namespace Uttambsolutionsdesktop.Forms
         private void ClearDetailFields()
         {
             ProductId = 0;
-            CategoryName = string.Empty;
+            ProductName = string.Empty;
         }
 
         // Optional method to show message boxes

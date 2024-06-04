@@ -55,9 +55,22 @@ namespace Uttambsolutionsdesktop.Presenters
             contentWrapper.Controls.Add(categoryPageForm);
         }
 
-        public void HandleProductListButtonClicked()
+        public void HandleProductListButtonClicked(Panel contentWrapper)
         {
-            // Handle product list button click event
+            // Create an instance of ProductPageForm
+            ProductPageForm productPageForm = new ProductPageForm(_userId);
+
+            // Set the size of the ProductPageForm
+            productPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
+
+            // Set the location of the ProductPageForm
+            productPageForm.Location = new Point(0, 0);
+
+            // Clear the contentWrapper panel
+            contentWrapper.Controls.Clear();
+
+            // Add the ProductPageForm to the contentWrapper panel
+            contentWrapper.Controls.Add(productPageForm);
         }
 
         private string GetGreeting()

@@ -22,11 +22,11 @@ namespace DBL.Repositories
                 connection.Open();
 
                 // Execute the query to fetch categories
-                var categoryQueryResult = connection.Query<SystemProductData>(
+                var productQueryResult = connection.Query<SystemProductData>(
                     @"SELECT CategoryId,CategoryName FROM Categories");
 
                 // Return the result
-                return categoryQueryResult;
+                return productQueryResult;
             }
         }
 
