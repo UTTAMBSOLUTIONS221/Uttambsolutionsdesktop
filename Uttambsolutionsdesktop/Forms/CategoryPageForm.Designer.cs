@@ -71,7 +71,7 @@
             btnClose.Size = new Size(34, 30);
             btnClose.TabIndex = 1;
             btnClose.Text = "X";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.UseVisualStyleBackColor = false;
             // 
             // tabControl1
             // 
