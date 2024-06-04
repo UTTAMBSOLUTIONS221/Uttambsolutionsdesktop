@@ -213,6 +213,14 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["TaxCategoryId"].Visible = false;
             }
+            if (dataGridView.Columns.Contains("Modifiedby"))
+            {
+                dataGridView.Columns["Modifiedby"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Datemodified"))
+            {
+                dataGridView.Columns["Datemodified"].Visible = false;
+            }
         }
 
         // Method to clear the detail fields
