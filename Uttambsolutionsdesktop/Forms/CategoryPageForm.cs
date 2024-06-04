@@ -64,8 +64,6 @@ namespace Uttambsolutionsdesktop.Forms
             tabControl1.TabPages.Remove(tabPageCategoryDetail);
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
-            // Subscribe to the SelectionChanged event
-            dataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -139,18 +137,6 @@ namespace Uttambsolutionsdesktop.Forms
             if (dataGridView.Columns.Contains("CategoryId"))
             {
                 dataGridView.Columns["CategoryId"].Visible = false;
-            }
-        }
-
-        private void DataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count > 0)
-            {
-                var selectedRow = dataGridView.SelectedRows[0];
-                if (selectedRow.Cells["CategoryId"].Value != null)
-                {
-                    CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
-                }
             }
         }
 
