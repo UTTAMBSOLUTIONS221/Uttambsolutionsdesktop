@@ -23,7 +23,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var productQueryResult = connection.Query<SystemProductData>(
-                    @"SELECT a.ProductId,a.ProductName,a.UomId,b.UomName,a.CategoryId,c.CategoryName,a.TaxCategoryId,d.TaxCategoryName,a.Barcode,a.Units,a.Price,a.Createdby,a.Modifiedby,a.Datecreated,a.Datemodified FROM Product a INNER JOIN UnitOfMeasure b ON a.UomId=b.UomId INNER JOIN Categories c ON a.CategoryId=c.CategoryId INNER JOIN TaxCategory d ON a.TaxCategoryId=d.TaxCategoryId");
+                    @"SELECT a.ProductId,a.ProductName,a.UomId,b.UomName,a.CategoryId,c.CategoryName,a.TaxCategoryId,d.TaxCategoryName,a.Barcode,a.Units,a.Price, e.FirstName || ' ' || e.LastName AS Createdby,f.FirstName || ' ' || f.LastName AS Modifiedby,a.Datecreated,a.Datemodified FROM Product a INNER JOIN UnitOfMeasure b ON a.UomId=b.UomId INNER JOIN Categories c ON a.CategoryId=c.CategoryId INNER JOIN TaxCategory d ON a.TaxCategoryId=d.TaxCategoryId INNER JOIN SystemStaffs e ON a.Createdby=e.Createdby INNER JOIN SystemStaffs f ON a.Modifiedby=f.Modifiedby");
 
                 // Return the result
                 return productQueryResult;
