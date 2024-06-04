@@ -42,6 +42,17 @@ namespace Uttambsolutionsdesktop.Forms
         public void SetCategoryListBindingSource(BindingSource categoryList)
         {
             dataGridView.DataSource = categoryList;
+            // Ensure the hidden CategoryId column is added
+            if (!dataGridView.Columns.Contains("CategoryId"))
+            {
+                dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "CategoryId",
+                    HeaderText = "CategoryId",
+                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Visible = false
+                });
+            }
         }
 
         public CategoryPageForm(string userId)
@@ -54,6 +65,8 @@ namespace Uttambsolutionsdesktop.Forms
             btnClose.Click += delegate { this.ParentForm.Close(); };
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
+            // Subscribe to the SelectionChanged event
+            dataGridView.SelectionChanged += DataGridView_SelectionChanged;
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -118,7 +131,19 @@ namespace Uttambsolutionsdesktop.Forms
                 dataGridView.Columns["CategoryId"].Visible = false;
             }
         }
-        
+
+        private void DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView.SelectedRows[0];
+                if (selectedRow.Cells["CategoryId"].Value != null)
+                {
+                    CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
+                }
+            }
+        }
+
         // Method to clear the detail fields
         private void ClearDetailFields()
         {

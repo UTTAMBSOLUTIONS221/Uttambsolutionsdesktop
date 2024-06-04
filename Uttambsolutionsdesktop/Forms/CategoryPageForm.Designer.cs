@@ -234,7 +234,7 @@
             txtCategoryId.Name = "txtCategoryId";
             txtCategoryId.Size = new Size(100, 29);
             txtCategoryId.TabIndex = 16;
-            txtCategoryId.Visible = true;
+            txtCategoryId.Visible = false;
             // 
             // CategoryPageForm
             // 
