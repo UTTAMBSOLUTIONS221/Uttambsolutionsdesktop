@@ -113,5 +113,31 @@ namespace DBL
             });
         }
         #endregion
+        #region Produccts
+        public Task<IEnumerable<SystemProductData>> GetAllProducts()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.GetAllProducts();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<SystemProductData>> GetAllProducts(string SearchValue)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.GetAllProducts();
+                return Resp;
+            });
+        }
+        public Task<Genericmodel> SaveProduct(SystemProduct obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.SaveProduct(obj);
+                return Resp;
+            });
+        }
+        #endregion
     }
 }

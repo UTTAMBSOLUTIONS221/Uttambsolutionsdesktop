@@ -9,6 +9,7 @@ namespace DBL.UOW
 
         private ISecurityRepository securityRepository;
         private ICategoryRepository categoryRepository;
+        private IProductRepository productRepository;
 
         public UnitOfWork(string connectionString) => connString = connectionString;
 
@@ -20,12 +21,17 @@ namespace DBL.UOW
         {
             get { return categoryRepository ?? (categoryRepository = new CategoryRepository(connString)); }
         }
+        public IProductRepository ProductRepository
+        {
+            get { return productRepository ?? (productRepository = new ProductRepository(connString)); }
+        }
 
 
         public void Reset()
         {
             securityRepository = null;
             categoryRepository = null;
+            productRepository = null;
         }
 
         public void Dispose()

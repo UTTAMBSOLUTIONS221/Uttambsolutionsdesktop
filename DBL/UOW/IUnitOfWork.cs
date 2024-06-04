@@ -11,6 +11,7 @@ namespace DBL.UOW
     {
         ISecurityRepository SecurityRepository { get; }
         ICategoryRepository CategoryRepository { get; }
+        IProductRepository ProductRepository { get; }
         //ISalesTransactionRepository SalesTransactionRepository { get; }
         //IDashboardRepository DashboardRepository { get; }
         //IGeneralRepository GeneralRepository { get; }

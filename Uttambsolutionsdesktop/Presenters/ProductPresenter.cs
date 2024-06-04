@@ -66,7 +66,7 @@ namespace Uttambsolutionsdesktop.Presenters
             productData.DateModified = DateTime.Now;
 
             // Call the BL method to save the category
-            var resp = await _bl.SaveProductData(productData);
+            var resp = await _bl.SaveProduct(productData);
             // Handle the response accordingly
             if (resp.RespStatus == 0)
             {
