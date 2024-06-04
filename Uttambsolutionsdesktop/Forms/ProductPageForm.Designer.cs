@@ -30,8 +30,14 @@
             btnCancel = new Button();
             btnSave = new Button();
             label3 = new Label();
+            txtProductId = new TextBox();
             txtProductName = new TextBox();
+            txtUomId = new TextBox();
             txtCategoryId = new TextBox();
+            txtTaxCategoryId = new TextBox();
+            txtBarcode = new TextBox();
+            txtUnits = new TextBox();
+            txtPrice = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageProductList.SuspendLayout();
