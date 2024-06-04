@@ -13,11 +13,13 @@
         private System.Windows.Forms.Panel panelProductManagementSubmenu;
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnCategoryList;
+        private System.Windows.Forms.Button btnSalesList;
 
         private void InitializeComponent()
         {
             panelMenu = new Panel();
             panelProductManagementSubmenu = new Panel();
+            btnSalesList = new Button();
             btnCategoryList = new Button();
             btnProductList = new Button();
             btnProductManagement = new Button();
@@ -57,6 +59,20 @@
             panelProductManagementSubmenu.Size = new Size(233, 104);
             panelProductManagementSubmenu.TabIndex = 0;
             panelProductManagementSubmenu.Visible = false;
+            // 
+            // btnSalesList
+            // 
+            btnSalesList.Dock = DockStyle.Top;
+            btnSalesList.FlatAppearance.BorderSize = 0;
+            btnSalesList.FlatStyle = FlatStyle.Flat;
+            btnSalesList.ForeColor = Color.Gainsboro;
+            btnSalesList.Location = new Point(0, 256);
+            btnSalesList.Margin = new Padding(4, 3, 4, 3);
+            btnSalesList.Name = "btnSalesList";
+            btnSalesList.Size = new Size(233, 52);
+            btnSalesList.TabIndex = 2;
+            btnSalesList.Text = "Sales List"; // Set the text for Sales List button
+            btnSalesList.Click += BtnSalesList_Click;
             // 
             // btnCategoryList
             // 
