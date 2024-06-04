@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Data.SQLite;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Uttambsolutionsdesktop
 {
@@ -175,7 +177,28 @@ namespace Uttambsolutionsdesktop
                         cmd.ExecuteNonQuery();
                     }
                 }
-               
+                //Create UnitOfMeasure table
+                string createUomTableQuery = "CREATE TABLE IF NOT EXISTS UnitOfMeasure (" +
+                                                "Uomid INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                "UomName TEXT, " +
+                                                "UomSymbol TEXT)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createUomTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Insert data into UnitOfMeasure table
+                string insertUomDataQuery = "INSERT INTO UnitOfMeasure (UomName, UomSymbol) VALUES " +
+                                                "('Gram', 'G'), " +
+                                                "('Milligram', 'Mg'), " +
+                                                "('Kilogram', 'Kg'), " +
+                                                "('Litre', 'L'), " +
+                                                "('Millilitre', 'Ml')";
+                using (SQLiteCommand cmd = new SQLiteCommand(insertUomDataQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
                 //Category Table
                 string createCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS Categories (" +
                                                        "CategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -188,6 +211,17 @@ namespace Uttambsolutionsdesktop
                 {
                     cmd.ExecuteNonQuery();
                 }
+
+                //Insert into Category Table
+                string insertCategoryDataQuery = "INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
+                                    "VALUES ('Default Category', 1, 1, DATETIME('now'), DATETIME('now'))";
+                using (SQLiteCommand cmd = new SQLiteCommand(insertCategoryDataQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+
+
 
 
 
