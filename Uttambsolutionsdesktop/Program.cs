@@ -271,7 +271,7 @@ namespace Uttambsolutionsdesktop
                                                   "CategoryId INTEGER, " +
                                                   "TaxCategoryId INTEGER, " +
                                                   "Barcode TEXT, " +
-                                                  "Units INTEGER, " +
+                                                  "Units REAL, " +
                                                   "Price REAL, " +
                                                   "Createdby INTEGER, " +
                                                   "Modifiedby INTEGER, " +

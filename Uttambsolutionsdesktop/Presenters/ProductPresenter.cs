@@ -16,7 +16,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly string _userId;
         private readonly BL _bl;
         private BindingSource productBindingSource;
-        private IEnumerable<CategoryData> productList;
+        private IEnumerable<SystemProductData> productList;
 
         public ProductPresenter(IProductView view, string userId, string connectionString)
         {
@@ -57,16 +57,16 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private async void SaveProduct(object sender, EventArgs e)
         {
-            Category categoryData = new Category();
-            categoryData.CategoryId = _view.CategoryId;
-            categoryData.CategoryName = _view.CategoryName;
-            categoryData.Createdby = Convert.ToInt32(_userId);
-            categoryData.Modifiedby = Convert.ToInt32(_userId);
-            categoryData.DateCreated = DateTime.Now;
-            categoryData.DateModified = DateTime.Now;
+            SystemProduct productData = new SystemProduct();
+            productData.CategoryId = _view.CategoryId;
+            productData.ProductName = _view.CategoryName;
+            productData.CreatedBy = Convert.ToInt32(_userId);
+            productData.ModifiedBy = Convert.ToInt32(_userId);
+            productData.DateCreated = DateTime.Now;
+            productData.DateModified = DateTime.Now;
 
             // Call the BL method to save the category
-            var resp = await _bl.SaveCategory(categoryData);
+            var resp = await _bl.SaveProductData(productData);
             // Handle the response accordingly
             if (resp.RespStatus == 0)
             {

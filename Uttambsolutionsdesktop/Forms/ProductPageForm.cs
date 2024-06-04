@@ -33,7 +33,7 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtSearch.Text = value; }
         }
 
-        public int CategoryId
+        public int ProductId
         {
             get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }
             set { txtCategoryId.Text = value.ToString(); }
@@ -45,17 +45,17 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
 
-        public void SetProductListBindingSource(BindingSource categoryList)
+        public void SetProductListBindingSource(BindingSource productList)
         {
-            dataGridView.DataSource = categoryList;
+            dataGridView.DataSource = productList;
             // Ensure the hidden CategoryId column is added
-            if (!dataGridView.Columns.Contains("CategoryId"))
+            if (!dataGridView.Columns.Contains("ProductId"))
             {
                 dataGridView.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "CategoryId",
-                    HeaderText = "CategoryId",
-                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Name = "ProductId",
+                    HeaderText = "ProductId",
+                    DataPropertyName = "ProductId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
@@ -85,7 +85,7 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
-                CategoryId = 0; // Ensure CategoryId is set to 0 for new entries
+                ProductId = 0; // Ensure CategoryId is set to 0 for new entries
                 tabControl1.TabPages.Remove(tabPageProductList);
                 tabControl1.TabPages.Add(tabPageProductDetail);
                 tabPageProductDetail.Text = "Add New Product";
@@ -98,10 +98,10 @@ namespace Uttambsolutionsdesktop.Forms
                 {
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
-                    if (selectedRow.Cells["CategoryId"].Value != null &&
+                    if (selectedRow.Cells["ProductId"].Value != null &&
                         selectedRow.Cells["CategoryName"].Value != null)
                     {
-                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
+                        ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         CategoryName = selectedRow.Cells["CategoryName"].Value.ToString();
                     }
                 }
@@ -149,7 +149,7 @@ namespace Uttambsolutionsdesktop.Forms
         // Method to clear the detail fields
         private void ClearDetailFields()
         {
-            CategoryId = 0;
+            ProductId = 0;
             CategoryName = string.Empty;
         }
 
