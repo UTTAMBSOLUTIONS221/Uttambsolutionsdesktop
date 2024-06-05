@@ -51,7 +51,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var categoryThirdQueryResult = connection.Query<ThirdCategory>(
-                    @"SELECT ThirdCategoryId,ThirdCategoryName,a.FirstCategoryId,FirstCategoryName,DateCreated FROM ThirdCategory a INNER JOIN FirstCategory b ON a.FirstCategoryId=b.FirstCategoryId");
+                    @"SELECT ThirdCategoryId,ThirdCategoryName,a.FirstCategoryId,FirstCategoryName,a.DateCreated FROM ThirdCategory a INNER JOIN FirstCategory b ON a.FirstCategoryId=b.FirstCategoryId");
 
                 // Return the result
                 return categoryThirdQueryResult;
