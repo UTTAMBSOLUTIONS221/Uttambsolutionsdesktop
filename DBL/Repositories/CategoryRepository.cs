@@ -126,6 +126,15 @@ namespace DBL.Repositories
 
         public Genericmodel SaveFirstCategory(FirstCategory entity)
         {
+            if (string.IsNullOrWhiteSpace(entity.FirstCategoryName))
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "FirstCategoryName cannot be null or empty" };
+            }
+
+            if (entity.MainCategoryId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "MainCategoryId must be greater than 0" };
+            }
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
@@ -186,6 +195,15 @@ namespace DBL.Repositories
         }
         public Genericmodel SaveThirdCategory(ThirdCategory entity)
         {
+            if (string.IsNullOrWhiteSpace(entity.ThirdCategoryName))
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "ThirdCategoryName cannot be null or empty" };
+            }
+
+            if (entity.FirstCategoryId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "FirstCategoryId must be greater than 0" };
+            }
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
