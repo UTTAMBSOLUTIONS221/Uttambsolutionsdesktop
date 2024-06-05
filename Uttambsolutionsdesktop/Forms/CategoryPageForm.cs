@@ -44,9 +44,9 @@ namespace Uttambsolutionsdesktop.Forms
             _presenter = new CategoryPresenter(this, userId, DatabaseManager.ConnectionString);
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPageCategoryDetail);
-            dataGridViewMain.DataBindingComplete += DataGridView_DataBindingComplete;
-            dataGridViewFirst.DataBindingComplete += DataGridView_DataBindingComplete;
-            dataGridViewThird.DataBindingComplete += DataGridView_DataBindingComplete;
+            dataGridViewMain.DataBindingComplete += DataGridView_MainDataBindingComplete;
+            dataGridViewFirst.DataBindingComplete += DataGridView_FirstDataBindingComplete;
+            dataGridViewThird.DataBindingComplete += DataGridView_ThirdDataBindingComplete;
         }
 
         // Methods
@@ -68,13 +68,33 @@ namespace Uttambsolutionsdesktop.Forms
             btnCancel.Click += (sender, e) => CancelEvent?.Invoke(this, EventArgs.Empty);
         }
 
-        private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void DataGridView_MainDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             if (sender is DataGridView dataGridView)
             {
-                if (dataGridView.Columns.Contains("CategoryId"))
+                if (dataGridView.Columns.Contains("MainCategoryId"))
                 {
-                    dataGridView.Columns["CategoryId"].Visible = false;
+                    dataGridView.Columns["MainCategoryId"].Visible = false;
+                }
+            }
+        }
+        private void DataGridView_FirstDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (sender is DataGridView dataGridView)
+            {
+                if (dataGridView.Columns.Contains("FirstCategoryId"))
+                {
+                    dataGridView.Columns["FirstCategoryId"].Visible = false;
+                }
+            }
+        }
+        private void DataGridView_ThirdDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (sender is DataGridView dataGridView)
+            {
+                if (dataGridView.Columns.Contains("ThirdCategoryId"))
+                {
+                    dataGridView.Columns["ThirdCategoryId"].Visible = false;
                 }
             }
         }
@@ -85,13 +105,13 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewMain.DataSource = categoryList;
 
             // Ensure the hidden CategoryId column is added
-            if (!dataGridViewMain.Columns.Contains("CategoryId"))
+            if (!dataGridViewMain.Columns.Contains("MainCategoryId"))
             {
                 dataGridViewMain.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "CategoryId",
-                    HeaderText = "CategoryId",
-                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Name = "MainCategoryId",
+                    HeaderText = "MainCategoryId",
+                    DataPropertyName = "MainCategoryId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
@@ -100,13 +120,13 @@ namespace Uttambsolutionsdesktop.Forms
         {
             dataGridViewFirst.DataSource = categoryList;
 
-            if (!dataGridViewFirst.Columns.Contains("CategoryId"))
+            if (!dataGridViewFirst.Columns.Contains("FirstCategoryId"))
             {
                 dataGridViewFirst.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "CategoryId",
-                    HeaderText = "CategoryId",
-                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Name = "FirstCategoryId",
+                    HeaderText = "FirstCategoryId",
+                    DataPropertyName = "FirstCategoryId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
@@ -116,13 +136,13 @@ namespace Uttambsolutionsdesktop.Forms
         {
             dataGridViewThird.DataSource = categoryList;
 
-            if (!dataGridViewThird.Columns.Contains("CategoryId"))
+            if (!dataGridViewThird.Columns.Contains("ThirdCategoryId"))
             {
                 dataGridViewThird.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "CategoryId",
-                    HeaderText = "CategoryId",
-                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Name = "ThirdCategoryId",
+                    HeaderText = "ThirdCategoryId",
+                    DataPropertyName = "ThirdCategoryId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
