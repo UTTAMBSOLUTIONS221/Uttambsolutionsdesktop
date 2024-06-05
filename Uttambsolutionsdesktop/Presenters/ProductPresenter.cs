@@ -46,7 +46,7 @@ namespace Uttambsolutionsdesktop.Presenters
 
         public async Task<List<CategoryData>> GetCategoryData()
         {
-            return (List<CategoryData>)await _bl.GetAllCategories();
+            return (List<CategoryData>)await _bl.GetAllThirdCategories();
         }
 
         public async Task<List<SystemTaxCategory>> GetTaxCategoryData()

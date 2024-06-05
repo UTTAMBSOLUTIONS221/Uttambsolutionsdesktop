@@ -164,14 +164,7 @@ namespace DBL
                 return Resp;
             });
         }
-        public Task<IEnumerable<CategoryData>> GetCategoriesByValue(string SearchValue)
-        {
-            return Task.Run(() =>
-            {
-                var Resp = db.CategoryRepository.GetAllCategories();
-                return Resp;
-            });
-        }
+       
         public Task<Genericmodel> SaveCategory(Category obj)
         {
             return Task.Run(() =>

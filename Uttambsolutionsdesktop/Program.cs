@@ -246,17 +246,19 @@ namespace Uttambsolutionsdesktop
                     cmd.ExecuteNonQuery();
                 }
 
-                if (!databaseExists)
-                {
-                    //Insert into Category Table
-                    string insertCategoryDataQuery = "INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
-                                    "VALUES ('Default Category', 1, 1, DATETIME('now'), DATETIME('now'))";
-                    using (SQLiteCommand cmd = new SQLiteCommand(insertCategoryDataQuery, conn))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                //if (!databaseExists)
+                //{
+                //    //Insert into Category Table
+                //    string insertCategoryDataQuery = "INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) " +
+                //                    "VALUES ('Default Category', 1, 1, DATETIME('now'), DATETIME('now'))";
+                //    using (SQLiteCommand cmd = new SQLiteCommand(insertCategoryDataQuery, conn))
+                //    {
+                //        cmd.ExecuteNonQuery();
+                //    }
 
-                }
+                //}
+
+
                 // Create TaxCategory Table
                 string createTaxCategoryTableQuery = "CREATE TABLE IF NOT EXISTS TaxCategory (" +
                                                         "TaxCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
