@@ -63,6 +63,21 @@ namespace DBL.Repositories
                 return resp;
             }
         }
+
+        public IEnumerable<SystemRole> GetAllSystemRoles()
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch all system staff records
+                var systemRoleQueryResult = connection.Query<SystemRole>(
+                    @"SELECT RoleId,RoleName FROM Roles");
+
+                // Return the result
+                return systemRoleQueryResult;
+            }
+        }
         public IEnumerable<string> GetPermissionsForUser(long RoleId)
         {
             using (var connection = new SQLiteConnection(_connString))

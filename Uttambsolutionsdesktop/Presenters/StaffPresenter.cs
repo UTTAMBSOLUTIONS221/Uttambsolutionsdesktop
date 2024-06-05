@@ -100,6 +100,10 @@ namespace Uttambsolutionsdesktop.Presenters
             // Refresh the staff list
             LoadAllStaffList();
         }
+        public async Task<List<SystemRole>> GetRoleData()
+        {
+            return (List<SystemRole>)await _bl.GetAllSystemRoles(); ;
+        }
         private void DeleteSelectedStaff(object sender, EventArgs e)
         {
         }

@@ -63,12 +63,7 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtEmailaddress.Text; }
             set { txtEmailaddress.Text = value; }
         }
-
-        public int Roleid
-        {
-            get { return int.TryParse(txtRoleid.Text, out int id) ? id : 0; }
-            set { txtRoleid.Text = value.ToString(); }
-        }
+        public int Roleid { get => Convert.ToInt32(comboBoxRoleId.SelectedValue); set => comboBoxRoleId.SelectedValue = value; }
 
         public void SetStaffListBindingSource(BindingSource staffList)
         {
@@ -85,6 +80,12 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
+        public void PopulateRoleComboBox(List<SystemRole> roleData)
+        {
+            comboBoxRoleId.DataSource = roleData;
+            comboBoxRoleId.ValueMember = "RoleId"; // Set the value member to the appropriate property name
+            comboBoxRoleId.DisplayMember = "RoleName"; // Set the display member to the appropriate property name
+        }
 
         public SystemStaffForm(string userId)
         {
@@ -95,8 +96,17 @@ namespace Uttambsolutionsdesktop.Forms
             tabControl1.TabPages.Remove(tabPageStaffDetail);
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
+            // Populate comboboxes
+            PopulateComboboxes();
         }
+        private async void PopulateComboboxes()
+        {
+            // Call presenter methods to retrieve combobox data
+            var roleData = await _presenter.GetRoleData();
 
+            // Populate comboboxes with data
+            PopulateRoleComboBox(roleData);
+        }
         private void AssociateAndRaiseViewEvents()
         {
             btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };

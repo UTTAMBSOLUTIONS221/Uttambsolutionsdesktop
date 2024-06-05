@@ -39,7 +39,7 @@
             labelEmailaddress = new Label();
             txtEmailaddress = new TextBox();
             labelRoleid = new Label();
-            txtRoleid = new TextBox();
+            comboBoxRoleId = new ComboBox();
             txtUserId = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -174,7 +174,7 @@
             tabPageStaffDetail.Controls.Add(labelEmailaddress);
             tabPageStaffDetail.Controls.Add(txtEmailaddress);
             tabPageStaffDetail.Controls.Add(labelRoleid);
-            tabPageStaffDetail.Controls.Add(txtRoleid);
+            tabPageStaffDetail.Controls.Add(comboBoxRoleId);
             tabPageStaffDetail.Location = new Point(4, 24);
             tabPageStaffDetail.Margin = new Padding(4, 3, 4, 3);
             tabPageStaffDetail.Name = "tabPageStaffDetail";
@@ -306,11 +306,11 @@
             // 
             // txtRoleid
             // 
-            txtRoleid.Location = new Point(281, 225);
-            txtRoleid.Margin = new Padding(4, 3, 4, 3);
-            txtRoleid.Name = "txtRoleid";
-            txtRoleid.Size = new Size(314, 24);
-            txtRoleid.TabIndex = 11;
+            comboBoxRoleId.FormattingEnabled = true;
+            comboBoxRoleId.Location = new Point(368, 205);
+            comboBoxRoleId.Name = "comboBoxRoleId";
+            comboBoxRoleId.Size = new Size(210, 32);
+            comboBoxRoleId.TabIndex = 21;
             // 
             // txtUserId
             // 
@@ -366,6 +366,6 @@
         private Label labelEmailaddress;
         private TextBox txtEmailaddress;
         private Label labelRoleid;
-        private TextBox txtRoleid;
+        private ComboBox comboBoxRoleId;
     }
 }

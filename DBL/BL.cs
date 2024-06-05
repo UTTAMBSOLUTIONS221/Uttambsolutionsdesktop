@@ -76,6 +76,17 @@ namespace DBL
         }
         #endregion
 
+        #region System Roles
+        public Task<IEnumerable<SystemRole>> GetAllSystemRoles()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.GetAllSystemRoles();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region User Role Permissions
         public Task<IEnumerable<string>> GetPermissionsForUser(long RoleId)
         {
