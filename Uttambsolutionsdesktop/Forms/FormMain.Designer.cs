@@ -155,7 +155,7 @@
             btnStaffsList.Size = new Size(131, 38);
             btnStaffsList.TabIndex = 0;
             btnStaffsList.Text = "Staffs List";
-            btnStaffsList.Click += BtnCategoryList_Click;
+            btnStaffsList.Click += BtnStaffList_Click;
             // 
             // btnSettings
             // 

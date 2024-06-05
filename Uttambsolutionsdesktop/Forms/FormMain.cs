@@ -71,6 +71,11 @@ namespace Uttambsolutionsdesktop.Forms
             _presenter.HandleSettingsButtonClicked();
         }
 
+        private void BtnStaffList_Click(object sender, EventArgs e)
+        {
+            _presenter.HandleStaffButtonClicked(contentWrapper);
+        }
+
         private void BtnProductManagement_Click(object sender, EventArgs e)
         {
             _presenter.HandleProductManagementButtonClicked();

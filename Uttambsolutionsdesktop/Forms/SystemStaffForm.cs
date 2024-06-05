@@ -1,12 +1,6 @@
 ﻿using DBL.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Uttambsolutionsdesktop.Program;
 using Uttambsolutionsdesktop.Presenters;
@@ -19,7 +13,7 @@ namespace Uttambsolutionsdesktop.Forms
         private StaffPresenter _presenter;
         private readonly string _userId;
 
-        //Events
+        // Events
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
@@ -27,68 +21,69 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        //Properties
+        // Properties
         public string SearchValue
         {
             get { return txtSearch.Text; }
             set { txtSearch.Text = value; }
         }
 
-        public int ProductId
+        public int Userid
         {
-            get { return int.TryParse(txtProductId.Text, out int id) ? id : 0; }
-            set { txtProductId.Text = value.ToString(); }
-        }
-        public string ProductName
-        {
-            get { return txtProductName.Text; }
-            set { txtProductName.Text = value; }
+            get { return int.TryParse(txtUserId.Text, out int id) ? id : 0; }
+            set { txtUserId.Text = value.ToString(); }
         }
 
-        public int UomId { get => Convert.ToInt32(comboBoxUomId.SelectedValue); set => comboBoxUomId.SelectedValue = value; }
-        public int CategoryId { get => Convert.ToInt32(comboBoxCategoryId.SelectedValue); set => comboBoxCategoryId.SelectedValue = value; }
-        public int TaxCategoryId { get => Convert.ToInt32(comboBoxTaxCategoryId.SelectedValue); set => comboBoxTaxCategoryId.SelectedValue = value; }
+        public string FirstName
+        {
+            get { return txtFirstName.Text; }
+            set { txtFirstName.Text = value; }
+        }
 
-        public string? Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
-        public decimal Units { get => Convert.ToDecimal(txtUnits.Text); set => txtUnits.Text = value.ToString(); }
-        public decimal Price { get => Convert.ToDecimal(txtPrice.Text); set => txtPrice.Text = value.ToString(); }
+        public string LastName
+        {
+            get { return txtLastName.Text; }
+            set { txtLastName.Text = value; }
+        }
+
+        public string Phonenumber
+        {
+            get { return txtPhonenumber.Text; }
+            set { txtPhonenumber.Text = value; }
+        }
+
+        public string Username
+        {
+            get { return txtUsername.Text; }
+            set { txtUsername.Text = value; }
+        }
+
+        public string Emailaddress
+        {
+            get { return txtEmailaddress.Text; }
+            set { txtEmailaddress.Text = value; }
+        }
+
+        public int Roleid
+        {
+            get { return int.TryParse(txtRoleid.Text, out int id) ? id : 0; }
+            set { txtRoleid.Text = value.ToString(); }
+        }
 
         public void SetStaffListBindingSource(BindingSource staffList)
         {
             dataGridView.DataSource = staffList;
-            // Ensure the hidden CategoryId column is added
-            if (!dataGridView.Columns.Contains("ProductId"))
+            // Ensure the hidden UserId column is added
+            if (!dataGridView.Columns.Contains("UserId"))
             {
                 dataGridView.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "ProductId",
-                    HeaderText = "ProductId",
-                    DataPropertyName = "ProductId", // Ensure this matches the property name in the data source
+                    Name = "UserId",
+                    HeaderText = "UserId",
+                    DataPropertyName = "UserId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
-        }
-
-
-        public void PopulateUomComboBox(List<SystemUoms> uomData)
-        {
-            comboBoxUomId.DataSource = uomData;
-            comboBoxUomId.ValueMember = "UomId"; // Set the value member to the appropriate property name
-            comboBoxUomId.DisplayMember = "UomName"; // Set the display member to the appropriate property name
-        }
-
-        public void PopulateRoleComboBox(List<CategoryData> categoryData)
-        {
-            comboBoxCategoryId.DataSource = categoryData;
-            comboBoxCategoryId.ValueMember = "CategoryId"; // Set the value member to the appropriate property name
-            comboBoxCategoryId.DisplayMember = "CategoryName"; // Set the display member to the appropriate property name
-        }
-
-        public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
-        {
-            comboBoxTaxCategoryId.DataSource = taxCategoryData;
-            comboBoxTaxCategoryId.ValueMember = "TaxCategoryId"; // Set the value member to the appropriate property name
-            comboBoxTaxCategoryId.DisplayMember = "TaxCategoryName"; // Set the display member to the appropriate property name
         }
 
         public SystemStaffForm(string userId)
@@ -101,6 +96,7 @@ namespace Uttambsolutionsdesktop.Forms
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
         }
+
         private void AssociateAndRaiseViewEvents()
         {
             btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
@@ -114,10 +110,10 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
-                ProductId = 0; // Ensure CategoryId is set to 0 for new entries
+                UserId = 0; // Ensure UserId is set to 0 for new entries
                 tabControl1.TabPages.Remove(tabPageStaffList);
                 tabControl1.TabPages.Add(tabPageStaffDetail);
-                tabPageStaffDetail.Text = "Add New Product";
+                tabPageStaffDetail.Text = "Add New Staff";
             };
 
             btnEdit.Click += delegate
@@ -127,30 +123,27 @@ namespace Uttambsolutionsdesktop.Forms
                 {
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
-                    if (selectedRow.Cells["ProductId"].Value != null &&
-                        selectedRow.Cells["ProductName"].Value != null &&
-                        selectedRow.Cells["UomId"].Value != null &&
-                        selectedRow.Cells["CategoryId"].Value != null &&
-                        selectedRow.Cells["TaxCategoryId"].Value != null &&
-                        selectedRow.Cells["Barcode"].Value != null &&
-                        selectedRow.Cells["Units"].Value != null &&
-                        selectedRow.Cells["Price"].Value != null)
+                    if (selectedRow.Cells["UserId"].Value != null &&
+                        selectedRow.Cells["FirstName"].Value != null &&
+                        selectedRow.Cells["LastName"].Value != null &&
+                        selectedRow.Cells["Phonenumber"].Value != null &&
+                        selectedRow.Cells["Username"].Value != null &&
+                        selectedRow.Cells["Emailaddress"].Value != null &&
+                        selectedRow.Cells["RoleId"].Value != null)
                     {
-                        ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
-                        ProductName = selectedRow.Cells["ProductName"].Value.ToString();
-                        UomId = Convert.ToInt32(selectedRow.Cells["UomId"].Value);
-                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
-                        TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
-                        Barcode = selectedRow.Cells["Barcode"].Value.ToString();
-                        Units = Convert.ToDecimal(selectedRow.Cells["Units"].Value);
-                        Price = Convert.ToDecimal(selectedRow.Cells["Price"].Value);
+                        UserId = Convert.ToInt32(selectedRow.Cells["UserId"].Value);
+                        FirstName = selectedRow.Cells["FirstName"].Value.ToString();
+                        LastName = selectedRow.Cells["LastName"].Value.ToString();
+                        Phonenumber = selectedRow.Cells["Phonenumber"].Value.ToString();
+                        Username = selectedRow.Cells["Username"].Value.ToString();
+                        Emailaddress = selectedRow.Cells["Emailaddress"].Value.ToString();
+                        RoleId = Convert.ToInt32(selectedRow.Cells["RoleId"].Value);
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageStaffList);
                 tabControl1.TabPages.Add(tabPageStaffDetail);
                 tabPageStaffDetail.Text = "Edit Staff";
             };
-
 
             // CellClick event handler to select the entire row
             dataGridView.CellClick += (sender, e) =>
@@ -160,7 +153,6 @@ namespace Uttambsolutionsdesktop.Forms
                     dataGridView.Rows[e.RowIndex].Selected = true;
                 }
             };
-
 
             btnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
 
@@ -182,25 +174,21 @@ namespace Uttambsolutionsdesktop.Forms
 
         private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            if (dataGridView.Columns.Contains("ProductId"))
+            if (dataGridView.Columns.Contains("UserId"))
             {
-                dataGridView.Columns["ProductId"].Visible = false;
+                dataGridView.Columns["UserId"].Visible = false;
             }
-            if (dataGridView.Columns.Contains("UomId"))
+            if (dataGridView.Columns.Contains("Createdby"))
             {
-                dataGridView.Columns["UomId"].Visible = false;
-            }
-            if (dataGridView.Columns.Contains("CategoryId"))
-            {
-                dataGridView.Columns["CategoryId"].Visible = false;
-            }
-            if (dataGridView.Columns.Contains("TaxCategoryId"))
-            {
-                dataGridView.Columns["TaxCategoryId"].Visible = false;
+                dataGridView.Columns["Createdby"].Visible = false;
             }
             if (dataGridView.Columns.Contains("Modifiedby"))
             {
                 dataGridView.Columns["Modifiedby"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Datecreated"))
+            {
+                dataGridView.Columns["Datecreated"].Visible = false;
             }
             if (dataGridView.Columns.Contains("Datemodified"))
             {
@@ -211,22 +199,19 @@ namespace Uttambsolutionsdesktop.Forms
         // Method to clear the detail fields
         private void ClearDetailFields()
         {
-            ProductId = 0;
-            ProductName = string.Empty;
-            UomId = 0;
-            CategoryId = 0;
-            TaxCategoryId = 0;
-            Barcode = string.Empty;
-            Units = 0;
-            Price = 0;
+            UserId = 0;
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Phonenumber = string.Empty;
+            Username = string.Empty;
+            Emailaddress = string.Empty;
+            RoleId = 0;
         }
-
 
         // Optional method to show message boxes
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
         }
-
     }
 }

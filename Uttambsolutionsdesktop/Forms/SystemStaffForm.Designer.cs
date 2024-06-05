@@ -28,28 +28,27 @@
             tabPageStaffDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
-            labelStaffId = new Label();
-            txtStaffId = new TextBox();
-            labelStaffName = new Label();
-            txtStaffName = new TextBox();
-            labelUomId = new Label();
-            comboBoxUomId = new ComboBox();
-            labelCategoryId = new Label();
-            comboBoxCategoryId = new ComboBox();
-            labelTaxCategoryId = new Label();
-            comboBoxTaxCategoryId = new ComboBox();
-            labelBarcode = new Label();
-            txtBarcode = new TextBox();
-            labelUnits = new Label();
-            txtUnits = new TextBox();
-            labelPrice = new Label();
-            txtPrice = new TextBox();
+            // Adding all the new controls for SystemStaff properties
+            labelFirstName = new Label();
+            txtFirstName = new TextBox();
+            labelLastName = new Label();
+            txtLastName = new TextBox();
+            labelPhonenumber = new Label();
+            txtPhonenumber = new TextBox();
+            labelUsername = new Label();
+            txtUsername = new TextBox();
+            labelEmailaddress = new Label();
+            txtEmailaddress = new TextBox();
+            labelRoleid = new Label();
+            txtRoleid = new TextBox();
+
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageStaffList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             tabPageStaffDetail.SuspendLayout();
             SuspendLayout();
+
             // 
             // label1
             // 
@@ -165,23 +164,18 @@
             // 
             tabPageStaffDetail.Controls.Add(btnCancel);
             tabPageStaffDetail.Controls.Add(btnSave);
-            tabPageStaffDetail.Controls.Add(labelStaffId);
-            tabPageStaffDetail.Controls.Add(txtStaffId);
-            tabPageStaffDetail.Controls.Add(labelStaffName);
-            tabPageStaffDetail.Controls.Add(txtStaffName);
-            tabPageStaffDetail.Controls.Add(labelUomId);
-            tabPageStaffDetail.Controls.Add(comboBoxUomId);
-            tabPageStaffDetail.Controls.Add(labelCategoryId);
-            tabPageStaffDetail.Controls.Add(comboBoxCategoryId);
-            tabPageStaffDetail.Controls.Add(labelTaxCategoryId);
-            tabPageStaffDetail.Controls.Add(comboBoxTaxCategoryId);
-            tabPageStaffDetail.Controls.Add(labelBarcode);
-            tabPageStaffDetail.Controls.Add(txtBarcode);
-            tabPageStaffDetail.Controls.Add(labelUnits);
-            tabPageStaffDetail.Controls.Add(txtUnits);
-            tabPageStaffDetail.Controls.Add(labelPrice);
-            tabPageStaffDetail.Controls.Add(txtPrice);
-            tabPageStaffDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPageStaffDetail.Controls.Add(labelFirstName);
+            tabPageStaffDetail.Controls.Add(txtFirstName);
+            tabPageStaffDetail.Controls.Add(labelLastName);
+            tabPageStaffDetail.Controls.Add(txtLastName);
+            tabPageStaffDetail.Controls.Add(labelPhonenumber);
+            tabPageStaffDetail.Controls.Add(txtPhonenumber);
+            tabPageStaffDetail.Controls.Add(labelUsername);
+            tabPageStaffDetail.Controls.Add(txtUsername);
+            tabPageStaffDetail.Controls.Add(labelEmailaddress);
+            tabPageStaffDetail.Controls.Add(txtEmailaddress);
+            tabPageStaffDetail.Controls.Add(labelRoleid);
+            tabPageStaffDetail.Controls.Add(txtRoleid);
             tabPageStaffDetail.Location = new Point(4, 24);
             tabPageStaffDetail.Margin = new Padding(4, 3, 4, 3);
             tabPageStaffDetail.Name = "tabPageStaffDetail";
@@ -210,161 +204,135 @@
             btnSave.TabIndex = 14;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+
             // 
-            // labelStaffId
+            // txtUserId
             // 
-            labelStaffId.AutoSize = true;
-            labelStaffId.Location = new Point(154, 26);
-            labelStaffId.Margin = new Padding(4, 0, 4, 0);
-            labelStaffId.Name = "labelStaffId";
-            labelStaffId.Size = new Size(80, 24);
-            labelStaffId.TabIndex = 16;
-            labelStaffId.Text = "Staff:";
-            labelStaffId.Visible = false;
+            txtUserId.Location = new Point(281, 265);
+            txtUserId.Margin = new Padding(4, 3, 4, 3);
+            txtUserId.Name = "txtUserId";
+            txtUserId.Size = new Size(314, 32);
+            txtUserId.TabIndex = 12;
             // 
-            // txtStaffId
+            // labelFirstName
             // 
-            txtStaffId.Location = new Point(154, 53);
-            txtStaffId.Margin = new Padding(4, 3, 4, 3);
-            txtStaffId.Name = "txtStaffId";
-            txtStaffId.Size = new Size(674, 29);
-            txtStaffId.TabIndex = 17;
-            txtStaffId.Visible = false;
+            labelFirstName.AutoSize = true;
+            labelFirstName.Location = new Point(154, 26);
+            labelFirstName.Margin = new Padding(4, 0, 4, 0);
+            labelFirstName.Name = "labelFirstName";
+            labelFirstName.Size = new Size(110, 24);
+            labelFirstName.TabIndex = 0;
+            labelFirstName.Text = "First Name";
             // 
-            // labelStaffName
+            // txtFirstName
             // 
-            labelStaffName.AutoSize = true;
-            labelStaffName.Location = new Point(153, 97);
-            labelStaffName.Margin = new Padding(4, 0, 4, 0);
-            labelStaffName.Name = "labelStaffName";
-            labelStaffName.Size = new Size(136, 24);
-            labelStaffName.TabIndex = 12;
-            labelStaffName.Text = "Staff Name:";
+            txtFirstName.Location = new Point(281, 26);
+            txtFirstName.Margin = new Padding(4, 3, 4, 3);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(314, 32);
+            txtFirstName.TabIndex = 1;
             // 
-            // txtStaffName
+            // labelLastName
             // 
-            txtStaffName.Location = new Point(153, 124);
-            txtStaffName.Margin = new Padding(4, 3, 4, 3);
-            txtStaffName.Name = "txtStaffName";
-            txtStaffName.Size = new Size(675, 29);
-            txtStaffName.TabIndex = 18;
+            labelLastName.AutoSize = true;
+            labelLastName.Location = new Point(154, 65);
+            labelLastName.Margin = new Padding(4, 0, 4, 0);
+            labelLastName.Name = "labelLastName";
+            labelLastName.Size = new Size(110, 24);
+            labelLastName.TabIndex = 2;
+            labelLastName.Text = "Last Name";
             // 
-            // labelUomId
+            // txtLastName
             // 
-            labelUomId.AutoSize = true;
-            labelUomId.Location = new Point(154, 167);
-            labelUomId.Margin = new Padding(4, 0, 4, 0);
-            labelUomId.Name = "labelUomId";
-            labelUomId.Size = new Size(55, 24);
-            labelUomId.TabIndex = 19;
-            labelUomId.Text = "Uom:";
+            txtLastName.Location = new Point(281, 65);
+            txtLastName.Margin = new Padding(4, 3, 4, 3);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(314, 32);
+            txtLastName.TabIndex = 3;
             // 
-            // comboBoxUomId
+            // labelPhonenumber
             // 
-            comboBoxUomId.FormattingEnabled = true;
-            comboBoxUomId.Location = new Point(154, 205);
-            comboBoxUomId.Name = "comboBoxUomId";
-            comboBoxUomId.Size = new Size(195, 32);
-            comboBoxUomId.TabIndex = 20;
+            labelPhonenumber.AutoSize = true;
+            labelPhonenumber.Location = new Point(140, 105);
+            labelPhonenumber.Margin = new Padding(4, 0, 4, 0);
+            labelPhonenumber.Name = "labelPhonenumber";
+            labelPhonenumber.Size = new Size(145, 24);
+            labelPhonenumber.TabIndex = 4;
+            labelPhonenumber.Text = "Phone Number";
             // 
-            // labelCategoryId
+            // txtPhonenumber
             // 
-            labelCategoryId.AutoSize = true;
-            labelCategoryId.Location = new Point(368, 178);
-            labelCategoryId.Margin = new Padding(4, 0, 4, 0);
-            labelCategoryId.Name = "labelCategoryId";
-            labelCategoryId.Size = new Size(90, 24);
-            labelCategoryId.TabIndex = 13;
-            labelCategoryId.Text = "Category:";
+            txtPhonenumber.Location = new Point(281, 105);
+            txtPhonenumber.Margin = new Padding(4, 3, 4, 3);
+            txtPhonenumber.Name = "txtPhonenumber";
+            txtPhonenumber.Size = new Size(314, 32);
+            txtPhonenumber.TabIndex = 5;
             // 
-            // comboBoxCategoryId
+            // labelUsername
             // 
-            comboBoxCategoryId.FormattingEnabled = true;
-            comboBoxCategoryId.Location = new Point(368, 205);
-            comboBoxCategoryId.Name = "comboBoxCategoryId";
-            comboBoxCategoryId.Size = new Size(210, 32);
-            comboBoxCategoryId.TabIndex = 21;
+            labelUsername.AutoSize = true;
+            labelUsername.Location = new Point(140, 145);
+            labelUsername.Margin = new Padding(4, 0, 4, 0);
+            labelUsername.Name = "labelUsername";
+            labelUsername.Size = new Size(106, 24);
+            labelUsername.TabIndex = 6;
+            labelUsername.Text = "Username";
             // 
-            // labelTaxCategoryId
+            // txtUsername
             // 
-            labelTaxCategoryId.AutoSize = true;
-            labelTaxCategoryId.Location = new Point(597, 167);
-            labelTaxCategoryId.Margin = new Padding(4, 0, 4, 0);
-            labelTaxCategoryId.Name = "labelTaxCategoryId";
-            labelTaxCategoryId.Size = new Size(127, 24);
-            labelTaxCategoryId.TabIndex = 22;
-            labelTaxCategoryId.Text = "Tax Category:";
+            txtUsername.Location = new Point(281, 145);
+            txtUsername.Margin = new Padding(4, 3, 4, 3);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(314, 32);
+            txtUsername.TabIndex = 7;
             // 
-            // comboBoxTaxCategoryId
+            // labelEmailaddress
             // 
-            comboBoxTaxCategoryId.FormattingEnabled = true;
-            comboBoxTaxCategoryId.Location = new Point(597, 205);
-            comboBoxTaxCategoryId.Name = "comboBoxTaxCategoryId";
-            comboBoxTaxCategoryId.Size = new Size(231, 32);
-            comboBoxTaxCategoryId.TabIndex = 23;
+            labelEmailaddress.AutoSize = true;
+            labelEmailaddress.Location = new Point(140, 185);
+            labelEmailaddress.Margin = new Padding(4, 0, 4, 0);
+            labelEmailaddress.Name = "labelEmailaddress";
+            labelEmailaddress.Size = new Size(136, 24);
+            labelEmailaddress.TabIndex = 8;
+            labelEmailaddress.Text = "Email Address";
             // 
-            // labelBarcode
+            // txtEmailaddress
             // 
-            labelBarcode.AutoSize = true;
-            labelBarcode.Location = new Point(154, 249);
-            labelBarcode.Margin = new Padding(4, 0, 4, 0);
-            labelBarcode.Name = "labelBarcode";
-            labelBarcode.Size = new Size(86, 24);
-            labelBarcode.TabIndex = 24;
-            labelBarcode.Text = "Barcode:";
+            txtEmailaddress.Location = new Point(281, 185);
+            txtEmailaddress.Margin = new Padding(4, 3, 4, 3);
+            txtEmailaddress.Name = "txtEmailaddress";
+            txtEmailaddress.Size = new Size(314, 32);
+            txtEmailaddress.TabIndex = 9;
             // 
-            // txtBarcode
+            // labelRoleid
             // 
-            txtBarcode.Location = new Point(154, 285);
-            txtBarcode.Margin = new Padding(4, 3, 4, 3);
-            txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(195, 29);
-            txtBarcode.TabIndex = 25;
+            labelRoleid.AutoSize = true;
+            labelRoleid.Location = new Point(140, 225);
+            labelRoleid.Margin = new Padding(4, 0, 4, 0);
+            labelRoleid.Name = "labelRoleid";
+            labelRoleid.Size = new Size(78, 24);
+            labelRoleid.TabIndex = 10;
+            labelRoleid.Text = "Role ID";
             // 
-            // labelUnits
+            // txtRoleid
             // 
-            labelUnits.AutoSize = true;
-            labelUnits.Location = new Point(368, 249);
-            labelUnits.Margin = new Padding(4, 0, 4, 0);
-            labelUnits.Name = "labelUnits";
-            labelUnits.Size = new Size(56, 24);
-            labelUnits.TabIndex = 26;
-            labelUnits.Text = "Units:";
+            txtRoleid.Location = new Point(281, 225);
+            txtRoleid.Margin = new Padding(4, 3, 4, 3);
+            txtRoleid.Name = "txtRoleid";
+            txtRoleid.Size = new Size(314, 32);
+            txtRoleid.TabIndex = 11;
             // 
-            // txtUnits
+            // SystemStaffForm
             // 
-            txtUnits.Location = new Point(368, 285);
-            txtUnits.Margin = new Padding(4, 3, 4, 3);
-            txtUnits.Name = "txtUnits";
-            txtUnits.Size = new Size(210, 29);
-            txtUnits.TabIndex = 27;
-            // 
-            // labelPrice
-            // 
-            labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(597, 249);
-            labelPrice.Margin = new Padding(4, 0, 4, 0);
-            labelPrice.Name = "labelPrice";
-            labelPrice.Size = new Size(58, 24);
-            labelPrice.TabIndex = 28;
-            labelPrice.Text = "Price:";
-            // 
-            // txtPrice
-            // 
-            txtPrice.Location = new Point(597, 285);
-            txtPrice.Margin = new Padding(4, 3, 4, 3);
-            txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(231, 29);
-            txtPrice.TabIndex = 29;
-            // 
-            // StaffPageForm
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1041, 539);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
-            Name = "StaffPageForm";
-            Size = new Size(1041, 539);
+            Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "SystemStaffForm";
+            Text = "System Staff Form";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
@@ -389,21 +357,18 @@
         private TabPage tabPageStaffDetail;
         private Button btnCancel;
         private Button btnSave;
-        private Label labelStaffId;
-        private TextBox txtStaffId;
-        private Label labelStaffName;
-        private TextBox txtStaffName;
-        private Label labelUomId;
-        private ComboBox comboBoxUomId;
-        private Label labelCategoryId;
-        private ComboBox comboBoxCategoryId;
-        private Label labelTaxCategoryId;
-        private ComboBox comboBoxTaxCategoryId;
-        private Label labelBarcode;
-        private TextBox txtBarcode;
-        private Label labelUnits;
-        private TextBox txtUnits;
-        private Label labelPrice;
-        private TextBox txtPrice;
+        private TextBox txtUserId;
+        private Label labelFirstName;
+        private TextBox txtFirstName;
+        private Label labelLastName;
+        private TextBox txtLastName;
+        private Label labelPhonenumber;
+        private TextBox txtPhonenumber;
+        private Label labelUsername;
+        private TextBox txtUsername;
+        private Label labelEmailaddress;
+        private TextBox txtEmailaddress;
+        private Label labelRoleid;
+        private TextBox txtRoleid;
     }
 }

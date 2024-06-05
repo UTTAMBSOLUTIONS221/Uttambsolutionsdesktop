@@ -33,6 +33,25 @@ namespace Uttambsolutionsdesktop.Presenters
             _view.ToggleSettingsSubmenuVisibility();
         }
 
+        public void HandleStaffButtonClicked(Panel contentWrapper)
+        {
+            // Create an instance of staffPageForm
+            SystemStaffForm staffPageForm = new SystemStaffForm(_userId);
+
+            // Set the size of the staffPageForm
+            staffPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
+
+            // Set the location of the staffPageForm
+            staffPageForm.Location = new Point(0, 0);
+
+            // Clear the contentWrapper panel
+            contentWrapper.Controls.Clear();
+
+            // Add the staffPageForm to the contentWrapper panel
+            contentWrapper.Controls.Add(staffPageForm);
+        }
+
+
         public void HandleProductManagementButtonClicked()
         {
             _view.ToggleProductManagementSubmenuVisibility();
