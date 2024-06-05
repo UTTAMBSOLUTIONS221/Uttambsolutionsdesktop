@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uttambsolutionsdesktop.Presenters;
+using Uttambsolutionsdesktop.Views;
 using static Uttambsolutionsdesktop.Program;
 
 namespace Uttambsolutionsdesktop.Forms
 {
-    public partial class ProductBrandForm : UserControl
+    public partial class ProductBrandForm : UserControl, IProductBrandView
     {
-        private ProductPresenter _presenter;
+        private ProductBrandPresenter _presenter;
         private readonly string _userId;
 
         //Events
@@ -26,43 +27,54 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        public int BrandId
+        public int ProductBrandId
         {
-            get { return int.TryParse(txtProductId.Text, out int id) ? id : 0; }
-            set { txtProductId.Text = value.ToString(); }
+            get { return int.TryParse(txtProductBrandId.Text, out int id) ? id : 0; }
+            set { txtProductBrandId.Text = value.ToString(); }
         }
-        public string BrandName
+        public string ProductBrandName
         {
-            get { return txtProductName.Text; }
-            set { txtProductName.Text = value; }
+            get { return txtProductBrandName.Text; }
+            set { txtProductBrandName.Text = value; }
         }
+
+        public void SetProductBrandListBindingSource(BindingSource productBrandList)
+        {
+            dataGridView.DataSource = productBrandList;
+            // Ensure the hidden CategoryId column is added
+            if (!dataGridView.Columns.Contains("ProductId"))
+            {
+                dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "ProductBrandId",
+                    HeaderText = "ProductBrandId",
+                    DataPropertyName = "ProductBrandId", // Ensure this matches the property name in the data source
+                    Visible = false
+                });
+            }
+        }
+
         public ProductBrandForm(string userId)
         {
             InitializeComponent();
             _userId = userId;
-            _presenter = new ProductPresenter(this, userId, DatabaseManager.ConnectionString);
+            _presenter = new ProductBrandPresenter(this, userId, DatabaseManager.ConnectionString);
             AssociateAndRaiseViewEvents();
-            tabControl1.TabPages.Remove(tabPageProductDetail);
+            tabControl1.TabPages.Remove(tabPageProductBrandDetail);
             // Subscribe to the DataBindingComplete event
             dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
         }
         private void AssociateAndRaiseViewEvents()
         {
-            btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            txtSearch.KeyDown += (s, e) =>
-            {
-                if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
-            };
 
             btnAddNew.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
-                ProductId = 0; // Ensure CategoryId is set to 0 for new entries
-                tabControl1.TabPages.Remove(tabPageProductList);
-                tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Add New Product";
+                ProductBrandId = 0; // Ensure CategoryId is set to 0 for new entries
+                tabControl1.TabPages.Remove(tabPageProductBrandList);
+                tabControl1.TabPages.Add(tabPageProductBrandDetail);
+                tabPageProductBrandDetail.Text = "Add New Brand";
             };
 
             btnEdit.Click += delegate
@@ -72,28 +84,17 @@ namespace Uttambsolutionsdesktop.Forms
                 {
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
-                    if (selectedRow.Cells["ProductId"].Value != null &&
-                        selectedRow.Cells["ProductName"].Value != null &&
-                        selectedRow.Cells["UomId"].Value != null &&
-                        selectedRow.Cells["CategoryId"].Value != null &&
-                        selectedRow.Cells["TaxCategoryId"].Value != null &&
-                        selectedRow.Cells["Barcode"].Value != null &&
-                        selectedRow.Cells["Units"].Value != null &&
-                        selectedRow.Cells["Price"].Value != null)
+                    if (selectedRow.Cells["ProductBrandId"].Value != null &&
+                        selectedRow.Cells["ProductBrandName"].Value != null)
                     {
-                        ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
-                        ProductName = selectedRow.Cells["ProductName"].Value.ToString();
-                        UomId = Convert.ToInt32(selectedRow.Cells["UomId"].Value);
-                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
-                        TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
-                        Barcode = selectedRow.Cells["Barcode"].Value.ToString();
-                        Units = Convert.ToDecimal(selectedRow.Cells["Units"].Value);
-                        Price = Convert.ToDecimal(selectedRow.Cells["Price"].Value);
+                        ProductBrandId = Convert.ToInt32(selectedRow.Cells["ProductBrandId"].Value);
+                        ProductBrandName = selectedRow.Cells["ProductBrandName"].Value.ToString();
+                        
                     }
                 }
-                tabControl1.TabPages.Remove(tabPageProductList);
-                tabControl1.TabPages.Add(tabPageProductDetail);
-                tabPageProductDetail.Text = "Edit Product";
+                tabControl1.TabPages.Remove(tabPageProductBrandList);
+                tabControl1.TabPages.Add(tabPageProductBrandDetail);
+                tabPageProductBrandDetail.Text = "Edit Product Brand";
             };
 
 
@@ -112,36 +113,28 @@ namespace Uttambsolutionsdesktop.Forms
             btnSave.Click += delegate
             {
                 SaveEvent?.Invoke(this, EventArgs.Empty);
-                tabControl1.TabPages.Remove(tabPageProductDetail);
-                tabControl1.TabPages.Add(tabPageProductList);
+                tabControl1.TabPages.Remove(tabPageProductBrandDetail);
+                tabControl1.TabPages.Add(tabPageProductBrandList);
             };
 
             btnCancel.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
-                tabControl1.TabPages.Remove(tabPageProductDetail);
-                tabControl1.TabPages.Add(tabPageProductList);
+                tabControl1.TabPages.Remove(tabPageProductBrandDetail);
+                tabControl1.TabPages.Add(tabPageProductBrandList);
             };
         }
 
         private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            if (dataGridView.Columns.Contains("ProductId"))
+            if (dataGridView.Columns.Contains("ProductBrandId"))
             {
-                dataGridView.Columns["ProductId"].Visible = false;
+                dataGridView.Columns["ProductBrandId"].Visible = false;
             }
-            if (dataGridView.Columns.Contains("UomId"))
+            if (dataGridView.Columns.Contains("ProductBrandName"))
             {
-                dataGridView.Columns["UomId"].Visible = false;
-            }
-            if (dataGridView.Columns.Contains("CategoryId"))
-            {
-                dataGridView.Columns["CategoryId"].Visible = false;
-            }
-            if (dataGridView.Columns.Contains("TaxCategoryId"))
-            {
-                dataGridView.Columns["TaxCategoryId"].Visible = false;
+                dataGridView.Columns["ProductBrandName"].Visible = false;
             }
             if (dataGridView.Columns.Contains("Modifiedby"))
             {
@@ -156,14 +149,8 @@ namespace Uttambsolutionsdesktop.Forms
         // Method to clear the detail fields
         private void ClearDetailFields()
         {
-            ProductId = 0;
-            ProductName = string.Empty;
-            UomId = 0;
-            CategoryId = 0;
-            TaxCategoryId = 0;
-            Barcode = string.Empty;
-            Units = 0;
-            Price = 0;
+            ProductBrandId = 0;
+            ProductBrandName = string.Empty;
         }
 
 

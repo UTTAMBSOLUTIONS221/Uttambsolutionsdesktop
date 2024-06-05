@@ -139,6 +139,26 @@ namespace DBL
         }
         #endregion
 
+        #region Product Brands
+        public Task<IEnumerable<SystemProductBrand>> GetAllProductBrands()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SettingsRepository.GetAllProductBrands();
+                return Resp;
+            });
+        }
+        public Task<Genericmodel> SaveProductBrand(SystemProductBrand obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.SaveProductBrand(obj);
+                return Resp;
+            });
+        }
+        #endregion
+
+
         #region Producct Categories
         public Task<IEnumerable<MainCategory>> GetAllMainCategories()
         {
