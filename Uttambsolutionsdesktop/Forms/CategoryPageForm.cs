@@ -52,7 +52,16 @@ namespace Uttambsolutionsdesktop.Forms
         // Methods
         private void AssociateAndRaiseViewEvents()
         {
-            btnAddNewMain.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+            btnAddNewMain.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                //ClearDetailFields();
+                //Userid = 0; // Ensure UserId is set to 0 for new entrie
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Add(tabPageCategoryDetail);
+                tabPageCategoryDetail.Text = "Add Main Category";
+            };
+
             btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteMain.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
