@@ -118,58 +118,97 @@ namespace DBL.Repositories
 
                 if (entity.Userid > 0)
                 {
-                    // Update the category
+                    // Update the staff
                     var result = connection.Execute(
-                        @"UPDATE Categories 
-                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
-                      DateModified = @DateModified 
-                  WHERE CategoryId = @CategoryId",
+                        @"UPDATE SystemStaffs 
+                SET FirstName = @FirstName, 
+                    LastName = @LastName, 
+                    Phonenumber = @Phonenumber, 
+                    Username = @Username, 
+                    Emailaddress = @Emailaddress, 
+                    Roleid = @Roleid, 
+                    Passharsh = @Passharsh, 
+                    Passwords = @Passwords, 
+                    Isactive = @Isactive, 
+                    Isdeleted = @Isdeleted, 
+                    Loginstatus = @Loginstatus, 
+                    Passwordresetdate = @Passwordresetdate, 
+                    Modifiedby = @Modifiedby, 
+                    Datemodified = @Datemodified 
+                WHERE Userid = @Userid",
                         new
                         {
+                            entity.FirstName,
+                            entity.LastName,
+                            entity.Phonenumber,
+                            entity.Username,
+                            entity.Emailaddress,
+                            entity.Roleid,
+                            entity.Passharsh,
+                            entity.Passwords,
+                            entity.Isactive,
+                            entity.Isdeleted,
+                            entity.Loginstatus,
+                            entity.Passwordresetdate,
                             entity.Modifiedby,
-                            entity.DateModified,
-                            entity.CategoryName,
-                            entity.CategoryId
+                            entity.Datemodified,
+                            entity.Userid
                         });
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Staff Updated Successfully" };
                 }
                 else
                 {
-
-                    // Check if the category already exists
-                    var categoryExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
+                    // Check if the staff already exists
+                    var staffExists = connection.ExecuteScalar<bool>(
+                        "SELECT COUNT(1) FROM SystemStaffs WHERE Username = @Username",
                         new { Username = entity.Username });
 
-                    if (categoryExists)
+                    if (staffExists)
                     {
-                        // Category already exists, return 0 (failure)
-                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                        // Staff already exists, return 1 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Staff Exists" };
                     }
 
-                    // Insert the category into the database
+                    // Insert the staff into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
-                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        @"INSERT INTO SystemStaffs (FirstName, LastName, Phonenumber, Username, Emailaddress, 
+                    Roleid, Passharsh, Passwords, Isactive, Isdeleted, Loginstatus, Passwordresetdate, 
+                    Createdby, Modifiedby, Lastlogin, Datemodified, Datecreated) 
+                VALUES (@FirstName, @LastName, @Phonenumber, @Username, @Emailaddress, 
+                    @Roleid, @Passharsh, @Passwords, @Isactive, @Isdeleted, @Loginstatus, @Passwordresetdate, 
+                    @Createdby, @Modifiedby, @Lastlogin, @Datemodified, @Datecreated)",
                         new
                         {
-                            entity.CategoryName,
+                            entity.FirstName,
+                            entity.LastName,
+                            entity.Phonenumber,
+                            entity.Username,
+                            entity.Emailaddress,
+                            entity.Roleid,
+                            entity.Passharsh,
+                            entity.Passwords,
+                            entity.Isactive,
+                            entity.Isdeleted,
+                            entity.Loginstatus,
+                            entity.Passwordresetdate,
                             entity.Createdby,
                             entity.Modifiedby,
-                            entity.DateCreated,
-                            entity.DateModified
+                            entity.Lastlogin,
+                            entity.Datemodified,
+                            entity.Datecreated
                         });
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Staff Added Successfully" };
                 }
             }
         }
+
     }
 }

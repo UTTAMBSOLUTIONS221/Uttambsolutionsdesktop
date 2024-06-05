@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uttambsolutionsdesktop.Views;
+using DBL.Helpers;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
     public class StaffPresenter
     {
+        Encryptdecrypt sec = new Encryptdecrypt();
+        Stringgenerator str = new Stringgenerator();
         private readonly IStaffView _view;
         private readonly string _userId;
         private readonly BL _bl;
@@ -57,8 +60,23 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private async void SaveStaff(object sender, EventArgs e)
         {
+            string Passwordhash = str.RandomString(12);
+            string Password = str.RandomString(8).ToString();
             SystemStaff staffData = new SystemStaff();
-
+            staffData.Userid = _view.Userid;
+            staffData.FirstName = _view.FirstName;
+            staffData.LastName = _view.LastName;
+            staffData.Phonenumber = _view.Phonenumber;
+            staffData.Username = _view.Username;
+            staffData.Emailaddress = _view.Emailaddress;
+            staffData.Roleid = _view.Roleid;
+            staffData.Passharsh = Passwordhash;
+            staffData.Passwords = sec.Encrypt(Password, Passwordhash);
+            staffData.Isactive = true;
+            staffData.Isdeleted = false;
+            staffData.Loginstatus = 0;
+            staffData.Passwordresetdate = DateTime.Now;
+            staffData.Lastlogin = DateTime.Now;
             staffData.Createdby = Convert.ToInt32(_userId);
             staffData.Modifiedby = Convert.ToInt32(_userId);
             staffData.Datecreated = DateTime.Now;
