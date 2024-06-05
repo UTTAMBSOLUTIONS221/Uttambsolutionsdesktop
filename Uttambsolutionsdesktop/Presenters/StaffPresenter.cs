@@ -71,7 +71,7 @@ namespace Uttambsolutionsdesktop.Presenters
             staffData.Emailaddress = _view.Emailaddress;
             staffData.Roleid = _view.Roleid;
             staffData.Passharsh = Passwordhash;
-            staffData.Passwords = sec.Encrypt(Password, Passwordhash);
+            staffData.Passwords = sec.Encrypt(_view.Passwords, Passwordhash);
             staffData.Isactive = true;
             staffData.Isdeleted = false;
             staffData.Loginstatus = 0;

@@ -63,6 +63,11 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtEmailaddress.Text; }
             set { txtEmailaddress.Text = value; }
         }
+        public string Passwords
+        {
+            get { return txtPassword.Text; }
+            set { txtPassword.Text = value; }
+        }
         public int Roleid { get => Convert.ToInt32(comboBoxRoleId.SelectedValue); set => comboBoxRoleId.SelectedValue = value; }
 
         public void SetStaffListBindingSource(BindingSource staffList)

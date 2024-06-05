@@ -215,6 +215,7 @@
             txtUserId.Name = "txtUserId";
             txtUserId.Size = new Size(314, 24);
             txtUserId.TabIndex = 12;
+            txtUserId.Visible = false;
             // 
             // labelFirstName
             // 

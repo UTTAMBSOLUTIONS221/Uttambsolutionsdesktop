@@ -17,6 +17,7 @@ namespace Uttambsolutionsdesktop.Views
         string? Phonenumber { get; set; }
         string? Username { get; set; }
         string? Emailaddress { get; set; }
+        string? Passwords { get; set; }
         int Roleid { get; set; }
         
         //Events
