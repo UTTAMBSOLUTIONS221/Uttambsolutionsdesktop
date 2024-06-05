@@ -25,13 +25,14 @@
             btnCategoryList = new Button();
             btnProductManagement = new Button();
             panelSettingsSubmenu = new Panel();
-            btnSettings = new Button();
             btnStaffsList = new Button();
+            btnSettings = new Button();
             btnDashboard = new Button();
             btnToggleMenu = new Button();
             contentWrapper = new Panel();
             panelMenu.SuspendLayout();
             panelProductManagementSubmenu.SuspendLayout();
+            panelSettingsSubmenu.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -50,18 +51,6 @@
             panelMenu.Size = new Size(131, 692);
             panelMenu.TabIndex = 0;
             // 
-            // panelSettingsSubmenu
-            // 
-            panelSettingsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
-            panelSettingsSubmenu.Controls.Add(btnStaffsList);
-            panelSettingsSubmenu.Dock = DockStyle.Top;
-            panelSettingsSubmenu.Location = new Point(0, 283);
-            panelSettingsSubmenu.Margin = new Padding(4, 3, 4, 3);
-            panelSettingsSubmenu.Name = "panelSettingsSubmenu";
-            panelSettingsSubmenu.Size = new Size(131, 114);
-            panelSettingsSubmenu.TabIndex = 0;
-            panelSettingsSubmenu.Visible = false;
-            // 
             // panelProductManagementSubmenu
             // 
             panelProductManagementSubmenu.BackColor = Color.FromArgb(35, 32, 39);
@@ -69,7 +58,7 @@
             panelProductManagementSubmenu.Controls.Add(btnProductList);
             panelProductManagementSubmenu.Controls.Add(btnCategoryList);
             panelProductManagementSubmenu.Dock = DockStyle.Top;
-            panelProductManagementSubmenu.Location = new Point(0, 283);
+            panelProductManagementSubmenu.Location = new Point(0, 215);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
             panelProductManagementSubmenu.Size = new Size(131, 114);
@@ -124,7 +113,7 @@
             btnProductManagement.FlatAppearance.BorderSize = 0;
             btnProductManagement.FlatStyle = FlatStyle.Flat;
             btnProductManagement.ForeColor = Color.Gainsboro;
-            btnProductManagement.Location = new Point(0, 242);
+            btnProductManagement.Location = new Point(0, 174);
             btnProductManagement.Margin = new Padding(4, 3, 4, 3);
             btnProductManagement.Name = "btnProductManagement";
             btnProductManagement.Size = new Size(131, 41);
@@ -135,11 +124,12 @@
             // panelSettingsSubmenu
             // 
             panelSettingsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelSettingsSubmenu.Controls.Add(btnStaffsList);
             panelSettingsSubmenu.Dock = DockStyle.Top;
             panelSettingsSubmenu.Location = new Point(0, 144);
             panelSettingsSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelSettingsSubmenu.Name = "panelSettingsSubmenu";
-            panelSettingsSubmenu.Size = new Size(131, 98);
+            panelSettingsSubmenu.Size = new Size(131, 30);
             panelSettingsSubmenu.TabIndex = 2;
             panelSettingsSubmenu.Visible = false;
             // 
@@ -163,7 +153,7 @@
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.ForeColor = Color.Gainsboro;
-            btnSettings.Location = new Point(0, 70);
+            btnSettings.Location = new Point(0, 92);
             btnSettings.Margin = new Padding(4, 3, 4, 3);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(131, 52);
@@ -220,6 +210,7 @@
             Text = "FormMain";
             panelMenu.ResumeLayout(false);
             panelProductManagementSubmenu.ResumeLayout(false);
+            panelSettingsSubmenu.ResumeLayout(false);
             ResumeLayout(false);
         }
     }
