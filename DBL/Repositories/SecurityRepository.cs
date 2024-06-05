@@ -94,5 +94,21 @@ namespace DBL.Repositories
             }
         }
 
+        public IEnumerable<SystemStaffData> GetAllSystemStaffs()
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch all system staff records
+                var systemStaffsQueryResult = connection.Query<SystemStaffData>(
+                    @"SELECT Userid,  FirstName || ' ' || LastName AS FullName, Phonenumber, Username,Emailaddress, Roleid,Passharsh, Passwords, Isactive , Isdeleted, Loginstatus, Passwordresetdate, Createdby, Modifiedby, Lastlogin, Datemodified, Datecreated FROM SystemStaffs");
+
+                // Return the result
+                return systemStaffsQueryResult;
+            }
+        }
+
+
     }
 }

@@ -163,11 +163,11 @@
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.ForeColor = Color.Gainsboro;
-            btnSettings.Location = new Point(0, 92);
+            btnSettings.Location = new Point(0, 70);
             btnSettings.Margin = new Padding(4, 3, 4, 3);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(131, 52);
-            btnSettings.TabIndex = 3;
+            btnSettings.TabIndex = 2;
             btnSettings.Text = "Settings";
             btnSettings.Click += BtnSettings_Click;
             // 

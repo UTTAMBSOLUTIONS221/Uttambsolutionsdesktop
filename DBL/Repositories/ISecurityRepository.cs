@@ -6,5 +6,6 @@ namespace DBL.Repositories
     {
         UsermodelResponce VerifySystemStaff(string Username);
         IEnumerable<string> GetPermissionsForUser(long RoleId);
+        IEnumerable<SystemStaffData> GetAllSystemStaffs();
     }
 }

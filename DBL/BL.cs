@@ -87,6 +87,17 @@ namespace DBL
         }
         #endregion
 
+        #region System Staffs
+        public Task<IEnumerable<SystemStaffData>> GetAllSystemStaffs()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.GetAllSystemStaffs();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region Producct Uoms
         public Task<IEnumerable<SystemUoms>> GetAllSystemUoms()
         {
