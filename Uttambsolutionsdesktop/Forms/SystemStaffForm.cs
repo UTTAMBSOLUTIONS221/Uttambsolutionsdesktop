@@ -163,6 +163,9 @@ namespace Uttambsolutionsdesktop.Forms
                         Emailaddress = selectedRow.Cells["Emailaddress"].Value.ToString();
                         Roleid = Convert.ToInt32(selectedRow.Cells["Roleid"].Value);
                     }
+                    // Hide the password field when editing
+                    txtPassword.Visible = false;
+                    labelPassword.Visible = false; // Assuming yo
                 }
                 tabControl1.TabPages.Remove(tabPageStaffList);
                 tabControl1.TabPages.Add(tabPageStaffDetail);
