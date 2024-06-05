@@ -305,12 +305,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             tabPageFirstCategoryDetail.Controls.Add(btnCancel);
             tabPageFirstCategoryDetail.Controls.Add(btnSave);
-            tabPageFirstCategoryDetail.Controls.Add(label3);
+            tabPageFirstCategoryDetail.Controls.Add(label4);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryId);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryName);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstMainCategoryId);
-
-
             tabPageFirstCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageFirstCategoryDetail.Location = new Point(4, 24);
             tabPageFirstCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -325,7 +323,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             tabPageThirdCategoryDetail.Controls.Add(btnCancel);
             tabPageThirdCategoryDetail.Controls.Add(btnSave);
-            tabPageThirdCategoryDetail.Controls.Add(label3);
+            tabPageThirdCategoryDetail.Controls.Add(label5);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryId);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryName);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdFirstCategoryId);
