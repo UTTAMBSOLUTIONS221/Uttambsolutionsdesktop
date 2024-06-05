@@ -37,7 +37,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var categoryFirstQueryResult = connection.Query<FirstCategory>(
-                    @"SELECT CategoryId,CategoryName FROM Categories");
+                    @"SELECT FirstCategoryId,FirstCategoryName,MainCategoryName FROM FirstCategory a INNER JOIN MainCategory b ON a.MainCategoryId = b.MainCategoryId");
 
                 // Return the result
                 return categoryFirstQueryResult;
@@ -51,7 +51,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var categoryThirdQueryResult = connection.Query<ThirdCategory>(
-                    @"SELECT CategoryId,CategoryName FROM Categories");
+                    @"SELECT ThirdCategoryId,ThirdCategoryName,FirstCategoryName FROM ThirdCategory a INNER JOIN FirstCategory b ON a.FirstCategoryId=b.FirstCategoryId");
 
                 // Return the result
                 return categoryThirdQueryResult;
