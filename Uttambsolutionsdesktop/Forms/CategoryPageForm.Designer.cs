@@ -12,6 +12,8 @@ namespace Uttambsolutionsdesktop.Forms
         private Label label3;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private Label label7;
         private Panel panel1;
         private TabControl tabControl1;
         private TabPage tabPageCategoryList;
@@ -40,10 +42,10 @@ namespace Uttambsolutionsdesktop.Forms
         private TextBox txtMainCategoryName;
         private TextBox txtFirstCategoryId;
         private TextBox txtFirstCategoryName;
-        private TextBox txtFirstMainCategoryId;
+        private ComboBox comboFirstMainCategoryId;
         private TextBox txtThirdCategoryId;
         private TextBox txtThirdCategoryName;
-        private TextBox txtThirdFirstCategoryId;
+        private ComboBox comboThirdFirstCategoryId;
 
         public CategoryPageForm()
         {
@@ -58,6 +60,8 @@ namespace Uttambsolutionsdesktop.Forms
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             tabControl1 = new TabControl();
             tabPageCategoryList = new TabPage();
             dataGridViewMain = new DataGridView();
@@ -82,13 +86,13 @@ namespace Uttambsolutionsdesktop.Forms
             btnSaveFirst = new Button();
             txtFirstCategoryId = new TextBox();
             txtFirstCategoryName = new TextBox();
-            txtFirstMainCategoryId = new TextBox();
+            comboFirstMainCategoryId = new ComboBox();
             tabPageThirdCategoryDetail = new TabPage();
             btnCancelThird = new Button();
             btnSaveThird = new Button();
             txtThirdCategoryId = new TextBox();
             txtThirdCategoryName = new TextBox();
-            txtThirdFirstCategoryId = new TextBox();
+            comboThirdFirstCategoryId = new ComboBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
@@ -163,6 +167,28 @@ namespace Uttambsolutionsdesktop.Forms
             label5.Size = new Size(162, 20);
             label5.TabIndex = 13;
             label5.Text = "Third Category Name:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(67, 54);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(162, 20);
+            label6.TabIndex = 13;
+            label6.Text = "Main Category:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(67, 54);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(162, 20);
+            label7.TabIndex = 13;
+            label7.Text = "First Category:";
             // 
             // tabControl1
             // 
@@ -384,9 +410,10 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageFirstCategoryDetail.Controls.Add(btnCancelFirst);
             tabPageFirstCategoryDetail.Controls.Add(btnSaveFirst);
             tabPageFirstCategoryDetail.Controls.Add(label4);
+            tabPageFirstCategoryDetail.Controls.Add(label6);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryId);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryName);
-            tabPageFirstCategoryDetail.Controls.Add(txtFirstMainCategoryId);
+            tabPageFirstCategoryDetail.Controls.Add(comboFirstMainCategoryId);
             tabPageFirstCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageFirstCategoryDetail.Location = new Point(4, 24);
             tabPageFirstCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -433,22 +460,23 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstCategoryName.Size = new Size(380, 29);
             txtFirstCategoryName.TabIndex = 12;
             // 
-            // txtFirstMainCategoryId
+            // comboFirstMainCategoryId
             // 
-            txtFirstMainCategoryId.Location = new Point(67, 20);
-            txtFirstMainCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtFirstMainCategoryId.Name = "txtFirstMainCategoryId";
-            txtFirstMainCategoryId.Size = new Size(192, 29);
-            txtFirstMainCategoryId.TabIndex = 16;
+            comboFirstMainCategoryId.Location = new Point(67, 20);
+            comboFirstMainCategoryId.Margin = new Padding(4, 3, 4, 3);
+            comboFirstMainCategoryId.Name = "comboFirstMainCategoryId";
+            comboFirstMainCategoryId.Size = new Size(192, 29);
+            comboFirstMainCategoryId.TabIndex = 16;
             // 
             // tabPageThirdCategoryDetail
             // 
             tabPageThirdCategoryDetail.Controls.Add(btnCancelThird);
             tabPageThirdCategoryDetail.Controls.Add(btnSaveThird);
             tabPageThirdCategoryDetail.Controls.Add(label5);
+            tabPageThirdCategoryDetail.Controls.Add(label7);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryId);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryName);
-            tabPageThirdCategoryDetail.Controls.Add(txtThirdFirstCategoryId);
+            tabPageThirdCategoryDetail.Controls.Add(comboThirdFirstCategoryId);
             tabPageThirdCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageThirdCategoryDetail.Location = new Point(4, 24);
             tabPageThirdCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -494,13 +522,13 @@ namespace Uttambsolutionsdesktop.Forms
             txtThirdCategoryName.Size = new Size(380, 29);
             txtThirdCategoryName.TabIndex = 12;
             // 
-            // txtThirdFirstCategoryId
+            // comboThirdFirstCategoryId
             // 
-            txtThirdFirstCategoryId.Location = new Point(263, 22);
-            txtThirdFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtThirdFirstCategoryId.Name = "txtThirdFirstCategoryId";
-            txtThirdFirstCategoryId.Size = new Size(180, 29);
-            txtThirdFirstCategoryId.TabIndex = 16;
+            comboThirdFirstCategoryId.Location = new Point(263, 22);
+            comboThirdFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
+            comboThirdFirstCategoryId.Name = "comboThirdFirstCategoryId";
+            comboThirdFirstCategoryId.Size = new Size(180, 29);
+            comboThirdFirstCategoryId.TabIndex = 16;
             // 
             // CategoryPageForm
             // 
