@@ -8,23 +8,23 @@ namespace DBL.Entities
 {
     public class MainCategory
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
+        public int MainCategoryId { get; set; }
+        public string? MainCategoryName { get; set; }
         public List<FirstCategory>? FirstCategories { get; set; }
     }
 
     public class FirstCategory
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
+        public int FirstCategoryId { get; set; }
+        public string? FirstCategoryName { get; set; }
         public int MainCategoryId { get; set; }
         public List<ThirdCategory>? ThirdCategories { get; set; }
     }
 
     public class ThirdCategory
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
+        public int ThirdCategoryId { get; set; }
+        public string? ThirdCategoryName { get; set; }
         public int FirstCategoryId { get; set; }
     }
     public class Category

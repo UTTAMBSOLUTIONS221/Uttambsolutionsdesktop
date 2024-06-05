@@ -206,15 +206,42 @@ namespace Uttambsolutionsdesktop
                     }
                 }
 
-                //Category Table
-                string createCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS Categories (" +
-                                                       "CategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                                       "CategoryName TEXT, " +
-                                                       "Createdby INTEGER, " +
-                                                       "Modifiedby INTEGER, " +
-                                                       "DateCreated DATETIME, " +
-                                                       "DateModified DATETIME)";
-                using (SQLiteCommand cmd = new SQLiteCommand(createCategoriesTableQuery, conn))
+                //Main Category Table
+                string createMainCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS MainCategory (" +
+                                                    "MainCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                    "MainCategoryName TEXT, " +
+                                                    "Createdby INTEGER, " +
+                                                    "Modifiedby INTEGER, " +
+                                                    "DateCreated DATETIME, " +
+                                                    "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createMainCategoriesTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                //First Category Table
+                string createFirstCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS FirstCategory (" +
+                                                    "FirstCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                    "FirstCategoryName TEXT, " +
+                                                    "MainCategoryId  INTEGER," +
+                                                    "Createdby INTEGER, " +
+                                                    "Modifiedby INTEGER, " +
+                                                    "DateCreated DATETIME, " +
+                                                    "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createFirstCategoriesTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Third Category Table
+                string createThirdCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS ThirdCategory (" +
+                                                    "ThirdCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                    "ThirdCategoryName TEXT, " +
+                                                    "FirstCategoryId  INTEGER," +
+                                                    "Createdby INTEGER, " +
+                                                    "Modifiedby INTEGER, " +
+                                                    "DateCreated DATETIME, " +
+                                                    "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createThirdCategoriesTableQuery, conn))
                 {
                     cmd.ExecuteNonQuery();
                 }
