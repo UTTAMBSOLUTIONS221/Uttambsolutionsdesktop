@@ -206,6 +206,19 @@ namespace Uttambsolutionsdesktop
                     }
                 }
 
+                //Brand Table
+                string createBrandTableQuery = "CREATE TABLE IF NOT EXISTS ProductBrand (" +
+                                                    "ProductBrandId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                    "ProductBrandName TEXT, " +
+                                                    "Createdby INTEGER, " +
+                                                    "Modifiedby INTEGER, " +
+                                                    "DateCreated DATETIME, " +
+                                                    "DateModified DATETIME)";
+                using (SQLiteCommand cmd = new SQLiteCommand(createBrandTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
                 //Main Category Table
                 string createMainCategoriesTableQuery = "CREATE TABLE IF NOT EXISTS MainCategory (" +
                                                     "MainCategoryId INTEGER PRIMARY KEY AUTOINCREMENT, " +
