@@ -144,6 +144,7 @@
             tabPageProductBrandDetail.TabIndex = 1;
             tabPageProductBrandDetail.Text = "Product Brand Detail";
             tabPageProductBrandDetail.UseVisualStyleBackColor = true;
+            tabPageProductBrandDetail.Click += tabPageProductBrandDetail_Click;
             // 
             // btnCancel
             // 

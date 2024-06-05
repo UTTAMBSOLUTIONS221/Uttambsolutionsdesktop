@@ -89,7 +89,7 @@ namespace Uttambsolutionsdesktop.Forms
                     {
                         ProductBrandId = Convert.ToInt32(selectedRow.Cells["ProductBrandId"].Value);
                         ProductBrandName = selectedRow.Cells["ProductBrandName"].Value.ToString();
-                        
+
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageProductBrandList);
@@ -160,5 +160,9 @@ namespace Uttambsolutionsdesktop.Forms
             MessageBox.Show(message);
         }
 
+        private void tabPageProductBrandDetail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
