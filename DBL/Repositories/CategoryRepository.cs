@@ -37,7 +37,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var categoryFirstQueryResult = connection.Query<FirstCategory>(
-                    @"SELECT FirstCategoryId,FirstCategoryName,a.MainCategoryId,MainCategoryName,DateCreated FROM FirstCategory a INNER JOIN MainCategory b ON a.MainCategoryId = b.MainCategoryId");
+                    @"SELECT FirstCategoryId,FirstCategoryName,a.MainCategoryId,MainCategoryName,a.DateCreated FROM FirstCategory a INNER JOIN MainCategory b ON a.MainCategoryId = b.MainCategoryId");
 
                 // Return the result
                 return categoryFirstQueryResult;
