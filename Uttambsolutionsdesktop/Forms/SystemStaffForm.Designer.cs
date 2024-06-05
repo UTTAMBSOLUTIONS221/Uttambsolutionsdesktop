@@ -28,7 +28,7 @@
             tabPageStaffDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
-            // Adding all the new controls for SystemStaff properties
+            txtUserId = new TextBox();
             labelFirstName = new Label();
             txtFirstName = new TextBox();
             labelLastName = new Label();
