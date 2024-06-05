@@ -10,6 +10,8 @@ namespace DBL.Repositories
 {
     public interface ICategoryRepository
     {
+        IEnumerable<SystemProductBrand> GetAllProductBrands();
+        Genericmodel SaveProductBrand(SystemProductBrand entity);
         IEnumerable<MainCategory> GetAllMainCategories();
         IEnumerable<FirstCategory> GetAllFirstCategories();
         IEnumerable<ThirdCategory> GetAllThirdCategories();

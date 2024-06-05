@@ -44,7 +44,7 @@
             label1.Location = new Point(32, 21);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(124, 25);
+            label1.Size = new Size(197, 25);
             label1.TabIndex = 0;
             label1.Text = "PRODUCT BRANDS";
             // 
@@ -71,7 +71,7 @@
             tabControl1.Size = new Size(1041, 474);
             tabControl1.TabIndex = 2;
             // 
-            // tabPageProductList
+            // tabPageProductBrandList
             // 
             tabPageProductBrandList.Controls.Add(dataGridView);
             tabPageProductBrandList.Controls.Add(btnDelete);
@@ -127,7 +127,7 @@
             btnAddNew.Text = "Add New";
             btnAddNew.UseVisualStyleBackColor = true;
             // 
-            // tabPageProductDetail
+            // tabPageProductBrandDetail
             // 
             tabPageProductBrandDetail.Controls.Add(btnCancel);
             tabPageProductBrandDetail.Controls.Add(btnSave);
@@ -135,7 +135,6 @@
             tabPageProductBrandDetail.Controls.Add(txtProductBrandId);
             tabPageProductBrandDetail.Controls.Add(labelProductBrandName);
             tabPageProductBrandDetail.Controls.Add(txtProductBrandName);
-           
             tabPageProductBrandDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageProductBrandDetail.Location = new Point(4, 24);
             tabPageProductBrandDetail.Margin = new Padding(4, 3, 4, 3);
@@ -148,7 +147,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(501, 338);
+            btnCancel.Location = new Point(467, 229);
             btnCancel.Margin = new Padding(4, 3, 4, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(183, 44);
@@ -158,7 +157,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(230, 338);
+            btnSave.Location = new Point(219, 229);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(183, 44);
@@ -166,57 +165,56 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
-            // labelProductId
+            // labelProductBrandId
             // 
             labelProductBrandId.AutoSize = true;
-            labelProductBrandId.Location = new Point(154, 26);
+            labelProductBrandId.Location = new Point(219, 59);
             labelProductBrandId.Margin = new Padding(4, 0, 4, 0);
             labelProductBrandId.Name = "labelProductBrandId";
-            labelProductBrandId.Size = new Size(80, 24);
+            labelProductBrandId.Size = new Size(135, 24);
             labelProductBrandId.TabIndex = 16;
             labelProductBrandId.Text = "Product Brand:";
             labelProductBrandId.Visible = false;
             // 
-            // txtProductId
+            // txtProductBrandId
             // 
-            txtProductBrandId.Location = new Point(154, 53);
+            txtProductBrandId.Location = new Point(219, 98);
             txtProductBrandId.Margin = new Padding(4, 3, 4, 3);
             txtProductBrandId.Name = "txtProductBrandId";
-            txtProductBrandId.Size = new Size(674, 29);
+            txtProductBrandId.Size = new Size(436, 29);
             txtProductBrandId.TabIndex = 17;
             txtProductBrandId.Visible = false;
             // 
-            // labelProductName
+            // labelProductBrandName
             // 
             labelProductBrandName.AutoSize = true;
-            labelProductBrandName.Location = new Point(153, 97);
+            labelProductBrandName.Location = new Point(218, 130);
             labelProductBrandName.Margin = new Padding(4, 0, 4, 0);
             labelProductBrandName.Name = "labelProductBrandName";
-            labelProductBrandName.Size = new Size(136, 24);
+            labelProductBrandName.Size = new Size(191, 24);
             labelProductBrandName.TabIndex = 12;
             labelProductBrandName.Text = "Product Brand Name:";
             // 
-            // txtProductName
+            // txtProductBrandName
             // 
-            txtProductBrandName.Location = new Point(153, 124);
+            txtProductBrandName.Location = new Point(218, 157);
             txtProductBrandName.Margin = new Padding(4, 3, 4, 3);
             txtProductBrandName.Name = "txtProductBrandName";
-            txtProductBrandName.Size = new Size(675, 29);
+            txtProductBrandName.Size = new Size(432, 29);
             txtProductBrandName.TabIndex = 18;
             // 
-            // ProductPageForm
+            // ProductBrandForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tabControl1);
             Controls.Add(panel1);
-            Name = "ProductBrandPageForm";
+            Name = "ProductBrandForm";
             Size = new Size(1041, 539);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPageProductBrandList.ResumeLayout(false);
-            tabPageProductBrandList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             tabPageProductBrandDetail.ResumeLayout(false);
             tabPageProductBrandDetail.PerformLayout();

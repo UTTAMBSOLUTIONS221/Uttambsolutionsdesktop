@@ -132,9 +132,9 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["ProductBrandId"].Visible = false;
             }
-            if (dataGridView.Columns.Contains("ProductBrandName"))
+            if (dataGridView.Columns.Contains("Createdby"))
             {
-                dataGridView.Columns["ProductBrandName"].Visible = false;
+                dataGridView.Columns["Createdby"].Visible = false;
             }
             if (dataGridView.Columns.Contains("Modifiedby"))
             {

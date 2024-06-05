@@ -144,7 +144,7 @@ namespace DBL
         {
             return Task.Run(() =>
             {
-                var Resp = db.SettingsRepository.GetAllProductBrands();
+                var Resp = db.CategoryRepository.GetAllProductBrands();
                 return Resp;
             });
         }

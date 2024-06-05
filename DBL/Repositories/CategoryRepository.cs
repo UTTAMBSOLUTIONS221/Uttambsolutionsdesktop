@@ -15,6 +15,86 @@ namespace DBL.Repositories
         public CategoryRepository(string connectionString) : base(connectionString)
         {
         }
+        public IEnumerable<SystemProductBrand> GetAllProductBrands()
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch categories
+                var brandMainQueryResult = connection.Query<SystemProductBrand>(
+                    @"SELECT ProductBrandId,ProductBrandName,Createdby,Modifiedby,DateCreated,DateModified FROM ProductBrand");
+                // Return the result
+                return brandMainQueryResult;
+            }
+        }
+
+        public Genericmodel SaveProductBrand(SystemProductBrand entity)
+        {
+            if (string.IsNullOrWhiteSpace(entity.ProductBrandName))
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "ProductBrandName cannot be null or empty" };
+            }
+
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                if (entity.ProductBrandId > 0)
+                {
+                    // Update the product brand
+                    var result = connection.Execute(
+                        @"UPDATE ProductBrand 
+                  SET ProductBrandName = @ProductBrandName, Modifiedby = @Modifiedby, 
+                      DateModified = @DateModified 
+                  WHERE ProductBrandId = @ProductBrandId",
+                        new
+                        {
+                            entity.Modifiedby,
+                            entity.DateModified,
+                            entity.ProductBrandName,
+                            entity.ProductBrandId
+                        });
+
+                    // Return appropriate response
+                    return result < 1
+                        ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Product Brand Updated Successfully" };
+                }
+                else
+                {
+                    // Check if the product brand already exists
+                    var brandExists = connection.ExecuteScalar<bool>(
+                        "SELECT COUNT(1) FROM ProductBrand WHERE ProductBrandName = @ProductBrandName",
+                        new { ProductBrandName = entity.ProductBrandName });
+
+                    if (brandExists)
+                    {
+                        // Product brand already exists, return failure
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Product Brand Exists" };
+                    }
+
+                    // Insert the product brand into the database
+                    var result = connection.Execute(
+                        @"INSERT INTO ProductBrand (ProductBrandName, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@ProductBrandName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        new
+                        {
+                            entity.ProductBrandName,
+                            entity.Createdby,
+                            entity.Modifiedby,
+                            entity.DateCreated,
+                            entity.DateModified
+                        });
+
+                    // Return appropriate response
+                    return result < 1
+                        ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Product Brand Added Successfully" };
+                }
+            }
+        }
+
         public IEnumerable<MainCategory> GetAllMainCategories()
         {
             using (var connection = new SQLiteConnection(_connString))
