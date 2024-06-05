@@ -24,7 +24,9 @@ namespace Uttambsolutionsdesktop.Forms
         private Button btnDeleteThird;
         private Button btnEditThird;
         private Button btnAddNewThird;
-        private TabPage tabPageCategoryDetail;
+        private TabPage tabPageMainCategoryDetail;
+        private TabPage tabPageFirstCategoryDetail;
+        private TabPage tabPageThirdCategoryDetail;
         private Button btnCancel;
         private Button btnSave;
         private Label label3;
@@ -55,7 +57,9 @@ namespace Uttambsolutionsdesktop.Forms
             btnDeleteThird = new Button();
             btnEditThird = new Button();
             btnAddNewThird = new Button();
-            tabPageCategoryDetail = new TabPage();
+            tabPageMainCategoryDetail = new TabPage();
+            tabPageFirstCategoryDetail = new TabPage();
+            tabPageThirdCategoryDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
             label3 = new Label();
@@ -67,7 +71,9 @@ namespace Uttambsolutionsdesktop.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridViewMain).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFirst).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThird).BeginInit();
-            tabPageCategoryDetail.SuspendLayout();
+            tabPageMainCategoryDetail.SuspendLayout();
+            tabPageFirstCategoryDetail.SuspendLayout();
+            tabPageThirdCategoryDetail.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -95,7 +101,9 @@ namespace Uttambsolutionsdesktop.Forms
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPageCategoryList);
-            tabControl1.Controls.Add(tabPageCategoryDetail);
+            tabControl1.Controls.Add(tabPageMainCategoryDetail);
+            tabControl1.Controls.Add(tabPageFirstCategoryDetail);
+            tabControl1.Controls.Add(tabPageThirdCategoryDetail);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 65);
             tabControl1.Margin = new Padding(4, 3, 4, 3);
@@ -260,22 +268,56 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddNewThird.Text = "Add New";
             btnAddNewThird.UseVisualStyleBackColor = true;
             // 
-            // tabPageCategoryDetail
+            // tabPageMainCategoryDetail
             // 
-            tabPageCategoryDetail.Controls.Add(btnCancel);
-            tabPageCategoryDetail.Controls.Add(btnSave);
-            tabPageCategoryDetail.Controls.Add(label3);
-            tabPageCategoryDetail.Controls.Add(txtCategoryName);
-            tabPageCategoryDetail.Controls.Add(txtCategoryId);
-            tabPageCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabPageCategoryDetail.Location = new Point(4, 24);
-            tabPageCategoryDetail.Margin = new Padding(4, 3, 4, 3);
-            tabPageCategoryDetail.Name = "tabPageCategoryDetail";
-            tabPageCategoryDetail.Padding = new Padding(4, 3, 4, 3);
-            tabPageCategoryDetail.Size = new Size(1033, 446);
-            tabPageCategoryDetail.TabIndex = 1;
-            tabPageCategoryDetail.Text = "Category Detail";
-            tabPageCategoryDetail.UseVisualStyleBackColor = true;
+            tabPageMainCategoryDetail.Controls.Add(btnCancel);
+            tabPageMainCategoryDetail.Controls.Add(btnSave);
+            tabPageMainCategoryDetail.Controls.Add(label3);
+            tabPageMainCategoryDetail.Controls.Add(txtCategoryName);
+            tabPageMainCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageMainCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPageMainCategoryDetail.Location = new Point(4, 24);
+            tabPageMainCategoryDetail.Margin = new Padding(4, 3, 4, 3);
+            tabPageMainCategoryDetail.Name = "tabPageMainCategoryDetail";
+            tabPageMainCategoryDetail.Padding = new Padding(4, 3, 4, 3);
+            tabPageMainCategoryDetail.Size = new Size(1033, 446);
+            tabPageMainCategoryDetail.TabIndex = 1;
+            tabPageMainCategoryDetail.Text = "Main Category Detail";
+            tabPageMainCategoryDetail.UseVisualStyleBackColor = true;
+            // 
+            // tabPageFirstCategoryDetail
+            // 
+            tabPageFirstCategoryDetail.Controls.Add(btnCancel);
+            tabPageFirstCategoryDetail.Controls.Add(btnSave);
+            tabPageFirstCategoryDetail.Controls.Add(label3);
+            tabPageFirstCategoryDetail.Controls.Add(txtCategoryName);
+            tabPageFirstCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageFirstCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPageFirstCategoryDetail.Location = new Point(4, 24);
+            tabPageFirstCategoryDetail.Margin = new Padding(4, 3, 4, 3);
+            tabPageFirstCategoryDetail.Name = "tabPageFirstCategoryDetail";
+            tabPageFirstCategoryDetail.Padding = new Padding(4, 3, 4, 3);
+            tabPageFirstCategoryDetail.Size = new Size(1033, 446);
+            tabPageFirstCategoryDetail.TabIndex = 1;
+            tabPageFirstCategoryDetail.Text = "First Category Detail";
+            tabPageFirstCategoryDetail.UseVisualStyleBackColor = true;
+            // 
+            // tabPageThirdCategoryDetail
+            // 
+            tabPageThirdCategoryDetail.Controls.Add(btnCancel);
+            tabPageThirdCategoryDetail.Controls.Add(btnSave);
+            tabPageThirdCategoryDetail.Controls.Add(label3);
+            tabPageThirdCategoryDetail.Controls.Add(txtCategoryName);
+            tabPageThirdCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageThirdCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabPageThirdCategoryDetail.Location = new Point(4, 24);
+            tabPageThirdCategoryDetail.Margin = new Padding(4, 3, 4, 3);
+            tabPageThirdCategoryDetail.Name = "tabPageThirdCategoryDetail";
+            tabPageThirdCategoryDetail.Padding = new Padding(4, 3, 4, 3);
+            tabPageThirdCategoryDetail.Size = new Size(1033, 446);
+            tabPageThirdCategoryDetail.TabIndex = 1;
+            tabPageThirdCategoryDetail.Text = "Third Category Detail";
+            tabPageThirdCategoryDetail.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -341,8 +383,12 @@ namespace Uttambsolutionsdesktop.Forms
             ((System.ComponentModel.ISupportInitialize)dataGridViewMain).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFirst).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewThird).EndInit();
-            tabPageCategoryDetail.ResumeLayout(false);
-            tabPageCategoryDetail.PerformLayout();
+            tabPageMainCategoryDetail.ResumeLayout(false);
+            tabPageMainCategoryDetail.PerformLayout();
+            tabPageFirstCategoryDetail.ResumeLayout(false);
+            tabPageFirstCategoryDetail.PerformLayout();
+            tabPageThirdCategoryDetail.ResumeLayout(false);
+            tabPageThirdCategoryDetail.PerformLayout();
             ResumeLayout(false);
         }
     }

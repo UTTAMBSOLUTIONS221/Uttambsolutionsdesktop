@@ -7,8 +7,17 @@ namespace Uttambsolutionsdesktop.Views
     public interface ICategoryView
     {
         // Properties
-        int CategoryId { get; set; }
-        string CategoryName { get; set; }
+        int MainCategoryId { get; set; }
+        string MainCategoryName { get; set; }
+        // Properties
+        int FirstCategoryId { get; set; }
+        string FirstCategoryName { get; set; }
+        int FirstMainCategoryId { get; set; }
+        // Properties
+        int ThirdCategoryId { get; set; }
+        string ThirdCategoryName { get; set; }
+        int ThirdFirstCategoryId { get; set; }
+
 
         // Events
         event EventHandler AddNewEvent;

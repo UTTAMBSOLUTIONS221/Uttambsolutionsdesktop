@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Windows.Forms;
 using DBL.Entities;
+using Microsoft.VisualBasic.ApplicationServices;
 using Uttambsolutionsdesktop.Presenters;
 using Uttambsolutionsdesktop.Views;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static Uttambsolutionsdesktop.Program;
 
 namespace Uttambsolutionsdesktop.Forms
@@ -22,15 +25,49 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler CancelEvent;
 
         // Properties
-        public int CategoryId
+        public int MainCategoryId
         {
-            get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }
-            set { txtCategoryId.Text = value.ToString(); }
+            get { return int.TryParse(txtMainCategoryId.Text, out int id) ? id : 0; }
+            set { txtMainCategoryId.Text = value.ToString(); }
         }
-        public string CategoryName
+        public string MainCategoryName
         {
-            get { return txtCategoryName.Text; }
-            set { txtCategoryName.Text = value; }
+            get { return txtMainCategoryName.Text; }
+            set { txtMainCategoryName.Text = value; }
+        }
+
+        // Properties
+        public int FirstCategoryId
+        {
+            get { return int.TryParse(txtFirstCategoryId.Text, out int id) ? id : 0; }
+            set { txtFirstCategoryId.Text = value.ToString(); }
+        }
+        public string FirstCategoryName
+        {
+            get { return txtFirstCategoryName.Text; }
+            set { txtFirstCategoryName.Text = value; }
+        }
+        public int FirstMainCategoryId
+        {
+            get { return int.TryParse(txtFirstMainCategoryId.Text, out int id) ? id : 0; }
+            set { txtFirstMainCategoryId.Text = value.ToString(); }
+        }
+
+        // Properties
+        public int ThirdCategoryId
+        {
+            get { return int.TryParse(txtThirdCategoryId.Text, out int id) ? id : 0; }
+            set { txtThirdCategoryId.Text = value.ToString(); }
+        }
+        public string ThirdCategoryName
+        {
+            get { return txtThirdCategoryName.Text; }
+            set { txtThirdCategoryName.Text = value; }
+        }
+        public int ThirdFirstCategoryId
+        {
+            get { return int.TryParse(txtThirdFirstCategoryId.Text, out int id) ? id : 0; }
+            set { txtThirdFirstCategoryId.Text = value.ToString(); }
         }
 
         // Models
@@ -43,7 +80,9 @@ namespace Uttambsolutionsdesktop.Forms
             _userId = userId;
             _presenter = new CategoryPresenter(this, userId, DatabaseManager.ConnectionString);
             AssociateAndRaiseViewEvents();
-            tabControl1.TabPages.Remove(tabPageCategoryDetail);
+            tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+            tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+            tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
             dataGridViewMain.DataBindingComplete += DataGridView_MainDataBindingComplete;
             dataGridViewFirst.DataBindingComplete += DataGridView_FirstDataBindingComplete;
             dataGridViewThird.DataBindingComplete += DataGridView_ThirdDataBindingComplete;
@@ -55,11 +94,11 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddNewMain.Click += delegate
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
-                //ClearDetailFields();
+                ClearDetailFields();
                 //Userid = 0; // Ensure UserId is set to 0 for new entrie
                 tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Add(tabPageCategoryDetail);
-                tabPageCategoryDetail.Text = "Add Main Category";
+                tabControl1.TabPages.Add(tabPageMainCategoryDetail);
+                tabPageMainCategoryDetail.Text = "Add Main Category";
             };
 
             btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
@@ -164,7 +203,17 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
-
+        private void ClearDetailFields()
+        {
+            MainCategoryId = 0;
+            MainCategoryName = string.Empty;
+            FirstCategoryId = 0;
+            FirstCategoryName = string.Empty;
+            FirstMainCategoryId = 0;
+            ThirdCategoryId = 0;
+            ThirdCategoryName = string.Empty;
+            ThirdFirstCategoryId = 0;
+        }
 
         // Optional method to show message boxes
         public void ShowMessage(string message)
