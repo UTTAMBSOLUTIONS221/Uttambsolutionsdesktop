@@ -35,7 +35,9 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view.AddNewEvent += AddNewCategory;
             this._view.EditEvent += LoadSelectedCategoryToEdit;
             this._view.DeleteEvent += DeleteSelectedCategory;
-            this._view.SaveEvent += SaveCategory;
+            this._view.SaveMainEvent += SaveMainCategory;
+            this._view.SaveFirstEvent += SaveFirstCategory;
+            this._view.SaveThirdEvent += SaveThirdCategory;
             //Set pets bindind source
             this._view.SetMainCategoryListBindingSource(mainCategoryBindingSource);
             this._view.SetFirstCategoryListBindingSource(firstCategoryBindingSource);
@@ -48,6 +50,15 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view.Show();
 
            
+        }
+
+        public async Task<List<MainCategory>> GetAllMainCategories()
+        {
+            return (List<MainCategory>)await _bl.GetAllMainCategories(); ;
+        }
+        public async Task<List<FirstCategory>> GetAllFirstCategories()
+        {
+            return (List<FirstCategory>)await _bl.GetAllFirstCategories(); ;
         }
 
         private async void LoadAllMainCategoriesList()
@@ -65,7 +76,7 @@ namespace Uttambsolutionsdesktop.Presenters
             thirdCategoryList = await _bl.GetAllThirdCategories();
             thirdCategoryBindingSource.DataSource = thirdCategoryList;//Set data source.
         }
-        private async void SaveCategory(object sender, EventArgs e)
+        private async void SaveMainCategory(object sender, EventArgs e)
         {
             MainCategory mainCategoryData = new MainCategory();
             mainCategoryData.MainCategoryId = _view.MainCategoryId;
@@ -95,6 +106,71 @@ namespace Uttambsolutionsdesktop.Presenters
             LoadAllFirstCategoriesList();
             LoadAllThirdCategoriesList();
         }
+
+        private async void SaveFirstCategory(object sender, EventArgs e)
+        {
+            FirstCategory firstCategoryData = new FirstCategory();
+            firstCategoryData.FirstCategoryId = _view.FirstCategoryId;
+            firstCategoryData.MainCategoryId = _view.MainCategoryId;
+            firstCategoryData.FirstCategoryName = _view.FirstCategoryName;
+            firstCategoryData.Createdby = Convert.ToInt32(_userId);
+            firstCategoryData.Modifiedby = Convert.ToInt32(_userId);
+            firstCategoryData.DateCreated = DateTime.Now;
+            firstCategoryData.DateModified = DateTime.Now;
+
+            // Call the BL method to save the category
+            var resp = await _bl.SaveFirstCategory(firstCategoryData);
+            // Handle the response accordingly
+            if (resp.RespStatus == 0)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else if (resp.RespStatus == 1)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            // Refresh the category list
+            LoadAllMainCategoriesList();
+            LoadAllFirstCategoriesList();
+            LoadAllThirdCategoriesList();
+        }
+
+        private async void SaveThirdCategory(object sender, EventArgs e)
+        {
+            ThirdCategory thirdCategoryData = new ThirdCategory();
+            thirdCategoryData.ThirdCategoryId = _view.ThirdCategoryId;
+            thirdCategoryData.FirstCategoryId = _view.ThirdFirstCategoryId;
+            thirdCategoryData.ThirdCategoryName = _view.MainCategoryName;
+            thirdCategoryData.Createdby = Convert.ToInt32(_userId);
+            thirdCategoryData.Modifiedby = Convert.ToInt32(_userId);
+            thirdCategoryData.DateCreated = DateTime.Now;
+            thirdCategoryData.DateModified = DateTime.Now;
+
+            // Call the BL method to save the category
+            var resp = await _bl.SaveThirdCategory(thirdCategoryData);
+            // Handle the response accordingly
+            if (resp.RespStatus == 0)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else if (resp.RespStatus == 1)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            // Refresh the category list
+            LoadAllMainCategoriesList();
+            LoadAllFirstCategoriesList();
+            LoadAllThirdCategoriesList();
+        }
+
         private void DeleteSelectedCategory(object sender, EventArgs e)
         {
         }

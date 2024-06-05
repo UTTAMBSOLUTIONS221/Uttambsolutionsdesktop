@@ -23,7 +23,9 @@ namespace Uttambsolutionsdesktop.Views
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
-        event EventHandler SaveEvent;
+        event EventHandler SaveMainEvent;
+        event EventHandler SaveFirstEvent;
+        event EventHandler SaveThirdEvent;
         event EventHandler CancelEvent;
 
         // Methods

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Windows.Forms;
 using DBL.Entities;
+using DBL.Models;
 using Microsoft.VisualBasic.ApplicationServices;
 using Uttambsolutionsdesktop.Presenters;
 using Uttambsolutionsdesktop.Views;
@@ -21,7 +22,9 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
-        public event EventHandler SaveEvent;
+        public event EventHandler SaveMainEvent;
+        public event EventHandler SaveFirstEvent;
+        public event EventHandler SaveThirdEvent;
         public event EventHandler CancelEvent;
 
         // Properties
@@ -47,11 +50,9 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtFirstCategoryName.Text; }
             set { txtFirstCategoryName.Text = value; }
         }
-        public int FirstMainCategoryId
-        {
-            get { return int.TryParse(txtFirstMainCategoryId.Text, out int id) ? id : 0; }
-            set { txtFirstMainCategoryId.Text = value.ToString(); }
-        }
+        public int FirstMainCategoryId { get => Convert.ToInt32(comboFirstMainCategoryId.SelectedValue); set => comboFirstMainCategoryId.SelectedValue = value; }
+
+
 
         // Properties
         public int ThirdCategoryId
@@ -64,11 +65,8 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtThirdCategoryName.Text; }
             set { txtThirdCategoryName.Text = value; }
         }
-        public int ThirdFirstCategoryId
-        {
-            get { return int.TryParse(txtThirdFirstCategoryId.Text, out int id) ? id : 0; }
-            set { txtThirdFirstCategoryId.Text = value.ToString(); }
-        }
+
+        public int ThirdFirstCategoryId { get => Convert.ToInt32(comboThirdFirstCategoryId.SelectedValue); set => comboThirdFirstCategoryId.SelectedValue = value; }
 
         // Constructors
         public CategoryPageForm(string userId)
@@ -83,8 +81,50 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewMain.DataBindingComplete += DataGridView_MainDataBindingComplete;
             dataGridViewFirst.DataBindingComplete += DataGridView_FirstDataBindingComplete;
             dataGridViewThird.DataBindingComplete += DataGridView_ThirdDataBindingComplete;
-        }
 
+            // Populate comboboxes
+            PopulateComboboxes();
+        }
+        private async void PopulateComboboxes()
+        {
+            // Call presenter methods to retrieve combobox data
+            var mainCategoryData = await _presenter.GetAllMainCategories();
+            var firstCategoryData = await _presenter.GetAllFirstCategories();
+
+            // Populate comboboxes with data
+            PopulateFirstMainCategoryComboBox(mainCategoryData);
+            PopulateThirdFirstCategoryComboBox(firstCategoryData);
+        }
+        public void PopulateFirstMainCategoryComboBox(List<MainCategory> mainCategoryData)
+        {
+            // Create a new list to hold the modified role data
+            List<MainCategory> modifiedMainCategoryData = new List<MainCategory>(mainCategoryData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedMainCategoryData.Insert(0, new MainCategory { MainCategoryId = 0, MainCategoryName = "Select Category" });
+
+            // Bind the modified role data to the ComboBox
+            comboFirstMainCategoryId.DataSource = modifiedMainCategoryData;
+            comboFirstMainCategoryId.ValueMember = "MainCategoryId";
+            comboFirstMainCategoryId.DisplayMember = "MainCategoryName";
+            // Select the correct value based on the Roleid property
+            comboFirstMainCategoryId.SelectedValue = MainCategoryId;
+        }
+        public void PopulateThirdFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
+        {
+            // Create a new list to hold the modified role data
+            List<FirstCategory> modifiedFirstCategoryData = new List<FirstCategory>(firstCategoryData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedFirstCategoryData.Insert(0, new FirstCategory { FirstCategoryId = 0, FirstCategoryName = "Select Category" });
+
+            // Bind the modified role data to the ComboBox
+            comboThirdFirstCategoryId.DataSource = modifiedFirstCategoryData;
+            comboThirdFirstCategoryId.ValueMember = "FirstCategoryId";
+            comboThirdFirstCategoryId.DisplayMember = "FirstCategoryName";
+            // Select the correct value based on the Roleid property
+            comboThirdFirstCategoryId.SelectedValue = FirstCategoryId;
+        }
         // Methods
         private void AssociateAndRaiseViewEvents()
         {
@@ -154,7 +194,7 @@ namespace Uttambsolutionsdesktop.Forms
 
             btnSaveMain.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveMainEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
@@ -172,7 +212,7 @@ namespace Uttambsolutionsdesktop.Forms
             };
             btnSaveFirst.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveFirstEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
@@ -190,7 +230,7 @@ namespace Uttambsolutionsdesktop.Forms
             };
             btnSaveThird.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveThirdEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
