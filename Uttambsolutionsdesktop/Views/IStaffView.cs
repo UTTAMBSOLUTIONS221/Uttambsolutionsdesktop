@@ -28,7 +28,7 @@ namespace Uttambsolutionsdesktop.Views
         event EventHandler CancelEvent;
 
         //Methods
-        void SetStaffListBindingSource(BindingSource categoryList);
+        void SetStaffListBindingSource(BindingSource staffList);
         void Show();
     }
 }

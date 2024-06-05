@@ -162,6 +162,7 @@
             // 
             tabPageStaffDetail.Controls.Add(btnCancel);
             tabPageStaffDetail.Controls.Add(btnSave);
+            tabPageStaffDetail.Controls.Add(txtUserId);
             tabPageStaffDetail.Controls.Add(labelFirstName);
             tabPageStaffDetail.Controls.Add(txtFirstName);
             tabPageStaffDetail.Controls.Add(labelLastName);

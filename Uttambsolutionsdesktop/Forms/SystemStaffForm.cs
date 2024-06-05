@@ -74,13 +74,13 @@ namespace Uttambsolutionsdesktop.Forms
         {
             dataGridView.DataSource = staffList;
             // Ensure the hidden UserId column is added
-            if (!dataGridView.Columns.Contains("UserId"))
+            if (!dataGridView.Columns.Contains("Userid"))
             {
                 dataGridView.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "UserId",
-                    HeaderText = "UserId",
-                    DataPropertyName = "UserId", // Ensure this matches the property name in the data source
+                    Name = "Userid",
+                    HeaderText = "Userid",
+                    DataPropertyName = "Userid", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
@@ -137,7 +137,7 @@ namespace Uttambsolutionsdesktop.Forms
                         Phonenumber = selectedRow.Cells["Phonenumber"].Value.ToString();
                         Username = selectedRow.Cells["Username"].Value.ToString();
                         Emailaddress = selectedRow.Cells["Emailaddress"].Value.ToString();
-                        Roleid = Convert.ToInt32(selectedRow.Cells["RoleId"].Value);
+                        Roleid = Convert.ToInt32(selectedRow.Cells["Roleid"].Value);
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageStaffList);
