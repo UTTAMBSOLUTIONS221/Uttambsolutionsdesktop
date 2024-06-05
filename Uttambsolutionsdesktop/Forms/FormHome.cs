@@ -1,15 +1,4 @@
-﻿using Bunifu.Framework.UI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Uttambsolutionsdesktop.Forms
+﻿namespace Uttambsolutionsdesktop.Forms
 {
     public partial class FormHome : Form
     {
@@ -46,10 +35,6 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 sender.Textcolor = Color.White;
             }
-
-
-
-
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
