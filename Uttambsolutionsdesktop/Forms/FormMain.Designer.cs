@@ -53,7 +53,7 @@
             panelProductManagementSubmenu.Controls.Add(btnCategoryList);
             panelProductManagementSubmenu.Controls.Add(btnProductList);
             panelProductManagementSubmenu.Dock = DockStyle.Top;
-            panelProductManagementSubmenu.Location = new Point(0, 254);
+            panelProductManagementSubmenu.Location = new Point(0, 243);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
             panelProductManagementSubmenu.Size = new Size(139, 104);
@@ -66,10 +66,10 @@
             btnCategoryList.FlatAppearance.BorderSize = 0;
             btnCategoryList.FlatStyle = FlatStyle.Flat;
             btnCategoryList.ForeColor = Color.Gainsboro;
-            btnCategoryList.Location = new Point(0, 52);
+            btnCategoryList.Location = new Point(0, 46);
             btnCategoryList.Margin = new Padding(4, 3, 4, 3);
             btnCategoryList.Name = "btnCategoryList";
-            btnCategoryList.Size = new Size(139, 52);
+            btnCategoryList.Size = new Size(139, 38);
             btnCategoryList.TabIndex = 1;
             btnCategoryList.Text = "Category List";
             btnCategoryList.Click += BtnCategoryList_Click;
@@ -83,7 +83,7 @@
             btnProductList.Location = new Point(0, 0);
             btnProductList.Margin = new Padding(4, 3, 4, 3);
             btnProductList.Name = "btnProductList";
-            btnProductList.Size = new Size(139, 52);
+            btnProductList.Size = new Size(139, 46);
             btnProductList.TabIndex = 0;
             btnProductList.Text = "Product List";
             btnProductList.Click += BtnProductList_Click;
@@ -97,7 +97,7 @@
             btnProductManagement.Location = new Point(0, 202);
             btnProductManagement.Margin = new Padding(4, 3, 4, 3);
             btnProductManagement.Name = "btnProductManagement";
-            btnProductManagement.Size = new Size(139, 52);
+            btnProductManagement.Size = new Size(139, 41);
             btnProductManagement.TabIndex = 1;
             btnProductManagement.Text = "Warehouse";
             btnProductManagement.Click += BtnProductManagement_Click;
@@ -134,7 +134,7 @@
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.ForeColor = Color.Gainsboro;
             btnDashboard.Location = new Point(0, 0);
-            btnDashboard.Margin = new Padding(4, 3, 4, 3);
+            btnDashboard.Margin = new Padding(4, 30, 4, 3);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(139, 52);
             btnDashboard.TabIndex = 4;
