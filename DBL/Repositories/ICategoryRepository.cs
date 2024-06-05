@@ -10,7 +10,9 @@ namespace DBL.Repositories
 {
     public interface ICategoryRepository
     {
-        IEnumerable<CategoryData> GetAllCategories();
+        IEnumerable<MainCategory> GetAllMainCategories();
+        IEnumerable<FirstCategory> GetAllFirstCategories();
+        IEnumerable<ThirdCategory> GetAllThirdCategories();
         Genericmodel SaveCategory(Category entity);
     }
 }

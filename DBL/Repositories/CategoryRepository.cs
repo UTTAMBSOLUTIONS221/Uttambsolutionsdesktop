@@ -15,18 +15,46 @@ namespace DBL.Repositories
         public CategoryRepository(string connectionString) : base(connectionString)
         {
         }
-        public IEnumerable<CategoryData> GetAllCategories()
+        public IEnumerable<MainCategory> GetAllMainCategories()
         {
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
 
                 // Execute the query to fetch categories
-                var categoryQueryResult = connection.Query<CategoryData>(
+                var categoryMainQueryResult = connection.Query<MainCategory>(
                     @"SELECT CategoryId,CategoryName FROM Categories");
 
                 // Return the result
-                return categoryQueryResult;
+                return categoryMainQueryResult;
+            }
+        }
+        public IEnumerable<FirstCategory> GetAllFirstCategories()
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch categories
+                var categoryFirstQueryResult = connection.Query<FirstCategory>(
+                    @"SELECT CategoryId,CategoryName FROM Categories");
+
+                // Return the result
+                return categoryFirstQueryResult;
+            }
+        }
+        public IEnumerable<ThirdCategory> GetAllThirdCategories()
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch categories
+                var categoryThirdQueryResult = connection.Query<ThirdCategory>(
+                    @"SELECT CategoryId,CategoryName FROM Categories");
+
+                // Return the result
+                return categoryThirdQueryResult;
             }
         }
 

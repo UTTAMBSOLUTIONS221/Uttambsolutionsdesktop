@@ -140,11 +140,27 @@ namespace DBL
         #endregion
 
         #region Producct Categories
-        public Task<IEnumerable<CategoryData>> GetAllCategories()
+        public Task<IEnumerable<MainCategory>> GetAllMainCategories()
         {
             return Task.Run(() =>
             {
-                var Resp = db.CategoryRepository.GetAllCategories();
+                var Resp = db.CategoryRepository.GetAllMainCategories();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<FirstCategory>> GetAllFirstCategories()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.GetAllFirstCategories();
+                return Resp;
+            });
+        }
+        public Task<IEnumerable<ThirdCategory>> GetAllThirdCategories()
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.GetAllThirdCategories();
                 return Resp;
             });
         }

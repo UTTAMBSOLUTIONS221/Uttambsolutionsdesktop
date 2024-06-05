@@ -18,7 +18,9 @@ namespace Uttambsolutionsdesktop.Presenters
         private BindingSource mainCategoryBindingSource;
         private BindingSource firstCategoryBindingSource;
         private BindingSource thirdCategoryBindingSource;
-        private IEnumerable<CategoryData> categoryList;
+        private IEnumerable<MainCategory> mainCategoryList;
+        private IEnumerable<FirstCategory> firstCategoryList;
+        private IEnumerable<ThirdCategory> thirdCategoryList;
 
         public CategoryPresenter(ICategoryView view,string userId, string connectionString)
         {
@@ -50,18 +52,18 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private async void LoadAllMainCategoriesList()
         {
-            categoryList = await _bl.GetAllCategories();
-            mainCategoryBindingSource.DataSource = categoryList;//Set data source.
+            mainCategoryList = await _bl.GetAllMainCategories();
+            mainCategoryBindingSource.DataSource = mainCategoryList;//Set data source.
         }
         private async void LoadAllFirstCategoriesList()
         {
-            categoryList = await _bl.GetAllCategories();
-            firstCategoryBindingSource.DataSource = categoryList;//Set data source.
+            firstCategoryList = await _bl.GetAllFirstCategories();
+            firstCategoryBindingSource.DataSource = firstCategoryList;//Set data source.
         }
         private async void LoadAllThirdCategoriesList()
         {
-            categoryList = await _bl.GetAllCategories();
-            thirdCategoryBindingSource.DataSource = categoryList;//Set data source.
+            thirdCategoryList = await _bl.GetAllThirdCategories();
+            thirdCategoryBindingSource.DataSource = thirdCategoryList;//Set data source.
         }
         private async void SaveCategory(object sender, EventArgs e)
         {
