@@ -19,13 +19,13 @@
         {
             panelMenu = new Panel();
             panelProductManagementSubmenu = new Panel();
-            btnSalesList = new Button();
             btnCategoryList = new Button();
             btnProductList = new Button();
             btnProductManagement = new Button();
             panelSettingsSubmenu = new Panel();
             btnSettings = new Button();
             btnDashboard = new Button();
+            btnSalesList = new Button();
             btnToggleMenu = new Button();
             contentWrapper = new Panel();
             panelMenu.SuspendLayout();
@@ -44,7 +44,7 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Margin = new Padding(4, 3, 4, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(233, 692);
+            panelMenu.Size = new Size(139, 692);
             panelMenu.TabIndex = 0;
             // 
             // panelProductManagementSubmenu
@@ -56,23 +56,9 @@
             panelProductManagementSubmenu.Location = new Point(0, 254);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
-            panelProductManagementSubmenu.Size = new Size(233, 104);
+            panelProductManagementSubmenu.Size = new Size(139, 104);
             panelProductManagementSubmenu.TabIndex = 0;
             panelProductManagementSubmenu.Visible = false;
-            // 
-            // btnSalesList
-            // 
-            btnSalesList.Dock = DockStyle.Top;
-            btnSalesList.FlatAppearance.BorderSize = 0;
-            btnSalesList.FlatStyle = FlatStyle.Flat;
-            btnSalesList.ForeColor = Color.Gainsboro;
-            btnSalesList.Location = new Point(0, 256);
-            btnSalesList.Margin = new Padding(4, 3, 4, 3);
-            btnSalesList.Name = "btnSalesList";
-            btnSalesList.Size = new Size(233, 52);
-            btnSalesList.TabIndex = 2;
-            btnSalesList.Text = "Sales List"; // Set the text for Sales List button
-            btnSalesList.Click += BtnSalesList_Click;
             // 
             // btnCategoryList
             // 
@@ -80,10 +66,10 @@
             btnCategoryList.FlatAppearance.BorderSize = 0;
             btnCategoryList.FlatStyle = FlatStyle.Flat;
             btnCategoryList.ForeColor = Color.Gainsboro;
-            btnCategoryList.Location = new Point(0, 0);
+            btnCategoryList.Location = new Point(0, 52);
             btnCategoryList.Margin = new Padding(4, 3, 4, 3);
             btnCategoryList.Name = "btnCategoryList";
-            btnCategoryList.Size = new Size(233, 52);
+            btnCategoryList.Size = new Size(139, 52);
             btnCategoryList.TabIndex = 1;
             btnCategoryList.Text = "Category List";
             btnCategoryList.Click += BtnCategoryList_Click;
@@ -94,10 +80,10 @@
             btnProductList.FlatAppearance.BorderSize = 0;
             btnProductList.FlatStyle = FlatStyle.Flat;
             btnProductList.ForeColor = Color.Gainsboro;
-            btnProductList.Location = new Point(0, 52);
+            btnProductList.Location = new Point(0, 0);
             btnProductList.Margin = new Padding(4, 3, 4, 3);
             btnProductList.Name = "btnProductList";
-            btnProductList.Size = new Size(233, 52);
+            btnProductList.Size = new Size(139, 52);
             btnProductList.TabIndex = 0;
             btnProductList.Text = "Product List";
             btnProductList.Click += BtnProductList_Click;
@@ -111,7 +97,7 @@
             btnProductManagement.Location = new Point(0, 202);
             btnProductManagement.Margin = new Padding(4, 3, 4, 3);
             btnProductManagement.Name = "btnProductManagement";
-            btnProductManagement.Size = new Size(233, 52);
+            btnProductManagement.Size = new Size(139, 52);
             btnProductManagement.TabIndex = 1;
             btnProductManagement.Text = "Warehouse";
             btnProductManagement.Click += BtnProductManagement_Click;
@@ -123,7 +109,7 @@
             panelSettingsSubmenu.Location = new Point(0, 104);
             panelSettingsSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelSettingsSubmenu.Name = "panelSettingsSubmenu";
-            panelSettingsSubmenu.Size = new Size(233, 98);
+            panelSettingsSubmenu.Size = new Size(139, 98);
             panelSettingsSubmenu.TabIndex = 2;
             panelSettingsSubmenu.Visible = false;
             // 
@@ -136,7 +122,7 @@
             btnSettings.Location = new Point(0, 52);
             btnSettings.Margin = new Padding(4, 3, 4, 3);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(233, 52);
+            btnSettings.Size = new Size(139, 52);
             btnSettings.TabIndex = 3;
             btnSettings.Text = "Settings";
             btnSettings.Click += BtnSettings_Click;
@@ -150,9 +136,23 @@
             btnDashboard.Location = new Point(0, 0);
             btnDashboard.Margin = new Padding(4, 3, 4, 3);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(233, 52);
+            btnDashboard.Size = new Size(139, 52);
             btnDashboard.TabIndex = 4;
             btnDashboard.Text = "Dashboard";
+            // 
+            // btnSalesList
+            // 
+            btnSalesList.Dock = DockStyle.Top;
+            btnSalesList.FlatAppearance.BorderSize = 0;
+            btnSalesList.FlatStyle = FlatStyle.Flat;
+            btnSalesList.ForeColor = Color.Gainsboro;
+            btnSalesList.Location = new Point(0, 256);
+            btnSalesList.Margin = new Padding(4, 3, 4, 3);
+            btnSalesList.Name = "btnSalesList";
+            btnSalesList.Size = new Size(233, 52);
+            btnSalesList.TabIndex = 2;
+            btnSalesList.Text = "Sales List";
+            btnSalesList.Click += BtnSalesList_Click;
             // 
             // btnToggleMenu
             // 
@@ -161,20 +161,20 @@
             btnToggleMenu.FlatAppearance.BorderSize = 0;
             btnToggleMenu.FlatStyle = FlatStyle.Flat;
             btnToggleMenu.ForeColor = Color.Gainsboro;
-            btnToggleMenu.Location = new Point(233, 0);
+            btnToggleMenu.Location = new Point(139, 0);
             btnToggleMenu.Margin = new Padding(4, 3, 4, 3);
             btnToggleMenu.Name = "btnToggleMenu";
-            btnToggleMenu.Size = new Size(992, 52);
+            btnToggleMenu.Size = new Size(1086, 52);
             btnToggleMenu.TabIndex = 3;
             btnToggleMenu.UseVisualStyleBackColor = false;
             // 
             // contentWrapper
             // 
             contentWrapper.Dock = DockStyle.Fill;
-            contentWrapper.Location = new Point(233, 52);
+            contentWrapper.Location = new Point(139, 52);
             contentWrapper.Margin = new Padding(4, 3, 4, 3);
             contentWrapper.Name = "contentWrapper";
-            contentWrapper.Size = new Size(992, 640);
+            contentWrapper.Size = new Size(1086, 640);
             contentWrapper.TabIndex = 2;
             // 
             // FormMain
