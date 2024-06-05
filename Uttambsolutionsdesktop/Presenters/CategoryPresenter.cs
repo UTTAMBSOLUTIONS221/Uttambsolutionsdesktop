@@ -111,7 +111,7 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             FirstCategory firstCategoryData = new FirstCategory();
             firstCategoryData.FirstCategoryId = _view.FirstCategoryId;
-            firstCategoryData.MainCategoryId = _view.MainCategoryId;
+            firstCategoryData.MainCategoryId = _view.FirstMainCategoryId;
             firstCategoryData.FirstCategoryName = _view.FirstCategoryName;
             firstCategoryData.Createdby = Convert.ToInt32(_userId);
             firstCategoryData.Modifiedby = Convert.ToInt32(_userId);
