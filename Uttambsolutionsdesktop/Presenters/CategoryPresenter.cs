@@ -15,7 +15,9 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly ICategoryView _view;
         private readonly string _userId;
         private readonly BL _bl;
-        private BindingSource categoryBindingSource;
+        private BindingSource mainCategoryBindingSource;
+        private BindingSource firstCategoryBindingSource;
+        private BindingSource thirdCategoryBindingSource;
         private IEnumerable<CategoryData> categoryList;
 
         public CategoryPresenter(ICategoryView view,string userId, string connectionString)
@@ -23,7 +25,9 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view = view;
             _bl = new BL(connectionString);
             _userId = userId;
-            this.categoryBindingSource = new BindingSource();
+            this.mainCategoryBindingSource = new BindingSource();
+            this.firstCategoryBindingSource = new BindingSource();
+            this.thirdCategoryBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
 
             this._view.AddNewEvent += AddNewCategory;
@@ -31,32 +35,34 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view.DeleteEvent += DeleteSelectedCategory;
             this._view.SaveEvent += SaveCategory;
             //Set pets bindind source
-            this._view.SetMainCategoryListBindingSource(categoryBindingSource);
-            this._view.SetFirstCategoryListBindingSource(categoryBindingSource);
-            this._view.SetThirdCategoryListBindingSource(categoryBindingSource);
+            this._view.SetMainCategoryListBindingSource(mainCategoryBindingSource);
+            this._view.SetFirstCategoryListBindingSource(firstCategoryBindingSource);
+            this._view.SetThirdCategoryListBindingSource(thirdCategoryBindingSource);
             //Load pet list view
-            LoadAllCategoriesList();
+            LoadAllMainCategoriesList();
+            LoadAllFirstCategoriesList();
+            LoadAllThirdCategoriesList();
             //Show view
             this._view.Show();
 
            
         }
 
-        private async void LoadAllCategoriesList()
+        private async void LoadAllMainCategoriesList()
         {
             categoryList = await _bl.GetAllCategories();
-            categoryBindingSource.DataSource = categoryList;//Set data source.
+            mainCategoryBindingSource.DataSource = categoryList;//Set data source.
         }
-
-        //private void SearchPet(object sender, EventArgs e)
-        //{
-        //    bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
-        //    if (emptyValue == false)
-        //        petList = repository.GetByValue(this.view.SearchValue);
-        //    else petList = repository.GetAll();
-        //    petsBindingSource.DataSource = petList;
-        //}
-
+        private async void LoadAllFirstCategoriesList()
+        {
+            categoryList = await _bl.GetAllCategories();
+            firstCategoryBindingSource.DataSource = categoryList;//Set data source.
+        }
+        private async void LoadAllThirdCategoriesList()
+        {
+            categoryList = await _bl.GetAllCategories();
+            thirdCategoryBindingSource.DataSource = categoryList;//Set data source.
+        }
         private async void SaveCategory(object sender, EventArgs e)
         {
             Category categoryData = new Category();
@@ -83,7 +89,9 @@ namespace Uttambsolutionsdesktop.Presenters
                 MessageBox.Show(resp.RespMessage);
             }
             // Refresh the category list
-            LoadAllCategoriesList();
+            LoadAllMainCategoriesList();
+            LoadAllFirstCategoriesList();
+            LoadAllThirdCategoriesList();
         }
         private void DeleteSelectedCategory(object sender, EventArgs e)
         {
