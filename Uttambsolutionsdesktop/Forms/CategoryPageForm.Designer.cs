@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Uttambsolutionsdesktop.Forms
@@ -30,8 +31,16 @@ namespace Uttambsolutionsdesktop.Forms
         private Button btnCancel;
         private Button btnSave;
         private Label label3;
-        private TextBox txtCategoryName;
-        private TextBox txtCategoryId;
+        private Label label4;
+        private Label label5;
+        private TextBox txtMainCategoryId;
+        private TextBox txtMainCategoryName;
+        private TextBox txtFirstCategoryId;
+        private TextBox txtFirstCategoryName;
+        private TextBox txtFirstMainCategoryId;
+        private TextBox txtThirdCategoryId;
+        private TextBox txtThirdCategoryName;
+        private TextBox txtThirdFirstCategoryId;
 
         public CategoryPageForm()
         {
@@ -63,8 +72,16 @@ namespace Uttambsolutionsdesktop.Forms
             btnCancel = new Button();
             btnSave = new Button();
             label3 = new Label();
-            txtCategoryName = new TextBox();
-            txtCategoryId = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            txtMainCategoryId = new TextBox();
+            txtMainCategoryName = new TextBox();
+            txtFirstCategoryId = new TextBox();
+            txtFirstCategoryName = new TextBox();
+            txtFirstMainCategoryId = new TextBox();
+            txtThirdCategoryId = new TextBox();
+            txtThirdCategoryName = new TextBox();
+            txtThirdFirstCategoryId = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
@@ -273,8 +290,8 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageMainCategoryDetail.Controls.Add(btnCancel);
             tabPageMainCategoryDetail.Controls.Add(btnSave);
             tabPageMainCategoryDetail.Controls.Add(label3);
-            tabPageMainCategoryDetail.Controls.Add(txtCategoryName);
-            tabPageMainCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageMainCategoryDetail.Controls.Add(txtMainCategoryId);
+            tabPageMainCategoryDetail.Controls.Add(txtMainCategoryName);
             tabPageMainCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageMainCategoryDetail.Location = new Point(4, 24);
             tabPageMainCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -290,8 +307,11 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageFirstCategoryDetail.Controls.Add(btnCancel);
             tabPageFirstCategoryDetail.Controls.Add(btnSave);
             tabPageFirstCategoryDetail.Controls.Add(label3);
-            tabPageFirstCategoryDetail.Controls.Add(txtCategoryName);
-            tabPageFirstCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryId);
+            tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryName);
+            tabPageFirstCategoryDetail.Controls.Add(txtFirstMainCategoryId);
+
+
             tabPageFirstCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageFirstCategoryDetail.Location = new Point(4, 24);
             tabPageFirstCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -307,8 +327,9 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageThirdCategoryDetail.Controls.Add(btnCancel);
             tabPageThirdCategoryDetail.Controls.Add(btnSave);
             tabPageThirdCategoryDetail.Controls.Add(label3);
-            tabPageThirdCategoryDetail.Controls.Add(txtCategoryName);
-            tabPageThirdCategoryDetail.Controls.Add(txtCategoryId);
+            tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryId);
+            tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryName);
+            tabPageThirdCategoryDetail.Controls.Add(txtThirdFirstCategoryId);
             tabPageThirdCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageThirdCategoryDetail.Location = new Point(4, 24);
             tabPageThirdCategoryDetail.Margin = new Padding(4, 3, 4, 3);
@@ -339,6 +360,15 @@ namespace Uttambsolutionsdesktop.Forms
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
+            // txtMainCategoryId
+            // 
+            txtMainCategoryId.Location = new Point(63, 20);
+            txtMainCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtMainCategoryId.Name = "txtMainCategoryId";
+            txtMainCategoryId.Size = new Size(100, 29);
+            txtMainCategoryId.TabIndex = 16;
+            txtMainCategoryId.Visible = false;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -348,24 +378,90 @@ namespace Uttambsolutionsdesktop.Forms
             label3.Name = "label3";
             label3.Size = new Size(123, 20);
             label3.TabIndex = 13;
-            label3.Text = "Category Name:";
+            label3.Text = "Main Category Name:";
             // 
-            // txtCategoryName
+            // txtMainCategoryName
             // 
-            txtCategoryName.Location = new Point(63, 74);
-            txtCategoryName.Margin = new Padding(4, 3, 4, 3);
-            txtCategoryName.Name = "txtCategoryName";
-            txtCategoryName.Size = new Size(380, 29);
-            txtCategoryName.TabIndex = 12;
+            txtMainCategoryName.Location = new Point(63, 74);
+            txtMainCategoryName.Margin = new Padding(4, 3, 4, 3);
+            txtMainCategoryName.Name = "txtMainCategoryName";
+            txtMainCategoryName.Size = new Size(380, 29);
+            txtMainCategoryName.TabIndex = 12;
             // 
-            // txtCategoryId
+            // txtFirstCategoryId
             // 
-            txtCategoryId.Location = new Point(63, 20);
-            txtCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtCategoryId.Name = "txtCategoryId";
-            txtCategoryId.Size = new Size(100, 29);
-            txtCategoryId.TabIndex = 16;
-            txtCategoryId.Visible = false;
+            txtFirstCategoryId.Location = new Point(63, 20);
+            txtFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtFirstCategoryId.Name = "txtFirstCategoryId";
+            txtFirstCategoryId.Size = new Size(100, 29);
+            txtFirstCategoryId.TabIndex = 16;
+            txtFirstCategoryId.Visible = false;
+            // 
+            // txtFirstMainCategoryId
+            // 
+            txtFirstMainCategoryId.Location = new Point(63, 20);
+            txtFirstMainCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtFirstMainCategoryId.Name = "txtFirstMainCategoryId";
+            txtFirstMainCategoryId.Size = new Size(100, 29);
+            txtFirstMainCategoryId.TabIndex = 16;
+            txtFirstMainCategoryId.Visible = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(67, 54);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(123, 20);
+            label4.TabIndex = 13;
+            label4.Text = "First Category Name:";
+            // 
+            // txtFirstCategoryName
+            // 
+            txtFirstCategoryName.Location = new Point(63, 74);
+            txtFirstCategoryName.Margin = new Padding(4, 3, 4, 3);
+            txtFirstCategoryName.Name = "txtFirstCategoryName";
+            txtFirstCategoryName.Size = new Size(380, 29);
+            txtFirstCategoryName.TabIndex = 12;
+            // 
+            // txtFirstCategoryId
+            // 
+            txtFirstCategoryId.Location = new Point(63, 20);
+            txtFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtFirstCategoryId.Name = "txtFirstCategoryId";
+            txtFirstCategoryId.Size = new Size(100, 29);
+            txtFirstCategoryId.TabIndex = 16;
+            txtFirstCategoryId.Visible = false;
+            // 
+            // txtThirdFirstCategoryId
+            // 
+            txtThirdFirstCategoryId.Location = new Point(63, 20);
+            txtThirdFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
+            txtThirdFirstCategoryId.Name = "txtThirdFirstCategoryId";
+            txtThirdFirstCategoryId.Size = new Size(100, 29);
+            txtThirdFirstCategoryId.TabIndex = 16;
+            txtThirdFirstCategoryId.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(67, 54);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(123, 20);
+            label5.TabIndex = 13;
+            label5.Text = "Third Category Name:";
+            // 
+            // txtThirdCategoryName
+            // 
+            txtThirdCategoryName.Location = new Point(63, 74);
+            txtThirdCategoryName.Margin = new Padding(4, 3, 4, 3);
+            txtThirdCategoryName.Name = "txtThirdCategoryName";
+            txtThirdCategoryName.Size = new Size(380, 29);
+            txtThirdCategoryName.TabIndex = 12;
+
             // 
             // CategoryPageForm
             // 

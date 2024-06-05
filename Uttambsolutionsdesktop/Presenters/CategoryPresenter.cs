@@ -68,8 +68,8 @@ namespace Uttambsolutionsdesktop.Presenters
         private async void SaveCategory(object sender, EventArgs e)
         {
             Category categoryData = new Category();
-            categoryData.CategoryId = _view.CategoryId; 
-            categoryData.CategoryName = _view.CategoryName; 
+            //categoryData.CategoryId = _view.CategoryId; 
+            //categoryData.CategoryName = _view.CategoryName; 
             categoryData.Createdby = Convert.ToInt32(_userId); 
             categoryData.Modifiedby = Convert.ToInt32(_userId);
             categoryData.DateCreated = DateTime.Now;
