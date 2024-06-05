@@ -18,7 +18,9 @@ namespace Uttambsolutionsdesktop.Views
         event EventHandler CancelEvent;
 
         // Methods
-        void SetCategoryListBindingSource(BindingSource categoryList);
+        void SetMainCategoryListBindingSource(BindingSource categoryList);
+        void SetFirstCategoryListBindingSource(BindingSource categoryList);
+        void SetThirdCategoryListBindingSource(BindingSource categoryList);
         void Show();
         void ShowMessage(string message);
     }

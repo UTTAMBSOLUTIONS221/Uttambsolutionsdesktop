@@ -31,7 +31,9 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view.DeleteEvent += DeleteSelectedCategory;
             this._view.SaveEvent += SaveCategory;
             //Set pets bindind source
-            this._view.SetCategoryListBindingSource(categoryBindingSource);
+            this._view.SetMainCategoryListBindingSource(categoryBindingSource);
+            this._view.SetFirstCategoryListBindingSource(categoryBindingSource);
+            this._view.SetThirdCategoryListBindingSource(categoryBindingSource);
             //Load pet list view
             LoadAllCategoriesList();
             //Show view

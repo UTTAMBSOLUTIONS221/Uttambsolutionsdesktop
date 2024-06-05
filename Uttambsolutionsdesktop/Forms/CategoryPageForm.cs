@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using DBL.Entities;
 using Uttambsolutionsdesktop.Presenters;
@@ -13,6 +14,7 @@ namespace Uttambsolutionsdesktop.Forms
         private readonly string _userId;
 
         // Events
+        public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
@@ -30,6 +32,9 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtCategoryName.Text; }
             set { txtCategoryName.Text = value; }
         }
+
+        // Models
+        public List<MainCategory> MainCategories { get; set; }
 
         // Constructors
         public CategoryPageForm(string userId)
@@ -50,6 +55,15 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddNewMain.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
             btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteMain.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
+
+            btnAddNewFirst.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+            btnEditFirst.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnDeleteFirst.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
+
+            btnAddNewThird.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+            btnEditThird.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnDeleteThird.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
+
             btnSave.Click += (sender, e) => SaveEvent?.Invoke(this, EventArgs.Empty);
             btnCancel.Click += (sender, e) => CancelEvent?.Invoke(this, EventArgs.Empty);
         }
@@ -66,11 +80,9 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
         // Interface Implementation
-        public void SetCategoryListBindingSource(BindingSource categoryList)
+        public void SetMainCategoryListBindingSource(BindingSource categoryList)
         {
             dataGridViewMain.DataSource = categoryList;
-            dataGridViewFirst.DataSource = categoryList;
-            dataGridViewThird.DataSource = categoryList;
 
             // Ensure the hidden CategoryId column is added
             if (!dataGridViewMain.Columns.Contains("CategoryId"))
@@ -83,6 +95,10 @@ namespace Uttambsolutionsdesktop.Forms
                     Visible = false
                 });
             }
+        }
+        public void SetFirstCategoryListBindingSource(BindingSource categoryList)
+        {
+            dataGridViewFirst.DataSource = categoryList;
 
             if (!dataGridViewFirst.Columns.Contains("CategoryId"))
             {
@@ -94,6 +110,11 @@ namespace Uttambsolutionsdesktop.Forms
                     Visible = false
                 });
             }
+        }
+
+        public void SetThirdCategoryListBindingSource(BindingSource categoryList)
+        {
+            dataGridViewThird.DataSource = categoryList;
 
             if (!dataGridViewThird.Columns.Contains("CategoryId"))
             {
@@ -106,6 +127,7 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
+
 
         // Optional method to show message boxes
         public void ShowMessage(string message)
