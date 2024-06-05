@@ -94,5 +94,9 @@ namespace Uttambsolutionsdesktop.Forms
         {
             _presenter.HandleCategoryListButtonClicked(contentWrapper);
         }
+        private void BtnBrandList_Click(object sender, EventArgs e)
+        {
+            _presenter.HandleBrandListButtonClicked(contentWrapper);
+        }
     }
 }

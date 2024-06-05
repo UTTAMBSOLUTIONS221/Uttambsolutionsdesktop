@@ -12,7 +12,7 @@ namespace Uttambsolutionsdesktop.Forms
 {
     public partial class ProductBrandForm : UserControl
     {
-        public ProductBrandForm()
+        public ProductBrandForm(string userId)
         {
             InitializeComponent();
         }

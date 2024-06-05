@@ -56,6 +56,23 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             _view.ToggleProductManagementSubmenuVisibility();
         }
+        public void HandleBrandListButtonClicked(Panel contentWrapper)
+        {
+            // Create an instance of ProductPageForm
+            ProductBrandForm brandPageForm = new ProductBrandForm(_userId);
+
+            // Set the size of the ProductPageForm
+            brandPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
+
+            // Set the location of the ProductPageForm
+            brandPageForm.Location = new Point(0, 0);
+
+            // Clear the contentWrapper panel
+            contentWrapper.Controls.Clear();
+
+            // Add the ProductPageForm to the contentWrapper panel
+            contentWrapper.Controls.Add(brandPageForm);
+        }
         public void HandleCategoryListButtonClicked(Panel contentWrapper)
         {
             // Create an instance of CategoryPageForm

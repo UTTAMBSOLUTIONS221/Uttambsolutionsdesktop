@@ -15,11 +15,13 @@
         private System.Windows.Forms.Button btnProductList;
         private System.Windows.Forms.Button btnCategoryList;
         private System.Windows.Forms.Button btnSalesList;
+        private System.Windows.Forms.Button btnBrandList;
 
         private void InitializeComponent()
         {
             panelMenu = new Panel();
             panelProductManagementSubmenu = new Panel();
+            btnBrandList = new Button();
             btnSalesList = new Button();
             btnProductList = new Button();
             btnCategoryList = new Button();
@@ -57,6 +59,7 @@
             panelProductManagementSubmenu.Controls.Add(btnSalesList);
             panelProductManagementSubmenu.Controls.Add(btnProductList);
             panelProductManagementSubmenu.Controls.Add(btnCategoryList);
+            panelProductManagementSubmenu.Controls.Add(btnBrandList);
             panelProductManagementSubmenu.Dock = DockStyle.Top;
             panelProductManagementSubmenu.Location = new Point(0, 215);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
@@ -78,6 +81,20 @@
             btnSalesList.TabIndex = 2;
             btnSalesList.Text = "Sales List";
             btnSalesList.Click += BtnSalesList_Click;
+            // 
+            // btnBrandList
+            // 
+            btnBrandList.Dock = DockStyle.Top;
+            btnBrandList.FlatAppearance.BorderSize = 0;
+            btnBrandList.FlatStyle = FlatStyle.Flat;
+            btnBrandList.ForeColor = Color.Gainsboro;
+            btnBrandList.Location = new Point(0, 76);
+            btnBrandList.Margin = new Padding(4, 3, 4, 3);
+            btnBrandList.Name = "btnBrandList";
+            btnBrandList.Size = new Size(131, 38);
+            btnBrandList.TabIndex = 2;
+            btnBrandList.Text = "Brand List";
+            btnBrandList.Click += BtnBrandList_Click;
             // 
             // btnProductList
             // 
