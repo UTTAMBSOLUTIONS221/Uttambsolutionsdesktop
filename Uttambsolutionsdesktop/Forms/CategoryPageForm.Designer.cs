@@ -337,17 +337,17 @@ namespace Uttambsolutionsdesktop.Forms
             btnCancel.Location = new Point(263, 140);
             btnCancel.Margin = new Padding(4, 3, 4, 3);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(183, 44);
+            btnCancel.Size = new Size(180, 44);
             btnCancel.TabIndex = 15;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(72, 140);
+            btnSave.Location = new Point(63, 140);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(183, 44);
+            btnSave.Size = new Size(192, 44);
             btnSave.TabIndex = 14;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
@@ -431,7 +431,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // txtThirdCategoryId
             // 
-            txtThirdCategoryId.Location = new Point(63, 6);
+            txtThirdCategoryId.Location = new Point(63, 22);
             txtThirdCategoryId.Name = "txtThirdCategoryId";
             txtThirdCategoryId.Size = new Size(192, 29);
             txtThirdCategoryId.TabIndex = 16;
@@ -446,7 +446,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // txtThirdFirstCategoryId
             // 
-            txtThirdFirstCategoryId.Location = new Point(263, 6);
+            txtThirdFirstCategoryId.Location = new Point(263, 22);
             txtThirdFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
             txtThirdFirstCategoryId.Name = "txtThirdFirstCategoryId";
             txtThirdFirstCategoryId.Size = new Size(180, 29);
