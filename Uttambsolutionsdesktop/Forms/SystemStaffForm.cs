@@ -135,6 +135,8 @@ namespace Uttambsolutionsdesktop.Forms
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
                 Userid = 0; // Ensure UserId is set to 0 for new entries
+                txtPassword.Visible = true;
+                labelPassword.Visible = true; // Assuming yo
                 tabControl1.TabPages.Remove(tabPageStaffList);
                 tabControl1.TabPages.Add(tabPageStaffDetail);
                 tabPageStaffDetail.Text = "Add New Staff";
