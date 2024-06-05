@@ -16,6 +16,7 @@ namespace DBL.Models
         public string? Username { get; set; }
         public string? Emailaddress { get; set; }
         public int Roleid { get; set; }
+        public string? RoleName { get; set; }
         public string? Passharsh { get; set; }
         public string? Passwords { get; set; }
         public bool Isactive { get; set; }

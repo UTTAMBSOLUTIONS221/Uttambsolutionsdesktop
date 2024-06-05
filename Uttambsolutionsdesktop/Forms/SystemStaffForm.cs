@@ -178,6 +178,46 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["UserId"].Visible = false;
             }
+            if (dataGridView.Columns.Contains("FirstName"))
+            {
+                dataGridView.Columns["FirstName"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("LastName"))
+            {
+                dataGridView.Columns["LastName"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Username"))
+            {
+                dataGridView.Columns["Username"].Visible = false;
+            } 
+            if(dataGridView.Columns.Contains("Roleid"))
+            {
+                dataGridView.Columns["Roleid"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Passharsh"))
+            {
+                dataGridView.Columns["Passharsh"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Passwords"))
+            {
+                dataGridView.Columns["Passwords"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Isactive"))
+            {
+                dataGridView.Columns["Isactive"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Isdeleted"))
+            {
+                dataGridView.Columns["Isdeleted"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Loginstatus"))
+            {
+                dataGridView.Columns["Loginstatus"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("Passwordresetdate"))
+            {
+                dataGridView.Columns["Passwordresetdate"].Visible = false;
+            }
             if (dataGridView.Columns.Contains("Createdby"))
             {
                 dataGridView.Columns["Createdby"].Visible = false;
@@ -186,9 +226,9 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["Modifiedby"].Visible = false;
             }
-            if (dataGridView.Columns.Contains("Datecreated"))
+            if (dataGridView.Columns.Contains("Lastlogin"))
             {
-                dataGridView.Columns["Datecreated"].Visible = false;
+                dataGridView.Columns["Lastlogin"].Visible = false;
             }
             if (dataGridView.Columns.Contains("Datemodified"))
             {
