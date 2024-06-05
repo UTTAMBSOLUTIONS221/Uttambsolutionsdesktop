@@ -310,7 +310,7 @@
             labelRoleid.Name = "labelRoleid";
             labelRoleid.Size = new Size(57, 18);
             labelRoleid.TabIndex = 10;
-            labelRoleid.Text = "Role ID";
+            labelRoleid.Text = "Role";
             // 
             // comboBoxRoleId
             // 

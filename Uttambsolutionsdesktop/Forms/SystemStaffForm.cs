@@ -82,9 +82,16 @@ namespace Uttambsolutionsdesktop.Forms
         }
         public void PopulateRoleComboBox(List<SystemRole> roleData)
         {
-            comboBoxRoleId.DataSource = roleData;
-            comboBoxRoleId.ValueMember = "RoleId"; // Set the value member to the appropriate property name
-            comboBoxRoleId.DisplayMember = "RoleName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified role data
+            List<SystemRole> modifiedRoleData = new List<SystemRole>(roleData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedRoleData.Insert(0, new SystemRole { RoleId = 0, RoleName = "Select Role" });
+
+            // Bind the modified role data to the ComboBox
+            comboBoxRoleId.DataSource = modifiedRoleData;
+            comboBoxRoleId.ValueMember = "RoleId";
+            comboBoxRoleId.DisplayMember = "RoleName";
         }
 
         public SystemStaffForm(string userId)
