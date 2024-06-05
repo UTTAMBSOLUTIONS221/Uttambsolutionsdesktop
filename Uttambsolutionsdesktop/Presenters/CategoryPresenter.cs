@@ -67,16 +67,16 @@ namespace Uttambsolutionsdesktop.Presenters
         }
         private async void SaveCategory(object sender, EventArgs e)
         {
-            Category categoryData = new Category();
-            //categoryData.CategoryId = _view.CategoryId; 
-            //categoryData.CategoryName = _view.CategoryName; 
-            categoryData.Createdby = Convert.ToInt32(_userId); 
-            categoryData.Modifiedby = Convert.ToInt32(_userId);
-            categoryData.DateCreated = DateTime.Now;
-            categoryData.DateModified = DateTime.Now;
+            MainCategory mainCategoryData = new MainCategory();
+            mainCategoryData.MainCategoryId = _view.MainCategoryId;
+            mainCategoryData.MainCategoryName = _view.MainCategoryName;
+            mainCategoryData.Createdby = Convert.ToInt32(_userId);
+            mainCategoryData.Modifiedby = Convert.ToInt32(_userId);
+            mainCategoryData.DateCreated = DateTime.Now;
+            mainCategoryData.DateModified = DateTime.Now;
 
             // Call the BL method to save the category
-            var resp = await _bl.SaveCategory(categoryData);
+            var resp = await _bl.SaveMainCategory(mainCategoryData);
             // Handle the response accordingly
             if (resp.RespStatus == 0)
             {

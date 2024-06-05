@@ -99,8 +99,26 @@ namespace Uttambsolutionsdesktop.Forms
                 tabControl1.TabPages.Add(tabPageMainCategoryDetail);
                 tabPageMainCategoryDetail.Text = "Add Main Category";
             };
-
-            btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnEditMain.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                if (dataGridViewMain.SelectedCells.Count > 0)
+                {
+                    int rowIndex = dataGridViewMain.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridViewMain.Rows[rowIndex];
+                    if (selectedRow.Cells["MainCategoryId"].Value != null &&
+                        selectedRow.Cells["MainCategoryName"].Value != null)
+                    {
+                        MainCategoryId = Convert.ToInt32(selectedRow.Cells["MainCategoryId"].Value);
+                        MainCategoryName = selectedRow.Cells["MainCategoryName"].Value.ToString();
+                    }
+                }
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Add(tabPageMainCategoryDetail);
+                tabPageMainCategoryDetail.Text = "Edit Main Category";
+            };
             btnDeleteMain.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
 
@@ -197,6 +215,18 @@ namespace Uttambsolutionsdesktop.Forms
                 if (dataGridView.Columns.Contains("MainCategoryId"))
                 {
                     dataGridView.Columns["MainCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Createdby"))
+                {
+                    dataGridView.Columns["Createdby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Modifiedby"))
+                {
+                    dataGridView.Columns["Modifiedby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("DateModified"))
+                {
+                    dataGridView.Columns["DateModified"].Visible = false;
                 }
             }
         }
