@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace DBL.Models
 {
     public class SystemStaffData
-    {
+    { 
         public int Userid { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
         public string? FullName { get; set; }
         public string? Phonenumber { get; set; }
         public string? Username { get; set; }

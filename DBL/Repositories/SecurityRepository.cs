@@ -103,7 +103,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch all system staff records
                 var systemStaffsQueryResult = connection.Query<SystemStaffData>(
-                    @"SELECT Userid,  FirstName || ' ' || LastName AS FullName, Phonenumber, Username,Emailaddress, Roleid,Passharsh, Passwords, Isactive , Isdeleted, Loginstatus, Passwordresetdate, Createdby, Modifiedby, Lastlogin, Datemodified, Datecreated FROM SystemStaffs");
+                    @"SELECT Userid,FirstName,LastName,FirstName || ' ' || LastName AS FullName, Phonenumber, Username,Emailaddress, Roleid,Passharsh, Passwords, Isactive , Isdeleted, Loginstatus, Passwordresetdate, Createdby, Modifiedby, Lastlogin, Datemodified, Datecreated FROM SystemStaffs");
 
                 // Return the result
                 return systemStaffsQueryResult;
