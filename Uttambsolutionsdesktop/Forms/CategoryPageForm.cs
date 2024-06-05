@@ -70,9 +70,6 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtThirdFirstCategoryId.Text = value.ToString(); }
         }
 
-        // Models
-        public List<MainCategory> MainCategories { get; set; }
-
         // Constructors
         public CategoryPageForm(string userId)
         {
@@ -97,6 +94,8 @@ namespace Uttambsolutionsdesktop.Forms
                 ClearDetailFields();
                 //Userid = 0; // Ensure UserId is set to 0 for new entrie
                 tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageMainCategoryDetail);
                 tabPageMainCategoryDetail.Text = "Add Main Category";
             };
@@ -104,11 +103,34 @@ namespace Uttambsolutionsdesktop.Forms
             btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteMain.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
-            btnAddNewFirst.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+            btnAddNewFirst.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                //Userid = 0; // Ensure UserId is set to 0 for new entrie
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
+                tabPageFirstCategoryDetail.Text = "Add First Category";
+            };
             btnEditFirst.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteFirst.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
-            btnAddNewThird.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+
+            btnAddNewThird.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                //Userid = 0; // Ensure UserId is set to 0 for new entrie
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Add(tabPageThirdCategoryDetail);
+                tabPageThirdCategoryDetail.Text = "Add Third Category";
+            };
+
             btnEditThird.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteThird.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
