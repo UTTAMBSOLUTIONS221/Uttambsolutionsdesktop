@@ -23,7 +23,7 @@ namespace DBL.Repositories
 
                 // Execute the query to fetch categories
                 var categoryMainQueryResult = connection.Query<MainCategory>(
-                    @"SELECT MainCategoryId,MainCategoryName FROM MainCategory");
+                    @"SELECT MainCategoryId,MainCategoryName,DateCreated FROM MainCategory");
 
                 // Return the result
                 return categoryMainQueryResult;
