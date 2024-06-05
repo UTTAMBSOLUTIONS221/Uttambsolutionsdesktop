@@ -8,6 +8,7 @@
         private System.Windows.Forms.Panel contentWrapper;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnStaffsList;
         private System.Windows.Forms.Button btnProductManagement;
         private System.Windows.Forms.Panel panelSettingsSubmenu;
         private System.Windows.Forms.Panel panelProductManagementSubmenu;
@@ -25,6 +26,7 @@
             btnProductManagement = new Button();
             panelSettingsSubmenu = new Panel();
             btnSettings = new Button();
+            btnStaffsList = new Button();
             btnDashboard = new Button();
             btnToggleMenu = new Button();
             contentWrapper = new Panel();
@@ -47,6 +49,18 @@
             panelMenu.Padding = new Padding(0, 40, 0, 0);
             panelMenu.Size = new Size(131, 692);
             panelMenu.TabIndex = 0;
+            // 
+            // panelSettingsSubmenu
+            // 
+            panelSettingsSubmenu.BackColor = Color.FromArgb(35, 32, 39);
+            panelSettingsSubmenu.Controls.Add(btnStaffsList);
+            panelSettingsSubmenu.Dock = DockStyle.Top;
+            panelSettingsSubmenu.Location = new Point(0, 283);
+            panelSettingsSubmenu.Margin = new Padding(4, 3, 4, 3);
+            panelSettingsSubmenu.Name = "panelSettingsSubmenu";
+            panelSettingsSubmenu.Size = new Size(131, 114);
+            panelSettingsSubmenu.TabIndex = 0;
+            panelSettingsSubmenu.Visible = false;
             // 
             // panelProductManagementSubmenu
             // 
@@ -128,6 +142,20 @@
             panelSettingsSubmenu.Size = new Size(131, 98);
             panelSettingsSubmenu.TabIndex = 2;
             panelSettingsSubmenu.Visible = false;
+            // 
+            // btnStaffsList
+            // 
+            btnStaffsList.Dock = DockStyle.Top;
+            btnStaffsList.FlatAppearance.BorderSize = 0;
+            btnStaffsList.FlatStyle = FlatStyle.Flat;
+            btnStaffsList.ForeColor = Color.Gainsboro;
+            btnStaffsList.Location = new Point(0, 0);
+            btnStaffsList.Margin = new Padding(4, 3, 4, 3);
+            btnStaffsList.Name = "btnStaffsList";
+            btnStaffsList.Size = new Size(131, 38);
+            btnStaffsList.TabIndex = 0;
+            btnStaffsList.Text = "Staffs List";
+            btnStaffsList.Click += BtnCategoryList_Click;
             // 
             // btnSettings
             // 
