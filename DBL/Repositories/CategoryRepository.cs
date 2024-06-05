@@ -60,6 +60,11 @@ namespace DBL.Repositories
 
         public Genericmodel SaveMainCategory(MainCategory entity)
         {
+            if (string.IsNullOrWhiteSpace(entity.MainCategoryName))
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "MainCategoryName cannot be null or empty" };
+            }
+
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
