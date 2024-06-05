@@ -28,7 +28,6 @@
             tabPageStaffDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
-            txtUserId = new TextBox();
             labelFirstName = new Label();
             txtFirstName = new TextBox();
             labelLastName = new Label();
@@ -41,14 +40,13 @@
             txtEmailaddress = new TextBox();
             labelRoleid = new Label();
             txtRoleid = new TextBox();
-
+            txtUserId = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageStaffList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             tabPageStaffDetail.SuspendLayout();
             SuspendLayout();
-
             // 
             // label1
             // 
@@ -57,7 +55,7 @@
             label1.Location = new Point(32, 21);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(124, 25);
+            label1.Size = new Size(91, 25);
             label1.TabIndex = 0;
             label1.Text = "STAFFS";
             // 
@@ -92,11 +90,11 @@
             tabPageStaffList.Controls.Add(btnAddNew);
             tabPageStaffList.Controls.Add(btnSearch);
             tabPageStaffList.Controls.Add(txtSearch);
-            tabPageStaffList.Location = new Point(4, 24);
+            tabPageStaffList.Location = new Point(4, 27);
             tabPageStaffList.Margin = new Padding(4, 3, 4, 3);
             tabPageStaffList.Name = "tabPageStaffList";
             tabPageStaffList.Padding = new Padding(4, 3, 4, 3);
-            tabPageStaffList.Size = new Size(1033, 446);
+            tabPageStaffList.Size = new Size(1033, 443);
             tabPageStaffList.TabIndex = 0;
             tabPageStaffList.Text = "Staffs List";
             tabPageStaffList.UseVisualStyleBackColor = true;
@@ -109,12 +107,12 @@
             dataGridView.Location = new Point(28, 82);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(845, 335);
+            dataGridView.Size = new Size(905, 335);
             dataGridView.TabIndex = 6;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(883, 160);
+            btnDelete.Location = new Point(943, 163);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(82, 25);
@@ -124,7 +122,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(883, 129);
+            btnEdit.Location = new Point(943, 132);
             btnEdit.Margin = new Padding(4, 3, 4, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(82, 25);
@@ -134,7 +132,7 @@
             // 
             // btnAddNew
             // 
-            btnAddNew.Location = new Point(881, 89);
+            btnAddNew.Location = new Point(941, 92);
             btnAddNew.Margin = new Padding(4, 3, 4, 3);
             btnAddNew.Name = "btnAddNew";
             btnAddNew.Size = new Size(84, 25);
@@ -144,7 +142,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(767, 36);
+            btnSearch.Location = new Point(827, 36);
             btnSearch.Margin = new Padding(4, 3, 4, 3);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(106, 25);
@@ -157,7 +155,7 @@
             txtSearch.Location = new Point(28, 36);
             txtSearch.Margin = new Padding(4, 3, 4, 3);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(719, 23);
+            txtSearch.Size = new Size(780, 24);
             txtSearch.TabIndex = 0;
             // 
             // tabPageStaffDetail
@@ -204,15 +202,6 @@
             btnSave.TabIndex = 14;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
-
-            // 
-            // txtUserId
-            // 
-            txtUserId.Location = new Point(281, 265);
-            txtUserId.Margin = new Padding(4, 3, 4, 3);
-            txtUserId.Name = "txtUserId";
-            txtUserId.Size = new Size(314, 32);
-            txtUserId.TabIndex = 12;
             // 
             // labelFirstName
             // 
@@ -220,7 +209,7 @@
             labelFirstName.Location = new Point(154, 26);
             labelFirstName.Margin = new Padding(4, 0, 4, 0);
             labelFirstName.Name = "labelFirstName";
-            labelFirstName.Size = new Size(110, 24);
+            labelFirstName.Size = new Size(81, 18);
             labelFirstName.TabIndex = 0;
             labelFirstName.Text = "First Name";
             // 
@@ -229,7 +218,7 @@
             txtFirstName.Location = new Point(281, 26);
             txtFirstName.Margin = new Padding(4, 3, 4, 3);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(314, 32);
+            txtFirstName.Size = new Size(314, 24);
             txtFirstName.TabIndex = 1;
             // 
             // labelLastName
@@ -238,7 +227,7 @@
             labelLastName.Location = new Point(154, 65);
             labelLastName.Margin = new Padding(4, 0, 4, 0);
             labelLastName.Name = "labelLastName";
-            labelLastName.Size = new Size(110, 24);
+            labelLastName.Size = new Size(80, 18);
             labelLastName.TabIndex = 2;
             labelLastName.Text = "Last Name";
             // 
@@ -247,7 +236,7 @@
             txtLastName.Location = new Point(281, 65);
             txtLastName.Margin = new Padding(4, 3, 4, 3);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(314, 32);
+            txtLastName.Size = new Size(314, 24);
             txtLastName.TabIndex = 3;
             // 
             // labelPhonenumber
@@ -256,7 +245,7 @@
             labelPhonenumber.Location = new Point(140, 105);
             labelPhonenumber.Margin = new Padding(4, 0, 4, 0);
             labelPhonenumber.Name = "labelPhonenumber";
-            labelPhonenumber.Size = new Size(145, 24);
+            labelPhonenumber.Size = new Size(108, 18);
             labelPhonenumber.TabIndex = 4;
             labelPhonenumber.Text = "Phone Number";
             // 
@@ -265,7 +254,7 @@
             txtPhonenumber.Location = new Point(281, 105);
             txtPhonenumber.Margin = new Padding(4, 3, 4, 3);
             txtPhonenumber.Name = "txtPhonenumber";
-            txtPhonenumber.Size = new Size(314, 32);
+            txtPhonenumber.Size = new Size(314, 24);
             txtPhonenumber.TabIndex = 5;
             // 
             // labelUsername
@@ -274,7 +263,7 @@
             labelUsername.Location = new Point(140, 145);
             labelUsername.Margin = new Padding(4, 0, 4, 0);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(106, 24);
+            labelUsername.Size = new Size(77, 18);
             labelUsername.TabIndex = 6;
             labelUsername.Text = "Username";
             // 
@@ -283,7 +272,7 @@
             txtUsername.Location = new Point(281, 145);
             txtUsername.Margin = new Padding(4, 3, 4, 3);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(314, 32);
+            txtUsername.Size = new Size(314, 24);
             txtUsername.TabIndex = 7;
             // 
             // labelEmailaddress
@@ -292,7 +281,7 @@
             labelEmailaddress.Location = new Point(140, 185);
             labelEmailaddress.Margin = new Padding(4, 0, 4, 0);
             labelEmailaddress.Name = "labelEmailaddress";
-            labelEmailaddress.Size = new Size(136, 24);
+            labelEmailaddress.Size = new Size(103, 18);
             labelEmailaddress.TabIndex = 8;
             labelEmailaddress.Text = "Email Address";
             // 
@@ -301,7 +290,7 @@
             txtEmailaddress.Location = new Point(281, 185);
             txtEmailaddress.Margin = new Padding(4, 3, 4, 3);
             txtEmailaddress.Name = "txtEmailaddress";
-            txtEmailaddress.Size = new Size(314, 32);
+            txtEmailaddress.Size = new Size(314, 24);
             txtEmailaddress.TabIndex = 9;
             // 
             // labelRoleid
@@ -310,7 +299,7 @@
             labelRoleid.Location = new Point(140, 225);
             labelRoleid.Margin = new Padding(4, 0, 4, 0);
             labelRoleid.Name = "labelRoleid";
-            labelRoleid.Size = new Size(78, 24);
+            labelRoleid.Size = new Size(57, 18);
             labelRoleid.TabIndex = 10;
             labelRoleid.Text = "Role ID";
             // 
@@ -319,20 +308,27 @@
             txtRoleid.Location = new Point(281, 225);
             txtRoleid.Margin = new Padding(4, 3, 4, 3);
             txtRoleid.Name = "txtRoleid";
-            txtRoleid.Size = new Size(314, 32);
+            txtRoleid.Size = new Size(314, 24);
             txtRoleid.TabIndex = 11;
+            // 
+            // txtUserId
+            // 
+            txtUserId.Location = new Point(281, 265);
+            txtUserId.Margin = new Padding(4, 3, 4, 3);
+            txtUserId.Name = "txtUserId";
+            txtUserId.Size = new Size(314, 23);
+            txtUserId.TabIndex = 12;
             // 
             // SystemStaffForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 18F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1041, 539);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
             Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4, 3, 4, 3);
             Name = "SystemStaffForm";
-            Text = "System Staff Form";
+            Size = new Size(1041, 539);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabControl1.ResumeLayout(false);
