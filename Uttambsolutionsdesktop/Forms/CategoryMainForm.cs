@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Uttambsolutionsdesktop.Presenters;
 
 namespace Uttambsolutionsdesktop.Forms
 {
-    public partial class Dashboard : UserControl
+    public partial class CategoryMainForm : UserControl
     {
-
-        public Dashboard()
+        public CategoryMainForm()
         {
             InitializeComponent();
-            //_presenter = new MainPresenter(this, userId, username, permissions);
         }
     }
 }

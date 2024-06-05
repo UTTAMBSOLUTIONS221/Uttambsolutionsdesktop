@@ -1,6 +1,6 @@
 ﻿namespace Uttambsolutionsdesktop.Forms
 {
-    partial class Dashboard
+    partial class CategoryMainForm
     {
         /// <summary> 
         /// Required designer variable.
