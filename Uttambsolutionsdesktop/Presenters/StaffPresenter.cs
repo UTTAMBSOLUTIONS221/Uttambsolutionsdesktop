@@ -60,6 +60,30 @@ namespace Uttambsolutionsdesktop.Presenters
 
         private async void SaveStaff(object sender, EventArgs e)
         {
+            if (_view.Userid==0)
+            {
+                // Check if any of the required fields are empty
+                if (string.IsNullOrWhiteSpace(_view.FirstName) ||
+                    string.IsNullOrWhiteSpace(_view.LastName) ||
+                    string.IsNullOrWhiteSpace(_view.Phonenumber) ||
+                    string.IsNullOrWhiteSpace(_view.Username) ||
+                    string.IsNullOrWhiteSpace(_view.Emailaddress) ||
+                    string.IsNullOrWhiteSpace(_view.Passwords) ||
+                    _view.Roleid == 0)
+                {
+                    MessageBox.Show("Please fill in all required fields.");
+                    return;
+                }
+            }
+            else
+            {
+                if (_view.Roleid == 0)
+                {
+                    MessageBox.Show("Please fill in all required fields.");
+                    return;
+                }
+            }
+            
             string Passwordhash = str.RandomString(12);
             string Password = str.RandomString(8).ToString();
             SystemStaff staffData = new SystemStaff();

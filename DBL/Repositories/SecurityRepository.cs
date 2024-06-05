@@ -187,6 +187,7 @@ namespace DBL.Repositories
                         // Staff already exists, return 1 (failure)
                         return new Genericmodel { RespStatus = 1, RespMessage = "Staff Exists" };
                     }
+                    
 
                     // Insert the staff into the database
                     var result = connection.Execute(
