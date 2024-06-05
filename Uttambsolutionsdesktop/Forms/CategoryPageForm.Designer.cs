@@ -319,6 +319,8 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // tabPageMainCategoryDetail
             // 
+            tabPageMainCategoryDetail.Controls.Add(btnCancel);
+            tabPageMainCategoryDetail.Controls.Add(btnSave);
             tabPageMainCategoryDetail.Controls.Add(label3);
             tabPageMainCategoryDetail.Controls.Add(txtMainCategoryId);
             tabPageMainCategoryDetail.Controls.Add(txtMainCategoryName);
@@ -371,6 +373,8 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // tabPageFirstCategoryDetail
             // 
+            tabPageFirstCategoryDetail.Controls.Add(btnCancel);
+            tabPageFirstCategoryDetail.Controls.Add(btnSave);
             tabPageFirstCategoryDetail.Controls.Add(label4);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryId);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryName);
@@ -392,7 +396,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstCategoryId.Name = "txtFirstCategoryId";
             txtFirstCategoryId.Size = new Size(162, 29);
             txtFirstCategoryId.TabIndex = 16;
-            txtFirstCategoryId.Visible = false;
+            txtFirstCategoryId.Visible = true;
             // 
             // txtFirstCategoryName
             // 
@@ -409,7 +413,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstMainCategoryId.Name = "txtFirstMainCategoryId";
             txtFirstMainCategoryId.Size = new Size(192, 29);
             txtFirstMainCategoryId.TabIndex = 16;
-            txtFirstMainCategoryId.Visible = false;
+            txtFirstMainCategoryId.Visible = true;
             // 
             // tabPageThirdCategoryDetail
             // 
@@ -435,6 +439,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtThirdCategoryId.Name = "txtThirdCategoryId";
             txtThirdCategoryId.Size = new Size(192, 29);
             txtThirdCategoryId.TabIndex = 16;
+            txtFirstMainCategoryId.Visible = true;
             // 
             // txtThirdCategoryName
             // 
@@ -451,7 +456,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtThirdFirstCategoryId.Name = "txtThirdFirstCategoryId";
             txtThirdFirstCategoryId.Size = new Size(180, 29);
             txtThirdFirstCategoryId.TabIndex = 16;
-            txtThirdFirstCategoryId.Visible = false;
+            txtThirdFirstCategoryId.Visible = true;
             // 
             // CategoryPageForm
             // 
