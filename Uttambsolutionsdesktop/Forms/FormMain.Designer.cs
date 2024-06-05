@@ -64,7 +64,7 @@
             panelProductManagementSubmenu.Location = new Point(0, 215);
             panelProductManagementSubmenu.Margin = new Padding(4, 3, 4, 3);
             panelProductManagementSubmenu.Name = "panelProductManagementSubmenu";
-            panelProductManagementSubmenu.Size = new Size(131, 114);
+            panelProductManagementSubmenu.Size = new Size(131, 153);
             panelProductManagementSubmenu.TabIndex = 0;
             panelProductManagementSubmenu.Visible = false;
             // 
