@@ -163,7 +163,7 @@ namespace Uttambsolutionsdesktop
                     {
                         cmd.Parameters.AddWithValue("@FirstName", "System");
                         cmd.Parameters.AddWithValue("@LastName", "Admin");
-                        cmd.Parameters.AddWithValue("@Phonenumber", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@Phonenumber","0717850720");
                         cmd.Parameters.AddWithValue("@Username", "admin");
                         cmd.Parameters.AddWithValue("@Emailaddress", "franciskingori448@gmail.com");
                         cmd.Parameters.AddWithValue("@Roleid", superAdminRoleId);
