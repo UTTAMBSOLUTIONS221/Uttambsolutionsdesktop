@@ -41,6 +41,8 @@
             txtEmailaddress = new TextBox();
             labelRoleid = new Label();
             comboBoxRoleId = new ComboBox();
+            labelPassword = new Label();
+            txtPassword = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageStaffList.SuspendLayout();
@@ -175,6 +177,8 @@
             tabPageStaffDetail.Controls.Add(txtEmailaddress);
             tabPageStaffDetail.Controls.Add(labelRoleid);
             tabPageStaffDetail.Controls.Add(comboBoxRoleId);
+            tabPageStaffDetail.Controls.Add(labelPassword);
+            tabPageStaffDetail.Controls.Add(txtPassword);
             tabPageStaffDetail.Location = new Point(4, 27);
             tabPageStaffDetail.Margin = new Padding(4, 3, 4, 3);
             tabPageStaffDetail.Name = "tabPageStaffDetail";
@@ -215,7 +219,7 @@
             // labelFirstName
             // 
             labelFirstName.AutoSize = true;
-            labelFirstName.Location = new Point(92, 96);
+            labelFirstName.Location = new Point(76, 99);
             labelFirstName.Margin = new Padding(4, 0, 4, 0);
             labelFirstName.Name = "labelFirstName";
             labelFirstName.Size = new Size(81, 18);
@@ -224,7 +228,7 @@
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(213, 90);
+            txtFirstName.Location = new Point(192, 90);
             txtFirstName.Margin = new Padding(4, 3, 4, 3);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(208, 24);
@@ -251,7 +255,7 @@
             // labelPhonenumber
             // 
             labelPhonenumber.AutoSize = true;
-            labelPhonenumber.Location = new Point(92, 152);
+            labelPhonenumber.Location = new Point(76, 152);
             labelPhonenumber.Margin = new Padding(4, 0, 4, 0);
             labelPhonenumber.Name = "labelPhonenumber";
             labelPhonenumber.Size = new Size(108, 18);
@@ -260,7 +264,7 @@
             // 
             // txtPhonenumber
             // 
-            txtPhonenumber.Location = new Point(213, 146);
+            txtPhonenumber.Location = new Point(192, 152);
             txtPhonenumber.Margin = new Padding(4, 3, 4, 3);
             txtPhonenumber.Name = "txtPhonenumber";
             txtPhonenumber.Size = new Size(208, 24);
@@ -269,7 +273,7 @@
             // labelUsername
             // 
             labelUsername.AutoSize = true;
-            labelUsername.Location = new Point(403, 201);
+            labelUsername.Location = new Point(382, 208);
             labelUsername.Margin = new Padding(4, 0, 4, 0);
             labelUsername.Name = "labelUsername";
             labelUsername.Size = new Size(77, 18);
@@ -278,7 +282,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(501, 198);
+            txtUsername.Location = new Point(476, 200);
             txtUsername.Margin = new Padding(4, 3, 4, 3);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(150, 24);
@@ -305,7 +309,7 @@
             // labelRoleid
             // 
             labelRoleid.AutoSize = true;
-            labelRoleid.Location = new Point(92, 201);
+            labelRoleid.Location = new Point(76, 206);
             labelRoleid.Margin = new Padding(4, 0, 4, 0);
             labelRoleid.Name = "labelRoleid";
             labelRoleid.Size = new Size(39, 18);
@@ -315,10 +319,28 @@
             // comboBoxRoleId
             // 
             comboBoxRoleId.FormattingEnabled = true;
-            comboBoxRoleId.Location = new Point(213, 193);
+            comboBoxRoleId.Location = new Point(192, 200);
             comboBoxRoleId.Name = "comboBoxRoleId";
             comboBoxRoleId.Size = new Size(164, 26);
             comboBoxRoleId.TabIndex = 21;
+            // 
+            // labelPassword
+            // 
+            labelPassword.AutoSize = true;
+            labelPassword.Location = new Point(649, 208);
+            labelPassword.Margin = new Padding(4, 0, 4, 0);
+            labelPassword.Name = "labelPassword";
+            labelPassword.Size = new Size(75, 18);
+            labelPassword.TabIndex = 16;
+            labelPassword.Text = "Password";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(732, 200);
+            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(182, 24);
+            txtPassword.TabIndex = 17;
             // 
             // SystemStaffForm
             // 
@@ -367,5 +389,7 @@
         private TextBox txtEmailaddress;
         private Label labelRoleid;
         private ComboBox comboBoxRoleId;
+        private Label labelPassword;
+        private TextBox txtPassword;
     }
 }

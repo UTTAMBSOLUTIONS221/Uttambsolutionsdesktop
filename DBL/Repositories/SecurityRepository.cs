@@ -179,8 +179,8 @@ namespace DBL.Repositories
                 {
                     // Check if the staff already exists
                     var staffExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM SystemStaffs WHERE Username = @Username",
-                        new { Username = entity.Username });
+                        "SELECT COUNT(1) FROM SystemStaffs WHERE Username = @Username OR Emailaddress = @Emailaddress",
+                        new { Username = entity.Username, Emailaddress=entity.Emailaddress });
 
                     if (staffExists)
                     {
