@@ -64,48 +64,47 @@ namespace DBL.Repositories
             {
                 connection.Open();
 
-                if (entity.MainCategoryId>0)
+                if (entity.MainCategoryId > 0)
                 {
-                    // Update the category
+                    // Update the main category
                     var result = connection.Execute(
-                        @"UPDATE Categories 
-                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
+                        @"UPDATE MainCategory 
+                  SET MainCategoryName = @MainCategoryName, Modifiedby = @Modifiedby, 
                       DateModified = @DateModified 
-                  WHERE CategoryId = @CategoryId",
+                  WHERE MainCategoryId = @MainCategoryId",
                         new
                         {
                             entity.Modifiedby,
                             entity.DateModified,
-                            entity.CategoryName,
-                            entity.CategoryId
+                            entity.MainCategoryName,
+                            entity.MainCategoryId
                         });
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Main Category Updated Successfully" };
                 }
                 else
                 {
-
-                    // Check if the category already exists
+                    // Check if the main category already exists
                     var categoryExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
-                        new { CategoryName = entity.CategoryName });
+                        "SELECT COUNT(1) FROM MainCategory WHERE MainCategoryName = @MainCategoryName",
+                        new { MainCategoryName = entity.MainCategoryName });
 
                     if (categoryExists)
                     {
-                        // Category already exists, return 0 (failure)
-                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                        // Main category already exists, return 0 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Main Category Exists" };
                     }
 
-                    // Insert the category into the database
+                    // Insert the main category into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
-                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        @"INSERT INTO MainCategory (MainCategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@MainCategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
                         new
                         {
-                            entity.CategoryName,
+                            entity.MainCategoryName,
                             entity.Createdby,
                             entity.Modifiedby,
                             entity.DateCreated,
@@ -115,58 +114,58 @@ namespace DBL.Repositories
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Main Category Added Successfully" };
                 }
             }
         }
+
         public Genericmodel SaveFirstCategory(FirstCategory entity)
         {
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
-
                 if (entity.FirstCategoryId > 0)
                 {
-                    // Update the category
+                    // Update the first category
                     var result = connection.Execute(
-                        @"UPDATE Categories 
-                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
+                        @"UPDATE FirstCategory 
+                  SET FirstCategoryName = @FirstCategoryName, Modifiedby = @Modifiedby, 
                       DateModified = @DateModified 
-                  WHERE CategoryId = @CategoryId",
+                  WHERE FirstCategoryId = @FirstCategoryId",
                         new
                         {
                             entity.Modifiedby,
                             entity.DateModified,
-                            entity.CategoryName,
-                            entity.CategoryId
+                            entity.FirstCategoryName,
+                            entity.FirstCategoryId
                         });
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "First Category Updated Successfully" };
                 }
                 else
                 {
-
-                    // Check if the category already exists
+                    // Check if the first category already exists
                     var categoryExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
-                        new { CategoryName = entity.CategoryName });
+                        "SELECT COUNT(1) FROM FirstCategory WHERE FirstCategoryName = @FirstCategoryName",
+                        new { FirstCategoryName = entity.FirstCategoryName });
 
                     if (categoryExists)
                     {
-                        // Category already exists, return 0 (failure)
-                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                        // First category already exists, return 0 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "First Category Exists" };
                     }
 
-                    // Insert the category into the database
+                    // Insert the first category into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
-                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        @"INSERT INTO FirstCategory (FirstCategoryName, MainCategoryId, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@FirstCategoryName, @MainCategoryId, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
                         new
                         {
-                            entity.CategoryName,
+                            entity.FirstCategoryName,
+                            entity.MainCategoryId,
                             entity.Createdby,
                             entity.Modifiedby,
                             entity.DateCreated,
@@ -176,7 +175,7 @@ namespace DBL.Repositories
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "First Category Added Successfully" };
                 }
             }
         }
@@ -188,46 +187,46 @@ namespace DBL.Repositories
 
                 if (entity.ThirdCategoryId > 0)
                 {
-                    // Update the category
+                    // Update the third category
                     var result = connection.Execute(
-                        @"UPDATE Categories 
-                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
+                        @"UPDATE ThirdCategory 
+                  SET ThirdCategoryName = @ThirdCategoryName, Modifiedby = @Modifiedby, 
                       DateModified = @DateModified 
-                  WHERE CategoryId = @CategoryId",
+                  WHERE ThirdCategoryId = @ThirdCategoryId",
                         new
                         {
                             entity.Modifiedby,
                             entity.DateModified,
-                            entity.CategoryName,
-                            entity.CategoryId
+                            entity.ThirdCategoryName,
+                            entity.ThirdCategoryId
                         });
 
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Third Category Updated Successfully" };
                 }
                 else
                 {
-
-                    // Check if the category already exists
+                    // Check if the third category already exists
                     var categoryExists = connection.ExecuteScalar<bool>(
-                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
-                        new { CategoryName = entity.CategoryName });
+                        "SELECT COUNT(1) FROM ThirdCategory WHERE ThirdCategoryName = @ThirdCategoryName",
+                        new { ThirdCategoryName = entity.ThirdCategoryName });
 
                     if (categoryExists)
                     {
-                        // Category already exists, return 0 (failure)
-                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                        // Third category already exists, return 0 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Third Category Exists" };
                     }
 
-                    // Insert the category into the database
+                    // Insert the third category into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
-                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        @"INSERT INTO ThirdCategory (ThirdCategoryName, FirstCategoryId, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@ThirdCategoryName, @FirstCategoryId, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
                         new
                         {
-                            entity.CategoryName,
+                            entity.ThirdCategoryName,
+                            entity.FirstCategoryId,
                             entity.Createdby,
                             entity.Modifiedby,
                             entity.DateCreated,
@@ -237,7 +236,7 @@ namespace DBL.Repositories
                     // Return appropriate response
                     return result < 1
                         ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
-                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Third Category Added Successfully" };
                 }
             }
         }
