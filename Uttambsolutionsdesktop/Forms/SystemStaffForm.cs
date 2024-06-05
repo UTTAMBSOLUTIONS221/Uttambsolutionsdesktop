@@ -97,6 +97,8 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxRoleId.DataSource = modifiedRoleData;
             comboBoxRoleId.ValueMember = "RoleId";
             comboBoxRoleId.DisplayMember = "RoleName";
+            // Select the correct value based on the Roleid property
+            comboBoxRoleId.SelectedValue = Roleid;
         }
 
         public SystemStaffForm(string userId)
