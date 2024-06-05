@@ -268,6 +268,18 @@ namespace Uttambsolutionsdesktop.Forms
                 {
                     dataGridView.Columns["ThirdCategoryId"].Visible = false;
                 }
+                if (dataGridView.Columns.Contains("Createdby"))
+                {
+                    dataGridView.Columns["Createdby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Modifiedby"))
+                {
+                    dataGridView.Columns["Modifiedby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("DateModified"))
+                {
+                    dataGridView.Columns["DateModified"].Visible = false;
+                }
             }
         }
 

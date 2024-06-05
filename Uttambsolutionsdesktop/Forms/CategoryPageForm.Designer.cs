@@ -75,17 +75,17 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageMainCategoryDetail = new TabPage();
             btnCancelMain = new Button();
             btnSaveMain = new Button();
-            btnCancelFirst = new Button();
-            btnSaveFirst = new Button();
-            btnCancelThird = new Button();
-            btnSaveThird = new Button();
             txtMainCategoryId = new TextBox();
             txtMainCategoryName = new TextBox();
             tabPageFirstCategoryDetail = new TabPage();
+            btnCancelFirst = new Button();
+            btnSaveFirst = new Button();
             txtFirstCategoryId = new TextBox();
             txtFirstCategoryName = new TextBox();
             txtFirstMainCategoryId = new TextBox();
             tabPageThirdCategoryDetail = new TabPage();
+            btnCancelThird = new Button();
+            btnSaveThird = new Button();
             txtThirdCategoryId = new TextBox();
             txtThirdCategoryName = new TextBox();
             txtThirdFirstCategoryId = new TextBox();
@@ -210,7 +210,7 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewMain.Location = new Point(22, 18);
             dataGridViewMain.Margin = new Padding(4, 3, 4, 3);
             dataGridViewMain.Name = "dataGridViewMain";
-            dataGridViewMain.Size = new Size(332, 200);
+            dataGridViewMain.Size = new Size(311, 200);
             dataGridViewMain.TabIndex = 6;
             // 
             // dataGridViewFirst
@@ -218,10 +218,10 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewFirst.AllowUserToAddRows = false;
             dataGridViewFirst.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewFirst.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFirst.Location = new Point(362, 18);
+            dataGridViewFirst.Location = new Point(341, 18);
             dataGridViewFirst.Margin = new Padding(4, 3, 4, 3);
             dataGridViewFirst.Name = "dataGridViewFirst";
-            dataGridViewFirst.Size = new Size(334, 200);
+            dataGridViewFirst.Size = new Size(355, 200);
             dataGridViewFirst.TabIndex = 7;
             // 
             // dataGridViewThird
@@ -362,46 +362,6 @@ namespace Uttambsolutionsdesktop.Forms
             btnSaveMain.Text = "Save";
             btnSaveMain.UseVisualStyleBackColor = true;
             // 
-            // btnCancelFirst
-            // 
-            btnCancelFirst.Location = new Point(263, 140);
-            btnCancelFirst.Margin = new Padding(4, 3, 4, 3);
-            btnCancelFirst.Name = "btnCancelFirst";
-            btnCancelFirst.Size = new Size(180, 44);
-            btnCancelFirst.TabIndex = 15;
-            btnCancelFirst.Text = "Cancel";
-            btnCancelFirst.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveFirst
-            // 
-            btnSaveFirst.Location = new Point(63, 140);
-            btnSaveFirst.Margin = new Padding(4, 3, 4, 3);
-            btnSaveFirst.Name = "btnSaveFirst";
-            btnSaveFirst.Size = new Size(192, 44);
-            btnSaveFirst.TabIndex = 14;
-            btnSaveFirst.Text = "Save";
-            btnSaveFirst.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelThird
-            // 
-            btnCancelThird.Location = new Point(263, 140);
-            btnCancelThird.Margin = new Padding(4, 3, 4, 3);
-            btnCancelThird.Name = "btnCancelThird";
-            btnCancelThird.Size = new Size(180, 44);
-            btnCancelThird.TabIndex = 15;
-            btnCancelThird.Text = "Cancel";
-            btnCancelThird.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveThird
-            // 
-            btnSaveThird.Location = new Point(63, 140);
-            btnSaveThird.Margin = new Padding(4, 3, 4, 3);
-            btnSaveThird.Name = "btnSaveThird";
-            btnSaveThird.Size = new Size(192, 44);
-            btnSaveThird.TabIndex = 14;
-            btnSaveThird.Text = "Save";
-            btnSaveThird.UseVisualStyleBackColor = true;
-            // 
             // txtMainCategoryId
             // 
             txtMainCategoryId.Location = new Point(63, 20);
@@ -437,6 +397,26 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageFirstCategoryDetail.Text = "First Category Detail";
             tabPageFirstCategoryDetail.UseVisualStyleBackColor = true;
             // 
+            // btnCancelFirst
+            // 
+            btnCancelFirst.Location = new Point(263, 140);
+            btnCancelFirst.Margin = new Padding(4, 3, 4, 3);
+            btnCancelFirst.Name = "btnCancelFirst";
+            btnCancelFirst.Size = new Size(180, 44);
+            btnCancelFirst.TabIndex = 15;
+            btnCancelFirst.Text = "Cancel";
+            btnCancelFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveFirst
+            // 
+            btnSaveFirst.Location = new Point(63, 140);
+            btnSaveFirst.Margin = new Padding(4, 3, 4, 3);
+            btnSaveFirst.Name = "btnSaveFirst";
+            btnSaveFirst.Size = new Size(192, 44);
+            btnSaveFirst.TabIndex = 14;
+            btnSaveFirst.Text = "Save";
+            btnSaveFirst.UseVisualStyleBackColor = true;
+            // 
             // txtFirstCategoryId
             // 
             txtFirstCategoryId.Location = new Point(281, 20);
@@ -444,7 +424,6 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstCategoryId.Name = "txtFirstCategoryId";
             txtFirstCategoryId.Size = new Size(162, 29);
             txtFirstCategoryId.TabIndex = 16;
-            txtFirstCategoryId.Visible = true;
             // 
             // txtFirstCategoryName
             // 
@@ -461,7 +440,6 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstMainCategoryId.Name = "txtFirstMainCategoryId";
             txtFirstMainCategoryId.Size = new Size(192, 29);
             txtFirstMainCategoryId.TabIndex = 16;
-            txtFirstMainCategoryId.Visible = true;
             // 
             // tabPageThirdCategoryDetail
             // 
@@ -481,13 +459,32 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageThirdCategoryDetail.Text = "Third Category Detail";
             tabPageThirdCategoryDetail.UseVisualStyleBackColor = true;
             // 
+            // btnCancelThird
+            // 
+            btnCancelThird.Location = new Point(263, 140);
+            btnCancelThird.Margin = new Padding(4, 3, 4, 3);
+            btnCancelThird.Name = "btnCancelThird";
+            btnCancelThird.Size = new Size(180, 44);
+            btnCancelThird.TabIndex = 15;
+            btnCancelThird.Text = "Cancel";
+            btnCancelThird.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveThird
+            // 
+            btnSaveThird.Location = new Point(63, 140);
+            btnSaveThird.Margin = new Padding(4, 3, 4, 3);
+            btnSaveThird.Name = "btnSaveThird";
+            btnSaveThird.Size = new Size(192, 44);
+            btnSaveThird.TabIndex = 14;
+            btnSaveThird.Text = "Save";
+            btnSaveThird.UseVisualStyleBackColor = true;
+            // 
             // txtThirdCategoryId
             // 
             txtThirdCategoryId.Location = new Point(63, 22);
             txtThirdCategoryId.Name = "txtThirdCategoryId";
             txtThirdCategoryId.Size = new Size(192, 29);
             txtThirdCategoryId.TabIndex = 16;
-            txtFirstMainCategoryId.Visible = true;
             // 
             // txtThirdCategoryName
             // 
@@ -504,7 +501,6 @@ namespace Uttambsolutionsdesktop.Forms
             txtThirdFirstCategoryId.Name = "txtThirdFirstCategoryId";
             txtThirdFirstCategoryId.Size = new Size(180, 29);
             txtThirdFirstCategoryId.TabIndex = 16;
-            txtThirdFirstCategoryId.Visible = true;
             // 
             // CategoryPageForm
             // 
