@@ -108,7 +108,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboFirstMainCategoryId.ValueMember = "MainCategoryId";
             comboFirstMainCategoryId.DisplayMember = "MainCategoryName";
             // Select the correct value based on the Roleid property
-            comboFirstMainCategoryId.SelectedValue = MainCategoryId;
+            comboFirstMainCategoryId.SelectedValue = FirstMainCategoryId;
         }
         public void PopulateThirdFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
         {
@@ -123,7 +123,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboThirdFirstCategoryId.ValueMember = "FirstCategoryId";
             comboThirdFirstCategoryId.DisplayMember = "FirstCategoryName";
             // Select the correct value based on the Roleid property
-            comboThirdFirstCategoryId.SelectedValue = FirstCategoryId;
+            comboThirdFirstCategoryId.SelectedValue = ThirdFirstCategoryId;
         }
         // Methods
         private void AssociateAndRaiseViewEvents()
@@ -176,10 +176,10 @@ namespace Uttambsolutionsdesktop.Forms
             btnEditFirst.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
-                if (dataGridViewMain.SelectedCells.Count > 0)
+                if (dataGridViewFirst.SelectedCells.Count > 0)
                 {
-                    int rowIndex = dataGridViewMain.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridViewMain.Rows[rowIndex];
+                    int rowIndex = dataGridViewFirst.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridViewFirst.Rows[rowIndex];
                     if (selectedRow.Cells["FirstCategoryId"].Value != null &&
                         selectedRow.Cells["MainCategoryId"].Value != null &&
                         selectedRow.Cells["FirstCategoryName"].Value != null)
@@ -212,10 +212,10 @@ namespace Uttambsolutionsdesktop.Forms
             btnEditThird.Click += delegate
             {
                 EditEvent?.Invoke(this, EventArgs.Empty);
-                if (dataGridViewMain.SelectedCells.Count > 0)
+                if (dataGridViewThird.SelectedCells.Count > 0)
                 {
-                    int rowIndex = dataGridViewMain.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridViewMain.Rows[rowIndex];
+                    int rowIndex = dataGridViewThird.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridViewThird.Rows[rowIndex];
                     if (selectedRow.Cells["ThirdCategoryId"].Value != null &&
                         selectedRow.Cells["FirstCategoryId"].Value != null &&
                         selectedRow.Cells["ThirdCategoryName"].Value != null)
