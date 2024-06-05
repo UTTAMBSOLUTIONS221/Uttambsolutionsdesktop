@@ -173,7 +173,28 @@ namespace Uttambsolutionsdesktop.Forms
                 tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
                 tabPageFirstCategoryDetail.Text = "Add First Category";
             };
-            btnEditFirst.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnEditFirst.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                if (dataGridViewMain.SelectedCells.Count > 0)
+                {
+                    int rowIndex = dataGridViewMain.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridViewMain.Rows[rowIndex];
+                    if (selectedRow.Cells["FirstCategoryId"].Value != null &&
+                        selectedRow.Cells["MainCategoryId"].Value != null &&
+                        selectedRow.Cells["FirstCategoryName"].Value != null)
+                    {
+                        FirstCategoryId = Convert.ToInt32(selectedRow.Cells["FirstCategoryId"].Value);
+                        FirstMainCategoryId = Convert.ToInt32(selectedRow.Cells["MainCategoryId"].Value);
+                        FirstCategoryName = selectedRow.Cells["FirstCategoryName"].Value.ToString();
+                    }
+                }
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
+                tabPageFirstCategoryDetail.Text = "Edit First Category";
+            };
             btnDeleteFirst.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
 
@@ -188,8 +209,28 @@ namespace Uttambsolutionsdesktop.Forms
                 tabControl1.TabPages.Add(tabPageThirdCategoryDetail);
                 tabPageThirdCategoryDetail.Text = "Add Third Category";
             };
-
-            btnEditThird.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnEditThird.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                if (dataGridViewMain.SelectedCells.Count > 0)
+                {
+                    int rowIndex = dataGridViewMain.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dataGridViewMain.Rows[rowIndex];
+                    if (selectedRow.Cells["ThirdCategoryId"].Value != null &&
+                        selectedRow.Cells["FirstCategoryId"].Value != null &&
+                        selectedRow.Cells["ThirdCategoryName"].Value != null)
+                    {
+                        ThirdCategoryId = Convert.ToInt32(selectedRow.Cells["ThirdCategoryId"].Value);
+                        ThirdFirstCategoryId = Convert.ToInt32(selectedRow.Cells["FirstCategoryId"].Value);
+                        ThirdCategoryName = selectedRow.Cells["ThirdCategoryName"].Value.ToString();
+                    }
+                }
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Add(tabPageThirdCategoryDetail);
+                tabPageThirdCategoryDetail.Text = "Edit Third Category";
+            };
             btnDeleteThird.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
             btnSaveMain.Click += delegate
