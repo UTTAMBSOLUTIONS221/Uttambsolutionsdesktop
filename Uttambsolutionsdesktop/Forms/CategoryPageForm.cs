@@ -134,8 +134,60 @@ namespace Uttambsolutionsdesktop.Forms
             btnEditThird.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
             btnDeleteThird.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
-            btnSave.Click += (sender, e) => SaveEvent?.Invoke(this, EventArgs.Empty);
-            btnCancel.Click += (sender, e) => CancelEvent?.Invoke(this, EventArgs.Empty);
+            btnSaveMain.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
+
+            btnCancelMain.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
+            btnSaveFirst.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
+
+            btnCancelFirst.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
+            btnSaveThird.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
+
+            btnCancelThird.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
+                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
         }
 
         private void DataGridView_MainDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

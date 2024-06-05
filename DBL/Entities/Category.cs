@@ -11,6 +11,10 @@ namespace DBL.Entities
         public int MainCategoryId { get; set; }
         public string? MainCategoryName { get; set; }
         public List<FirstCategory>? FirstCategories { get; set; }
+        public int Createdby { get; set; }
+        public int Modifiedby { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
     }
 
     public class FirstCategory
@@ -20,6 +24,10 @@ namespace DBL.Entities
         public int MainCategoryId { get; set; }
         public string? MainCategoryName { get; set; }
         public List<ThirdCategory>? ThirdCategories { get; set; }
+        public int Createdby { get; set; }
+        public int Modifiedby { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateModified { get; set; }
     }
 
     public class ThirdCategory
@@ -28,11 +36,6 @@ namespace DBL.Entities
         public string? ThirdCategoryName { get; set; }
         public int FirstCategoryId { get; set; }
         public string? FirstCategoryName { get; set; }
-    }
-    public class Category
-    {
-        public int CategoryId { get; set; }
-        public string? CategoryName { get; set; }
         public int Createdby { get; set; }
         public int Modifiedby { get; set; }
         public DateTime DateCreated { get; set; }

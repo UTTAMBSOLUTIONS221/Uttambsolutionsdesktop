@@ -165,16 +165,32 @@ namespace DBL
             });
         }
        
-        public Task<Genericmodel> SaveCategory(Category obj)
+        public Task<Genericmodel> SaveMainCategory(MainCategory obj)
         {
             return Task.Run(() =>
             {
-                var Resp = db.CategoryRepository.SaveCategory(obj);
+                var Resp = db.CategoryRepository.SaveMainCategory(obj);
+                return Resp;
+            });
+        }
+        public Task<Genericmodel> SaveFirstCategory(FirstCategory obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.SaveFirstCategory(obj);
+                return Resp;
+            });
+        }
+        public Task<Genericmodel> SaveThirdCategory(ThirdCategory obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.CategoryRepository.SaveThirdCategory(obj);
                 return Resp;
             });
         }
         #endregion
-       
+
         #region Produccts
         public Task<IEnumerable<SystemProductData>> GetAllProducts()
         {

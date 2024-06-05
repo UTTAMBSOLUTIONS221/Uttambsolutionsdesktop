@@ -13,6 +13,8 @@ namespace DBL.Repositories
         IEnumerable<MainCategory> GetAllMainCategories();
         IEnumerable<FirstCategory> GetAllFirstCategories();
         IEnumerable<ThirdCategory> GetAllThirdCategories();
-        Genericmodel SaveCategory(Category entity);
+        Genericmodel SaveMainCategory(MainCategory entity);
+        Genericmodel SaveFirstCategory(FirstCategory entity);
+        Genericmodel SaveThirdCategory(ThirdCategory entity);
     }
 }

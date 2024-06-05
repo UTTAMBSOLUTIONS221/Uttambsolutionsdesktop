@@ -30,8 +30,12 @@ namespace Uttambsolutionsdesktop.Forms
         private TabPage tabPageMainCategoryDetail;
         private TabPage tabPageFirstCategoryDetail;
         private TabPage tabPageThirdCategoryDetail;
-        private Button btnCancel;
-        private Button btnSave;
+        private Button btnCancelMain;
+        private Button btnSaveMain;
+        private Button btnCancelFirst;
+        private Button btnSaveFirst;
+        private Button btnCancelThird;
+        private Button btnSaveThird;
         private TextBox txtMainCategoryId;
         private TextBox txtMainCategoryName;
         private TextBox txtFirstCategoryId;
@@ -69,8 +73,12 @@ namespace Uttambsolutionsdesktop.Forms
             btnEditThird = new Button();
             btnAddNewThird = new Button();
             tabPageMainCategoryDetail = new TabPage();
-            btnCancel = new Button();
-            btnSave = new Button();
+            btnCancelMain = new Button();
+            btnSaveMain = new Button();
+            btnCancelFirst = new Button();
+            btnSaveFirst = new Button();
+            btnCancelThird = new Button();
+            btnSaveThird = new Button();
             txtMainCategoryId = new TextBox();
             txtMainCategoryName = new TextBox();
             tabPageFirstCategoryDetail = new TabPage();
@@ -319,8 +327,8 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // tabPageMainCategoryDetail
             // 
-            tabPageMainCategoryDetail.Controls.Add(btnCancel);
-            tabPageMainCategoryDetail.Controls.Add(btnSave);
+            tabPageMainCategoryDetail.Controls.Add(btnCancelMain);
+            tabPageMainCategoryDetail.Controls.Add(btnSaveMain);
             tabPageMainCategoryDetail.Controls.Add(label3);
             tabPageMainCategoryDetail.Controls.Add(txtMainCategoryId);
             tabPageMainCategoryDetail.Controls.Add(txtMainCategoryName);
@@ -334,25 +342,65 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageMainCategoryDetail.Text = "Main Category Detail";
             tabPageMainCategoryDetail.UseVisualStyleBackColor = true;
             // 
-            // btnCancel
+            // btnCancelMain
             // 
-            btnCancel.Location = new Point(263, 140);
-            btnCancel.Margin = new Padding(4, 3, 4, 3);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(180, 44);
-            btnCancel.TabIndex = 15;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancelMain.Location = new Point(263, 140);
+            btnCancelMain.Margin = new Padding(4, 3, 4, 3);
+            btnCancelMain.Name = "btnCancelMain";
+            btnCancelMain.Size = new Size(180, 44);
+            btnCancelMain.TabIndex = 15;
+            btnCancelMain.Text = "Cancel";
+            btnCancelMain.UseVisualStyleBackColor = true;
             // 
-            // btnSave
+            // btnSaveMain
             // 
-            btnSave.Location = new Point(63, 140);
-            btnSave.Margin = new Padding(4, 3, 4, 3);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(192, 44);
-            btnSave.TabIndex = 14;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSaveMain.Location = new Point(63, 140);
+            btnSaveMain.Margin = new Padding(4, 3, 4, 3);
+            btnSaveMain.Name = "btnSaveMain";
+            btnSaveMain.Size = new Size(192, 44);
+            btnSaveMain.TabIndex = 14;
+            btnSaveMain.Text = "Save";
+            btnSaveMain.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelFirst
+            // 
+            btnCancelFirst.Location = new Point(263, 140);
+            btnCancelFirst.Margin = new Padding(4, 3, 4, 3);
+            btnCancelFirst.Name = "btnCancelFirst";
+            btnCancelFirst.Size = new Size(180, 44);
+            btnCancelFirst.TabIndex = 15;
+            btnCancelFirst.Text = "Cancel";
+            btnCancelFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveFirst
+            // 
+            btnSaveFirst.Location = new Point(63, 140);
+            btnSaveFirst.Margin = new Padding(4, 3, 4, 3);
+            btnSaveFirst.Name = "btnSaveFirst";
+            btnSaveFirst.Size = new Size(192, 44);
+            btnSaveFirst.TabIndex = 14;
+            btnSaveFirst.Text = "Save";
+            btnSaveFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelThird
+            // 
+            btnCancelThird.Location = new Point(263, 140);
+            btnCancelThird.Margin = new Padding(4, 3, 4, 3);
+            btnCancelThird.Name = "btnCancelThird";
+            btnCancelThird.Size = new Size(180, 44);
+            btnCancelThird.TabIndex = 15;
+            btnCancelThird.Text = "Cancel";
+            btnCancelThird.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveThird
+            // 
+            btnSaveThird.Location = new Point(63, 140);
+            btnSaveThird.Margin = new Padding(4, 3, 4, 3);
+            btnSaveThird.Name = "btnSaveThird";
+            btnSaveThird.Size = new Size(192, 44);
+            btnSaveThird.TabIndex = 14;
+            btnSaveThird.Text = "Save";
+            btnSaveThird.UseVisualStyleBackColor = true;
             // 
             // txtMainCategoryId
             // 
@@ -373,8 +421,8 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // tabPageFirstCategoryDetail
             // 
-            tabPageFirstCategoryDetail.Controls.Add(btnCancel);
-            tabPageFirstCategoryDetail.Controls.Add(btnSave);
+            tabPageFirstCategoryDetail.Controls.Add(btnCancelFirst);
+            tabPageFirstCategoryDetail.Controls.Add(btnSaveFirst);
             tabPageFirstCategoryDetail.Controls.Add(label4);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryId);
             tabPageFirstCategoryDetail.Controls.Add(txtFirstCategoryName);
@@ -417,8 +465,8 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // tabPageThirdCategoryDetail
             // 
-            tabPageThirdCategoryDetail.Controls.Add(btnCancel);
-            tabPageThirdCategoryDetail.Controls.Add(btnSave);
+            tabPageThirdCategoryDetail.Controls.Add(btnCancelThird);
+            tabPageThirdCategoryDetail.Controls.Add(btnSaveThird);
             tabPageThirdCategoryDetail.Controls.Add(label5);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryId);
             tabPageThirdCategoryDetail.Controls.Add(txtThirdCategoryName);
