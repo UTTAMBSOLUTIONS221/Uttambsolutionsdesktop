@@ -91,7 +91,7 @@
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(28, 82);
+            dataGridView.Location = new Point(30, 27);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(845, 335);
@@ -99,7 +99,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(883, 160);
+            btnDelete.Location = new Point(883, 97);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(82, 25);
@@ -109,7 +109,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(883, 129);
+            btnEdit.Location = new Point(883, 66);
             btnEdit.Margin = new Padding(4, 3, 4, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(82, 25);
@@ -119,7 +119,7 @@
             // 
             // btnAddNew
             // 
-            btnAddNew.Location = new Point(881, 89);
+            btnAddNew.Location = new Point(881, 26);
             btnAddNew.Margin = new Padding(4, 3, 4, 3);
             btnAddNew.Name = "btnAddNew";
             btnAddNew.Size = new Size(84, 25);
