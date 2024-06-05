@@ -12,14 +12,14 @@ namespace Uttambsolutionsdesktop.Forms
         private CategoryPresenter _presenter;
         private readonly string _userId;
 
-        //Events
-        public event EventHandler SearchEvent;
+        // Events
         public event EventHandler AddNewEvent;
         public event EventHandler EditEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
+        // Properties
         public int CategoryId
         {
             get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }
@@ -30,15 +30,74 @@ namespace Uttambsolutionsdesktop.Forms
             get { return txtCategoryName.Text; }
             set { txtCategoryName.Text = value; }
         }
-      
 
+        // Constructors
+        public CategoryPageForm(string userId)
+        {
+            InitializeComponent();
+            _userId = userId;
+            _presenter = new CategoryPresenter(this, userId, DatabaseManager.ConnectionString);
+            AssociateAndRaiseViewEvents();
+            tabControl1.TabPages.Remove(tabPageCategoryDetail);
+            dataGridViewMain.DataBindingComplete += DataGridView_DataBindingComplete;
+            dataGridViewFirst.DataBindingComplete += DataGridView_DataBindingComplete;
+            dataGridViewThird.DataBindingComplete += DataGridView_DataBindingComplete;
+        }
+
+        // Methods
+        private void AssociateAndRaiseViewEvents()
+        {
+            btnAddNewMain.Click += (sender, e) => AddNewEvent?.Invoke(this, EventArgs.Empty);
+            btnEditMain.Click += (sender, e) => EditEvent?.Invoke(this, EventArgs.Empty);
+            btnDeleteMain.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
+            btnSave.Click += (sender, e) => SaveEvent?.Invoke(this, EventArgs.Empty);
+            btnCancel.Click += (sender, e) => CancelEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (sender is DataGridView dataGridView)
+            {
+                if (dataGridView.Columns.Contains("CategoryId"))
+                {
+                    dataGridView.Columns["CategoryId"].Visible = false;
+                }
+            }
+        }
+
+        // Interface Implementation
         public void SetCategoryListBindingSource(BindingSource categoryList)
         {
-            dataGridView.DataSource = categoryList;
+            dataGridViewMain.DataSource = categoryList;
+            dataGridViewFirst.DataSource = categoryList;
+            dataGridViewThird.DataSource = categoryList;
+
             // Ensure the hidden CategoryId column is added
-            if (!dataGridView.Columns.Contains("CategoryId"))
+            if (!dataGridViewMain.Columns.Contains("CategoryId"))
             {
-                dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+                dataGridViewMain.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "CategoryId",
+                    HeaderText = "CategoryId",
+                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Visible = false
+                });
+            }
+
+            if (!dataGridViewFirst.Columns.Contains("CategoryId"))
+            {
+                dataGridViewFirst.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "CategoryId",
+                    HeaderText = "CategoryId",
+                    DataPropertyName = "CategoryId", // Ensure this matches the property name in the data source
+                    Visible = false
+                });
+            }
+
+            if (!dataGridViewThird.Columns.Contains("CategoryId"))
+            {
+                dataGridViewThird.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     Name = "CategoryId",
                     HeaderText = "CategoryId",
@@ -48,103 +107,10 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-        public CategoryPageForm(string userId)
-        {
-            InitializeComponent();
-            _userId = userId;
-            _presenter = new CategoryPresenter(this, userId, DatabaseManager.ConnectionString);        
-            AssociateAndRaiseViewEvents();
-            tabControl1.TabPages.Remove(tabPageCategoryDetail);
-            // Subscribe to the DataBindingComplete event
-            dataGridView.DataBindingComplete += DataGridView_DataBindingComplete;
-        }
-
-        private void AssociateAndRaiseViewEvents()
-        {
-            btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
-            txtSearch.KeyDown += (s, e) =>
-            {
-                if (e.KeyCode == Keys.Enter)
-                    SearchEvent?.Invoke(this, EventArgs.Empty);
-            };
-
-            btnAddNew.Click += delegate
-            {
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
-                ClearDetailFields();
-                CategoryId = 0; // Ensure CategoryId is set to 0 for new entries
-                tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Add(tabPageCategoryDetail);
-                tabPageCategoryDetail.Text = "Add New Category";
-            };
-
-            btnEdit.Click += delegate
-            {
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                if (dataGridView.SelectedCells.Count > 0)
-                {
-                    int rowIndex = dataGridView.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
-                    if (selectedRow.Cells["CategoryId"].Value != null &&
-                        selectedRow.Cells["CategoryName"].Value != null)
-                    {
-                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
-                        CategoryName = selectedRow.Cells["CategoryName"].Value.ToString();
-                    }
-                }
-                tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Add(tabPageCategoryDetail);
-                tabPageCategoryDetail.Text = "Edit Category";
-            };
-
-            // CellClick event handler to select the entire row
-            dataGridView.CellClick += (sender, e) =>
-            {
-                if (e.RowIndex >= 0)
-                {
-                    dataGridView.Rows[e.RowIndex].Selected = true;
-                }
-            };
-
-
-            btnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
-
-            btnSave.Click += delegate
-            {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
-                tabControl1.TabPages.Remove(tabPageCategoryDetail);
-                tabControl1.TabPages.Add(tabPageCategoryList);
-            };
-
-            btnCancel.Click += delegate
-            {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
-                ClearDetailFields();
-                tabControl1.TabPages.Remove(tabPageCategoryDetail);
-                tabControl1.TabPages.Add(tabPageCategoryList);
-            };
-        }
-
-        private void DataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            if (dataGridView.Columns.Contains("CategoryId"))
-            {
-                dataGridView.Columns["CategoryId"].Visible = false;
-            }
-        }
-
-        // Method to clear the detail fields
-        private void ClearDetailFields()
-        {
-            CategoryId = 0;
-            CategoryName = string.Empty;
-        }
-
         // Optional method to show message boxes
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
         }
-
     }
 }

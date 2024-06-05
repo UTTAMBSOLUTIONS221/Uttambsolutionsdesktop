@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Windows.Forms;
 using DBL.Entities;
 
 namespace Uttambsolutionsdesktop.Views
@@ -7,19 +7,19 @@ namespace Uttambsolutionsdesktop.Views
     public interface ICategoryView
     {
         // Properties
-        string SearchValue { get; set; }
         int CategoryId { get; set; }
         string CategoryName { get; set; }
-        //Events
-        event EventHandler SearchEvent;
+
+        // Events
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
         event EventHandler DeleteEvent;
         event EventHandler SaveEvent;
         event EventHandler CancelEvent;
 
-        //Methods
+        // Methods
         void SetCategoryListBindingSource(BindingSource categoryList);
         void Show();
+        void ShowMessage(string message);
     }
 }
