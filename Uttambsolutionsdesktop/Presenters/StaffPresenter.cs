@@ -55,17 +55,17 @@ namespace Uttambsolutionsdesktop.Presenters
         //    petsBindingSource.DataSource = petList;
         //}
 
-        private async void SaveCategory(object sender, EventArgs e)
+        private async void SaveStaff(object sender, EventArgs e)
         {
-            Category categoryData = new Category();
-         
-            categoryData.Createdby = Convert.ToInt32(_userId);
-            categoryData.Modifiedby = Convert.ToInt32(_userId);
-            categoryData.DateCreated = DateTime.Now;
-            categoryData.DateModified = DateTime.Now;
+            SystemStaff staffData = new SystemStaff();
+
+            staffData.Createdby = Convert.ToInt32(_userId);
+            staffData.Modifiedby = Convert.ToInt32(_userId);
+            staffData.Datecreated = DateTime.Now;
+            staffData.Datemodified = DateTime.Now;
 
             // Call the BL method to save the category
-            var resp = await _bl.SaveCategory(categoryData);
+            var resp = await _bl.SaveStaff(staffData);
             // Handle the response accordingly
             if (resp.RespStatus == 0)
             {

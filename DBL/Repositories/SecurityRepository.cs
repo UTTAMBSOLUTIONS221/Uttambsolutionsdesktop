@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using System.Data;
 using System.Data.SQLite;
 using DBL.Models;
+using DBL.Entities;
 
 namespace DBL.Repositories
 {
@@ -109,6 +110,66 @@ namespace DBL.Repositories
             }
         }
 
+        public Genericmodel SaveStaff(SystemStaff entity)
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
 
+                if (entity.Userid > 0)
+                {
+                    // Update the category
+                    var result = connection.Execute(
+                        @"UPDATE Categories 
+                  SET CategoryName = @CategoryName, Modifiedby = @Modifiedby, 
+                      DateModified = @DateModified 
+                  WHERE CategoryId = @CategoryId",
+                        new
+                        {
+                            entity.Modifiedby,
+                            entity.DateModified,
+                            entity.CategoryName,
+                            entity.CategoryId
+                        });
+
+                    // Return appropriate response
+                    return result < 1
+                        ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Updated Successfully" };
+                }
+                else
+                {
+
+                    // Check if the category already exists
+                    var categoryExists = connection.ExecuteScalar<bool>(
+                        "SELECT COUNT(1) FROM Categories WHERE CategoryName = @CategoryName",
+                        new { Username = entity.Username });
+
+                    if (categoryExists)
+                    {
+                        // Category already exists, return 0 (failure)
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Category Exists" };
+                    }
+
+                    // Insert the category into the database
+                    var result = connection.Execute(
+                        @"INSERT INTO Categories (CategoryName, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@CategoryName, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        new
+                        {
+                            entity.CategoryName,
+                            entity.Createdby,
+                            entity.Modifiedby,
+                            entity.DateCreated,
+                            entity.DateModified
+                        });
+
+                    // Return appropriate response
+                    return result < 1
+                        ? new Genericmodel { RespStatus = 2, RespMessage = "Database Error Occurred" }
+                        : new Genericmodel { RespStatus = 0, RespMessage = "Category Added Successfully" };
+                }
+            }
+        }
     }
 }

@@ -96,6 +96,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<Genericmodel> SaveStaff(SystemStaff obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.SecurityRepository.SaveStaff(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Producct Uoms

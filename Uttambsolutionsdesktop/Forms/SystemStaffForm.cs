@@ -110,7 +110,7 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 AddNewEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
-                UserId = 0; // Ensure UserId is set to 0 for new entries
+                Userid = 0; // Ensure UserId is set to 0 for new entries
                 tabControl1.TabPages.Remove(tabPageStaffList);
                 tabControl1.TabPages.Add(tabPageStaffDetail);
                 tabPageStaffDetail.Text = "Add New Staff";
@@ -123,21 +123,21 @@ namespace Uttambsolutionsdesktop.Forms
                 {
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
-                    if (selectedRow.Cells["UserId"].Value != null &&
+                    if (selectedRow.Cells["Userid"].Value != null &&
                         selectedRow.Cells["FirstName"].Value != null &&
                         selectedRow.Cells["LastName"].Value != null &&
                         selectedRow.Cells["Phonenumber"].Value != null &&
                         selectedRow.Cells["Username"].Value != null &&
                         selectedRow.Cells["Emailaddress"].Value != null &&
-                        selectedRow.Cells["RoleId"].Value != null)
+                        selectedRow.Cells["Roleid"].Value != null)
                     {
-                        UserId = Convert.ToInt32(selectedRow.Cells["UserId"].Value);
+                        Userid = Convert.ToInt32(selectedRow.Cells["UserId"].Value);
                         FirstName = selectedRow.Cells["FirstName"].Value.ToString();
                         LastName = selectedRow.Cells["LastName"].Value.ToString();
                         Phonenumber = selectedRow.Cells["Phonenumber"].Value.ToString();
                         Username = selectedRow.Cells["Username"].Value.ToString();
                         Emailaddress = selectedRow.Cells["Emailaddress"].Value.ToString();
-                        RoleId = Convert.ToInt32(selectedRow.Cells["RoleId"].Value);
+                        Roleid = Convert.ToInt32(selectedRow.Cells["RoleId"].Value);
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageStaffList);
@@ -199,13 +199,13 @@ namespace Uttambsolutionsdesktop.Forms
         // Method to clear the detail fields
         private void ClearDetailFields()
         {
-            UserId = 0;
+            Userid = 0;
             FirstName = string.Empty;
             LastName = string.Empty;
             Phonenumber = string.Empty;
             Username = string.Empty;
             Emailaddress = string.Empty;
-            RoleId = 0;
+            Roleid = 0;
         }
 
         // Optional method to show message boxes

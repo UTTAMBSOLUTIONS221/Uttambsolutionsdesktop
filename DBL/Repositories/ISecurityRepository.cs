@@ -1,4 +1,5 @@
-﻿using DBL.Models;
+﻿using DBL.Entities;
+using DBL.Models;
 
 namespace DBL.Repositories
 {
@@ -7,5 +8,6 @@ namespace DBL.Repositories
         UsermodelResponce VerifySystemStaff(string Username);
         IEnumerable<string> GetPermissionsForUser(long RoleId);
         IEnumerable<SystemStaffData> GetAllSystemStaffs();
+        Genericmodel SaveStaff(SystemStaff entity);
     }
 }
