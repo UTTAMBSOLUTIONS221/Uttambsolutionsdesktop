@@ -72,7 +72,10 @@ namespace Uttambsolutionsdesktop
                 // Insert 'Super Admin' role into Roles table if the database was just created
                 if (!databaseExists)
                 {
-                    string insertRoleDataQuery = "INSERT INTO Roles (RoleName) VALUES ('Super Admin')";
+                    string insertRoleDataQuery = "INSERT INTO Roles (RoleName) VALUES " +
+                                                                       "('Super Admin')" +
+                                                                        "('Admin')" +
+                                                                         "('Cashier')";
                     using (SQLiteCommand cmd = new SQLiteCommand(insertRoleDataQuery, conn))
                     {
                         cmd.ExecuteNonQuery();

@@ -42,7 +42,6 @@ namespace Uttambsolutionsdesktop.Forms
                 this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
                 this.panel2 = new System.Windows.Forms.Panel();
                 this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-                this.Dashboard = new Uttambsolutionsdesktop.Forms.Dashboard();
                 this.panel1.SuspendLayout();
                 ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                 this.panel2.SuspendLayout();
@@ -298,15 +297,7 @@ namespace Uttambsolutionsdesktop.Forms
                 this.bunifuCustomLabel2.Size = new System.Drawing.Size(184, 21);
                 this.bunifuCustomLabel2.TabIndex = 2;
                 this.bunifuCustomLabel2.Text = "MATERIAL DASHBOARD";
-                // 
-                // tab11
-                // 
-                this.Dashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-                this.Dashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-                this.Dashboard.Location = new System.Drawing.Point(318, 110);
-                this.Dashboard.Name = "tab11";
-                this.Dashboard.Size = new System.Drawing.Size(919, 618);
-                this.Dashboard.TabIndex = 9;
+               
                 // 
                 // home
                 // 
@@ -314,7 +305,6 @@ namespace Uttambsolutionsdesktop.Forms
                 this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                 this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
                 this.ClientSize = new System.Drawing.Size(1237, 728);
-                this.Controls.Add(this.Dashboard);
                 this.Controls.Add(this.panel2);
                 this.Controls.Add(this.panel1);
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -343,7 +333,6 @@ namespace Uttambsolutionsdesktop.Forms
             private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;
             private System.Windows.Forms.Panel panel2;
             private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
-            private Dashboard Dashboard;
             private System.Windows.Forms.PictureBox pictureBox1;
         }
 
