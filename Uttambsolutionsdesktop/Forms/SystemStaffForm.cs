@@ -274,6 +274,7 @@ namespace Uttambsolutionsdesktop.Forms
             Phonenumber = string.Empty;
             Username = string.Empty;
             Emailaddress = string.Empty;
+            Passwords = string.Empty;
             Roleid = 0;
         }
 
