@@ -150,7 +150,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(67, 54);
+            label4.Location = new Point(67, 98);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(158, 20);
@@ -161,7 +161,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(67, 54);
+            label5.Location = new Point(67, 115);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(162, 20);
@@ -172,10 +172,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(67, 54);
+            label6.Location = new Point(67, 29);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(162, 20);
+            label6.Size = new Size(115, 20);
             label6.TabIndex = 13;
             label6.Text = "Main Category:";
             // 
@@ -183,10 +183,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(67, 54);
+            label7.Location = new Point(67, 34);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(162, 20);
+            label7.Size = new Size(112, 20);
             label7.TabIndex = 13;
             label7.Text = "First Category:";
             // 
@@ -426,7 +426,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnCancelFirst
             // 
-            btnCancelFirst.Location = new Point(263, 140);
+            btnCancelFirst.Location = new Point(263, 172);
             btnCancelFirst.Margin = new Padding(4, 3, 4, 3);
             btnCancelFirst.Name = "btnCancelFirst";
             btnCancelFirst.Size = new Size(180, 44);
@@ -436,7 +436,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnSaveFirst
             // 
-            btnSaveFirst.Location = new Point(63, 140);
+            btnSaveFirst.Location = new Point(63, 172);
             btnSaveFirst.Margin = new Padding(4, 3, 4, 3);
             btnSaveFirst.Name = "btnSaveFirst";
             btnSaveFirst.Size = new Size(192, 44);
@@ -451,10 +451,11 @@ namespace Uttambsolutionsdesktop.Forms
             txtFirstCategoryId.Name = "txtFirstCategoryId";
             txtFirstCategoryId.Size = new Size(162, 29);
             txtFirstCategoryId.TabIndex = 16;
+            txtFirstCategoryId.Visible = false;
             // 
             // txtFirstCategoryName
             // 
-            txtFirstCategoryName.Location = new Point(63, 74);
+            txtFirstCategoryName.Location = new Point(63, 121);
             txtFirstCategoryName.Margin = new Padding(4, 3, 4, 3);
             txtFirstCategoryName.Name = "txtFirstCategoryName";
             txtFirstCategoryName.Size = new Size(380, 29);
@@ -462,10 +463,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // comboFirstMainCategoryId
             // 
-            comboFirstMainCategoryId.Location = new Point(67, 20);
+            comboFirstMainCategoryId.Location = new Point(67, 55);
             comboFirstMainCategoryId.Margin = new Padding(4, 3, 4, 3);
             comboFirstMainCategoryId.Name = "comboFirstMainCategoryId";
-            comboFirstMainCategoryId.Size = new Size(192, 29);
+            comboFirstMainCategoryId.Size = new Size(376, 32);
             comboFirstMainCategoryId.TabIndex = 16;
             // 
             // tabPageThirdCategoryDetail
@@ -489,7 +490,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnCancelThird
             // 
-            btnCancelThird.Location = new Point(263, 140);
+            btnCancelThird.Location = new Point(263, 186);
             btnCancelThird.Margin = new Padding(4, 3, 4, 3);
             btnCancelThird.Name = "btnCancelThird";
             btnCancelThird.Size = new Size(180, 44);
@@ -499,7 +500,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnSaveThird
             // 
-            btnSaveThird.Location = new Point(63, 140);
+            btnSaveThird.Location = new Point(63, 186);
             btnSaveThird.Margin = new Padding(4, 3, 4, 3);
             btnSaveThird.Name = "btnSaveThird";
             btnSaveThird.Size = new Size(192, 44);
@@ -509,14 +510,15 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // txtThirdCategoryId
             // 
-            txtThirdCategoryId.Location = new Point(63, 22);
+            txtThirdCategoryId.Location = new Point(232, 25);
             txtThirdCategoryId.Name = "txtThirdCategoryId";
-            txtThirdCategoryId.Size = new Size(192, 29);
+            txtThirdCategoryId.Size = new Size(211, 29);
             txtThirdCategoryId.TabIndex = 16;
+            txtThirdCategoryId.Visible = false;
             // 
             // txtThirdCategoryName
             // 
-            txtThirdCategoryName.Location = new Point(63, 74);
+            txtThirdCategoryName.Location = new Point(63, 138);
             txtThirdCategoryName.Margin = new Padding(4, 3, 4, 3);
             txtThirdCategoryName.Name = "txtThirdCategoryName";
             txtThirdCategoryName.Size = new Size(380, 29);
@@ -524,10 +526,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // comboThirdFirstCategoryId
             // 
-            comboThirdFirstCategoryId.Location = new Point(263, 22);
+            comboThirdFirstCategoryId.Location = new Point(67, 80);
             comboThirdFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
             comboThirdFirstCategoryId.Name = "comboThirdFirstCategoryId";
-            comboThirdFirstCategoryId.Size = new Size(180, 29);
+            comboThirdFirstCategoryId.Size = new Size(376, 32);
             comboThirdFirstCategoryId.TabIndex = 16;
             // 
             // CategoryPageForm

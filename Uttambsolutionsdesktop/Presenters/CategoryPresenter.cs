@@ -144,7 +144,7 @@ namespace Uttambsolutionsdesktop.Presenters
             ThirdCategory thirdCategoryData = new ThirdCategory();
             thirdCategoryData.ThirdCategoryId = _view.ThirdCategoryId;
             thirdCategoryData.FirstCategoryId = _view.ThirdFirstCategoryId;
-            thirdCategoryData.ThirdCategoryName = _view.MainCategoryName;
+            thirdCategoryData.ThirdCategoryName = _view.ThirdCategoryName;
             thirdCategoryData.Createdby = Convert.ToInt32(_userId);
             thirdCategoryData.Modifiedby = Convert.ToInt32(_userId);
             thirdCategoryData.DateCreated = DateTime.Now;
