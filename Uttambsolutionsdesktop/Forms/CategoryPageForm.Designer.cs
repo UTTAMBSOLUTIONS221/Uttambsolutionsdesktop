@@ -133,10 +133,10 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewMain.AllowUserToAddRows = false;
             dataGridViewMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMain.Location = new Point(36, 18);
+            dataGridViewMain.Location = new Point(22, 18);
             dataGridViewMain.Margin = new Padding(4, 3, 4, 3);
             dataGridViewMain.Name = "dataGridViewMain";
-            dataGridViewMain.Size = new Size(300, 200);
+            dataGridViewMain.Size = new Size(332, 200);
             dataGridViewMain.TabIndex = 6;
             // 
             // dataGridViewFirst
@@ -144,10 +144,10 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewFirst.AllowUserToAddRows = false;
             dataGridViewFirst.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewFirst.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFirst.Location = new Point(346, 18);
+            dataGridViewFirst.Location = new Point(362, 18);
             dataGridViewFirst.Margin = new Padding(4, 3, 4, 3);
             dataGridViewFirst.Name = "dataGridViewFirst";
-            dataGridViewFirst.Size = new Size(300, 200);
+            dataGridViewFirst.Size = new Size(334, 200);
             dataGridViewFirst.TabIndex = 7;
             // 
             // dataGridViewThird
@@ -155,10 +155,10 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewThird.AllowUserToAddRows = false;
             dataGridViewThird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewThird.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewThird.Location = new Point(656, 18);
+            dataGridViewThird.Location = new Point(704, 18);
             dataGridViewThird.Margin = new Padding(4, 3, 4, 3);
             dataGridViewThird.Name = "dataGridViewThird";
-            dataGridViewThird.Size = new Size(300, 200);
+            dataGridViewThird.Size = new Size(321, 200);
             dataGridViewThird.TabIndex = 8;
             // 
             // label2
@@ -172,7 +172,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnDeleteMain
             // 
-            btnDeleteMain.Location = new Point(36, 236);
+            btnDeleteMain.Location = new Point(214, 236);
             btnDeleteMain.Margin = new Padding(4, 3, 4, 3);
             btnDeleteMain.Name = "btnDeleteMain";
             btnDeleteMain.Size = new Size(82, 25);
@@ -192,7 +192,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnAddNewMain
             // 
-            btnAddNewMain.Location = new Point(212, 236);
+            btnAddNewMain.Location = new Point(28, 236);
             btnAddNewMain.Margin = new Padding(4, 3, 4, 3);
             btnAddNewMain.Name = "btnAddNewMain";
             btnAddNewMain.Size = new Size(84, 25);
@@ -202,7 +202,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnDeleteFirst
             // 
-            btnDeleteFirst.Location = new Point(346, 236);
+            btnDeleteFirst.Location = new Point(560, 237);
             btnDeleteFirst.Margin = new Padding(4, 3, 4, 3);
             btnDeleteFirst.Name = "btnDeleteFirst";
             btnDeleteFirst.Size = new Size(82, 25);
@@ -212,7 +212,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnEditFirst
             // 
-            btnEditFirst.Location = new Point(434, 236);
+            btnEditFirst.Location = new Point(470, 236);
             btnEditFirst.Margin = new Padding(4, 3, 4, 3);
             btnEditFirst.Name = "btnEditFirst";
             btnEditFirst.Size = new Size(82, 25);
@@ -222,7 +222,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnAddNewFirst
             // 
-            btnAddNewFirst.Location = new Point(522, 236);
+            btnAddNewFirst.Location = new Point(378, 235);
             btnAddNewFirst.Margin = new Padding(4, 3, 4, 3);
             btnAddNewFirst.Name = "btnAddNewFirst";
             btnAddNewFirst.Size = new Size(84, 25);
@@ -232,7 +232,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnDeleteThird
             // 
-            btnDeleteThird.Location = new Point(656, 236);
+            btnDeleteThird.Location = new Point(924, 236);
             btnDeleteThird.Margin = new Padding(4, 3, 4, 3);
             btnDeleteThird.Name = "btnDeleteThird";
             btnDeleteThird.Size = new Size(82, 25);
@@ -242,7 +242,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnEditThird
             // 
-            btnEditThird.Location = new Point(744, 236);
+            btnEditThird.Location = new Point(834, 236);
             btnEditThird.Margin = new Padding(4, 3, 4, 3);
             btnEditThird.Name = "btnEditThird";
             btnEditThird.Size = new Size(82, 25);
@@ -252,10 +252,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // btnAddNewThird
             // 
-            btnAddNewThird.Location = new Point(832, 236);
+            btnAddNewThird.Location = new Point(732, 236);
             btnAddNewThird.Margin = new Padding(4, 3, 4, 3);
             btnAddNewThird.Name = "btnAddNewThird";
-            btnAddNewThird.Size = new Size(84, 25);
+            btnAddNewThird.Size = new Size(84, 23);
             btnAddNewThird.TabIndex = 16;
             btnAddNewThird.Text = "Add New";
             btnAddNewThird.UseVisualStyleBackColor = true;
