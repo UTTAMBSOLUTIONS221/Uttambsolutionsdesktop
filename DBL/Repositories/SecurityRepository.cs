@@ -133,6 +133,15 @@ namespace DBL.Repositories
 
                 if (entity.Userid > 0)
                 {
+                    if (string.IsNullOrWhiteSpace(entity.FirstName) ||
+                     string.IsNullOrWhiteSpace(entity.LastName) ||
+                     string.IsNullOrWhiteSpace(entity.Phonenumber) ||
+                     string.IsNullOrWhiteSpace(entity.Username) ||
+                     string.IsNullOrWhiteSpace(entity.Emailaddress) ||
+                     entity.Roleid == 0)
+                    {
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Please fill in all required fields." }; ;
+                    }
                     // Update the staff
                     var result = connection.Execute(
                         @"UPDATE SystemStaffs 
@@ -187,7 +196,16 @@ namespace DBL.Repositories
                         // Staff already exists, return 1 (failure)
                         return new Genericmodel { RespStatus = 1, RespMessage = "Staff Exists" };
                     }
-                    
+                    if (string.IsNullOrWhiteSpace(entity.FirstName) ||
+                    string.IsNullOrWhiteSpace(entity.LastName) ||
+                    string.IsNullOrWhiteSpace(entity.Phonenumber) ||
+                    string.IsNullOrWhiteSpace(entity.Username) ||
+                    string.IsNullOrWhiteSpace(entity.Emailaddress) ||
+                    string.IsNullOrWhiteSpace(entity.Passwords) ||
+                    entity.Roleid == 0)
+                    {
+                        return new Genericmodel { RespStatus = 1, RespMessage = "Please fill in all required fields." };;
+                    }
 
                     // Insert the staff into the database
                     var result = connection.Execute(
