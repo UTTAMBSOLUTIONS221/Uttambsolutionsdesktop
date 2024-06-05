@@ -361,7 +361,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtMainCategoryId.Name = "txtMainCategoryId";
             txtMainCategoryId.Size = new Size(380, 29);
             txtMainCategoryId.TabIndex = 16;
-            txtMainCategoryId.Visible = false;
+            txtMainCategoryId.Visible = true;
             // 
             // txtMainCategoryName
             // 
