@@ -82,6 +82,10 @@ namespace Uttambsolutionsdesktop.Forms
         {
             if (sender is DataGridView dataGridView)
             {
+                if (dataGridView.Columns.Contains("MainCategoryId"))
+                {
+                    dataGridView.Columns["MainCategoryId"].Visible = false;
+                }
                 if (dataGridView.Columns.Contains("FirstCategoryId"))
                 {
                     dataGridView.Columns["FirstCategoryId"].Visible = false;
@@ -92,6 +96,10 @@ namespace Uttambsolutionsdesktop.Forms
         {
             if (sender is DataGridView dataGridView)
             {
+                if (dataGridView.Columns.Contains("FirstCategoryId"))
+                {
+                    dataGridView.Columns["FirstCategoryId"].Visible = false;
+                }
                 if (dataGridView.Columns.Contains("ThirdCategoryId"))
                 {
                     dataGridView.Columns["ThirdCategoryId"].Visible = false;
