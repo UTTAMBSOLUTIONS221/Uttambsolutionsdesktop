@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace Uttambsolutionsdesktop.Forms
@@ -9,13 +8,16 @@ namespace Uttambsolutionsdesktop.Forms
     partial class CategoryPageForm
     {
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
         private Panel panel1;
         private TabControl tabControl1;
         private TabPage tabPageCategoryList;
         private DataGridView dataGridViewMain;
         private DataGridView dataGridViewFirst;
         private DataGridView dataGridViewThird;
-        private Label label2;
         private Button btnDeleteMain;
         private Button btnEditMain;
         private Button btnAddNewMain;
@@ -30,9 +32,6 @@ namespace Uttambsolutionsdesktop.Forms
         private TabPage tabPageThirdCategoryDetail;
         private Button btnCancel;
         private Button btnSave;
-        private Label label3;
-        private Label label4;
-        private Label label5;
         private TextBox txtMainCategoryId;
         private TextBox txtMainCategoryName;
         private TextBox txtFirstCategoryId;
@@ -50,13 +49,16 @@ namespace Uttambsolutionsdesktop.Forms
         private void InitializeComponent()
         {
             label1 = new Label();
+            label2 = new Label();
             panel1 = new Panel();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             tabControl1 = new TabControl();
             tabPageCategoryList = new TabPage();
             dataGridViewMain = new DataGridView();
             dataGridViewFirst = new DataGridView();
             dataGridViewThird = new DataGridView();
-            label2 = new Label();
             btnDeleteMain = new Button();
             btnEditMain = new Button();
             btnAddNewMain = new Button();
@@ -71,9 +73,6 @@ namespace Uttambsolutionsdesktop.Forms
             tabPageThirdCategoryDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
             txtMainCategoryId = new TextBox();
             txtMainCategoryName = new TextBox();
             txtFirstCategoryId = new TextBox();
