@@ -73,14 +73,16 @@ namespace Uttambsolutionsdesktop
                 if (!databaseExists)
                 {
                     string insertRoleDataQuery = "INSERT INTO Roles (RoleName) VALUES " +
-                                                                       "('Super Admin')" +
-                                                                        "('Admin')" +
-                                                                         "('Cashier')";
+                                                 "('Super Admin'), " +
+                                                 "('Admin'), " +
+                                                 "('Cashier')";
+
                     using (SQLiteCommand cmd = new SQLiteCommand(insertRoleDataQuery, conn))
                     {
                         cmd.ExecuteNonQuery();
                     }
                 }
+
 
                 // Create the LnkPermRole table if it doesn't exist
                 string createLnkPermRoleTableQuery = "CREATE TABLE IF NOT EXISTS LnkPermRole (" +
