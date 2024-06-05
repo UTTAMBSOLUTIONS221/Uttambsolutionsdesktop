@@ -18,6 +18,7 @@ namespace DBL.Entities
         public int FirstCategoryId { get; set; }
         public string? FirstCategoryName { get; set; }
         public int MainCategoryId { get; set; }
+        public string? MainCategoryName { get; set; }
         public List<ThirdCategory>? ThirdCategories { get; set; }
     }
 
@@ -26,6 +27,7 @@ namespace DBL.Entities
         public int ThirdCategoryId { get; set; }
         public string? ThirdCategoryName { get; set; }
         public int FirstCategoryId { get; set; }
+        public string? FirstCategoryName { get; set; }
     }
     public class Category
     {
