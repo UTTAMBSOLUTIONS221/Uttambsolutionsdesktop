@@ -131,7 +131,7 @@ namespace Uttambsolutionsdesktop.Forms
                         selectedRow.Cells["Emailaddress"].Value != null &&
                         selectedRow.Cells["Roleid"].Value != null)
                     {
-                        Userid = Convert.ToInt32(selectedRow.Cells["UserId"].Value);
+                        Userid = Convert.ToInt32(selectedRow.Cells["Userid"].Value);
                         FirstName = selectedRow.Cells["FirstName"].Value.ToString();
                         LastName = selectedRow.Cells["LastName"].Value.ToString();
                         Phonenumber = selectedRow.Cells["Phonenumber"].Value.ToString();
