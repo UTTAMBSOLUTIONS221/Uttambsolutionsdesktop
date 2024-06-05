@@ -186,7 +186,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(501, 290);
+            btnCancel.Location = new Point(501, 262);
             btnCancel.Margin = new Padding(4, 3, 4, 3);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(183, 44);
@@ -196,7 +196,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(213, 290);
+            btnSave.Location = new Point(213, 262);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(183, 44);
@@ -242,10 +242,10 @@
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(611, 90);
+            txtLastName.Location = new Point(634, 96);
             txtLastName.Margin = new Padding(4, 3, 4, 3);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(233, 24);
+            txtLastName.Size = new Size(280, 24);
             txtLastName.TabIndex = 3;
             // 
             // labelPhonenumber
@@ -269,7 +269,7 @@
             // labelUsername
             // 
             labelUsername.AutoSize = true;
-            labelUsername.Location = new Point(523, 152);
+            labelUsername.Location = new Point(403, 201);
             labelUsername.Margin = new Padding(4, 0, 4, 0);
             labelUsername.Name = "labelUsername";
             labelUsername.Size = new Size(77, 18);
@@ -278,16 +278,16 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(614, 146);
+            txtUsername.Location = new Point(501, 198);
             txtUsername.Margin = new Padding(4, 3, 4, 3);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(230, 24);
+            txtUsername.Size = new Size(150, 24);
             txtUsername.TabIndex = 7;
             // 
             // labelEmailaddress
             // 
             labelEmailaddress.AutoSize = true;
-            labelEmailaddress.Location = new Point(92, 210);
+            labelEmailaddress.Location = new Point(523, 152);
             labelEmailaddress.Margin = new Padding(4, 0, 4, 0);
             labelEmailaddress.Name = "labelEmailaddress";
             labelEmailaddress.Size = new Size(103, 18);
@@ -296,28 +296,28 @@
             // 
             // txtEmailaddress
             // 
-            txtEmailaddress.Location = new Point(213, 204);
+            txtEmailaddress.Location = new Point(634, 146);
             txtEmailaddress.Margin = new Padding(4, 3, 4, 3);
             txtEmailaddress.Name = "txtEmailaddress";
-            txtEmailaddress.Size = new Size(208, 24);
+            txtEmailaddress.Size = new Size(280, 24);
             txtEmailaddress.TabIndex = 9;
             // 
             // labelRoleid
             // 
             labelRoleid.AutoSize = true;
-            labelRoleid.Location = new Point(523, 210);
+            labelRoleid.Location = new Point(92, 201);
             labelRoleid.Margin = new Padding(4, 0, 4, 0);
             labelRoleid.Name = "labelRoleid";
-            labelRoleid.Size = new Size(57, 18);
+            labelRoleid.Size = new Size(39, 18);
             labelRoleid.TabIndex = 10;
             labelRoleid.Text = "Role";
             // 
             // comboBoxRoleId
             // 
             comboBoxRoleId.FormattingEnabled = true;
-            comboBoxRoleId.Location = new Point(611, 207);
+            comboBoxRoleId.Location = new Point(213, 193);
             comboBoxRoleId.Name = "comboBoxRoleId";
-            comboBoxRoleId.Size = new Size(233, 26);
+            comboBoxRoleId.Size = new Size(164, 26);
             comboBoxRoleId.TabIndex = 21;
             // 
             // SystemStaffForm
