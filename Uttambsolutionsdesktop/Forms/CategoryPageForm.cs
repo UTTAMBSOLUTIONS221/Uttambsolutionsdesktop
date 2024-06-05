@@ -20,13 +20,6 @@ namespace Uttambsolutionsdesktop.Forms
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        //Properties
-        public string SearchValue
-        {
-            get { return txtSearch.Text; }
-            set { txtSearch.Text = value; }
-        }
-
         public int CategoryId
         {
             get { return int.TryParse(txtCategoryId.Text, out int id) ? id : 0; }

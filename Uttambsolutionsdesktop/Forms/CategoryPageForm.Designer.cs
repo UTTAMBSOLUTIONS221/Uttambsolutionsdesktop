@@ -1,16 +1,39 @@
-﻿namespace Uttambsolutionsdesktop.Forms
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Uttambsolutionsdesktop.Forms
 {
     partial class CategoryPageForm
     {
-        private System.ComponentModel.IContainer components = null;
+        private Label label1;
+        private Panel panel1;
+        private TabControl tabControl1;
+        private TabPage tabPageCategoryList;
+        private DataGridView dataGridViewMain;
+        private DataGridView dataGridViewFirst;
+        private DataGridView dataGridViewThird;
+        private Label label2;
+        private Button btnDeleteMain;
+        private Button btnEditMain;
+        private Button btnAddNewMain;
+        private Button btnDeleteFirst;
+        private Button btnEditFirst;
+        private Button btnAddNewFirst;
+        private Button btnDeleteThird;
+        private Button btnEditThird;
+        private Button btnAddNewThird;
+        private TabPage tabPageCategoryDetail;
+        private Button btnCancel;
+        private Button btnSave;
+        private Label label3;
+        private TextBox txtCategoryName;
+        private TextBox txtCategoryId;
 
-        protected override void Dispose(bool disposing)
+        public CategoryPageForm()
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            InitializeComponent();
         }
 
         private void InitializeComponent()
@@ -19,13 +42,19 @@
             panel1 = new Panel();
             tabControl1 = new TabControl();
             tabPageCategoryList = new TabPage();
-            dataGridView = new DataGridView();
+            dataGridViewMain = new DataGridView();
+            dataGridViewFirst = new DataGridView();
+            dataGridViewThird = new DataGridView();
             label2 = new Label();
-            btnDelete = new Button();
-            btnEdit = new Button();
-            btnAddNew = new Button();
-            btnSearch = new Button();
-            txtSearch = new TextBox();
+            btnDeleteMain = new Button();
+            btnEditMain = new Button();
+            btnAddNewMain = new Button();
+            btnDeleteFirst = new Button();
+            btnEditFirst = new Button();
+            btnAddNewFirst = new Button();
+            btnDeleteThird = new Button();
+            btnEditThird = new Button();
+            btnAddNewThird = new Button();
             tabPageCategoryDetail = new TabPage();
             btnCancel = new Button();
             btnSave = new Button();
@@ -35,7 +64,9 @@
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageCategoryList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMain).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFirst).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewThird).BeginInit();
             tabPageCategoryDetail.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,13 +106,19 @@
             // 
             // tabPageCategoryList
             // 
-            tabPageCategoryList.Controls.Add(dataGridView);
+            tabPageCategoryList.Controls.Add(dataGridViewMain);
+            tabPageCategoryList.Controls.Add(dataGridViewFirst);
+            tabPageCategoryList.Controls.Add(dataGridViewThird);
             tabPageCategoryList.Controls.Add(label2);
-            tabPageCategoryList.Controls.Add(btnDelete);
-            tabPageCategoryList.Controls.Add(btnEdit);
-            tabPageCategoryList.Controls.Add(btnAddNew);
-            tabPageCategoryList.Controls.Add(btnSearch);
-            tabPageCategoryList.Controls.Add(txtSearch);
+            tabPageCategoryList.Controls.Add(btnDeleteMain);
+            tabPageCategoryList.Controls.Add(btnEditMain);
+            tabPageCategoryList.Controls.Add(btnAddNewMain);
+            tabPageCategoryList.Controls.Add(btnDeleteFirst);
+            tabPageCategoryList.Controls.Add(btnEditFirst);
+            tabPageCategoryList.Controls.Add(btnAddNewFirst);
+            tabPageCategoryList.Controls.Add(btnDeleteThird);
+            tabPageCategoryList.Controls.Add(btnEditThird);
+            tabPageCategoryList.Controls.Add(btnAddNewThird);
             tabPageCategoryList.Location = new Point(4, 24);
             tabPageCategoryList.Margin = new Padding(4, 3, 4, 3);
             tabPageCategoryList.Name = "tabPageCategoryList";
@@ -91,16 +128,38 @@
             tabPageCategoryList.Text = "Category List";
             tabPageCategoryList.UseVisualStyleBackColor = true;
             // 
-            // dataGridView
+            // dataGridViewMain
             // 
-            dataGridView.AllowUserToAddRows = false;
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(28, 82);
-            dataGridView.Margin = new Padding(4, 3, 4, 3);
-            dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(845, 335);
-            dataGridView.TabIndex = 6;
+            dataGridViewMain.AllowUserToAddRows = false;
+            dataGridViewMain.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMain.Location = new Point(36, 18);
+            dataGridViewMain.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewMain.Name = "dataGridViewMain";
+            dataGridViewMain.Size = new Size(300, 200);
+            dataGridViewMain.TabIndex = 6;
+            // 
+            // dataGridViewFirst
+            // 
+            dataGridViewFirst.AllowUserToAddRows = false;
+            dataGridViewFirst.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewFirst.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFirst.Location = new Point(346, 18);
+            dataGridViewFirst.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewFirst.Name = "dataGridViewFirst";
+            dataGridViewFirst.Size = new Size(300, 200);
+            dataGridViewFirst.TabIndex = 7;
+            // 
+            // dataGridViewThird
+            // 
+            dataGridViewThird.AllowUserToAddRows = false;
+            dataGridViewThird.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewThird.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewThird.Location = new Point(656, 18);
+            dataGridViewThird.Margin = new Padding(4, 3, 4, 3);
+            dataGridViewThird.Name = "dataGridViewThird";
+            dataGridViewThird.Size = new Size(300, 200);
+            dataGridViewThird.TabIndex = 8;
             // 
             // label2
             // 
@@ -111,53 +170,95 @@
             label2.Size = new Size(0, 15);
             label2.TabIndex = 5;
             // 
-            // btnDelete
+            // btnDeleteMain
             // 
-            btnDelete.Location = new Point(883, 160);
-            btnDelete.Margin = new Padding(4, 3, 4, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(82, 25);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDeleteMain.Location = new Point(36, 236);
+            btnDeleteMain.Margin = new Padding(4, 3, 4, 3);
+            btnDeleteMain.Name = "btnDeleteMain";
+            btnDeleteMain.Size = new Size(82, 25);
+            btnDeleteMain.TabIndex = 4;
+            btnDeleteMain.Text = "Delete";
+            btnDeleteMain.UseVisualStyleBackColor = true;
             // 
-            // btnEdit
+            // btnEditMain
             // 
-            btnEdit.Location = new Point(883, 129);
-            btnEdit.Margin = new Padding(4, 3, 4, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(82, 25);
-            btnEdit.TabIndex = 3;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEditMain.Location = new Point(124, 236);
+            btnEditMain.Margin = new Padding(4, 3, 4, 3);
+            btnEditMain.Name = "btnEditMain";
+            btnEditMain.Size = new Size(82, 25);
+            btnEditMain.TabIndex = 3;
+            btnEditMain.Text = "Edit";
+            btnEditMain.UseVisualStyleBackColor = true;
             // 
-            // btnAddNew
+            // btnAddNewMain
             // 
-            btnAddNew.Location = new Point(881, 89);
-            btnAddNew.Margin = new Padding(4, 3, 4, 3);
-            btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(84, 25);
-            btnAddNew.TabIndex = 2;
-            btnAddNew.Text = "Add New";
-            btnAddNew.UseVisualStyleBackColor = true;
+            btnAddNewMain.Location = new Point(212, 236);
+            btnAddNewMain.Margin = new Padding(4, 3, 4, 3);
+            btnAddNewMain.Name = "btnAddNewMain";
+            btnAddNewMain.Size = new Size(84, 25);
+            btnAddNewMain.TabIndex = 2;
+            btnAddNewMain.Text = "Add New";
+            btnAddNewMain.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
+            // btnDeleteFirst
             // 
-            btnSearch.Location = new Point(767, 36);
-            btnSearch.Margin = new Padding(4, 3, 4, 3);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(106, 25);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnDeleteFirst.Location = new Point(346, 236);
+            btnDeleteFirst.Margin = new Padding(4, 3, 4, 3);
+            btnDeleteFirst.Name = "btnDeleteFirst";
+            btnDeleteFirst.Size = new Size(82, 25);
+            btnDeleteFirst.TabIndex = 9;
+            btnDeleteFirst.Text = "Delete";
+            btnDeleteFirst.UseVisualStyleBackColor = true;
             // 
-            // txtSearch
+            // btnEditFirst
             // 
-            txtSearch.Location = new Point(28, 36);
-            txtSearch.Margin = new Padding(4, 3, 4, 3);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(719, 23);
-            txtSearch.TabIndex = 0;
+            btnEditFirst.Location = new Point(434, 236);
+            btnEditFirst.Margin = new Padding(4, 3, 4, 3);
+            btnEditFirst.Name = "btnEditFirst";
+            btnEditFirst.Size = new Size(82, 25);
+            btnEditFirst.TabIndex = 10;
+            btnEditFirst.Text = "Edit";
+            btnEditFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNewFirst
+            // 
+            btnAddNewFirst.Location = new Point(522, 236);
+            btnAddNewFirst.Margin = new Padding(4, 3, 4, 3);
+            btnAddNewFirst.Name = "btnAddNewFirst";
+            btnAddNewFirst.Size = new Size(84, 25);
+            btnAddNewFirst.TabIndex = 11;
+            btnAddNewFirst.Text = "Add New";
+            btnAddNewFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteThird
+            // 
+            btnDeleteThird.Location = new Point(656, 236);
+            btnDeleteThird.Margin = new Padding(4, 3, 4, 3);
+            btnDeleteThird.Name = "btnDeleteThird";
+            btnDeleteThird.Size = new Size(82, 25);
+            btnDeleteThird.TabIndex = 14;
+            btnDeleteThird.Text = "Delete";
+            btnDeleteThird.UseVisualStyleBackColor = true;
+            // 
+            // btnEditThird
+            // 
+            btnEditThird.Location = new Point(744, 236);
+            btnEditThird.Margin = new Padding(4, 3, 4, 3);
+            btnEditThird.Name = "btnEditThird";
+            btnEditThird.Size = new Size(82, 25);
+            btnEditThird.TabIndex = 15;
+            btnEditThird.Text = "Edit";
+            btnEditThird.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNewThird
+            // 
+            btnAddNewThird.Location = new Point(832, 236);
+            btnAddNewThird.Margin = new Padding(4, 3, 4, 3);
+            btnAddNewThird.Name = "btnAddNewThird";
+            btnAddNewThird.Size = new Size(84, 25);
+            btnAddNewThird.TabIndex = 16;
+            btnAddNewThird.Text = "Add New";
+            btnAddNewThird.UseVisualStyleBackColor = true;
             // 
             // tabPageCategoryDetail
             // 
@@ -200,7 +301,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(63, 51);
+            label3.Location = new Point(67, 54);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(123, 20);
@@ -237,28 +338,12 @@
             tabControl1.ResumeLayout(false);
             tabPageCategoryList.ResumeLayout(false);
             tabPageCategoryList.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMain).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFirst).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewThird).EndInit();
             tabPageCategoryDetail.ResumeLayout(false);
             tabPageCategoryDetail.PerformLayout();
             ResumeLayout(false);
         }
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageCategoryList;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.TabPage tabPageCategoryDetail;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCategoryName;
-        private System.Windows.Forms.TextBox txtCategoryId; // Add this line 
     }
 }
