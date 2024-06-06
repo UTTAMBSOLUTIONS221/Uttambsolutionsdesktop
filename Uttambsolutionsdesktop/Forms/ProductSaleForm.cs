@@ -110,16 +110,19 @@ namespace Uttambsolutionsdesktop.Forms
             btnSearchProduct.Click += delegate
             {
                 SearchProductEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
             };
             txtSearchProduct.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
                     SearchProductEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
             };
             // CellClick event handler to select the entire row
             dataGridViewProducts.CellClick += (sender, e) =>
             {
                 txtSearchProduct.Text = "";
+                ClearDetailFields();
                 if (e.RowIndex >= 0)
                 {
                     dataGridViewProducts.Rows[e.RowIndex].Selected = true;
