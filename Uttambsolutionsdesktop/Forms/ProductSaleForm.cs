@@ -50,11 +50,39 @@ namespace Uttambsolutionsdesktop.Forms
             get { return Convert.ToDecimal(txtProductVat.Text); }
             set { txtProductVat.Text = value.ToString(); }
         }
+        public decimal ProductSellUnits
+        {
+            get { return Convert.ToDecimal(txtProductSaleQuantity.Text); }
+            set { txtProductSaleQuantity.Text = value.ToString(); }
+        }
+
         public decimal RetailSalePrice
         {
             get { return Convert.ToDecimal(txtProductPrice.Text); }
             set { txtProductPrice.Text = value.ToString(); }
         }
+
+        public decimal ProductSellTotal
+        {
+            get { return Convert.ToDecimal(txtSaleTotal.Text); }
+            set { txtSaleTotal.Text = value.ToString(); }
+        }
+
+        private void CalculateProductSellTotal()
+        {
+            // Check if txtProductSaleQuantity and txtProductPrice contain valid decimal values
+            decimal productSellUnits;
+            decimal retailSalePrice;
+            if (decimal.TryParse(txtProductSaleQuantity.Text, out productSellUnits) &&
+                decimal.TryParse(txtProductPrice.Text, out retailSalePrice))
+            {
+                // Calculate the product sell total by multiplying product sell units with retail sale price
+                decimal productSellTotal = productSellUnits * retailSalePrice;
+                // Update the txtSaleTotal textbox with the calculated value
+                txtSaleTotal.Text = productSellTotal.ToString();
+            }
+        }
+
         // Constructors
         public ProductSaleForm(string userId)
         {
@@ -62,6 +90,7 @@ namespace Uttambsolutionsdesktop.Forms
             _userId = userId;
             _presenter = new ProductSalePresenter(this, userId, DatabaseManager.ConnectionString);
             AssociateAndRaiseViewEvents();
+            txtProductSaleQuantity.TextChanged += TxtProductSaleQuantity_TextChanged;
             dataGridViewProducts.DataBindingComplete += DataGridView_ProductDataBindingComplete;
             dataGridViewProductSales.DataBindingComplete += DataGridView_SalesDataBindingComplete;
         }
@@ -236,7 +265,12 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
-
+        private void TxtProductSaleQuantity_TextChanged(object sender, EventArgs e)
+        {
+            // Call a method or perform any actions you want when the text changes
+            // For example, you can update the sale total
+            CalculateProductSellTotal();
+        }
         // Optional method to show message boxes
         public void ShowMessage(string message)
         {
