@@ -312,7 +312,7 @@
             // labelFirstCategoryId
             // 
             labelFirstCategoryId.AutoSize = true;
-            labelFirstCategoryId.Location = new Point(612, 168);
+            labelFirstCategoryId.Location = new Point(556, 171);
             labelFirstCategoryId.Margin = new Padding(4, 0, 4, 0);
             labelFirstCategoryId.Name = "labelFirstCategoryId";
             labelFirstCategoryId.Size = new Size(130, 24);

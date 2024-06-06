@@ -17,10 +17,8 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly BL _bl;
         private BindingSource mainCategoryBindingSource;
         private BindingSource firstCategoryBindingSource;
-        private BindingSource thirdCategoryBindingSource;
         private IEnumerable<MainCategory> mainCategoryList;
         private IEnumerable<FirstCategory> firstCategoryList;
-        private IEnumerable<ThirdCategory> thirdCategoryList;
 
         public CategoryPresenter(ICategoryView view,string userId, string connectionString)
         {
@@ -29,7 +27,6 @@ namespace Uttambsolutionsdesktop.Presenters
             _userId = userId;
             this.mainCategoryBindingSource = new BindingSource();
             this.firstCategoryBindingSource = new BindingSource();
-            this.thirdCategoryBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
 
             this._view.AddNewEvent += AddNewCategory;
@@ -43,7 +40,6 @@ namespace Uttambsolutionsdesktop.Presenters
             //Load pet list view
             LoadAllMainCategoriesList();
             LoadAllFirstCategoriesList();
-            LoadAllThirdCategoriesList();
             //Show view
             this._view.Show();
 
@@ -68,11 +64,6 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             firstCategoryList = await _bl.GetAllFirstCategories();
             firstCategoryBindingSource.DataSource = firstCategoryList;//Set data source.
-        }
-        private async void LoadAllThirdCategoriesList()
-        {
-            thirdCategoryList = await _bl.GetAllThirdCategories();
-            thirdCategoryBindingSource.DataSource = thirdCategoryList;//Set data source.
         }
         private async void SaveMainCategory(object sender, EventArgs e)
         {
@@ -101,8 +92,7 @@ namespace Uttambsolutionsdesktop.Presenters
             }
             // Refresh the category list
             LoadAllMainCategoriesList();
-            LoadAllFirstCategoriesList();
-            LoadAllThirdCategoriesList();
+
         }
 
         private async void SaveFirstCategory(object sender, EventArgs e)
@@ -132,7 +122,6 @@ namespace Uttambsolutionsdesktop.Presenters
                 MessageBox.Show(resp.RespMessage);
             }
             // Refresh the category list
-            LoadAllMainCategoriesList();
             LoadAllFirstCategoriesList();
         }
 

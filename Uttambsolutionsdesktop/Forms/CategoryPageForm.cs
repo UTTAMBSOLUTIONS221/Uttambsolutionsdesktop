@@ -135,6 +135,7 @@ namespace Uttambsolutionsdesktop.Forms
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
                 tabPageFirstCategoryDetail.Text = "Add First Category";
+                PopulateComboboxes();
             };
             btnEditFirst.Click += delegate
             {

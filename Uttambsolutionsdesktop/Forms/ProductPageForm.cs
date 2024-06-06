@@ -134,37 +134,74 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-        public void PopulateBrabdComboBox(List<SystemProductBrand> brandData)
+        public void PopulateBrandComboBox(List<SystemProductBrand> brandData)
         {
-            comboBoxBrandId.DataSource = brandData;
-            comboBoxBrandId.ValueMember = "ProductBrandId"; // Set the value member to the appropriate property name
-            comboBoxBrandId.DisplayMember = "ProductBrandName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified brand data
+            List<SystemProductBrand> modifiedBrandData = new List<SystemProductBrand>(brandData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedBrandData.Insert(0, new SystemProductBrand { ProductBrandId = 0, ProductBrandName = "Select Brand" });
+
+            // Bind the modified brand data to the ComboBox
+            comboBoxBrandId.DataSource = modifiedBrandData;
+            comboBoxBrandId.ValueMember = "ProductBrandId";
+            comboBoxBrandId.DisplayMember = "ProductBrandName";
         }
+
         public void PopulateUomComboBox(List<SystemUoms> uomData)
         {
-            comboBoxUomId.DataSource = uomData;
-            comboBoxUomId.ValueMember = "UomId"; // Set the value member to the appropriate property name
-            comboBoxUomId.DisplayMember = "UomName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified uom data
+            List<SystemUoms> modifiedUomData = new List<SystemUoms>(uomData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedUomData.Insert(0, new SystemUoms { Uomid = 0, UomName = "Select UOM" });
+
+            // Bind the modified uom data to the ComboBox
+            comboBoxUomId.DataSource = modifiedUomData;
+            comboBoxUomId.ValueMember = "UomId";
+            comboBoxUomId.DisplayMember = "UomName";
         }
 
         public void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData)
         {
-            comboBoxMainCategoryId.DataSource = mainCategoryData;
-            comboBoxMainCategoryId.ValueMember = "MainCategoryId"; // Set the value member to the appropriate property name
-            comboBoxMainCategoryId.DisplayMember = "MainCategoryName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified main category data
+            List<MainCategory> modifiedMainCategoryData = new List<MainCategory>(mainCategoryData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedMainCategoryData.Insert(0, new MainCategory { MainCategoryId = 0, MainCategoryName = "Select Main Category" });
+
+            // Bind the modified main category data to the ComboBox
+            comboBoxMainCategoryId.DataSource = modifiedMainCategoryData;
+            comboBoxMainCategoryId.ValueMember = "MainCategoryId";
+            comboBoxMainCategoryId.DisplayMember = "MainCategoryName";
         }
+
         public void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
         {
-            comboBoxFirstCategoryId.DataSource = firstCategoryData;
-            comboBoxFirstCategoryId.ValueMember = "FirstCategoryId"; // Set the value member to the appropriate property name
-            comboBoxFirstCategoryId.DisplayMember = "FirstCategoryName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified first category data
+            List<FirstCategory> modifiedFirstCategoryData = new List<FirstCategory>(firstCategoryData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedFirstCategoryData.Insert(0, new FirstCategory { FirstCategoryId = 0, FirstCategoryName = "Select First Category" });
+
+            // Bind the modified first category data to the ComboBox
+            comboBoxFirstCategoryId.DataSource = modifiedFirstCategoryData;
+            comboBoxFirstCategoryId.ValueMember = "FirstCategoryId";
+            comboBoxFirstCategoryId.DisplayMember = "FirstCategoryName";
         }
 
         public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
         {
-            comboBoxTaxCategoryId.DataSource = taxCategoryData;
-            comboBoxTaxCategoryId.ValueMember = "TaxCategoryId"; // Set the value member to the appropriate property name
-            comboBoxTaxCategoryId.DisplayMember = "TaxCategoryName"; // Set the display member to the appropriate property name
+            // Create a new list to hold the modified tax category data
+            List<SystemTaxCategory> modifiedTaxCategoryData = new List<SystemTaxCategory>(taxCategoryData);
+
+            // Insert a default selection option at the beginning of the list
+            modifiedTaxCategoryData.Insert(0, new SystemTaxCategory { TaxCategoryId = 0, TaxCategoryName = "Select Tax Category" });
+
+            // Bind the modified tax category data to the ComboBox
+            comboBoxTaxCategoryId.DataSource = modifiedTaxCategoryData;
+            comboBoxTaxCategoryId.ValueMember = "TaxCategoryId";
+            comboBoxTaxCategoryId.DisplayMember = "TaxCategoryName";
         }
 
         public ProductPageForm(string userId)
@@ -191,7 +228,7 @@ namespace Uttambsolutionsdesktop.Forms
             var taxCategoryData = await _presenter.GetTaxCategoryData();
 
             // Populate comboboxes with data
-            PopulateBrabdComboBox(brandData);
+            PopulateBrandComboBox(brandData);
             PopulateUomComboBox(uomData);
             PopulateMainCategoryComboBox(mainCategoryData);
             PopulateFirstCategoryComboBox(firstCategoryData);
