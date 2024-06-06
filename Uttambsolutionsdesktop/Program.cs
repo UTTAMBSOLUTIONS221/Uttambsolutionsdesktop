@@ -327,7 +327,6 @@ namespace Uttambsolutionsdesktop
                                                   "UomId INTEGER, " +
                                                   "MainCategoryId INTEGER, " +
                                                   "FirstCategoryId INTEGER, " +
-                                                  "ThirdCategoryId INTEGER, " +
                                                   "BrandId INTEGER, " +
                                                   "TaxCategoryId INTEGER, " +
                                                   "Barcode TEXT, " +

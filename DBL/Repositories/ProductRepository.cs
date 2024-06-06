@@ -29,7 +29,6 @@ namespace DBL.Repositories
                 return productQueryResult;
             }
         }
-
         public Genericmodel SaveProduct(SystemProduct entity)
         {
             using (var connection = new SQLiteConnection(_connString))
@@ -41,17 +40,43 @@ namespace DBL.Repositories
                     // Update the product
                     var result = connection.Execute(
                         @"UPDATE Product 
-                SET ProductName = @ProductName, 
-                    UomId = @UomId,
-                    CategoryId = @CategoryId,
-                    TaxCategoryId = @TaxCategoryId,
-                    Barcode = @Barcode,
-                    Units = @Units,
-                    Price = @Price,
-                    ModifiedBy = @ModifiedBy,
-                    DateModified = @DateModified 
-                WHERE ProductId = @ProductId",
-                        entity);
+                  SET ProductName = @ProductName, 
+                      UomId = @UomId,
+                      MainCategoryId = @MainCategoryId,
+                      FirstCategoryId = @FirstCategoryId,
+                      BrandId = @BrandId,
+                      TaxCategoryId = @TaxCategoryId,
+                      Barcode = @Barcode,
+                      ProductUnits = @ProductUnits,
+                      WholeSalePrice = @WholeSalePrice,
+                      RetailSalePrice = @RetailSalePrice,
+                      ProfitMargin = @ProfitMargin,
+                      ProductSize = @ProductSize,
+                      ProductColor = @ProductColor,
+                      ProductWeight = @ProductWeight,
+                      Modifiedby = @Modifiedby,
+                      DateModified = @DateModified 
+                  WHERE ProductId = @ProductId",
+                        new
+                        {
+                            entity.ProductName,
+                            entity.UomId,
+                            entity.MainCategoryId,
+                            entity.FirstCategoryId,
+                            entity.BrandId,
+                            entity.TaxCategoryId,
+                            entity.Barcode,
+                            entity.ProductUnits,
+                            entity.WholeSalePrice,
+                            entity.RetailSalePrice,
+                            entity.ProfitMargin,
+                            entity.ProductSize,
+                            entity.ProductColor,
+                            entity.ProductWeight,
+                            entity.Modifiedby,
+                            entity.DateModified,
+                            entity.ProductId
+                        });
 
                     // Return appropriate response
                     return result < 1
@@ -67,15 +92,35 @@ namespace DBL.Repositories
 
                     if (productExists)
                     {
-                        // Product already exists, return 1 (failure)
+                        // Product already exists, return failure
                         return new Genericmodel { RespStatus = 1, RespMessage = "Product Name Already Exists" };
                     }
 
                     // Insert the product into the database
                     var result = connection.Execute(
-                        @"INSERT INTO Product (ProductName, UomId, CategoryId, TaxCategoryId, Barcode, Units, Price, CreatedBy, ModifiedBy, DateCreated, DateModified) 
-                VALUES (@ProductName, @UomId, @CategoryId, @TaxCategoryId, @Barcode, @Units, @Price, @CreatedBy, @ModifiedBy, @DateCreated, @DateModified)",
-                        entity);
+                        @"INSERT INTO Product (ProductName, UomId, MainCategoryId, FirstCategoryId, BrandId, TaxCategoryId, Barcode, ProductUnits, WholeSalePrice, RetailSalePrice, ProfitMargin, ProductSize, ProductColor, ProductWeight, Createdby, Modifiedby, DateCreated, DateModified) 
+                  VALUES (@ProductName, @UomId, @MainCategoryId, @FirstCategoryId, @BrandId, @TaxCategoryId, @Barcode, @ProductUnits, @WholeSalePrice, @RetailSalePrice, @ProfitMargin, @ProductSize, @ProductColor, @ProductWeight, @Createdby, @Modifiedby, @DateCreated, @DateModified)",
+                        new
+                        {
+                            entity.ProductName,
+                            entity.UomId,
+                            entity.MainCategoryId,
+                            entity.FirstCategoryId,
+                            entity.BrandId,
+                            entity.TaxCategoryId,
+                            entity.Barcode,
+                            entity.ProductUnits,
+                            entity.WholeSalePrice,
+                            entity.RetailSalePrice,
+                            entity.ProfitMargin,
+                            entity.ProductSize,
+                            entity.ProductColor,
+                            entity.ProductWeight,
+                            entity.Createdby,
+                            entity.Modifiedby,
+                            entity.DateCreated,
+                            entity.DateModified
+                        });
 
                     // Return appropriate response
                     return result < 1
@@ -84,6 +129,5 @@ namespace DBL.Repositories
                 }
             }
         }
-
     }
 }
