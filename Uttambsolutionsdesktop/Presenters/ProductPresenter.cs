@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uttambsolutionsdesktop.Views;
+using System.Windows.Forms;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
@@ -82,14 +83,21 @@ namespace Uttambsolutionsdesktop.Presenters
             SystemProduct productData = new SystemProduct();
             productData.ProductId = _view.ProductId;
             productData.ProductName = _view.ProductName;
-            productData.UomId = _view.UomId;
-            productData.CategoryId = _view.CategoryId;
-            productData.TaxCategoryId = _view.TaxCategoryId;
-            productData.Barcode = _view.Barcode;
-            productData.Units = _view.Units;
-            productData.Price = _view.Price;
-            productData.CreatedBy = Convert.ToInt32(_userId);
-            productData.ModifiedBy = Convert.ToInt32(_userId);
+            productData.UomId = _view.ProductId;
+            productData.MainCategoryId = _view.ProductId;
+            productData.FirstCategoryId = _view.ProductId;
+            productData.BrandId = _view.ProductId;
+            productData.TaxCategoryId = _view.ProductId;
+            productData.Barcode = _view.ProductName;
+            productData.ProductUnits = _view.Units;
+            productData.WholeSalePrice = _view.ProductId;
+            productData.RetailSalePrice = _view.ProductId;
+            productData.ProfitMargin = _view.ProductId;
+            productData.ProductSize = _view.ProductName;
+            productData.ProductColor = _view.ProductName;
+            productData.ProductWeight = _view.ProductId;
+            productData.Createdby = Convert.ToInt32(_userId);
+            productData.Modifiedby = Convert.ToInt32(_userId);
             productData.DateCreated = DateTime.Now;
             productData.DateModified = DateTime.Now;
 

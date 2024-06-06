@@ -21,13 +21,13 @@ namespace DBL.Models
         public int TaxCategoryId { get; set; }
         public string? TaxCategoryName { get; set; }
         public string? Barcode { get; set; }
-        public double ProductUnits { get; set; }
-        public double WholeSalePrice { get; set; }
-        public double RetailSalePrice { get; set; }
-        public double ProfitMargin { get; set; }
+        public decimal ProductUnits { get; set; }
+        public decimal WholeSalePrice { get; set; }
+        public decimal RetailSalePrice { get; set; }
+        public decimal ProfitMargin { get; set; }
         public string? ProductSize { get; set; }
         public string? ProductColor { get; set; }
-        public double ProductWeight { get; set; }
+        public decimal ProductWeight { get; set; }
         public int Createdby { get; set; }
         public int Modifiedby { get; set; }
         public DateTime DateCreated { get; set; }
