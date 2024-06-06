@@ -1,7 +1,9 @@
-﻿using DBL.Entities;
+﻿// ProductSalePresenter.cs
+using DBL.Entities;
 using DBL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,62 +31,37 @@ namespace Uttambsolutionsdesktop.Presenters
             this.productsSaleBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
             this._view.SearchProductEvent += SearchProduct;
-           // this._view.SearchEvent += AddNewCategory;
-            //this._view.EditEvent += LoadSelectedCategoryToEdit;
+            this._view.PrintSaleEvent += PrintSale;
             this._view.SaveSaleDataEvent += SaveSaleData;
+            this._view.CancelSaleEvent += CancelSale;
             //Show view
             this._view.Show();
         }
 
         private async void SearchProduct(object sender, EventArgs e)
         {
-            bool emptyValue = string.IsNullOrWhiteSpace(this._view.ProductSearchValue);
-            if (!emptyValue)
-                productSearchDataList = await _bl.GetProductsByValue(this._view.ProductSearchValue);
+            string searchValue = _view.ProductSearchValue;
+            if (!string.IsNullOrWhiteSpace(searchValue))
+                productSearchDataList =await  _bl.GetProductsByValue(searchValue);
             else
                 productSearchDataList = await _bl.GetAllProducts();
             productsBindingSource.DataSource = productSearchDataList;
-        }
-        
-        //private async void LoadAllFirstCategoriesList()
-        //{
-        //    firstCategoryList = await _bl.GetAllFirstCategories();
-        //    firstCategoryBindingSource.DataSource = firstCategoryList;//Set data source.
-        //}
-       
-        private async void SaveSaleData(object sender, EventArgs e)
-        {
-            FirstCategory firstCategoryData = new FirstCategory();
-            firstCategoryData.Createdby = Convert.ToInt32(_userId);
-            firstCategoryData.Modifiedby = Convert.ToInt32(_userId);
-            firstCategoryData.DateCreated = DateTime.Now;
-            firstCategoryData.DateModified = DateTime.Now;
-
-            // Call the BL method to save the category
-            var resp = await _bl.SaveFirstCategory(firstCategoryData);
-            // Handle the response accordingly
-            if (resp.RespStatus == 0)
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            else if (resp.RespStatus == 1)
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            else
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
+            _view.SetProductSearchDataListBindingSource(productsBindingSource);
         }
 
-        private void DeleteSelectedCategory(object sender, EventArgs e)
+        private void PrintSale(object sender, EventArgs e)
         {
+            // Implement printing functionality
         }
-        private void LoadSelectedCategoryToEdit(object sender, EventArgs e)
+
+        private void SaveSaleData(object sender, EventArgs e)
         {
+            // Implement saving sale data functionality
         }
-        private void AddNewCategory(object sender, EventArgs e)
+
+        private void CancelSale(object sender, EventArgs e)
         {
+            // Implement canceling sale functionality
         }
     }
 }
