@@ -22,6 +22,7 @@ namespace Uttambsolutionsdesktop.Forms
 
         // Events
         public event EventHandler SearchProductEvent;
+        public event EventHandler SellProductEvent;
         public event EventHandler PrintSaleEvent;
         public event EventHandler SaveSaleDataEvent;
         public event EventHandler CancelSaleEvent;
