@@ -47,8 +47,8 @@ namespace Uttambsolutionsdesktop.Forms
         }
         public decimal TaxCategoryValue
         {
-            get { return Convert.ToDecimal(txtProductPrice.Text); }
-            set { txtProductPrice.Text = value.ToString(); }
+            get { return Convert.ToDecimal(txtProductVat.Text); }
+            set { txtProductVat.Text = value.ToString(); }
         }
         public decimal RetailSalePrice
         {
@@ -197,6 +197,9 @@ namespace Uttambsolutionsdesktop.Forms
             txtProductId.Text = "";
             txtProductName.Text = "";
             txtProductPrice.Text = "";
+            txtProductVat.Text = "";
+            txtProductSaleQuantity.Text = "";
+            txtSaleTotal.Text = "";
             // Clear other textboxes as needed
         }
 
