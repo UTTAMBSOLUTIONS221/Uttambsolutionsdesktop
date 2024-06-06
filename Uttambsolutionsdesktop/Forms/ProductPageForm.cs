@@ -134,7 +134,12 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-
+        public void PopulateBrabdComboBox(List<SystemProductBrand> brandData)
+        {
+            comboBoxBrandId.DataSource = brandData;
+            comboBoxBrandId.ValueMember = "ProductBrandId"; // Set the value member to the appropriate property name
+            comboBoxBrandId.DisplayMember = "ProductBrandName"; // Set the display member to the appropriate property name
+        }
         public void PopulateUomComboBox(List<SystemUoms> uomData)
         {
             comboBoxUomId.DataSource = uomData;
