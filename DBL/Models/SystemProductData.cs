@@ -9,19 +9,19 @@ namespace DBL.Models
     public class SystemProductData
     {
         public int ProductId { get; set; }
-        public string? ProductName { get; set; }
+        public string? Product { get; set; }
         public int UomId { get; set; }
-        public string? UomName { get; set; }
+        public string? Uom { get; set; }
         public int MainCategoryId { get; set; }
-        public string? MainCategoryName { get; set; }
+        public string? MainCategory { get; set; }
         public int FirstCategoryId { get; set; }
-        public string? FirstCategoryName { get; set; }
+        public string? FirstCategory { get; set; }
         public int BrandId { get; set; }
-        public string? BrandName { get; set; }
+        public string? Brand { get; set; }
         public int TaxCategoryId { get; set; }
-        public string? TaxCategoryName { get; set; }
+        public string? TaxCategory { get; set; }
         public string? Barcode { get; set; }
-        public decimal ProductUnits { get; set; }
+        public decimal Units { get; set; }
         public decimal WholeSalePrice { get; set; }
         public decimal RetailSalePrice { get; set; }
         public decimal ProfitMargin { get; set; }
