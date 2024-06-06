@@ -238,6 +238,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtProductVat.Text = "";
             txtProductSaleQuantity.Text = "";
             txtSaleTotal.Text = "";
+            txtVatTotal.Text = "";
             // Clear other textboxes as needed
         }
 
