@@ -67,19 +67,28 @@ namespace Uttambsolutionsdesktop.Forms
             get { return Convert.ToDecimal(txtSaleTotal.Text); }
             set { txtSaleTotal.Text = value.ToString(); }
         }
-
+        private void TxtProductSaleQuantity_TextChanged(object sender, EventArgs e)
+        {
+            // Call a method or perform any actions you want when the text changes
+            // For example, you can update the sale total
+            CalculateProductSellTotal();
+        }
         private void CalculateProductSellTotal()
         {
             // Check if txtProductSaleQuantity and txtProductPrice contain valid decimal values
             decimal productSellUnits;
             decimal retailSalePrice;
+            decimal productVatValue;
             if (decimal.TryParse(txtProductSaleQuantity.Text, out productSellUnits) &&
-                decimal.TryParse(txtProductPrice.Text, out retailSalePrice))
+                decimal.TryParse(txtProductPrice.Text, out retailSalePrice) && decimal.TryParse(txtProductVat.Text, out productVatValue))
             {
                 // Calculate the product sell total by multiplying product sell units with retail sale price
                 decimal productSellTotal = productSellUnits * retailSalePrice;
+                // Calculate the Total Vat Value
+                decimal productVatTotal = productSellTotal * (productVatValue/100);
                 // Update the txtSaleTotal textbox with the calculated value
                 txtSaleTotal.Text = productSellTotal.ToString();
+                txtVatTotal.Text = productVatTotal.ToString();
             }
         }
 
@@ -265,12 +274,7 @@ namespace Uttambsolutionsdesktop.Forms
                 });
             }
         }
-        private void TxtProductSaleQuantity_TextChanged(object sender, EventArgs e)
-        {
-            // Call a method or perform any actions you want when the text changes
-            // For example, you can update the sale total
-            CalculateProductSellTotal();
-        }
+       
         // Optional method to show message boxes
         public void ShowMessage(string message)
         {
