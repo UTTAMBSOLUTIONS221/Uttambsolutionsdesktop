@@ -13,8 +13,11 @@ namespace Uttambsolutionsdesktop.Views
         string? ProductSearchValue { get; set; }
         public int ProductId { get; set; }
         public string? ProductName { get; set; }
+        public decimal ProductSellUnits { get; set; }
         public decimal TaxCategoryValue { get; set; }
         public decimal RetailSalePrice { get; set; }
+        public decimal ProductSellTotal { get; set; }
+        public decimal ProductVatTotal { get; set; }
        
         // Events
         event EventHandler SearchProductEvent;

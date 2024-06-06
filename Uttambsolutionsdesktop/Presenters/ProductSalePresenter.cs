@@ -57,7 +57,31 @@ namespace Uttambsolutionsdesktop.Presenters
         }
         private void SaveSaleData(object sender, EventArgs e)
         {
-            // Implement saving sale data functionality
+            decimal OrderGrossTotal = 0;
+            decimal OrderVatTotal = 0;
+            CustomerOrderItems customerOrderItemsData = new CustomerOrderItems();
+            customerOrderItemsData.ProductId = _view.ProductId;
+            customerOrderItemsData.ProductPrice = _view.RetailSalePrice;
+            customerOrderItemsData.ProductVat = _view.TaxCategoryValue;
+            customerOrderItemsData.ProductUnits = _view.ProductSellUnits;
+            customerOrderItemsData.ItemGrossTotal = _view.ProductSellTotal;
+            customerOrderItemsData.ItemNetTotal = _view.ProductSellTotal - _view.ProductVatTotal;
+            customerOrderItemsData.ItemVatTotal = _view.ProductVatTotal;
+            customerOrderItemsData.Createdby = Convert.ToInt32(_userId);
+            customerOrderItemsData.Modifiedby = Convert.ToInt32(_userId);
+            customerOrderItemsData.DateCreated = DateTime.Now;
+            customerOrderItemsData.DateModified = DateTime.Now;
+
+
+            CustomerOrder customerOrderData = new CustomerOrder();
+            customerOrderData.OrderCode = "";
+            customerOrderData.OrderGrossTotal = OrderGrossTotal;
+            customerOrderData.OrderNetTotal = OrderGrossTotal-OrderVatTotal;
+            customerOrderData.OrderVatTotal = OrderVatTotal;
+            customerOrderData.Createdby = Convert.ToInt32(_userId);
+            customerOrderData.Modifiedby = Convert.ToInt32(_userId);
+            customerOrderData.DateCreated = DateTime.Now;
+            customerOrderData.DateModified = DateTime.Now;
         }
 
         private void CancelSale(object sender, EventArgs e)

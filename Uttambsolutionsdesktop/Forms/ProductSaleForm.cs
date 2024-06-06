@@ -67,6 +67,11 @@ namespace Uttambsolutionsdesktop.Forms
             get { return Convert.ToDecimal(txtSaleTotal.Text); }
             set { txtSaleTotal.Text = value.ToString(); }
         }
+        public decimal ProductVatTotal
+        {
+            get { return Convert.ToDecimal(txtVatTotal.Text); }
+            set { txtVatTotal.Text = value.ToString(); }
+        }
         private void TxtProductSaleQuantity_TextChanged(object sender, EventArgs e)
         {
             // Call a method or perform any actions you want when the text changes
