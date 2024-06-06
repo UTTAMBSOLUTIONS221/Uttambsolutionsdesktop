@@ -348,9 +348,39 @@ namespace Uttambsolutionsdesktop
                 {
                     cmd.ExecuteNonQuery();
                 }
+                string createOrderTableQuery = "CREATE TABLE IF NOT EXISTS CustomerOrder (" +
+                                                           "OrderId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                           "OrderCode TEXT, " +
+                                                           "OrderTotal REAL, " +
+                                                           "OrderVatTotal REAL, " +
+                                                           "Createdby INTEGER, " +
+                                                           "Modifiedby INTEGER, " +
+                                                           "DateCreated DATETIME, " +
+                                                           "DateModified DATETIME, " +
+                                                           ")";
+                using (SQLiteCommand cmd = new SQLiteCommand(createOrderTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
 
-
-
+                string createOrderItemsTableQuery = "CREATE TABLE IF NOT EXISTS CustomerOrderItems (" +
+                                                           "OrderItemId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                                                           "OrderId INTEGER, " +
+                                                           "ProductId INTEGER, " +
+                                                           "ProductPrice REAL, " +
+                                                           "ProductVat REAL, " +
+                                                           "ProductUnits REAL, " +
+                                                           "ItemTotal REAL, " +
+                                                           "ItemVatTotal REAL, " +
+                                                           "Createdby INTEGER, " +
+                                                           "Modifiedby INTEGER, " +
+                                                           "DateCreated DATETIME, " +
+                                                           "DateModified DATETIME, " +
+                                                           ")";
+                using (SQLiteCommand cmd = new SQLiteCommand(createOrderItemsTableQuery, conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
 
 
 

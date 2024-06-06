@@ -254,12 +254,12 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             dataGridView1.Location = new Point(627, 227);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(424, 221);
+            dataGridView1.Size = new Size(435, 184);
             dataGridView1.TabIndex = 37;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(666, 454);
+            btnSave.Location = new Point(666, 417);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(368, 38);
