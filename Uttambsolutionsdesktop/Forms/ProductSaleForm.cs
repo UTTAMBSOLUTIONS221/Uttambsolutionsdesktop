@@ -81,6 +81,7 @@ namespace Uttambsolutionsdesktop.Forms
             // CellClick event handler to select the entire row
             dataGridViewProducts.CellClick += (sender, e) =>
             {
+                txtSearchProduct.Text = "";
                 if (e.RowIndex >= 0)
                 {
                     dataGridViewProducts.Rows[e.RowIndex].Selected = true;
