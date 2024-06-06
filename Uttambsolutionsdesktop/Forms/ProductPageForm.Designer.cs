@@ -119,15 +119,15 @@
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(28, 82);
+            dataGridView.Location = new Point(8, 40);
             dataGridView.Margin = new Padding(4, 3, 4, 3);
             dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(845, 335);
+            dataGridView.Size = new Size(931, 350);
             dataGridView.TabIndex = 6;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(883, 160);
+            btnDelete.Location = new Point(947, 110);
             btnDelete.Margin = new Padding(4, 3, 4, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(82, 25);
@@ -137,7 +137,7 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(883, 129);
+            btnEdit.Location = new Point(947, 79);
             btnEdit.Margin = new Padding(4, 3, 4, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(82, 25);
@@ -147,7 +147,7 @@
             // 
             // btnAddNew
             // 
-            btnAddNew.Location = new Point(881, 89);
+            btnAddNew.Location = new Point(945, 39);
             btnAddNew.Margin = new Padding(4, 3, 4, 3);
             btnAddNew.Name = "btnAddNew";
             btnAddNew.Size = new Size(84, 25);
@@ -157,7 +157,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(767, 36);
+            btnSearch.Location = new Point(767, 9);
             btnSearch.Margin = new Padding(4, 3, 4, 3);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(106, 25);
@@ -167,10 +167,10 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(28, 36);
+            txtSearch.Location = new Point(8, 9);
             txtSearch.Margin = new Padding(4, 3, 4, 3);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(719, 23);
+            txtSearch.Size = new Size(739, 23);
             txtSearch.TabIndex = 0;
             // 
             // tabPageProductDetail

@@ -295,13 +295,29 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["ProductId"].Visible = false;
             }
+            if (dataGridView.Columns.Contains("BrandId"))
+            {
+                dataGridView.Columns["BrandId"].Visible = false;
+            }
             if (dataGridView.Columns.Contains("UomId"))
             {
                 dataGridView.Columns["UomId"].Visible = false;
             }
-            if (dataGridView.Columns.Contains("CategoryId"))
+            if (dataGridView.Columns.Contains("MainCategoryId"))
             {
-                dataGridView.Columns["CategoryId"].Visible = false;
+                dataGridView.Columns["MainCategoryId"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("FirstCategoryId"))
+            {
+                dataGridView.Columns["FirstCategoryId"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("WholeSalePrice"))
+            {
+                dataGridView.Columns["WholeSalePrice"].Visible = false;
+            }
+            if (dataGridView.Columns.Contains("ProfitMargin"))
+            {
+                dataGridView.Columns["ProfitMargin"].Visible = false;
             }
             if (dataGridView.Columns.Contains("TaxCategoryId"))
             {
@@ -342,6 +358,5 @@ namespace Uttambsolutionsdesktop.Forms
         {
             MessageBox.Show(message);
         }
-
     }
 }
