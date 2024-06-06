@@ -44,9 +44,17 @@ namespace Uttambsolutionsdesktop.Presenters
             return (List<SystemUoms>)await _bl.GetAllSystemUoms(); ;
         }
 
-        public async Task<List<CategoryData>> GetCategoryData()
+        public async Task<List<MainCategory>> GetMainCategoryData()
         {
-            return (List<CategoryData>)await _bl.GetAllThirdCategories();
+            return (List<MainCategory>)await _bl.GetAllMainCategories();
+        }
+        public async Task<List<FirstCategory>> GetFirstCategoryData()
+        {
+            return (List<FirstCategory>)await _bl.GetAllFirstCategories();
+        }
+        public async Task<List<ThirdCategory>> GetThirdCategoryData()
+        {
+            return (List<ThirdCategory>)await _bl.GetAllThirdCategories();
         }
 
         public async Task<List<SystemTaxCategory>> GetTaxCategoryData()

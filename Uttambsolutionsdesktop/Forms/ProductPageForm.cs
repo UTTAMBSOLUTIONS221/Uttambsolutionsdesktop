@@ -11,6 +11,7 @@ using static Uttambsolutionsdesktop.Program;
 using Uttambsolutionsdesktop.Presenters;
 using Uttambsolutionsdesktop.Views;
 using DBL.Models;
+using DBL.Entities;
 
 namespace Uttambsolutionsdesktop.Forms
 {
@@ -77,11 +78,23 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxUomId.DisplayMember = "UomName"; // Set the display member to the appropriate property name
         }
 
-        public void PopulateCategoryComboBox(List<CategoryData> categoryData)
+        public void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData)
         {
-            comboBoxCategoryId.DataSource = categoryData;
-            comboBoxCategoryId.ValueMember = "CategoryId"; // Set the value member to the appropriate property name
-            comboBoxCategoryId.DisplayMember = "CategoryName"; // Set the display member to the appropriate property name
+            comboBoxCategoryId.DataSource = mainCategoryData;
+            comboBoxCategoryId.ValueMember = "MainCategoryId"; // Set the value member to the appropriate property name
+            comboBoxCategoryId.DisplayMember = "MainCategoryName"; // Set the display member to the appropriate property name
+        }
+        public void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
+        {
+            comboBoxCategoryId.DataSource = firstCategoryData;
+            comboBoxCategoryId.ValueMember = "FirstCategoryId"; // Set the value member to the appropriate property name
+            comboBoxCategoryId.DisplayMember = "FirstCategoryName"; // Set the display member to the appropriate property name
+        }
+        public void PopulateThirdCategoryComboBox(List<ThirdCategory> thirdCategoryData)
+        {
+            comboBoxCategoryId.DataSource = thirdCategoryData;
+            comboBoxCategoryId.ValueMember = "thirdCategoryId"; // Set the value member to the appropriate property name
+            comboBoxCategoryId.DisplayMember = "ThirdCategoryName"; // Set the display member to the appropriate property name
         }
 
         public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
@@ -108,12 +121,16 @@ namespace Uttambsolutionsdesktop.Forms
         {
             // Call presenter methods to retrieve combobox data
             var uomData = await _presenter.GetUomData();
-            var categoryData = await _presenter.GetCategoryData();
+            var mainCategoryData = await _presenter.GetMainCategoryData();
+            var firstCategoryData = await _presenter.GetFirstCategoryData();
+            var thirdCategoryData = await _presenter.GetThirdCategoryData();
             var taxCategoryData = await _presenter.GetTaxCategoryData();
 
             // Populate comboboxes with data
             PopulateUomComboBox(uomData);
-            PopulateCategoryComboBox(categoryData);
+            PopulateMainCategoryComboBox(mainCategoryData);
+            PopulateFirstCategoryComboBox(firstCategoryData);
+            PopulateThirdCategoryComboBox(thirdCategoryData);
             PopulateTaxCategoryComboBox(taxCategoryData);
         }
         private void AssociateAndRaiseViewEvents()

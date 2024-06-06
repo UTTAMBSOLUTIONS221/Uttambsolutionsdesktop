@@ -36,7 +36,9 @@ namespace Uttambsolutionsdesktop.Views
 
         // Methods to populate comboboxes
         void PopulateUomComboBox(List<SystemUoms> uomData);
-        void PopulateCategoryComboBox(List<CategoryData> categoryData);
+        void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData);
+        void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData);
+        void PopulateThirdCategoryComboBox(List<ThirdCategory> thirdCategoryData);
         void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData);
 
     }
