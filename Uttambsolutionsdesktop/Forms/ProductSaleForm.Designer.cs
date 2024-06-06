@@ -6,25 +6,6 @@ namespace Uttambsolutionsdesktop.Forms
 {
     partial class ProductSaleForm
     {
-        private Label label1;
-        private Panel panel1;
-        private TabPage tabPageCategoryDetail;
-        private Button btnCancel;
-        private Button btnSave;
-        private Label label4;
-        private Label label6;
-        private TextBox txtCategoryId;
-        private ComboBox comboMainCategoryId;
-        private DataGridView dataGridView;
-        private Button btnDelete;
-        private Button btnEdit;
-        private Button btnAddNew;
-        private Label labelMainCategoryId;
-
-        private Label lblProductName;
-        private Label lblProductSaleQuantity;
-        private Label lblSaleTotal;
-        private TextBox txtSaleTotal;
         public ProductSaleForm()
         {
             InitializeComponent();
@@ -34,18 +15,9 @@ namespace Uttambsolutionsdesktop.Forms
         {
             label1 = new Label();
             panel1 = new Panel();
-            tabPageCategoryDetail = new TabPage();
-            label4 = new Label();
-            label6 = new Label();
-            txtCategoryId = new TextBox();
             btnCancel = new Button();
             btnSave = new Button();
-            comboMainCategoryId = new ComboBox();
             dataGridView = new DataGridView();
-            btnDelete = new Button();
-            btnEdit = new Button();
-            btnAddNew = new Button();
-            labelMainCategoryId = new Label();
             lblProductName = new Label();
             lblProductSaleQuantity = new Label();
             lblSaleTotal = new Label();
@@ -63,7 +35,6 @@ namespace Uttambsolutionsdesktop.Forms
             btnSearchSale = new Button();
             btnPrintReciept = new Button();
             panel1.SuspendLayout();
-            tabPageCategoryDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -90,52 +61,6 @@ namespace Uttambsolutionsdesktop.Forms
             panel1.Size = new Size(1065, 59);
             panel1.TabIndex = 1;
             // 
-            // tabPageCategoryDetail
-            // 
-            tabPageCategoryDetail.Controls.Add(label4);
-            tabPageCategoryDetail.Controls.Add(label6);
-            tabPageCategoryDetail.Controls.Add(txtCategoryId);
-            tabPageCategoryDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabPageCategoryDetail.Location = new Point(4, 24);
-            tabPageCategoryDetail.Margin = new Padding(4, 3, 4, 3);
-            tabPageCategoryDetail.Name = "tabPageCategoryDetail";
-            tabPageCategoryDetail.Padding = new Padding(4, 3, 4, 3);
-            tabPageCategoryDetail.Size = new Size(1033, 446);
-            tabPageCategoryDetail.TabIndex = 1;
-            tabPageCategoryDetail.Text = "Category Detail";
-            tabPageCategoryDetail.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(71, 101);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(123, 20);
-            label4.TabIndex = 13;
-            label4.Text = "Category Name:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(71, 32);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(115, 20);
-            label6.TabIndex = 13;
-            label6.Text = "Main Category:";
-            // 
-            // txtCategoryId
-            // 
-            txtCategoryId.Location = new Point(281, 20);
-            txtCategoryId.Margin = new Padding(4, 3, 4, 3);
-            txtCategoryId.Name = "txtCategoryId";
-            txtCategoryId.Size = new Size(162, 29);
-            txtCategoryId.TabIndex = 16;
-            txtCategoryId.Visible = false;
-            // 
             // btnCancel
             // 
             btnCancel.Location = new Point(869, 178);
@@ -156,58 +81,12 @@ namespace Uttambsolutionsdesktop.Forms
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             // 
-            // comboMainCategoryId
-            // 
-            comboMainCategoryId.Location = new Point(650, 20);
-            comboMainCategoryId.Margin = new Padding(4, 3, 4, 3);
-            comboMainCategoryId.Name = "comboMainCategoryId";
-            comboMainCategoryId.Size = new Size(200, 23);
-            comboMainCategoryId.TabIndex = 16;
-            // 
             // dataGridView
             // 
             dataGridView.Location = new Point(14, 97);
             dataGridView.Name = "dataGridView";
             dataGridView.Size = new Size(596, 119);
             dataGridView.TabIndex = 2;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(790, 477);
-            btnDelete.Margin = new Padding(4, 3, 4, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(84, 25);
-            btnDelete.TabIndex = 9;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.Location = new Point(701, 477);
-            btnEdit.Margin = new Padding(4, 3, 4, 3);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(82, 25);
-            btnEdit.TabIndex = 10;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // btnAddNew
-            // 
-            btnAddNew.Location = new Point(609, 477);
-            btnAddNew.Margin = new Padding(4, 3, 4, 3);
-            btnAddNew.Name = "btnAddNew";
-            btnAddNew.Size = new Size(84, 25);
-            btnAddNew.TabIndex = 11;
-            btnAddNew.Text = "Add New";
-            btnAddNew.UseVisualStyleBackColor = true;
-            // 
-            // labelMainCategoryId
-            // 
-            labelMainCategoryId.Location = new Point(530, 20);
-            labelMainCategoryId.Name = "labelMainCategoryId";
-            labelMainCategoryId.Size = new Size(100, 23);
-            labelMainCategoryId.TabIndex = 3;
-            labelMainCategoryId.Text = "Main Category:";
             // 
             // lblProductName
             // 
@@ -358,8 +237,6 @@ namespace Uttambsolutionsdesktop.Forms
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(dataGridView);
-            Controls.Add(labelMainCategoryId);
-            Controls.Add(comboMainCategoryId);
             Controls.Add(lblProductName);
             Controls.Add(lblProductSaleQuantity);
             Controls.Add(lblSaleTotal);
@@ -370,26 +247,32 @@ namespace Uttambsolutionsdesktop.Forms
             Size = new Size(1065, 500);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            tabPageCategoryDetail.ResumeLayout(false);
-            tabPageCategoryDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private DataGridView dataGridView1;
-        private TextBox txtProductSaleQuantity;
+        private Panel panel1;
+        private Label label1;
+        private Label lblProductName;
+        private Label lblProductSaleQuantity;
+        private Label lblSaleTotal;
         private Label lblProductPrice;
-        private TextBox txtProductVat;
         private Label lblProductVat;
+        private TextBox txtSaleTotal;
+        private TextBox txtProductSaleQuantity;
+        private TextBox txtProductVat;
         private TextBox txtProductPrice;
         private TextBox txtProductName;
-        private Button btnSearchProduct;
         private TextBox txtSearchProduct;
         private TextBox txtSearchSale;
+        private Button btnCancel;
+        private Button btnSave;
+        private Button btnSearchProduct;
         private Button btnSearchSale;
         private Button btnPrintReciept;
+        private DataGridView dataGridView;
+        private DataGridView dataGridView1;
     }
 }
 
