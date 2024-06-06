@@ -20,6 +20,7 @@ namespace DBL.Models
         public string? Brand { get; set; }
         public int TaxCategoryId { get; set; }
         public string? TaxCategory { get; set; }
+        public decimal TaxCategoryValue { get; set; }
         public string? Barcode { get; set; }
         public decimal Units { get; set; }
         public decimal WholeSalePrice { get; set; }

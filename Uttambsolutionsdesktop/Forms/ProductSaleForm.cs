@@ -90,7 +90,7 @@ namespace Uttambsolutionsdesktop.Forms
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         ProductName = selectedRow.Cells["Product"].Value.ToString();
-                        //TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
+                        TaxCategoryValue = Convert.ToInt32(selectedRow.Cells["TaxCategoryValue"].Value);
                         RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
                     }
                     else
@@ -148,6 +148,10 @@ namespace Uttambsolutionsdesktop.Forms
                 if (dataGridView.Columns.Contains("TaxCategoryId"))
                 {
                     dataGridView.Columns["TaxCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("TaxCategoryValue"))
+                {
+                    dataGridView.Columns["TaxCategoryValue"].Visible = false;
                 }
                 if (dataGridView.Columns.Contains("Modifiedby"))
                 {
