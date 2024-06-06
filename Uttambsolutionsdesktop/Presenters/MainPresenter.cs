@@ -76,19 +76,19 @@ namespace Uttambsolutionsdesktop.Presenters
         public void HandleCategoryListButtonClicked(Panel contentWrapper)
         {
             // Create an instance of CategoryPageForm
-            CategoryPageForm categoryPageForm = new CategoryPageForm(_userId);
+            ProductSaleForm productSaleForm = new ProductSaleForm(_userId);
 
             // Set the size of the CategoryPageForm
-            categoryPageForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
+            productSaleForm.Size = new Size(contentWrapper.Width, contentWrapper.Height);
 
             // Set the location of the CategoryPageForm
-            categoryPageForm.Location = new Point(0, 0);
+            productSaleForm.Location = new Point(0, 0);
 
             // Clear the contentWrapper panel
             contentWrapper.Controls.Clear();
 
             // Add the CategoryPageForm to the contentWrapper panel
-            contentWrapper.Controls.Add(categoryPageForm);
+            contentWrapper.Controls.Add(productSaleForm);
         }
 
         public void HandleProductListButtonClicked(Panel contentWrapper)
