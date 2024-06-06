@@ -11,6 +11,7 @@ namespace DBL.Repositories
     public interface IProductRepository
     {
         IEnumerable<SystemProductData> GetAllProducts();
+        IEnumerable<SystemProductData> GetProductsByValue(string SearchValue);
         Genericmodel SaveProduct(SystemProduct entity);
     }
 }

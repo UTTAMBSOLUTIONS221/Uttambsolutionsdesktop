@@ -14,82 +14,43 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly IProductSaleView _view;
         private readonly string _userId;
         private readonly BL _bl;
-        private BindingSource mainCategoryBindingSource;
-        private BindingSource firstCategoryBindingSource;
-        private IEnumerable<MainCategory> mainCategoryList;
-        private IEnumerable<FirstCategory> firstCategoryList;
+        private BindingSource productsBindingSource;
+        private BindingSource productsSaleBindingSource;
+        private IEnumerable<SystemProduct> productSearchDataList;
+        private IEnumerable<FirstCategory> productSalesDataList;
 
         public ProductSalePresenter(IProductSaleView view, string userId, string connectionString)
         {
             this._view = view;
             _bl = new BL(connectionString);
             _userId = userId;
-            this.mainCategoryBindingSource = new BindingSource();
-            this.firstCategoryBindingSource = new BindingSource();
+            this.productsBindingSource = new BindingSource();
+            this.productsSaleBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
-
-            this._view.SearchEvent += AddNewCategory;
-            this._view.EditEvent += LoadSelectedCategoryToEdit;
-            this._view.DeleteEvent += DeleteSelectedCategory;
-            this._view.SaveMainEvent += SaveMainCategory;
-            this._view.SaveFirstEvent += SaveFirstCategory;
-            //Set pets bindind source
-            this._view.SetMainCategoryListBindingSource(mainCategoryBindingSource);
-            this._view.SetFirstCategoryListBindingSource(firstCategoryBindingSource);
-            //Load pet list view
-            LoadAllMainCategoriesList();
-            LoadAllFirstCategoriesList();
+            this._view.SearchProductEvent += SearchProduct;
+           // this._view.SearchEvent += AddNewCategory;
+            //this._view.EditEvent += LoadSelectedCategoryToEdit;
+            this._view.SaveSaleDataEvent += SaveSaleData;
             //Show view
             this._view.Show();
-
-
         }
-        private async void LoadAllMainCategoriesList()
+
+        private async void SearchProduct(object sender, EventArgs e)
         {
-            mainCategoryList = await _bl.GetAllMainCategories();
-            mainCategoryBindingSource.DataSource = mainCategoryList;//Set data source.
+            bool emptyValue = string.IsNullOrWhiteSpace(this._view.ProductSearchValue);
+            productSearchDataList = (IEnumerable<SystemProduct>)await _bl.GetProductsByValue(this._view.ProductSearchValue);
+            productsBindingSource.DataSource = productSearchDataList;
         }
-        private async void LoadAllFirstCategoriesList()
-        {
-            firstCategoryList = await _bl.GetAllFirstCategories();
-            firstCategoryBindingSource.DataSource = firstCategoryList;//Set data source.
-        }
-        private async void SaveMainCategory(object sender, EventArgs e)
-        {
-            MainCategory mainCategoryData = new MainCategory();
-            mainCategoryData.MainCategoryId = _view.MainCategoryId;
-            mainCategoryData.MainCategoryName = _view.MainCategoryName;
-            mainCategoryData.Createdby = Convert.ToInt32(_userId);
-            mainCategoryData.Modifiedby = Convert.ToInt32(_userId);
-            mainCategoryData.DateCreated = DateTime.Now;
-            mainCategoryData.DateModified = DateTime.Now;
-
-            // Call the BL method to save the category
-            var resp = await _bl.SaveMainCategory(mainCategoryData);
-            // Handle the response accordingly
-            if (resp.RespStatus == 0)
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            else if (resp.RespStatus == 1)
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            else
-            {
-                MessageBox.Show(resp.RespMessage);
-            }
-            // Refresh the category list
-            LoadAllMainCategoriesList();
-
-        }
-
-        private async void SaveFirstCategory(object sender, EventArgs e)
+        
+        //private async void LoadAllFirstCategoriesList()
+        //{
+        //    firstCategoryList = await _bl.GetAllFirstCategories();
+        //    firstCategoryBindingSource.DataSource = firstCategoryList;//Set data source.
+        //}
+       
+        private async void SaveSaleData(object sender, EventArgs e)
         {
             FirstCategory firstCategoryData = new FirstCategory();
-            firstCategoryData.FirstCategoryId = _view.FirstCategoryId;
-            firstCategoryData.MainCategoryId = _view.FirstMainCategoryId;
-            firstCategoryData.FirstCategoryName = _view.FirstCategoryName;
             firstCategoryData.Createdby = Convert.ToInt32(_userId);
             firstCategoryData.Modifiedby = Convert.ToInt32(_userId);
             firstCategoryData.DateCreated = DateTime.Now;
@@ -110,8 +71,6 @@ namespace Uttambsolutionsdesktop.Presenters
             {
                 MessageBox.Show(resp.RespMessage);
             }
-            // Refresh the category list
-            LoadAllFirstCategoriesList();
         }
 
         private void DeleteSelectedCategory(object sender, EventArgs e)

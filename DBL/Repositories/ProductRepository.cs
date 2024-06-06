@@ -29,6 +29,21 @@ namespace DBL.Repositories
                 return productQueryResult;
             }
         }
+        public IEnumerable<SystemProductData> GetProductsByValue(string searchValue)
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch categories
+                var productQueryResult = connection.Query<SystemProductData>(
+                    @"SELECT a.ProductId,a.ProductName AS Product,a.UomId,b.UomName AS Uom,a.BrandId,e.ProductBrandName AS Brand,a.MainCategoryId,c.MainCategoryName AS MainCategory,a.FirstCategoryId,d.FirstCategoryName AS FirstCategory,a.TaxCategoryId,d.TaxCategoryName AS TaxCategory,a.Barcode,a.ProductUnits AS Units,a.WholeSalePrice,a.RetailSalePrice,a.ProfitMargin,a.ProductSize,a.ProductColor,a.ProductWeight,e.FirstName || ' ' || e.LastName AS Createdby,f.FirstName || ' ' || f.LastName AS Modifiedby,a.Datecreated,a.Datemodified FROM Product a INNER JOIN ProductBrand e ON a.BrandId=e.ProductBrandId INNER JOIN UnitOfMeasure b ON a.UomId=b.UomId INNER JOIN MainCategory c ON a.MainCategoryId=c.MainCategoryId INNER JOIN FirstCategory d ON a.FirstCategoryId=d.FirstCategoryId INNER JOIN TaxCategory d ON a.TaxCategoryId=d.TaxCategoryId INNER JOIN SystemStaffs e ON a.Createdby=e.Userid INNER JOIN SystemStaffs f ON a.Modifiedby=f.Userid WHERE a.Barcode = @SearchValue OR a.ProductName LIKE '%' || @SearchValue || '%'");
+
+                // Return the result
+                return productQueryResult;
+            }
+        }
+
         public Genericmodel SaveProduct(SystemProduct entity)
         {
             // Validate the data

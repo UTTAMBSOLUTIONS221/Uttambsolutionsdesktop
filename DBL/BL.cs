@@ -220,6 +220,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public Task<IEnumerable<SystemProductData>> GetProductsByValue(string SearchValue)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.GetProductsByValue(SearchValue);
+                return Resp;
+            });
+        }
         public Task<IEnumerable<SystemProductData>> GetAllProducts(string SearchValue)
         {
             return Task.Run(() =>

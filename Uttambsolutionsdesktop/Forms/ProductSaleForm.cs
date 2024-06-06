@@ -20,13 +20,19 @@ namespace Uttambsolutionsdesktop.Forms
         private readonly string _userId;
 
         // Events
-        public event EventHandler SearchEvent;
-        public event EventHandler PrintEvent;
-        public event EventHandler SaveEvent;
-        public event EventHandler CancelEvent;
+        public event EventHandler SearchProductEvent;
+        public event EventHandler PrintSaleEvent;
+        public event EventHandler SaveSaleDataEvent;
+        public event EventHandler CancelSaleEvent;
 
         // Properties
-          // Constructors
+        public string ProductSearchValue
+        {
+            get { return txtProductName.Text; }
+            set { txtProductName.Text = value; }
+        }
+
+        // Constructors
         public ProductSaleForm(string userId)
         {
             InitializeComponent();
@@ -43,16 +49,21 @@ namespace Uttambsolutionsdesktop.Forms
         {
             btnSearchProduct.Click += delegate
             {
-                SearchEvent?.Invoke(this, EventArgs.Empty);
+                SearchProductEvent?.Invoke(this, EventArgs.Empty);
+            }; 
+            txtProductName.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    SearchProductEvent?.Invoke(this, EventArgs.Empty);
             };
             btnSave.Click += delegate
             {
-                SaveEvent?.Invoke(this, EventArgs.Empty);
+                SaveSaleDataEvent?.Invoke(this, EventArgs.Empty);
             };
 
             btnCancel.Click += delegate
             {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
+                CancelSaleEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
             };
         }
