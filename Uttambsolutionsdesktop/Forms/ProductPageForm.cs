@@ -366,6 +366,10 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 dataGridView.Columns["TaxCategoryId"].Visible = false;
             }
+            if (dataGridView.Columns.Contains("TaxCategoryValue"))
+            {
+                dataGridView.Columns["TaxCategoryValue"].Visible = false;
+            }
             if (dataGridView.Columns.Contains("Modifiedby"))
             {
                 dataGridView.Columns["Modifiedby"].Visible = false;
