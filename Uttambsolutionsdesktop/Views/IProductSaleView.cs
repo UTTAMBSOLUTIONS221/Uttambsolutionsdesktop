@@ -11,9 +11,14 @@ namespace Uttambsolutionsdesktop.Views
 
         // Properties
         string? ProductSearchValue { get; set; }
-      
+        public int ProductId { get; set; }
+        public string? ProductName { get; set; }
+        public decimal TaxCategoryValue { get; set; }
+        public decimal RetailSalePrice { get; set; }
+       
         // Events
         event EventHandler SearchProductEvent;
+        event EventHandler SellProductEvent;
         event EventHandler PrintSaleEvent;
         event EventHandler SaveSaleDataEvent;
         event EventHandler CancelSaleEvent;

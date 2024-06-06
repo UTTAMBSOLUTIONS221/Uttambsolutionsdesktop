@@ -29,6 +29,7 @@ namespace Uttambsolutionsdesktop.Forms
             lblProductVat = new Label();
             txtProductPrice = new TextBox();
             txtProductName = new TextBox();
+            txtProductId = new TextBox();
             btnSearchProduct = new Button();
             txtSearchProduct = new TextBox();
             txtSearchSale = new TextBox();
@@ -166,6 +167,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtProductPrice.ReadOnly = true;
             txtProductPrice.Size = new Size(123, 23);
             txtProductPrice.TabIndex = 27;
+
             // 
             // txtProductName
             // 
@@ -174,6 +176,13 @@ namespace Uttambsolutionsdesktop.Forms
             txtProductName.ReadOnly = true;
             txtProductName.Size = new Size(174, 23);
             txtProductName.TabIndex = 28;
+            // Add the txtProductId TextBox
+            txtProductId = new TextBox();
+            txtProductId.Location = new Point(627, 200); // Adjust the location as needed
+            txtProductId.Name = "txtProductId";
+            txtProductId.ReadOnly = true;
+            txtProductId.Size = new Size(174, 23);
+            txtProductId.TabIndex = 34; // Increment the TabIndex
             // 
             // btnSearchProduct
             // 
@@ -229,6 +238,7 @@ namespace Uttambsolutionsdesktop.Forms
             Controls.Add(txtSearchProduct);
             Controls.Add(btnSearchProduct);
             Controls.Add(txtProductName);
+            Controls.Add(txtProductId);
             Controls.Add(txtProductPrice);
             Controls.Add(lblProductVat);
             Controls.Add(txtProductVat);
@@ -264,6 +274,7 @@ namespace Uttambsolutionsdesktop.Forms
         private TextBox txtProductVat;
         private TextBox txtProductPrice;
         private TextBox txtProductName;
+        private TextBox txtProductId;
         private TextBox txtSearchProduct;
         private TextBox txtSearchSale;
         private Button btnCancel;

@@ -33,6 +33,27 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtSearchProduct.Text = value; }
         }
 
+        public int ProductId
+        {
+            get { return int.TryParse(txtProductId.Text, out int id) ? id : 0; }
+            set { txtProductId.Text = value.ToString(); }
+        }
+
+        public string? ProductName
+        {
+            get { return txtProductName.Text; }
+            set { txtProductName.Text = value; }
+        }
+        public decimal TaxCategoryValue
+        {
+            get { return Convert.ToDecimal(txtProductPrice.Text); }
+            set { txtProductPrice.Text = value.ToString(); }
+        }
+        public decimal RetailSalePrice
+        {
+            get { return Convert.ToDecimal(txtProductPrice.Text); }
+            set { txtProductPrice.Text = value.ToString(); }
+        }
         // Constructors
         public ProductSaleForm(string userId)
         {
@@ -51,11 +72,25 @@ namespace Uttambsolutionsdesktop.Forms
             {
                 SearchProductEvent?.Invoke(this, EventArgs.Empty);
             };
-            txtProductName.KeyDown += (s, e) =>
+            txtSearchProduct.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
                     SearchProductEvent?.Invoke(this, EventArgs.Empty);
             };
+            // CellClick event handler to select the entire row
+            dataGridViewProducts.CellClick += (sender, e) =>
+            {
+                if (e.RowIndex >= 0)
+                {
+                    dataGridViewProducts.Rows[e.RowIndex].Selected = true;
+                    DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
+                    ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
+                    ProductName = selectedRow.Cells["Product"].Value.ToString();
+                    //TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
+                    RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
+                }
+            };
+
             btnSave.Click += delegate
             {
                 SaveSaleDataEvent?.Invoke(this, EventArgs.Empty);

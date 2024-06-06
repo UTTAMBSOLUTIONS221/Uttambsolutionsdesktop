@@ -31,6 +31,7 @@ namespace Uttambsolutionsdesktop.Presenters
             this.productsSaleBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
             this._view.SearchProductEvent += SearchProduct;
+            this._view.SellProductEvent += LoadSelectedProductToSell;
             this._view.PrintSaleEvent += PrintSale;
             this._view.SaveSaleDataEvent += SaveSaleData;
             this._view.CancelSaleEvent += CancelSale;
@@ -51,7 +52,9 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             // Implement printing functionality
         }
-
+        private void LoadSelectedProductToSell(object sender, EventArgs e)
+        {
+        }
         private void SaveSaleData(object sender, EventArgs e)
         {
             // Implement saving sale data functionality
