@@ -92,7 +92,7 @@ namespace Uttambsolutionsdesktop.Presenters
             productData.ProductUnits = _view.ProductUnits;
             productData.WholeSalePrice = _view.WholeSalePrice;
             productData.RetailSalePrice = _view.RetailSalePrice;
-            productData.ProfitMargin = _view.ProfitMargin;
+            productData.ProfitMargin = _view.RetailSalePrice- _view.WholeSalePrice;
             productData.ProductSize = _view.ProductSize;
             productData.ProductColor = _view.ProductColor;
             productData.ProductWeight = _view.ProductWeight;
