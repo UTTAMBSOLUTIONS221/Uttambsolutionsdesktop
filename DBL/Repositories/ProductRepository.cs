@@ -31,6 +31,51 @@ namespace DBL.Repositories
         }
         public Genericmodel SaveProduct(SystemProduct entity)
         {
+            // Validate the data
+            if (string.IsNullOrWhiteSpace(entity.ProductName))
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Product Name cannot be empty" };
+            }
+
+            if (entity.UomId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Please select a valid Unit of Measure (UOM)" };
+            }
+
+            if (entity.MainCategoryId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Please select a valid Main Category" };
+            }
+
+            if (entity.FirstCategoryId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Please select a valid First Category" };
+            }
+
+            if (entity.BrandId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Please select a valid Brand" };
+            }
+
+            if (entity.TaxCategoryId <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Please select a valid Tax Category" };
+            }
+
+            if (entity.WholeSalePrice < 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Wholesale Price cannot be negative" };
+            }
+
+            if (entity.RetailSalePrice < 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Retail Sale Price cannot be negative" };
+            }
+
+            if (entity.ProductUnits <= 0)
+            {
+                return new Genericmodel { RespStatus = 1, RespMessage = "Product Units must be greater than zero" };
+            }
             using (var connection = new SQLiteConnection(_connString))
             {
                 connection.Open();
