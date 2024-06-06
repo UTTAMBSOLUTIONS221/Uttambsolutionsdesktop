@@ -81,12 +81,11 @@ namespace Uttambsolutionsdesktop.Forms
             // CellClick event handler to select the entire row
             dataGridViewProducts.CellClick += (sender, e) =>
             {
-                ClearDetailFields();
                 if (e.RowIndex >= 0)
                 {
                     dataGridViewProducts.Rows[e.RowIndex].Selected = true;
                     DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
-                    if (selectedRow!= null)
+                    if (Convert.ToInt32(selectedRow.Cells["ProductId"].Value) >0)
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         ProductName = selectedRow.Cells["Product"].Value.ToString();
