@@ -192,6 +192,7 @@ namespace Uttambsolutionsdesktop.Forms
             // Clear the textboxes
             txtProductId.Text = "";
             txtProductName.Text = "";
+            txtProductPrice.Text = "";
             // Clear other textboxes as needed
         }
 
