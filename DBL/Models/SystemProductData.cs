@@ -28,8 +28,8 @@ namespace DBL.Models
         public string? ProductSize { get; set; }
         public string? ProductColor { get; set; }
         public decimal ProductWeight { get; set; }
-        public int Createdby { get; set; }
-        public int Modifiedby { get; set; }
+        public string? Createdby { get; set; }
+        public string? Modifiedby { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
     }

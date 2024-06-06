@@ -183,6 +183,7 @@ namespace Uttambsolutionsdesktop.Forms
         private async void PopulateComboboxes()
         {
             // Call presenter methods to retrieve combobox data
+            var brandData = await _presenter.GetBrandData();
             var uomData = await _presenter.GetUomData();
             var mainCategoryData = await _presenter.GetMainCategoryData();
             var firstCategoryData = await _presenter.GetFirstCategoryData();
@@ -190,6 +191,7 @@ namespace Uttambsolutionsdesktop.Forms
             var taxCategoryData = await _presenter.GetTaxCategoryData();
 
             // Populate comboboxes with data
+            PopulateBrabdComboBox(brandData);
             PopulateUomComboBox(uomData);
             PopulateMainCategoryComboBox(mainCategoryData);
             PopulateFirstCategoryComboBox(firstCategoryData);

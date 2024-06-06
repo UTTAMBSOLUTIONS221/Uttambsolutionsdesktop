@@ -39,12 +39,14 @@ namespace Uttambsolutionsdesktop.Presenters
             this._view.Show();
 
         }
-
+        public async Task<List<SystemProductBrand>> GetBrandData()
+        {
+            return (List<SystemProductBrand>)await _bl.GetAllProductBrands(); ;
+        }
         public async Task<List<SystemUoms>> GetUomData()
         {
             return (List<SystemUoms>)await _bl.GetAllSystemUoms(); ;
         }
-
         public async Task<List<MainCategory>> GetMainCategoryData()
         {
             return (List<MainCategory>)await _bl.GetAllMainCategories();
