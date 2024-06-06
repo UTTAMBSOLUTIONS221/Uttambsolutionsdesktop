@@ -40,20 +40,84 @@ namespace Uttambsolutionsdesktop.Forms
             get { return int.TryParse(txtProductId.Text, out int id) ? id : 0; }
             set { txtProductId.Text = value.ToString(); }
         }
-        public string ProductName
+
+        public string? ProductName
         {
             get { return txtProductName.Text; }
             set { txtProductName.Text = value; }
         }
 
-        public int UomId { get => Convert.ToInt32(comboBoxUomId.SelectedValue); set => comboBoxUomId.SelectedValue = value; }
-        public int CategoryId { get => Convert.ToInt32(comboBoxCategoryId.SelectedValue); set => comboBoxCategoryId.SelectedValue = value; }
-        public int TaxCategoryId { get => Convert.ToInt32(comboBoxTaxCategoryId.SelectedValue); set => comboBoxTaxCategoryId.SelectedValue = value; }
+        public int UomId
+        {
+            get { return Convert.ToInt32(comboBoxUomId.SelectedValue); }
+            set { comboBoxUomId.SelectedValue = value; }
+        }
 
-        public string? Barcode { get => txtBarcode.Text; set => txtBarcode.Text = value; }
-        public decimal Units { get => Convert.ToDecimal(txtUnits.Text); set => txtUnits.Text = value.ToString(); }
-        public decimal Price { get => Convert.ToDecimal(txtPrice.Text); set => txtPrice.Text = value.ToString(); }
+        public int MainCategoryId
+        {
+            get { return Convert.ToInt32(comboBoxMainCategoryId.SelectedValue); }
+            set { comboBoxMainCategoryId.SelectedValue = value; }
+        }
 
+        public int FirstCategoryId
+        {
+            get { return Convert.ToInt32(comboBoxFirstCategoryId.SelectedValue); }
+            set { comboBoxFirstCategoryId.SelectedValue = value; }
+        }
+
+        public int BrandId
+        {
+            get { return Convert.ToInt32(comboBoxBrandId.SelectedValue); }
+            set { comboBoxBrandId.SelectedValue = value; }
+        }
+
+        public int TaxCategoryId
+        {
+            get { return Convert.ToInt32(comboBoxTaxCategoryId.SelectedValue); }
+            set { comboBoxTaxCategoryId.SelectedValue = value; }
+        }
+
+        public string? Barcode
+        {
+            get { return txtBarcode.Text; }
+            set { txtBarcode.Text = value; }
+        }
+
+        public decimal ProductUnits
+        {
+            get { return Convert.ToDecimal(txtProductUnits.Text); }
+            set { txtProductUnits.Text = value.ToString(); }
+        }
+
+        public decimal WholeSalePrice
+        {
+            get { return Convert.ToDecimal(txtWholeSalePrice.Text); }
+            set { txtWholeSalePrice.Text = value.ToString(); }
+        }
+
+        public decimal RetailSalePrice
+        {
+            get { return Convert.ToDecimal(txtRetailSalePrice.Text); }
+            set { txtRetailSalePrice.Text = value.ToString(); }
+        }
+
+        public string? ProductSize
+        {
+            get { return txtProductSize.Text; }
+            set { txtProductSize.Text = value; }
+        }
+
+        public string? ProductColor
+        {
+            get { return txtProductColor.Text; }
+            set { txtProductColor.Text = value; }
+        }
+
+        public decimal ProductWeight
+        {
+            get { return Convert.ToDecimal(txtProductWeight.Text); }
+            set { txtProductWeight.Text = value.ToString(); }
+        }
         public void SetProductListBindingSource(BindingSource productList)
         {
             dataGridView.DataSource = productList;
@@ -162,20 +226,33 @@ namespace Uttambsolutionsdesktop.Forms
                     if (selectedRow.Cells["ProductId"].Value != null &&
                         selectedRow.Cells["ProductName"].Value != null &&
                         selectedRow.Cells["UomId"].Value != null &&
-                        selectedRow.Cells["CategoryId"].Value != null &&
+                        selectedRow.Cells["MainCategoryId"].Value != null &&
+                        selectedRow.Cells["FirstCategoryId"].Value != null &&
+                        selectedRow.Cells["BrandId"].Value != null &&
                         selectedRow.Cells["TaxCategoryId"].Value != null &&
                         selectedRow.Cells["Barcode"].Value != null &&
-                        selectedRow.Cells["Units"].Value != null &&
-                        selectedRow.Cells["Price"].Value != null)
+                        selectedRow.Cells["ProductUnits"].Value != null &&
+                        selectedRow.Cells["WholeSalePrice"].Value != null &&
+                        selectedRow.Cells["RetailSalePrice"].Value != null &&
+                        selectedRow.Cells["ProfitMargin"].Value != null &&
+                        selectedRow.Cells["ProductSize"].Value != null &&
+                        selectedRow.Cells["ProductColor"].Value != null &&
+                        selectedRow.Cells["ProductWeight"].Value != null)
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         ProductName = selectedRow.Cells["ProductName"].Value.ToString();
                         UomId = Convert.ToInt32(selectedRow.Cells["UomId"].Value);
-                        CategoryId = Convert.ToInt32(selectedRow.Cells["CategoryId"].Value);
+                        MainCategoryId = Convert.ToInt32(selectedRow.Cells["MainCategoryId"].Value);
+                        FirstCategoryId = Convert.ToInt32(selectedRow.Cells["FirstCategoryId"].Value);
+                        BrandId = Convert.ToInt32(selectedRow.Cells["BrandId"].Value);
                         TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
                         Barcode = selectedRow.Cells["Barcode"].Value.ToString();
-                        Units = Convert.ToDecimal(selectedRow.Cells["Units"].Value);
-                        Price = Convert.ToDecimal(selectedRow.Cells["Price"].Value);
+                        ProductUnits = Convert.ToDecimal(selectedRow.Cells["ProductUnits"].Value);
+                        WholeSalePrice = Convert.ToDecimal(selectedRow.Cells["WholeSalePrice"].Value);
+                        RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
+                        ProductSize = selectedRow.Cells["ProductSize"].Value.ToString();
+                        ProductColor = selectedRow.Cells["ProductColor"].Value.ToString();
+                        ProductWeight = Convert.ToDecimal(selectedRow.Cells["ProductWeight"].Value);
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageProductList);
@@ -241,16 +318,22 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
         // Method to clear the detail fields
-        private void ClearDetailFields()
+        public void ClearDetailFields()
         {
             ProductId = 0;
             ProductName = string.Empty;
             UomId = 0;
-            CategoryId = 0;
+            MainCategoryId = 0;
+            FirstCategoryId = 0;
+            BrandId = 0;
             TaxCategoryId = 0;
             Barcode = string.Empty;
-            Units = 0;
-            Price = 0;
+            ProductUnits = 0;
+            WholeSalePrice = 0;
+            RetailSalePrice = 0;
+            ProductSize = string.Empty;
+            ProductColor = string.Empty;
+            ProductWeight = 0;
         }
 
 
