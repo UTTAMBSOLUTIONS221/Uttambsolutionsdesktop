@@ -325,7 +325,9 @@ namespace Uttambsolutionsdesktop
                                                   "ProductId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                   "ProductName TEXT, " +
                                                   "UomId INTEGER, " +
-                                                  "CategoryId INTEGER, " +
+                                                  "MainCategoryId INTEGER, " +
+                                                  "FirstCategoryId INTEGER, " +
+                                                  "ThirdCategoryId INTEGER, " +
                                                   "BrandId INTEGER, " +
                                                   "TaxCategoryId INTEGER, " +
                                                   "Barcode TEXT, " +
@@ -341,7 +343,7 @@ namespace Uttambsolutionsdesktop
                                                   "Datecreated DATETIME, " +
                                                   "Datemodified DATETIME, " +
                                                   "FOREIGN KEY (UomId) REFERENCES UnitOfMeasure(UomId), " +
-                                                  "FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId), " +
+                                                  "FOREIGN KEY (ThirdCategoryId) REFERENCES ThirdCategy(CategoryId), " +
                                                   "FOREIGN KEY (TaxCategoryId) REFERENCES TaxCategory(TaxCategoryId))";
                 using (SQLiteCommand cmd = new SQLiteCommand(createProductTableQuery, conn))
                 {
