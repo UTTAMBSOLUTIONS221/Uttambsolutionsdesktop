@@ -90,7 +90,7 @@ namespace Uttambsolutionsdesktop.Forms
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
                         ProductName = selectedRow.Cells["Product"].Value.ToString();
-                        TaxCategoryValue = Convert.ToInt32(selectedRow.Cells["TaxCategoryValue"].Value);
+                        TaxCategoryValue = Convert.ToDecimal(selectedRow.Cells["TaxCategoryValue"].Value);
                         RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
                     }
                     else
