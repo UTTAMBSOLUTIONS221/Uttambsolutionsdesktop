@@ -251,6 +251,7 @@ namespace Uttambsolutionsdesktop.Forms
             // txtProductSaleQuantity
             // 
             txtProductSaleQuantity.Location = new Point(627, 149);
+            txtProductSaleQuantity.Margin = new Padding(3, 4, 3, 4);
             txtProductSaleQuantity.Name = "txtProductSaleQuantity";
             txtProductSaleQuantity.Size = new Size(174, 23);
             txtProductSaleQuantity.TabIndex = 23;
