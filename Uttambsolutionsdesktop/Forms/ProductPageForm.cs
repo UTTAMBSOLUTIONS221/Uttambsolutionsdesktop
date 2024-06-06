@@ -224,14 +224,14 @@ namespace Uttambsolutionsdesktop.Forms
                     int rowIndex = dataGridView.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dataGridView.Rows[rowIndex];
                     if (selectedRow.Cells["ProductId"].Value != null &&
-                        selectedRow.Cells["ProductName"].Value != null &&
+                        selectedRow.Cells["Product"].Value != null &&
                         selectedRow.Cells["UomId"].Value != null &&
                         selectedRow.Cells["MainCategoryId"].Value != null &&
                         selectedRow.Cells["FirstCategoryId"].Value != null &&
                         selectedRow.Cells["BrandId"].Value != null &&
                         selectedRow.Cells["TaxCategoryId"].Value != null &&
                         selectedRow.Cells["Barcode"].Value != null &&
-                        selectedRow.Cells["ProductUnits"].Value != null &&
+                        selectedRow.Cells["Units"].Value != null &&
                         selectedRow.Cells["WholeSalePrice"].Value != null &&
                         selectedRow.Cells["RetailSalePrice"].Value != null &&
                         selectedRow.Cells["ProfitMargin"].Value != null &&
@@ -240,14 +240,14 @@ namespace Uttambsolutionsdesktop.Forms
                         selectedRow.Cells["ProductWeight"].Value != null)
                     {
                         ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
-                        ProductName = selectedRow.Cells["ProductName"].Value.ToString();
+                        ProductName = selectedRow.Cells["Product"].Value.ToString();
                         UomId = Convert.ToInt32(selectedRow.Cells["UomId"].Value);
                         MainCategoryId = Convert.ToInt32(selectedRow.Cells["MainCategoryId"].Value);
                         FirstCategoryId = Convert.ToInt32(selectedRow.Cells["FirstCategoryId"].Value);
                         BrandId = Convert.ToInt32(selectedRow.Cells["BrandId"].Value);
                         TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
                         Barcode = selectedRow.Cells["Barcode"].Value.ToString();
-                        ProductUnits = Convert.ToDecimal(selectedRow.Cells["ProductUnits"].Value);
+                        ProductUnits = Convert.ToDecimal(selectedRow.Cells["Units"].Value);
                         WholeSalePrice = Convert.ToDecimal(selectedRow.Cells["WholeSalePrice"].Value);
                         RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
                         ProductSize = selectedRow.Cells["ProductSize"].Value.ToString();
