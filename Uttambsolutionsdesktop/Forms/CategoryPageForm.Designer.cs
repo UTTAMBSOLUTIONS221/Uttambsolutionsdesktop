@@ -7,9 +7,6 @@ namespace Uttambsolutionsdesktop.Forms
 {
     partial class CategoryPageForm
     {
-        private Label label1;
-        private Panel panel1;
-
         public CategoryPageForm()
         {
             InitializeComponent();
@@ -359,7 +356,19 @@ namespace Uttambsolutionsdesktop.Forms
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
         }
-
+        private Label label1;
+        private Panel panel1;
+        private DataGridView dataGridView;
+        private Label labelMainCategoryId;
+        private ComboBox comboMainCategoryId;
+        private Label labelCategoryName;
+        private TextBox txtCategoryName;
+        private Label labelQuantity;
+        private TextBox txtQuantity;
+        private Label labelTotal;
+        private TextBox txtTotal;
+        private Button btnSave;
+        private Button btnCancel;
         private Label label5;
         private TabPage tabPageFirstCategoryDetail;
         private Button btnCancelFirst;
