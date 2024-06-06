@@ -34,16 +34,28 @@
             txtProductName = new TextBox();
             labelUomId = new Label();
             comboBoxUomId = new ComboBox();
-            labelCategoryId = new Label();
-            comboBoxCategoryId = new ComboBox();
+            labelMainCategoryId = new Label();
+            comboBoxMainCategoryId = new ComboBox();
+            labelFirstCategoryId = new Label();
+            comboBoxFirstCategoryId = new ComboBox();
+            labelBrandId = new Label();
+            comboBoxBrandId = new ComboBox();
             labelTaxCategoryId = new Label();
             comboBoxTaxCategoryId = new ComboBox();
             labelBarcode = new Label();
             txtBarcode = new TextBox();
-            labelUnits = new Label();
-            txtUnits = new TextBox();
-            labelPrice = new Label();
-            txtPrice = new TextBox();
+            labelProductUnits = new Label();
+            txtProductUnits = new TextBox();
+            labelWholeSalePrice = new Label();
+            txtWholeSalePrice = new TextBox();
+            labelRetailSalePrice = new Label();
+            txtRetailSalePrice = new TextBox();
+            labelProductSize = new Label();
+            txtProductSize = new TextBox();
+            labelProductColor = new Label();
+            txtProductColor = new TextBox();
+            labelProductWeight = new Label();
+            txtProductWeight = new TextBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageProductList.SuspendLayout();
@@ -171,16 +183,28 @@
             tabPageProductDetail.Controls.Add(txtProductName);
             tabPageProductDetail.Controls.Add(labelUomId);
             tabPageProductDetail.Controls.Add(comboBoxUomId);
-            tabPageProductDetail.Controls.Add(labelCategoryId);
-            tabPageProductDetail.Controls.Add(comboBoxCategoryId);
+            tabPageProductDetail.Controls.Add(labelMainCategoryId);
+            tabPageProductDetail.Controls.Add(comboBoxMainCategoryId);
+            tabPageProductDetail.Controls.Add(labelFirstCategoryId);
+            tabPageProductDetail.Controls.Add(comboBoxFirstCategoryId);
+            tabPageProductDetail.Controls.Add(labelBrandId);
+            tabPageProductDetail.Controls.Add(comboBoxBrandId);
             tabPageProductDetail.Controls.Add(labelTaxCategoryId);
             tabPageProductDetail.Controls.Add(comboBoxTaxCategoryId);
             tabPageProductDetail.Controls.Add(labelBarcode);
             tabPageProductDetail.Controls.Add(txtBarcode);
-            tabPageProductDetail.Controls.Add(labelUnits);
-            tabPageProductDetail.Controls.Add(txtUnits);
-            tabPageProductDetail.Controls.Add(labelPrice);
-            tabPageProductDetail.Controls.Add(txtPrice);
+            tabPageProductDetail.Controls.Add(labelProductUnits);
+            tabPageProductDetail.Controls.Add(txtProductUnits);
+            tabPageProductDetail.Controls.Add(labelWholeSalePrice);
+            tabPageProductDetail.Controls.Add(txtWholeSalePrice);
+            tabPageProductDetail.Controls.Add(labelRetailSalePrice);
+            tabPageProductDetail.Controls.Add(txtRetailSalePrice);
+            tabPageProductDetail.Controls.Add(labelProductSize);
+            tabPageProductDetail.Controls.Add(txtProductSize);
+            tabPageProductDetail.Controls.Add(labelProductColor);
+            tabPageProductDetail.Controls.Add(txtProductColor);
+            tabPageProductDetail.Controls.Add(labelProductWeight);
+            tabPageProductDetail.Controls.Add(txtProductWeight);
             tabPageProductDetail.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabPageProductDetail.Location = new Point(4, 24);
             tabPageProductDetail.Margin = new Padding(4, 3, 4, 3);
@@ -267,95 +291,203 @@
             comboBoxUomId.Size = new Size(195, 32);
             comboBoxUomId.TabIndex = 20;
             // 
-            // labelCategoryId
+            // labelMainCategoryId
             // 
-            labelCategoryId.AutoSize = true;
-            labelCategoryId.Location = new Point(368, 178);
-            labelCategoryId.Margin = new Padding(4, 0, 4, 0);
-            labelCategoryId.Name = "labelCategoryId";
-            labelCategoryId.Size = new Size(90, 24);
-            labelCategoryId.TabIndex = 13;
-            labelCategoryId.Text = "Category:";
+            labelMainCategoryId.AutoSize = true;
+            labelMainCategoryId.Location = new Point(218, 200);
+            labelMainCategoryId.Margin = new Padding(4, 0, 4, 0);
+            labelMainCategoryId.Name = "labelMainCategoryId";
+            labelMainCategoryId.Size = new Size(169, 24);
+            labelMainCategoryId.TabIndex = 19;
+            labelMainCategoryId.Text = "Main Category ID:";
             // 
-            // comboBoxCategoryId
+            // comboBoxMainCategoryId
             // 
-            comboBoxCategoryId.FormattingEnabled = true;
-            comboBoxCategoryId.Location = new Point(368, 205);
-            comboBoxCategoryId.Name = "comboBoxCategoryId";
-            comboBoxCategoryId.Size = new Size(210, 32);
-            comboBoxCategoryId.TabIndex = 21;
+            comboBoxMainCategoryId.Location = new Point(218, 227);
+            comboBoxMainCategoryId.Margin = new Padding(4, 3, 4, 3);
+            comboBoxMainCategoryId.Name = "comboBoxMainCategoryId";
+            comboBoxMainCategoryId.Size = new Size(432, 29);
+            comboBoxMainCategoryId.TabIndex = 20;
+            // 
+            // labelFirstCategoryId
+            // 
+            labelFirstCategoryId.AutoSize = true;
+            labelFirstCategoryId.Location = new Point(218, 270);
+            labelFirstCategoryId.Margin = new Padding(4, 0, 4, 0);
+            labelFirstCategoryId.Name = "labelFirstCategoryId";
+            labelFirstCategoryId.Size = new Size(150, 24);
+            labelFirstCategoryId.TabIndex = 21;
+            labelFirstCategoryId.Text = "First Category ID:";
+            // 
+            // comboBoxFirstCategoryId
+            // 
+            comboBoxFirstCategoryId.Location = new Point(218, 297);
+            comboBoxFirstCategoryId.Margin = new Padding(4, 3, 4, 3);
+            comboBoxFirstCategoryId.Name = "comboBoxFirstCategoryId";
+            comboBoxFirstCategoryId.Size = new Size(432, 29);
+            comboBoxFirstCategoryId.TabIndex = 22;
+            // 
+            // labelBrandId
+            // 
+            labelBrandId.AutoSize = true;
+            labelBrandId.Location = new Point(218, 340);
+            labelBrandId.Margin = new Padding(4, 0, 4, 0);
+            labelBrandId.Name = "labelBrandId";
+            labelBrandId.Size = new Size(87, 24);
+            labelBrandId.TabIndex = 23;
+            labelBrandId.Text = "Brand ID:";
+            // 
+            // comboBoxBrandId
+            // 
+            comboBoxBrandId.Location = new Point(218, 367);
+            comboBoxBrandId.Margin = new Padding(4, 3, 4, 3);
+            comboBoxBrandId.Name = "comboBoxBrandId";
+            comboBoxBrandId.Size = new Size(432, 29);
+            comboBoxBrandId.TabIndex = 24;
             // 
             // labelTaxCategoryId
             // 
             labelTaxCategoryId.AutoSize = true;
-            labelTaxCategoryId.Location = new Point(597, 167);
+            labelTaxCategoryId.Location = new Point(218, 410);
             labelTaxCategoryId.Margin = new Padding(4, 0, 4, 0);
             labelTaxCategoryId.Name = "labelTaxCategoryId";
-            labelTaxCategoryId.Size = new Size(127, 24);
-            labelTaxCategoryId.TabIndex = 22;
-            labelTaxCategoryId.Text = "Tax Category:";
+            labelTaxCategoryId.Size = new Size(147, 24);
+            labelTaxCategoryId.TabIndex = 25;
+            labelTaxCategoryId.Text = "Tax Category ID:";
             // 
             // comboBoxTaxCategoryId
             // 
-            comboBoxTaxCategoryId.FormattingEnabled = true;
-            comboBoxTaxCategoryId.Location = new Point(597, 205);
+            comboBoxTaxCategoryId.Location = new Point(218, 437);
+            comboBoxTaxCategoryId.Margin = new Padding(4, 3, 4, 3);
             comboBoxTaxCategoryId.Name = "comboBoxTaxCategoryId";
-            comboBoxTaxCategoryId.Size = new Size(231, 32);
-            comboBoxTaxCategoryId.TabIndex = 23;
+            comboBoxTaxCategoryId.Size = new Size(432, 29);
+            comboBoxTaxCategoryId.TabIndex = 26;
             // 
             // labelBarcode
             // 
             labelBarcode.AutoSize = true;
-            labelBarcode.Location = new Point(154, 249);
+            labelBarcode.Location = new Point(218, 480);
             labelBarcode.Margin = new Padding(4, 0, 4, 0);
             labelBarcode.Name = "labelBarcode";
             labelBarcode.Size = new Size(86, 24);
-            labelBarcode.TabIndex = 24;
+            labelBarcode.TabIndex = 27;
             labelBarcode.Text = "Barcode:";
             // 
             // txtBarcode
             // 
-            txtBarcode.Location = new Point(154, 285);
+            txtBarcode.Location = new Point(218, 507);
             txtBarcode.Margin = new Padding(4, 3, 4, 3);
             txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(195, 29);
-            txtBarcode.TabIndex = 25;
+            txtBarcode.Size = new Size(432, 29);
+            txtBarcode.TabIndex = 28;
             // 
-            // labelUnits
+            // labelProductUnits
             // 
-            labelUnits.AutoSize = true;
-            labelUnits.Location = new Point(368, 249);
-            labelUnits.Margin = new Padding(4, 0, 4, 0);
-            labelUnits.Name = "labelUnits";
-            labelUnits.Size = new Size(56, 24);
-            labelUnits.TabIndex = 26;
-            labelUnits.Text = "Units:";
+            labelProductUnits.AutoSize = true;
+            labelProductUnits.Location = new Point(218, 550);
+            labelProductUnits.Margin = new Padding(4, 0, 4, 0);
+            labelProductUnits.Name = "labelProductUnits";
+            labelProductUnits.Size = new Size(129, 24);
+            labelProductUnits.TabIndex = 29;
+            labelProductUnits.Text = "Product Units:";
             // 
-            // txtUnits
+            // txtProductUnits
             // 
-            txtUnits.Location = new Point(368, 285);
-            txtUnits.Margin = new Padding(4, 3, 4, 3);
-            txtUnits.Name = "txtUnits";
-            txtUnits.Size = new Size(210, 29);
-            txtUnits.TabIndex = 27;
+            txtProductUnits.Location = new Point(218, 577);
+            txtProductUnits.Margin = new Padding(4, 3, 4, 3);
+            txtProductUnits.Name = "txtProductUnits";
+            txtProductUnits.Size = new Size(432, 29);
+            txtProductUnits.TabIndex = 30;
             // 
-            // labelPrice
+            // labelWholeSalePrice
             // 
-            labelPrice.AutoSize = true;
-            labelPrice.Location = new Point(597, 249);
-            labelPrice.Margin = new Padding(4, 0, 4, 0);
-            labelPrice.Name = "labelPrice";
-            labelPrice.Size = new Size(58, 24);
-            labelPrice.TabIndex = 28;
-            labelPrice.Text = "Price:";
+            labelWholeSalePrice.AutoSize = true;
+            labelWholeSalePrice.Location = new Point(674, 59);
+            labelWholeSalePrice.Margin = new Padding(4, 0, 4, 0);
+            labelWholeSalePrice.Name = "labelWholeSalePrice";
+            labelWholeSalePrice.Size = new Size(149, 24);
+            labelWholeSalePrice.TabIndex = 31;
+            labelWholeSalePrice.Text = "Whole Sale Price:";
             // 
-            // txtPrice
+            // txtWholeSalePrice
             // 
-            txtPrice.Location = new Point(597, 285);
-            txtPrice.Margin = new Padding(4, 3, 4, 3);
-            txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(231, 29);
-            txtPrice.TabIndex = 29;
+            txtWholeSalePrice.Location = new Point(674, 98);
+            txtWholeSalePrice.Margin = new Padding(4, 3, 4, 3);
+            txtWholeSalePrice.Name = "txtWholeSalePrice";
+            txtWholeSalePrice.Size = new Size(432, 29);
+            txtWholeSalePrice.TabIndex = 32;
+            // 
+            // labelRetailSalePrice
+            // 
+            labelRetailSalePrice.AutoSize = true;
+            labelRetailSalePrice.Location = new Point(674, 130);
+            labelRetailSalePrice.Margin = new Padding(4, 0, 4, 0);
+            labelRetailSalePrice.Name = "labelRetailSalePrice";
+            labelRetailSalePrice.Size = new Size(142, 24);
+            labelRetailSalePrice.TabIndex = 33;
+            labelRetailSalePrice.Text = "Retail Sale Price:";
+            // 
+            // txtRetailSalePrice
+            // 
+            txtRetailSalePrice.Location = new Point(674, 157);
+            txtRetailSalePrice.Margin = new Padding(4, 3, 4, 3);
+            txtRetailSalePrice.Name = "txtRetailSalePrice";
+            txtRetailSalePrice.Size = new Size(432, 29);
+            txtRetailSalePrice.TabIndex = 34;
+            // 
+            // labelProductSize
+            // 
+            labelProductSize.AutoSize = true;
+            labelProductSize.Location = new Point(674, 200);
+            labelProductSize.Margin = new Padding(4, 0, 4, 0);
+            labelProductSize.Name = "labelProductSize";
+            labelProductSize.Size = new Size(120, 24);
+            labelProductSize.TabIndex = 35;
+            labelProductSize.Text = "Product Size:";
+            // 
+            // txtProductSize
+            // 
+            txtProductSize.Location = new Point(674, 227);
+            txtProductSize.Margin = new Padding(4, 3, 4, 3);
+            txtProductSize.Name = "txtProductSize";
+            txtProductSize.Size = new Size(432, 29);
+            txtProductSize.TabIndex = 36;
+            // 
+            // labelProductColor
+            // 
+            labelProductColor.AutoSize = true;
+            labelProductColor.Location = new Point(674, 270);
+            labelProductColor.Margin = new Padding(4, 0, 4, 0);
+            labelProductColor.Name = "labelProductColor";
+            labelProductColor.Size = new Size(132, 24);
+            labelProductColor.TabIndex = 37;
+            labelProductColor.Text = "Product Color:";
+            // 
+            // txtProductColor
+            // 
+            txtProductColor.Location = new Point(674, 297);
+            txtProductColor.Margin = new Padding(4, 3, 4, 3);
+            txtProductColor.Name = "txtProductColor";
+            txtProductColor.Size = new Size(432, 29);
+            txtProductColor.TabIndex = 38;
+            // 
+            // labelProductWeight
+            // 
+            labelProductWeight.AutoSize = true;
+            labelProductWeight.Location = new Point(674, 340);
+            labelProductWeight.Margin = new Padding(4, 0, 4, 0);
+            labelProductWeight.Name = "labelProductWeight";
+            labelProductWeight.Size = new Size(142, 24);
+            labelProductWeight.TabIndex = 39;
+            labelProductWeight.Text = "Product Weight:";
+            // 
+            // txtProductWeight
+            // 
+            txtProductWeight.Location = new Point(674, 367);
+            txtProductWeight.Margin = new Padding(4, 3, 4, 3);
+            txtProductWeight.Name = "txtProductWeight";
+            txtProductWeight.Size = new Size(432, 29);
+            txtProductWeight.TabIndex = 40;
             // 
             // ProductPageForm
             // 
@@ -395,15 +527,27 @@
         private TextBox txtProductName;
         private Label labelUomId;
         private ComboBox comboBoxUomId;
-        private Label labelCategoryId;
-        private ComboBox comboBoxCategoryId;
+        private Label labelMainCategoryId;
+        private ComboBox comboBoxMainCategoryId;
+        private Label labelFirstCategoryId;
+        private ComboBox comboBoxFirstCategoryId;
+        private Label labelBrandId;
+        private ComboBox comboBoxBrandId;
         private Label labelTaxCategoryId;
         private ComboBox comboBoxTaxCategoryId;
         private Label labelBarcode;
         private TextBox txtBarcode;
-        private Label labelUnits;
-        private TextBox txtUnits;
-        private Label labelPrice;
-        private TextBox txtPrice;
+        private Label labelProductUnits;
+        private TextBox txtProductUnits;
+        private Label labelWholeSalePrice;
+        private TextBox txtWholeSalePrice;
+        private Label labelRetailSalePrice;
+        private TextBox txtRetailSalePrice;
+        private Label labelProductSize;
+        private TextBox txtProductSize;
+        private Label labelProductColor;
+        private TextBox txtProductColor;
+        private Label labelProductWeight;
+        private TextBox txtProductWeight;
     }
 }

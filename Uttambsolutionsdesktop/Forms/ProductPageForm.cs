@@ -144,21 +144,15 @@ namespace Uttambsolutionsdesktop.Forms
 
         public void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData)
         {
-            comboBoxCategoryId.DataSource = mainCategoryData;
-            comboBoxCategoryId.ValueMember = "MainCategoryId"; // Set the value member to the appropriate property name
-            comboBoxCategoryId.DisplayMember = "MainCategoryName"; // Set the display member to the appropriate property name
+            comboBoxMainCategoryId.DataSource = mainCategoryData;
+            comboBoxMainCategoryId.ValueMember = "MainCategoryId"; // Set the value member to the appropriate property name
+            comboBoxMainCategoryId.DisplayMember = "MainCategoryName"; // Set the display member to the appropriate property name
         }
         public void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
         {
-            comboBoxCategoryId.DataSource = firstCategoryData;
-            comboBoxCategoryId.ValueMember = "FirstCategoryId"; // Set the value member to the appropriate property name
-            comboBoxCategoryId.DisplayMember = "FirstCategoryName"; // Set the display member to the appropriate property name
-        }
-        public void PopulateThirdCategoryComboBox(List<ThirdCategory> thirdCategoryData)
-        {
-            comboBoxCategoryId.DataSource = thirdCategoryData;
-            comboBoxCategoryId.ValueMember = "thirdCategoryId"; // Set the value member to the appropriate property name
-            comboBoxCategoryId.DisplayMember = "ThirdCategoryName"; // Set the display member to the appropriate property name
+            comboBoxFirstCategoryId.DataSource = firstCategoryData;
+            comboBoxFirstCategoryId.ValueMember = "FirstCategoryId"; // Set the value member to the appropriate property name
+            comboBoxFirstCategoryId.DisplayMember = "FirstCategoryName"; // Set the display member to the appropriate property name
         }
 
         public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
@@ -194,7 +188,6 @@ namespace Uttambsolutionsdesktop.Forms
             PopulateUomComboBox(uomData);
             PopulateMainCategoryComboBox(mainCategoryData);
             PopulateFirstCategoryComboBox(firstCategoryData);
-            PopulateThirdCategoryComboBox(thirdCategoryData);
             PopulateTaxCategoryComboBox(taxCategoryData);
         }
         private void AssociateAndRaiseViewEvents()

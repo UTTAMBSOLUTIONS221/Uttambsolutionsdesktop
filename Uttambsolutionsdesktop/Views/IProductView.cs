@@ -44,7 +44,6 @@ namespace Uttambsolutionsdesktop.Views
         void PopulateUomComboBox(List<SystemUoms> uomData);
         void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData);
         void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData);
-        void PopulateThirdCategoryComboBox(List<ThirdCategory> thirdCategoryData);
         void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData);
 
     }
