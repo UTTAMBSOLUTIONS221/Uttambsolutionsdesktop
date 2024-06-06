@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uttambsolutionsdesktop.Views;
+using DBL.Models;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
@@ -16,7 +17,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private readonly BL _bl;
         private BindingSource productsBindingSource;
         private BindingSource productsSaleBindingSource;
-        private IEnumerable<SystemProduct> productSearchDataList;
+        private IEnumerable<SystemProductData> productSearchDataList;
         private IEnumerable<FirstCategory> productSalesDataList;
 
         public ProductSalePresenter(IProductSaleView view, string userId, string connectionString)
@@ -38,7 +39,10 @@ namespace Uttambsolutionsdesktop.Presenters
         private async void SearchProduct(object sender, EventArgs e)
         {
             bool emptyValue = string.IsNullOrWhiteSpace(this._view.ProductSearchValue);
-            productSearchDataList = (IEnumerable<SystemProduct>)await _bl.GetProductsByValue(this._view.ProductSearchValue);
+            if (!emptyValue)
+                productSearchDataList = await _bl.GetProductsByValue(this._view.ProductSearchValue);
+            else
+                productSearchDataList = await _bl.GetAllProducts();
             productsBindingSource.DataSource = productSearchDataList;
         }
         
