@@ -351,7 +351,8 @@ namespace Uttambsolutionsdesktop
                 string createOrderTableQuery = "CREATE TABLE IF NOT EXISTS CustomerOrder (" +
                                                            "OrderId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                            "OrderCode TEXT, " +
-                                                           "OrderTotal REAL, " +
+                                                           "OrderGrossTotal REAL, " +
+                                                           "OrderNetTotal REAL, " +
                                                            "OrderVatTotal REAL, " +
                                                            "Createdby INTEGER, " +
                                                            "Modifiedby INTEGER, " +
@@ -370,7 +371,8 @@ namespace Uttambsolutionsdesktop
                                                            "ProductPrice REAL, " +
                                                            "ProductVat REAL, " +
                                                            "ProductUnits REAL, " +
-                                                           "ItemTotal REAL, " +
+                                                           "ItemGrossTotal REAL, " +
+                                                           "ItemNetTotal REAL, " +
                                                            "ItemVatTotal REAL, " +
                                                            "Createdby INTEGER, " +
                                                            "Modifiedby INTEGER, " +
