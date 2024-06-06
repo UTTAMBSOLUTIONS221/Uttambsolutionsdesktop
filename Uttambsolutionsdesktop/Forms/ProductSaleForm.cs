@@ -72,21 +72,45 @@ namespace Uttambsolutionsdesktop.Forms
         {
             if (sender is DataGridView dataGridView)
             {
+                if (dataGridView.Columns.Contains("ProductId"))
+                {
+                    dataGridView.Columns["ProductId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("BrandId"))
+                {
+                    dataGridView.Columns["BrandId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("UomId"))
+                {
+                    dataGridView.Columns["UomId"].Visible = false;
+                }
                 if (dataGridView.Columns.Contains("MainCategoryId"))
                 {
                     dataGridView.Columns["MainCategoryId"].Visible = false;
                 }
-                if (dataGridView.Columns.Contains("Createdby"))
+                if (dataGridView.Columns.Contains("FirstCategoryId"))
                 {
-                    dataGridView.Columns["Createdby"].Visible = false;
+                    dataGridView.Columns["FirstCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("WholeSalePrice"))
+                {
+                    dataGridView.Columns["WholeSalePrice"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("ProfitMargin"))
+                {
+                    dataGridView.Columns["ProfitMargin"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("TaxCategoryId"))
+                {
+                    dataGridView.Columns["TaxCategoryId"].Visible = false;
                 }
                 if (dataGridView.Columns.Contains("Modifiedby"))
                 {
                     dataGridView.Columns["Modifiedby"].Visible = false;
                 }
-                if (dataGridView.Columns.Contains("DateModified"))
+                if (dataGridView.Columns.Contains("Datemodified"))
                 {
-                    dataGridView.Columns["DateModified"].Visible = false;
+                    dataGridView.Columns["Datemodified"].Visible = false;
                 }
             }
         }

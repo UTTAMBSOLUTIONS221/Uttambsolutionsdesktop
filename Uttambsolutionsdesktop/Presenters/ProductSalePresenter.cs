@@ -43,8 +43,6 @@ namespace Uttambsolutionsdesktop.Presenters
             string searchValue = _view.ProductSearchValue;
             if (!string.IsNullOrWhiteSpace(searchValue))
                 productSearchDataList =await  _bl.GetProductsByValue(searchValue);
-            else
-                productSearchDataList = await _bl.GetAllProducts();
             productsBindingSource.DataSource = productSearchDataList;
             _view.SetProductSearchDataListBindingSource(productsBindingSource);
         }
