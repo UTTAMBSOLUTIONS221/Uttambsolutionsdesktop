@@ -29,8 +29,8 @@ namespace Uttambsolutionsdesktop.Forms
         // Properties
         public string ProductSearchValue
         {
-            get { return txtProductName.Text; }
-            set { txtProductName.Text = value; }
+            get { return txtSearchProduct.Text; }
+            set { txtSearchProduct.Text = value; }
         }
 
         // Constructors
