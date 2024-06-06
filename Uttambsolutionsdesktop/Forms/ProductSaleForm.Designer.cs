@@ -17,12 +17,12 @@ namespace Uttambsolutionsdesktop.Forms
             panel1 = new Panel();
             btnCancel = new Button();
             btnSave = new Button();
-            dataGridView = new DataGridView();
+            dataGridViewProducts = new DataGridView();
             lblProductName = new Label();
             lblProductSaleQuantity = new Label();
             lblSaleTotal = new Label();
             txtSaleTotal = new TextBox();
-            dataGridView1 = new DataGridView();
+            dataGridViewProductSales = new DataGridView();
             txtProductSaleQuantity = new TextBox();
             lblProductPrice = new Label();
             txtProductVat = new TextBox();
@@ -35,8 +35,8 @@ namespace Uttambsolutionsdesktop.Forms
             btnSearchSale = new Button();
             btnPrintReciept = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -83,10 +83,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // dataGridView
             // 
-            dataGridView.Location = new Point(14, 97);
-            dataGridView.Name = "dataGridView";
-            dataGridView.Size = new Size(596, 119);
-            dataGridView.TabIndex = 2;
+            dataGridViewProducts.Location = new Point(14, 97);
+            dataGridViewProducts.Name = "dataGridView";
+            dataGridViewProducts.Size = new Size(596, 119);
+            dataGridViewProducts.TabIndex = 2;
             // 
             // lblProductName
             // 
@@ -122,10 +122,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // dataGridView1
             // 
-            dataGridView1.Location = new Point(14, 264);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(930, 221);
-            dataGridView1.TabIndex = 22;
+            dataGridViewProductSales.Location = new Point(14, 264);
+            dataGridViewProductSales.Name = "dataGridView1";
+            dataGridViewProductSales.Size = new Size(930, 221);
+            dataGridViewProductSales.TabIndex = 22;
             // 
             // txtProductSaleQuantity
             // 
@@ -234,9 +234,9 @@ namespace Uttambsolutionsdesktop.Forms
             Controls.Add(txtProductVat);
             Controls.Add(lblProductPrice);
             Controls.Add(txtProductSaleQuantity);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewProductSales);
             Controls.Add(panel1);
-            Controls.Add(dataGridView);
+            Controls.Add(dataGridViewProducts);
             Controls.Add(lblProductName);
             Controls.Add(lblProductSaleQuantity);
             Controls.Add(lblSaleTotal);
@@ -247,8 +247,8 @@ namespace Uttambsolutionsdesktop.Forms
             Size = new Size(1065, 500);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,8 +271,8 @@ namespace Uttambsolutionsdesktop.Forms
         private Button btnSearchProduct;
         private Button btnSearchSale;
         private Button btnPrintReciept;
-        private DataGridView dataGridView;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewProducts;
+        private DataGridView dataGridViewProductSales;
     }
 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uttambsolutionsdesktop.Views
 {
-    internal class IProductSaleView
+    public interface IProductSaleView
     {
     }
 }
