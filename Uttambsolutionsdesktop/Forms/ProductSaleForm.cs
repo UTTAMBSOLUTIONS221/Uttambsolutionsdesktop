@@ -142,7 +142,7 @@ namespace Uttambsolutionsdesktop.Forms
                 }
             };
 
-            btnSave.Click += delegate
+            btnAddOrder.Click += delegate
             {
                 SaveSaleDataEvent?.Invoke(this, EventArgs.Empty);
             };

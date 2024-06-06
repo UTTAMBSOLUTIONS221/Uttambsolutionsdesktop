@@ -16,7 +16,7 @@ namespace Uttambsolutionsdesktop.Forms
             label1 = new Label();
             panel1 = new Panel();
             btnCancel = new Button();
-            btnSave = new Button();
+            btnAddOrder = new Button();
             dataGridViewProducts = new DataGridView();
             lblProductName = new Label();
             lblProductSaleQuantity = new Label();
@@ -37,9 +37,12 @@ namespace Uttambsolutionsdesktop.Forms
             btnPrintReciept = new Button();
             lblVatTotal = new Label();
             txtVatTotal = new TextBox();
+            dataGridView1 = new DataGridView();
+            btnSave = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -74,15 +77,15 @@ namespace Uttambsolutionsdesktop.Forms
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnSave
+            // btnAddOrder
             // 
-            btnSave.Location = new Point(681, 178);
-            btnSave.Margin = new Padding(4, 3, 4, 3);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(120, 38);
-            btnSave.TabIndex = 14;
-            btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnAddOrder.Location = new Point(681, 178);
+            btnAddOrder.Margin = new Padding(4, 3, 4, 3);
+            btnAddOrder.Name = "btnAddOrder";
+            btnAddOrder.Size = new Size(120, 38);
+            btnAddOrder.TabIndex = 14;
+            btnAddOrder.Text = "Add";
+            btnAddOrder.UseVisualStyleBackColor = true;
             // 
             // dataGridViewProducts
             // 
@@ -127,7 +130,7 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             dataGridViewProductSales.Location = new Point(14, 264);
             dataGridViewProductSales.Name = "dataGridViewProductSales";
-            dataGridViewProductSales.Size = new Size(930, 221);
+            dataGridViewProductSales.Size = new Size(596, 221);
             dataGridViewProductSales.TabIndex = 22;
             // 
             // txtProductSaleQuantity
@@ -180,10 +183,10 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             // txtProductId
             // 
-            txtProductId.Location = new Point(627, 200);
+            txtProductId.Location = new Point(627, 187);
             txtProductId.Name = "txtProductId";
             txtProductId.ReadOnly = true;
-            txtProductId.Size = new Size(174, 23);
+            txtProductId.Size = new Size(54, 23);
             txtProductId.TabIndex = 34;
             txtProductId.Visible = false;
             // 
@@ -208,22 +211,22 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             txtSearchSale.Location = new Point(14, 232);
             txtSearchSale.Name = "txtSearchSale";
-            txtSearchSale.Size = new Size(802, 23);
+            txtSearchSale.Size = new Size(379, 23);
             txtSearchSale.TabIndex = 32;
             // 
             // btnSearchSale
             // 
-            btnSearchSale.Location = new Point(823, 232);
+            btnSearchSale.Location = new Point(400, 227);
             btnSearchSale.Margin = new Padding(4, 3, 4, 3);
             btnSearchSale.Name = "btnSearchSale";
-            btnSearchSale.Size = new Size(120, 26);
+            btnSearchSale.Size = new Size(91, 31);
             btnSearchSale.TabIndex = 31;
             btnSearchSale.Text = "Search";
             btnSearchSale.UseVisualStyleBackColor = true;
             // 
             // btnPrintReciept
             // 
-            btnPrintReciept.Location = new Point(951, 264);
+            btnPrintReciept.Location = new Point(505, 227);
             btnPrintReciept.Margin = new Padding(4, 3, 4, 3);
             btnPrintReciept.Name = "btnPrintReciept";
             btnPrintReciept.Size = new Size(105, 31);
@@ -247,10 +250,29 @@ namespace Uttambsolutionsdesktop.Forms
             txtVatTotal.Size = new Size(111, 23);
             txtVatTotal.TabIndex = 36;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.Location = new Point(627, 227);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(424, 221);
+            dataGridView1.TabIndex = 37;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(666, 454);
+            btnSave.Margin = new Padding(4, 3, 4, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(368, 38);
+            btnSave.TabIndex = 38;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            // 
             // ProductSaleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnSave);
+            Controls.Add(dataGridView1);
             Controls.Add(lblVatTotal);
             Controls.Add(txtVatTotal);
             Controls.Add(btnPrintReciept);
@@ -272,7 +294,7 @@ namespace Uttambsolutionsdesktop.Forms
             Controls.Add(lblProductSaleQuantity);
             Controls.Add(lblSaleTotal);
             Controls.Add(txtSaleTotal);
-            Controls.Add(btnSave);
+            Controls.Add(btnAddOrder);
             Controls.Add(btnCancel);
             Name = "ProductSaleForm";
             Size = new Size(1065, 500);
@@ -280,6 +302,7 @@ namespace Uttambsolutionsdesktop.Forms
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -300,7 +323,7 @@ namespace Uttambsolutionsdesktop.Forms
         private TextBox txtSearchProduct;
         private TextBox txtSearchSale;
         private Button btnCancel;
-        private Button btnSave;
+        private Button btnAddOrder;
         private Button btnSearchProduct;
         private Button btnSearchSale;
         private Button btnPrintReciept;
@@ -308,6 +331,9 @@ namespace Uttambsolutionsdesktop.Forms
         private DataGridView dataGridViewProductSales;
         private Label lblVatTotal;
         private TextBox txtVatTotal;
+        private DataGridView dataGridView1;
+        private Button button1;
+        private Button btnSave;
     }
 }
 
