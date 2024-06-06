@@ -342,7 +342,7 @@ namespace Uttambsolutionsdesktop
                                                   "Datecreated DATETIME, " +
                                                   "Datemodified DATETIME, " +
                                                   "FOREIGN KEY (UomId) REFERENCES UnitOfMeasure(UomId), " +
-                                                  "FOREIGN KEY (ThirdCategoryId) REFERENCES ThirdCategy(CategoryId), " +
+                                                  "FOREIGN KEY (MainCategoryId) REFERENCES MainCategy(MainCategoryId), " +
                                                   "FOREIGN KEY (TaxCategoryId) REFERENCES TaxCategory(TaxCategoryId))";
                 using (SQLiteCommand cmd = new SQLiteCommand(createProductTableQuery, conn))
                 {
