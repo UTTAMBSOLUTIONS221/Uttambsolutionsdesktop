@@ -21,10 +21,10 @@ namespace Uttambsolutionsdesktop.Forms
         private Button btnAddNew;
         private Label labelMainCategoryId;
 
-        private Label labelCategoryName;
-        private Label labelQuantity;
-        private Label labelTotal;
-        private TextBox txtTotal;
+        private Label lblProductName;
+        private Label lblProductSaleQuantity;
+        private Label lblSaleTotal;
+        private TextBox txtSaleTotal;
         public ProductSaleForm()
         {
             InitializeComponent();
@@ -46,22 +46,22 @@ namespace Uttambsolutionsdesktop.Forms
             btnEdit = new Button();
             btnAddNew = new Button();
             labelMainCategoryId = new Label();
-            labelCategoryName = new Label();
-            labelQuantity = new Label();
-            labelTotal = new Label();
-            txtTotal = new TextBox();
+            lblProductName = new Label();
+            lblProductSaleQuantity = new Label();
+            lblSaleTotal = new Label();
+            txtSaleTotal = new TextBox();
             dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            button2 = new Button();
-            button3 = new Button();
+            txtProductSaleQuantity = new TextBox();
+            lblProductPrice = new Label();
+            txtProductVat = new TextBox();
+            lblProductVat = new Label();
+            txtProductPrice = new TextBox();
+            txtProductName = new TextBox();
+            btnSearchProduct = new Button();
+            txtSearchProduct = new TextBox();
+            txtSearchSale = new TextBox();
+            btnSearchSale = new Button();
+            btnPrintReciept = new Button();
             panel1.SuspendLayout();
             tabPageCategoryDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -209,37 +209,37 @@ namespace Uttambsolutionsdesktop.Forms
             labelMainCategoryId.TabIndex = 3;
             labelMainCategoryId.Text = "Main Category:";
             // 
-            // labelCategoryName
+            // lblProductName
             // 
-            labelCategoryName.Location = new Point(627, 65);
-            labelCategoryName.Name = "labelCategoryName";
-            labelCategoryName.Size = new Size(100, 23);
-            labelCategoryName.TabIndex = 17;
-            labelCategoryName.Text = "Product Name:";
+            lblProductName.Location = new Point(627, 65);
+            lblProductName.Name = "lblProductName";
+            lblProductName.Size = new Size(100, 23);
+            lblProductName.TabIndex = 17;
+            lblProductName.Text = "Product Name:";
             // 
-            // labelQuantity
+            // lblProductSaleQuantity
             // 
-            labelQuantity.Location = new Point(627, 123);
-            labelQuantity.Name = "labelQuantity";
-            labelQuantity.Size = new Size(100, 23);
-            labelQuantity.TabIndex = 18;
-            labelQuantity.Text = "Quantity:";
+            lblProductSaleQuantity.Location = new Point(627, 123);
+            lblProductSaleQuantity.Name = "lblProductSaleQuantity";
+            lblProductSaleQuantity.Size = new Size(100, 23);
+            lblProductSaleQuantity.TabIndex = 18;
+            lblProductSaleQuantity.Text = "Quantity:";
             // 
-            // labelTotal
+            // lblSaleTotal
             // 
-            labelTotal.Location = new Point(821, 123);
-            labelTotal.Name = "labelTotal";
-            labelTotal.Size = new Size(122, 23);
-            labelTotal.TabIndex = 20;
-            labelTotal.Text = "Total:";
+            lblSaleTotal.Location = new Point(821, 123);
+            lblSaleTotal.Name = "lblSaleTotal";
+            lblSaleTotal.Size = new Size(122, 23);
+            lblSaleTotal.TabIndex = 20;
+            lblSaleTotal.Text = "Total:";
             // 
-            // txtTotal
+            // txtSaleTotal
             // 
-            txtTotal.Location = new Point(820, 149);
-            txtTotal.Name = "txtTotal";
-            txtTotal.ReadOnly = true;
-            txtTotal.Size = new Size(237, 23);
-            txtTotal.TabIndex = 21;
+            txtSaleTotal.Location = new Point(820, 149);
+            txtSaleTotal.Name = "txtSaleTotal";
+            txtSaleTotal.ReadOnly = true;
+            txtSaleTotal.Size = new Size(237, 23);
+            txtSaleTotal.TabIndex = 21;
             // 
             // dataGridView1
             // 
@@ -248,121 +248,121 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridView1.Size = new Size(930, 221);
             dataGridView1.TabIndex = 22;
             // 
-            // textBox1
+            // txtProductSaleQuantity
             // 
-            textBox1.Location = new Point(627, 149);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(174, 23);
-            textBox1.TabIndex = 23;
+            txtProductSaleQuantity.Location = new Point(627, 149);
+            txtProductSaleQuantity.Name = "txtProductSaleQuantity";
+            txtProductSaleQuantity.Size = new Size(174, 23);
+            txtProductSaleQuantity.TabIndex = 23;
             // 
-            // label2
+            // lblProductPrice
             // 
-            label2.Location = new Point(820, 65);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 23);
-            label2.TabIndex = 24;
-            label2.Text = "Price:";
+            lblProductPrice.Location = new Point(820, 65);
+            lblProductPrice.Name = "lblProductPrice";
+            lblProductPrice.Size = new Size(100, 23);
+            lblProductPrice.TabIndex = 24;
+            lblProductPrice.Text = "Price:";
             // 
-            // textBox2
+            // txtProductVat
             // 
-            textBox2.Location = new Point(951, 91);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(106, 23);
-            textBox2.TabIndex = 25;
+            txtProductVat.Location = new Point(951, 91);
+            txtProductVat.Name = "txtProductVat";
+            txtProductVat.ReadOnly = true;
+            txtProductVat.Size = new Size(106, 23);
+            txtProductVat.TabIndex = 25;
             // 
-            // label3
+            // lblProductVat
             // 
-            label3.Location = new Point(949, 65);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 23);
-            label3.TabIndex = 26;
-            label3.Text = "Vat:";
+            lblProductVat.Location = new Point(949, 65);
+            lblProductVat.Name = "lblProductVat";
+            lblProductVat.Size = new Size(100, 23);
+            lblProductVat.TabIndex = 26;
+            lblProductVat.Text = "Vat:";
             // 
-            // textBox3
+            // txtProductPrice
             // 
-            textBox3.Location = new Point(820, 91);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(123, 23);
-            textBox3.TabIndex = 27;
+            txtProductPrice.Location = new Point(820, 91);
+            txtProductPrice.Name = "txtProductPrice";
+            txtProductPrice.ReadOnly = true;
+            txtProductPrice.Size = new Size(123, 23);
+            txtProductPrice.TabIndex = 27;
             // 
-            // textBox4
+            // txtProductName
             // 
-            textBox4.Location = new Point(627, 91);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(174, 23);
-            textBox4.TabIndex = 28;
+            txtProductName.Location = new Point(627, 91);
+            txtProductName.Name = "txtProductName";
+            txtProductName.ReadOnly = true;
+            txtProductName.Size = new Size(174, 23);
+            txtProductName.TabIndex = 28;
             // 
-            // button1
+            // btnSearchProduct
             // 
-            button1.Location = new Point(490, 65);
-            button1.Margin = new Padding(4, 3, 4, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 26);
-            button1.TabIndex = 29;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
+            btnSearchProduct.Location = new Point(490, 65);
+            btnSearchProduct.Margin = new Padding(4, 3, 4, 3);
+            btnSearchProduct.Name = "btnSearchProduct";
+            btnSearchProduct.Size = new Size(120, 26);
+            btnSearchProduct.TabIndex = 29;
+            btnSearchProduct.Text = "Search";
+            btnSearchProduct.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtSearchProduct
             // 
-            textBox5.Location = new Point(14, 65);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(469, 23);
-            textBox5.TabIndex = 30;
+            txtSearchProduct.Location = new Point(14, 65);
+            txtSearchProduct.Name = "txtSearchProduct";
+            txtSearchProduct.Size = new Size(469, 23);
+            txtSearchProduct.TabIndex = 30;
             // 
-            // textBox6
+            // txtSearchSale
             // 
-            textBox6.Location = new Point(14, 232);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(802, 23);
-            textBox6.TabIndex = 32;
+            txtSearchSale.Location = new Point(14, 232);
+            txtSearchSale.Name = "txtSearchSale";
+            txtSearchSale.Size = new Size(802, 23);
+            txtSearchSale.TabIndex = 32;
             // 
-            // button2
+            // btnSearchSale
             // 
-            button2.Location = new Point(823, 232);
-            button2.Margin = new Padding(4, 3, 4, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(120, 26);
-            button2.TabIndex = 31;
-            button2.Text = "Save";
-            button2.UseVisualStyleBackColor = true;
+            btnSearchSale.Location = new Point(823, 232);
+            btnSearchSale.Margin = new Padding(4, 3, 4, 3);
+            btnSearchSale.Name = "btnSearchSale";
+            btnSearchSale.Size = new Size(120, 26);
+            btnSearchSale.TabIndex = 31;
+            btnSearchSale.Text = "Search";
+            btnSearchSale.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnPrintReciept
             // 
-            button3.Location = new Point(951, 264);
-            button3.Margin = new Padding(4, 3, 4, 3);
-            button3.Name = "button3";
-            button3.Size = new Size(105, 31);
-            button3.TabIndex = 33;
-            button3.Text = "Save";
-            button3.UseVisualStyleBackColor = true;
+            btnPrintReciept.Location = new Point(951, 264);
+            btnPrintReciept.Margin = new Padding(4, 3, 4, 3);
+            btnPrintReciept.Name = "btnPrintReciept";
+            btnPrintReciept.Size = new Size(105, 31);
+            btnPrintReciept.TabIndex = 33;
+            btnPrintReciept.Text = "Print";
+            btnPrintReciept.UseVisualStyleBackColor = true;
             // 
             // ProductSaleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button3);
-            Controls.Add(textBox6);
-            Controls.Add(button2);
-            Controls.Add(textBox5);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(btnPrintReciept);
+            Controls.Add(txtSearchSale);
+            Controls.Add(btnSearchSale);
+            Controls.Add(txtSearchProduct);
+            Controls.Add(btnSearchProduct);
+            Controls.Add(txtProductName);
+            Controls.Add(txtProductPrice);
+            Controls.Add(lblProductVat);
+            Controls.Add(txtProductVat);
+            Controls.Add(lblProductPrice);
+            Controls.Add(txtProductSaleQuantity);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
             Controls.Add(dataGridView);
             Controls.Add(labelMainCategoryId);
             Controls.Add(comboMainCategoryId);
-            Controls.Add(labelCategoryName);
-            Controls.Add(labelQuantity);
-            Controls.Add(labelTotal);
-            Controls.Add(txtTotal);
+            Controls.Add(lblProductName);
+            Controls.Add(lblProductSaleQuantity);
+            Controls.Add(lblSaleTotal);
+            Controls.Add(txtSaleTotal);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Name = "ProductSaleForm";
@@ -378,17 +378,17 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
         private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private Label label2;
-        private TextBox textBox2;
-        private Label label3;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Button button2;
-        private Button button3;
+        private TextBox txtProductSaleQuantity;
+        private Label lblProductPrice;
+        private TextBox txtProductVat;
+        private Label lblProductVat;
+        private TextBox txtProductPrice;
+        private TextBox txtProductName;
+        private Button btnSearchProduct;
+        private TextBox txtSearchProduct;
+        private TextBox txtSearchSale;
+        private Button btnSearchSale;
+        private Button btnPrintReciept;
     }
 }
 
