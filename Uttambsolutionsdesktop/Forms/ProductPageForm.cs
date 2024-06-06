@@ -146,6 +146,8 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxBrandId.DataSource = modifiedBrandData;
             comboBoxBrandId.ValueMember = "ProductBrandId";
             comboBoxBrandId.DisplayMember = "ProductBrandName";
+
+            comboBoxBrandId.SelectedValue = BrandId;
         }
 
         public void PopulateUomComboBox(List<SystemUoms> uomData)
@@ -160,6 +162,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxUomId.DataSource = modifiedUomData;
             comboBoxUomId.ValueMember = "UomId";
             comboBoxUomId.DisplayMember = "UomName";
+            comboBoxUomId.SelectedValue = UomId;
         }
 
         public void PopulateMainCategoryComboBox(List<MainCategory> mainCategoryData)
@@ -174,6 +177,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxMainCategoryId.DataSource = modifiedMainCategoryData;
             comboBoxMainCategoryId.ValueMember = "MainCategoryId";
             comboBoxMainCategoryId.DisplayMember = "MainCategoryName";
+            comboBoxMainCategoryId.SelectedValue = MainCategoryId;
         }
 
         public void PopulateFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
@@ -188,6 +192,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxFirstCategoryId.DataSource = modifiedFirstCategoryData;
             comboBoxFirstCategoryId.ValueMember = "FirstCategoryId";
             comboBoxFirstCategoryId.DisplayMember = "FirstCategoryName";
+            comboBoxFirstCategoryId.SelectedValue = FirstCategoryId;
         }
 
         public void PopulateTaxCategoryComboBox(List<SystemTaxCategory> taxCategoryData)
@@ -202,6 +207,7 @@ namespace Uttambsolutionsdesktop.Forms
             comboBoxTaxCategoryId.DataSource = modifiedTaxCategoryData;
             comboBoxTaxCategoryId.ValueMember = "TaxCategoryId";
             comboBoxTaxCategoryId.DisplayMember = "TaxCategoryName";
+            comboBoxTaxCategoryId.SelectedValue = TaxCategoryId;
         }
 
         public ProductPageForm(string userId)
