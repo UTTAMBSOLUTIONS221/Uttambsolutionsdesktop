@@ -183,6 +183,7 @@ namespace Uttambsolutionsdesktop.Forms
             txtProductId.ReadOnly = true;
             txtProductId.Size = new Size(174, 23);
             txtProductId.TabIndex = 34; // Increment the TabIndex
+            txtProductId.Visible = false; // Increment the TabIndex
             // 
             // btnSearchProduct
             // 
