@@ -21,12 +21,8 @@ namespace Uttambsolutionsdesktop.Forms
 
         // Events
         public event EventHandler SearchEvent;
-        public event EventHandler AddNewEvent;
-        public event EventHandler EditEvent;
-        public event EventHandler DeleteEvent;
-        public event EventHandler SaveMainEvent;
-        public event EventHandler SaveFirstEvent;
-        public event EventHandler SaveThirdEvent;
+        public event EventHandler PrintEvent;
+        public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
         // Properties
@@ -45,9 +41,13 @@ namespace Uttambsolutionsdesktop.Forms
         // Methods
         private void AssociateAndRaiseViewEvents()
         {
+            btnSearchProduct.Click += delegate
+            {
+                SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
             btnSave.Click += delegate
             {
-                SaveMainEvent?.Invoke(this, EventArgs.Empty);
+                SaveEvent?.Invoke(this, EventArgs.Empty);
             };
 
             btnCancel.Click += delegate

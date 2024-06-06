@@ -28,7 +28,7 @@ namespace Uttambsolutionsdesktop.Presenters
             this.firstCategoryBindingSource = new BindingSource();
             //Subscribe event handler methods to view events
 
-            this._view.AddNewEvent += AddNewCategory;
+            this._view.SearchEvent += AddNewCategory;
             this._view.EditEvent += LoadSelectedCategoryToEdit;
             this._view.DeleteEvent += DeleteSelectedCategory;
             this._view.SaveMainEvent += SaveMainCategory;
