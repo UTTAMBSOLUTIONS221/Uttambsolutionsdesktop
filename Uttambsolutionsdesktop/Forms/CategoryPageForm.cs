@@ -51,23 +51,6 @@ namespace Uttambsolutionsdesktop.Forms
             set { txtFirstCategoryName.Text = value; }
         }
         public int FirstMainCategoryId { get => Convert.ToInt32(comboFirstMainCategoryId.SelectedValue); set => comboFirstMainCategoryId.SelectedValue = value; }
-
-
-
-        // Properties
-        public int ThirdCategoryId
-        {
-            get { return int.TryParse(txtThirdCategoryId.Text, out int id) ? id : 0; }
-            set { txtThirdCategoryId.Text = value.ToString(); }
-        }
-        public string ThirdCategoryName
-        {
-            get { return txtThirdCategoryName.Text; }
-            set { txtThirdCategoryName.Text = value; }
-        }
-
-        public int ThirdFirstCategoryId { get => Convert.ToInt32(comboThirdFirstCategoryId.SelectedValue); set => comboThirdFirstCategoryId.SelectedValue = value; }
-
         // Constructors
         public CategoryPageForm(string userId)
         {
@@ -77,10 +60,8 @@ namespace Uttambsolutionsdesktop.Forms
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
             tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-            tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
             dataGridViewMain.DataBindingComplete += DataGridView_MainDataBindingComplete;
             dataGridViewFirst.DataBindingComplete += DataGridView_FirstDataBindingComplete;
-            dataGridViewThird.DataBindingComplete += DataGridView_ThirdDataBindingComplete;
 
             // Populate comboboxes
             PopulateComboboxes();
@@ -93,7 +74,6 @@ namespace Uttambsolutionsdesktop.Forms
 
             // Populate comboboxes with data
             PopulateFirstMainCategoryComboBox(mainCategoryData);
-            PopulateThirdFirstCategoryComboBox(firstCategoryData);
         }
         public void PopulateFirstMainCategoryComboBox(List<MainCategory> mainCategoryData)
         {
@@ -110,21 +90,7 @@ namespace Uttambsolutionsdesktop.Forms
             // Select the correct value based on the Roleid property
             comboFirstMainCategoryId.SelectedValue = FirstMainCategoryId;
         }
-        public void PopulateThirdFirstCategoryComboBox(List<FirstCategory> firstCategoryData)
-        {
-            // Create a new list to hold the modified role data
-            List<FirstCategory> modifiedFirstCategoryData = new List<FirstCategory>(firstCategoryData);
-
-            // Insert a default selection option at the beginning of the list
-            modifiedFirstCategoryData.Insert(0, new FirstCategory { FirstCategoryId = 0, FirstCategoryName = "Select Category" });
-
-            // Bind the modified role data to the ComboBox
-            comboThirdFirstCategoryId.DataSource = modifiedFirstCategoryData;
-            comboThirdFirstCategoryId.ValueMember = "FirstCategoryId";
-            comboThirdFirstCategoryId.DisplayMember = "FirstCategoryName";
-            // Select the correct value based on the Roleid property
-            comboThirdFirstCategoryId.SelectedValue = ThirdFirstCategoryId;
-        }
+        
         // Methods
         private void AssociateAndRaiseViewEvents()
         {
@@ -135,7 +101,6 @@ namespace Uttambsolutionsdesktop.Forms
                 //Userid = 0; // Ensure UserId is set to 0 for new entrie
                 tabControl1.TabPages.Remove(tabPageCategoryList);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageMainCategoryDetail);
                 tabPageMainCategoryDetail.Text = "Add Main Category";
             };
@@ -154,7 +119,6 @@ namespace Uttambsolutionsdesktop.Forms
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
                 tabControl1.TabPages.Add(tabPageMainCategoryDetail);
                 tabPageMainCategoryDetail.Text = "Edit Main Category";
@@ -169,7 +133,6 @@ namespace Uttambsolutionsdesktop.Forms
                 //Userid = 0; // Ensure UserId is set to 0 for new entrie
                 tabControl1.TabPages.Remove(tabPageCategoryList);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
                 tabPageFirstCategoryDetail.Text = "Add First Category";
             };
@@ -190,7 +153,6 @@ namespace Uttambsolutionsdesktop.Forms
                     }
                 }
                 tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Add(tabPageFirstCategoryDetail);
                 tabPageFirstCategoryDetail.Text = "Edit First Category";
@@ -198,47 +160,11 @@ namespace Uttambsolutionsdesktop.Forms
             btnDeleteFirst.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
 
 
-            btnAddNewThird.Click += delegate
-            {
-                AddNewEvent?.Invoke(this, EventArgs.Empty);
-                ClearDetailFields();
-                //Userid = 0; // Ensure UserId is set to 0 for new entrie
-                tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Add(tabPageThirdCategoryDetail);
-                tabPageThirdCategoryDetail.Text = "Add Third Category";
-            };
-            btnEditThird.Click += delegate
-            {
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                if (dataGridViewThird.SelectedCells.Count > 0)
-                {
-                    int rowIndex = dataGridViewThird.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = dataGridViewThird.Rows[rowIndex];
-                    if (selectedRow.Cells["ThirdCategoryId"].Value != null &&
-                        selectedRow.Cells["FirstCategoryId"].Value != null &&
-                        selectedRow.Cells["ThirdCategoryName"].Value != null)
-                    {
-                        ThirdCategoryId = Convert.ToInt32(selectedRow.Cells["ThirdCategoryId"].Value);
-                        ThirdFirstCategoryId = Convert.ToInt32(selectedRow.Cells["FirstCategoryId"].Value);
-                        ThirdCategoryName = selectedRow.Cells["ThirdCategoryName"].Value.ToString();
-                    }
-                }
-                tabControl1.TabPages.Remove(tabPageCategoryList);
-                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Add(tabPageThirdCategoryDetail);
-                tabPageThirdCategoryDetail.Text = "Edit Third Category";
-            };
-            btnDeleteThird.Click += (sender, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
-
             btnSaveMain.Click += delegate
             {
                 SaveMainEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageCategoryList);
             };
 
@@ -248,7 +174,6 @@ namespace Uttambsolutionsdesktop.Forms
                 ClearDetailFields();
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageCategoryList);
             };
             btnSaveFirst.Click += delegate
@@ -256,7 +181,6 @@ namespace Uttambsolutionsdesktop.Forms
                 SaveFirstEvent?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageCategoryList);
             };
 
@@ -266,25 +190,6 @@ namespace Uttambsolutionsdesktop.Forms
                 ClearDetailFields();
                 tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
                 tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
-                tabControl1.TabPages.Add(tabPageCategoryList);
-            };
-            btnSaveThird.Click += delegate
-            {
-                SaveThirdEvent?.Invoke(this, EventArgs.Empty);
-                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
-                tabControl1.TabPages.Add(tabPageCategoryList);
-            };
-
-            btnCancelThird.Click += delegate
-            {
-                CancelEvent?.Invoke(this, EventArgs.Empty);
-                ClearDetailFields();
-                tabControl1.TabPages.Remove(tabPageMainCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageFirstCategoryDetail);
-                tabControl1.TabPages.Remove(tabPageThirdCategoryDetail);
                 tabControl1.TabPages.Add(tabPageCategoryList);
             };
         }
@@ -397,21 +302,7 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-        public void SetThirdCategoryListBindingSource(BindingSource categoryList)
-        {
-            dataGridViewThird.DataSource = categoryList;
-
-            if (!dataGridViewThird.Columns.Contains("ThirdCategoryId"))
-            {
-                dataGridViewThird.Columns.Add(new DataGridViewTextBoxColumn
-                {
-                    Name = "ThirdCategoryId",
-                    HeaderText = "ThirdCategoryId",
-                    DataPropertyName = "ThirdCategoryId", // Ensure this matches the property name in the data source
-                    Visible = false
-                });
-            }
-        }
+        
         private void ClearDetailFields()
         {
             MainCategoryId = 0;
@@ -419,9 +310,6 @@ namespace Uttambsolutionsdesktop.Forms
             FirstCategoryId = 0;
             FirstCategoryName = string.Empty;
             FirstMainCategoryId = 0;
-            ThirdCategoryId = 0;
-            ThirdCategoryName = string.Empty;
-            ThirdFirstCategoryId = 0;
         }
 
         // Optional method to show message boxes

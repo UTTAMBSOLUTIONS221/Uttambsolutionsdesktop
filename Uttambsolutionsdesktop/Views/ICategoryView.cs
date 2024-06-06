@@ -13,12 +13,6 @@ namespace Uttambsolutionsdesktop.Views
         int FirstCategoryId { get; set; }
         string FirstCategoryName { get; set; }
         int FirstMainCategoryId { get; set; }
-        // Properties
-        int ThirdCategoryId { get; set; }
-        string ThirdCategoryName { get; set; }
-        int ThirdFirstCategoryId { get; set; }
-
-
         // Events
         event EventHandler AddNewEvent;
         event EventHandler EditEvent;
@@ -31,7 +25,6 @@ namespace Uttambsolutionsdesktop.Views
         // Methods
         void SetMainCategoryListBindingSource(BindingSource categoryList);
         void SetFirstCategoryListBindingSource(BindingSource categoryList);
-        void SetThirdCategoryListBindingSource(BindingSource categoryList);
         void Show();
         void ShowMessage(string message);
     }
