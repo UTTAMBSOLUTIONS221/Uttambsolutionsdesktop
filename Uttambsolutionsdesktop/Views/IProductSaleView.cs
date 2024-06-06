@@ -21,7 +21,7 @@ namespace Uttambsolutionsdesktop.Views
 
 
         // Methods
-        //void SetMainCategoryListBindingSource(BindingSource categoryList);
+        void SetProductSearchDataListBindingSource(BindingSource productSearchDataList);
         //void SetFirstCategoryListBindingSource(BindingSource categoryList);
         void Show();
         void ShowMessage(string message);

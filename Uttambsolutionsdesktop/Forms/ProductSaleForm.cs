@@ -144,18 +144,18 @@ namespace Uttambsolutionsdesktop.Forms
         }
 
         // Interface Implementation
-        public void SetMainCategoryListBindingSource(BindingSource categoryList)
+        public void SetProductSearchDataListBindingSource(BindingSource productSearchDataList)
         {
-            dataGridViewProducts.DataSource = categoryList;
+            dataGridViewProducts.DataSource = productSearchDataList;
 
             // Ensure the hidden CategoryId column is added
             if (!dataGridViewProducts.Columns.Contains("MainCategoryId"))
             {
                 dataGridViewProducts.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "MainCategoryId",
-                    HeaderText = "MainCategoryId",
-                    DataPropertyName = "MainCategoryId", // Ensure this matches the property name in the data source
+                    Name = "ProductId",
+                    HeaderText = "ProductId",
+                    DataPropertyName = "ProductId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
