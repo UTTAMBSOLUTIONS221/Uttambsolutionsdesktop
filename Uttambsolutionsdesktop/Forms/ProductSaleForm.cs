@@ -81,14 +81,23 @@ namespace Uttambsolutionsdesktop.Forms
             // CellClick event handler to select the entire row
             dataGridViewProducts.CellClick += (sender, e) =>
             {
+                ClearDetailFields();
                 if (e.RowIndex >= 0)
                 {
                     dataGridViewProducts.Rows[e.RowIndex].Selected = true;
                     DataGridViewRow selectedRow = dataGridViewProducts.Rows[e.RowIndex];
-                    ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
-                    ProductName = selectedRow.Cells["Product"].Value.ToString();
-                    //TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
-                    RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
+                    if (selectedRow!= null)
+                    {
+                        ProductId = Convert.ToInt32(selectedRow.Cells["ProductId"].Value);
+                        ProductName = selectedRow.Cells["Product"].Value.ToString();
+                        //TaxCategoryId = Convert.ToInt32(selectedRow.Cells["TaxCategoryId"].Value);
+                        RetailSalePrice = Convert.ToDecimal(selectedRow.Cells["RetailSalePrice"].Value);
+                    }
+                    else
+                    {
+                        // Clear the textboxes if the row is empty
+                        ClearDetailFields();
+                    }
                 }
             };
 
@@ -180,7 +189,10 @@ namespace Uttambsolutionsdesktop.Forms
 
         private void ClearDetailFields()
         {
-            // Implement clearing detail fields functionality
+            // Clear the textboxes
+            txtProductId.Text = "";
+            txtProductName.Text = "";
+            // Clear other textboxes as needed
         }
 
         // Interface Implementation
