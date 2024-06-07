@@ -151,6 +151,7 @@ namespace Uttambsolutionsdesktop.Forms
             btnAddOrder.Click += delegate
             {
                 AddOrderProductEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
             };
 
             btnCancel.Click += delegate
