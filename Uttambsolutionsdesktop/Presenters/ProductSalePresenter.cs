@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Uttambsolutionsdesktop.Views;
 using DBL.Models;
 using System.Windows.Forms;
+using System.Buffers;
 
 namespace Uttambsolutionsdesktop.Presenters
 {
@@ -23,7 +24,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private BindingSource productsSaleBindingSource;
         private IEnumerable<SystemProductData> productSearchDataList;
         private IEnumerable<CustomerOrderItems> orderProductDataList;
-        private IEnumerable<FirstCategory> productSalesDataList;
+        private CustomerOrder productSalesDataList;
 
         public ProductSalePresenter(IProductSaleView view, string userId, string connectionString)
         {
@@ -139,6 +140,8 @@ namespace Uttambsolutionsdesktop.Presenters
             if (resp.RespStatus == 0)
             {
                 MessageBox.Show(resp.RespMessage);
+                productSalesDataList = await _bl.GetSaleProductsByOrderId(Convert.ToInt32(resp.Data1));
+                productsSaleBindingSource.DataSource = productSalesDataList;
                 _view.SetProductSaleDataListBindingSource(productsSaleBindingSource);
             }
             else if (resp.RespStatus == 1)

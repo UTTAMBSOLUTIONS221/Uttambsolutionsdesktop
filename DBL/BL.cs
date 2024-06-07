@@ -211,7 +211,7 @@ namespace DBL
         }
         #endregion
 
-        #region Produccts
+        #region Products
         public Task<IEnumerable<SystemProductData>> GetAllProducts()
         {
             return Task.Run(() =>
@@ -253,6 +253,14 @@ namespace DBL
             return Task.Run(() =>
             {
                 var Resp = db.ProductRepository.SaveCustomerOrder(obj);
+                return Resp;
+            });
+        }
+        public Task<CustomerOrder> GetSaleProductsByOrderId(int OrderId)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.GetSaleProductsByOrderId(OrderId);
                 return Resp;
             });
         }

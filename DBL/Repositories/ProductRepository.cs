@@ -254,6 +254,70 @@ namespace DBL.Repositories
             }
         }
 
+        public CustomerOrder GetSaleProductsByOrderId(int OrderId)
+        {
+            using (var connection = new SQLiteConnection(_connString))
+            {
+                connection.Open();
+
+                // Execute the query to fetch categories
+                var queryResult = connection.Query<dynamic>(@"
+            SELECT 
+                co.OrderId,
+                co.OrderCode,
+                co.OrderGrossTotal,
+                co.OrderNetTotal,
+                co.OrderVatTotal,
+                co.Createdby,
+                co.Modifiedby,
+                co.DateCreated,
+                co.DateModified,
+                json_group_array(
+                    json_object(
+                        'OrderItemId', coi.OrderItemId,
+                        'ProductId', coi.ProductId,
+                        'ProductPrice', coi.ProductPrice,
+                        'ProductVat', coi.ProductVat,
+                        'ProductUnits', coi.ProductUnits,
+                        'ItemGrossTotal', coi.ItemGrossTotal,
+                        'ItemNetTotal', coi.ItemNetTotal,
+                        'ItemVatTotal', coi.ItemVatTotal,
+                        'Createdby', coi.Createdby,
+                        'Modifiedby', coi.Modifiedby,
+                        'DateCreated', coi.DateCreated,
+                        'DateModified', coi.DateModified
+                    )
+                ) AS OrderItems
+            FROM CustomerOrder co
+            LEFT JOIN CustomerOrderItems coi ON co.OrderId = coi.OrderId
+            WHERE co.OrderId = @OrderId;
+        ", new { OrderId });
+
+                // Map the query result to CustomerOrder object
+                if (queryResult != null && queryResult.Any())
+                {
+                    var result = queryResult.First();
+                    var order = new CustomerOrder
+                    {
+                        OrderId = result.OrderId,
+                        OrderCode = result.OrderCode,
+                        OrderGrossTotal = result.OrderGrossTotal,
+                        OrderNetTotal = result.OrderNetTotal,
+                        OrderVatTotal = result.OrderVatTotal,
+                        Createdby = result.Createdby,
+                        Modifiedby = result.Modifiedby,
+                        DateCreated = result.DateCreated,
+                        DateModified = result.DateModified,
+                        OrderItems = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CustomerOrderItems>>(result.OrderItems)
+                    };
+                    return order;
+                }
+
+                // If no result found, return null
+                return null;
+            }
+        }
+
 
         #endregion
 
