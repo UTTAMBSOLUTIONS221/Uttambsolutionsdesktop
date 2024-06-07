@@ -243,6 +243,14 @@ namespace Uttambsolutionsdesktop.Forms
         {
             if (sender is DataGridView dataGridView)
             {
+                if (dataGridView.Columns.Contains("OrderId"))
+                {
+                    dataGridView.Columns["OrderId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("OrderItemId"))
+                {
+                    dataGridView.Columns["OrderItemId"].Visible = false;
+                }
                 if (dataGridView.Columns.Contains("ProductId"))
                 {
                     dataGridView.Columns["ProductId"].Visible = false;
@@ -278,10 +286,19 @@ namespace Uttambsolutionsdesktop.Forms
                 if (dataGridView.Columns.Contains("TaxCategoryValue"))
                 {
                     dataGridView.Columns["TaxCategoryValue"].Visible = false;
+
+                }
+                if (dataGridView.Columns.Contains("Createdby"))
+                {
+                    dataGridView.Columns["Createdby"].Visible = false;
                 }
                 if (dataGridView.Columns.Contains("Modifiedby"))
                 {
                     dataGridView.Columns["Modifiedby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("DateCreated"))
+                {
+                    dataGridView.Columns["DateCreated"].Visible = false;
                 }
                 if (dataGridView.Columns.Contains("Datemodified"))
                 {
