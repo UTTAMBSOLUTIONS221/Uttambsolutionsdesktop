@@ -48,7 +48,7 @@ namespace Uttambsolutionsdesktop.Presenters
         {
             string searchValue = _view.ProductSearchValue;
             if (!string.IsNullOrWhiteSpace(searchValue))
-                productSearchDataList =await  _bl.GetProductsByValue(searchValue);
+                productSearchDataList = await _bl.GetProductsByValue(searchValue);
             productsBindingSource.DataSource = productSearchDataList;
             _view.SetProductSearchDataListBindingSource(productsBindingSource);
         }
@@ -88,25 +88,6 @@ namespace Uttambsolutionsdesktop.Presenters
             _view.SetOrderProductDataListBindingSource(orderProductsBindingSource);
         }
 
-        private void OnSaveOrderClicked(object sender, EventArgs e)
-        {
-            //var order = new CustomerOrder
-            //{
-            //    OrderCode = _view.OrderCode,
-            //    OrderGrossTotal = _view.OrderGrossTotal,
-            //    OrderNetTotal = _view.OrderNetTotal,
-            //    OrderVatTotal = _view.OrderVatTotal,
-            //    Createdby = Convert.ToInt32(_userId), 
-            //    Modifiedby = Convert.ToInt32(_userId), 
-            //    DateCreated = DateTime.Now,
-            //    DateModified = DateTime.Now,
-            //    OrderItems = _view.OrderItems
-            //};
-
-            // Save order to database (implement this method)
-            //SaveSaleData(order);
-        }
-
         private void PrintSale(object sender, EventArgs e)
         {
             // Implement printing functionality
@@ -114,55 +95,59 @@ namespace Uttambsolutionsdesktop.Presenters
         private void LoadSelectedProductToSell(object sender, EventArgs e)
         {
         }
-        private void SaveSaleData(object sender, EventArgs e)
+        private async void SaveSaleData(object sender, EventArgs e)
         {
-            //decimal OrderGrossTotal = 0;
-            //decimal OrderVatTotal = 0;
 
-            //var item = new CustomerOrderItems
-            //{
-            //    ProductId = _view.ProductId,
-            //    ProductPrice = _view.RetailSalePrice,
-            //    ProductVat = _view.TaxCategoryValue,
-            //    ProductUnits = _view.ProductSellUnits,
-            //    ItemGrossTotal = _view.ProductSellTotal,
-            //    ItemNetTotal = _view.ProductSellTotal - _view.ProductVatTotal,
-            //    ItemVatTotal = _view.ProductVatTotal,
-            //    Createdby = Convert.ToInt32(_userId),
-            //    Modifiedby = Convert.ToInt32(_userId),
-            //    DateCreated = DateTime.Now,
-            //    DateModified = DateTime.Now,
-            //};
+            // Initialize totals
+            decimal orderGrossTotal = 0;
+            decimal orderVatTotal = 0;
+            decimal orderNetTotal = 0;
 
-            //item.ItemNetTotal = item.ItemGrossTotal - item.ProductVat;
-            //item.ItemVatTotal = item.ProductVat * item.ProductUnits;
+            // Get the list of order items from the binding source
+            var orderProductList = orderProductsBindingSource.DataSource as List<CustomerOrderItems>;
+            if (orderProductList == null || !orderProductList.Any())
+            {
+                MessageBox.Show("No items to save.");
+                return;
+            }
 
-            //orderItems.Add(item);
-            //orderItemsBindingSource.ResetBindings(false);
-        
-        CustomerOrderItems customerOrderItemsData = new CustomerOrderItems();
-            //customerOrderItemsData.ProductId = _view.ProductId;
-            //customerOrderItemsData.ProductPrice = _view.RetailSalePrice;
-            //customerOrderItemsData.ProductVat = _view.TaxCategoryValue;
-            //customerOrderItemsData.ProductUnits = _view.ProductSellUnits;
-            //customerOrderItemsData.ItemGrossTotal = _view.ProductSellTotal;
-            //customerOrderItemsData.ItemNetTotal = _view.ProductSellTotal - _view.ProductVatTotal;
-            //customerOrderItemsData.ItemVatTotal = _view.ProductVatTotal;
-            //customerOrderItemsData.Createdby = Convert.ToInt32(_userId);
-            //customerOrderItemsData.Modifiedby = Convert.ToInt32(_userId);
-            //customerOrderItemsData.DateCreated = DateTime.Now;
-            //customerOrderItemsData.DateModified = DateTime.Now;
+            // Calculate totals
+            foreach (var item in orderProductList)
+            {
+                orderGrossTotal += item.ItemGrossTotal;
+                orderVatTotal += item.ItemVatTotal;
+            }
+            orderNetTotal = orderGrossTotal - orderVatTotal;
 
+            // Create a new order
+            CustomerOrder customerOrderData = new CustomerOrder
+            {
+                OrderCode = Guid.NewGuid().ToString(), // Generate a unique order code
+                OrderGrossTotal = orderGrossTotal,
+                OrderNetTotal = orderNetTotal,
+                OrderVatTotal = orderVatTotal,
+                Createdby = Convert.ToInt32(_userId),
+                Modifiedby = Convert.ToInt32(_userId),
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now,
+                OrderItems = orderProductList
 
-            CustomerOrder customerOrderData = new CustomerOrder();
-            //customerOrderData.OrderCode = "";
-            //customerOrderData.OrderGrossTotal = OrderGrossTotal;
-            //customerOrderData.OrderNetTotal = OrderGrossTotal-OrderVatTotal;
-            //customerOrderData.OrderVatTotal = OrderVatTotal;
-            //customerOrderData.Createdby = Convert.ToInt32(_userId);
-            //customerOrderData.Modifiedby = Convert.ToInt32(_userId);
-            //customerOrderData.DateCreated = DateTime.Now;
-            //customerOrderData.DateModified = DateTime.Now;
+            };
+            // Call the BL method to save the category
+            var resp = await _bl.SaveCustomerOrder(customerOrderData);
+            // Handle the response accordingly
+            if (resp.RespStatus == 0)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else if (resp.RespStatus == 1)
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
+            else
+            {
+                MessageBox.Show(resp.RespMessage);
+            }
         }
 
         private void CancelSale(object sender, EventArgs e)

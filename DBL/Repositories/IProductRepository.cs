@@ -13,5 +13,6 @@ namespace DBL.Repositories
         IEnumerable<SystemProductData> GetAllProducts();
         IEnumerable<SystemProductData> GetProductsByValue(string SearchValue);
         Genericmodel SaveProduct(SystemProduct entity);
+        Genericmodel SaveCustomerOrder(CustomerOrder entity);
     }
 }

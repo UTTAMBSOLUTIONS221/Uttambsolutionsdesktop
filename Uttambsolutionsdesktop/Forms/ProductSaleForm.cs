@@ -153,6 +153,11 @@ namespace Uttambsolutionsdesktop.Forms
                 AddOrderProductEvent?.Invoke(this, EventArgs.Empty);
                 ClearDetailFields();
             };
+            btnSave.Click += delegate
+            {
+                SaveSaleDataEvent?.Invoke(this, EventArgs.Empty);
+                ClearDetailFields();
+            };
 
             btnCancel.Click += delegate
             {

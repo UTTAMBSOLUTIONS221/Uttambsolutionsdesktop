@@ -245,5 +245,18 @@ namespace DBL
             });
         }
         #endregion
+
+
+        #region Product Orders
+        public Task<Genericmodel> SaveCustomerOrder(CustomerOrder obj)
+        {
+            return Task.Run(() =>
+            {
+                var Resp = db.ProductRepository.SaveCustomerOrder(obj);
+                return Resp;
+            });
+        }
+        #endregion
+
     }
 }
