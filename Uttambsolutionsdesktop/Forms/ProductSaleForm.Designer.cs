@@ -254,15 +254,15 @@ namespace Uttambsolutionsdesktop.Forms
             // 
             dataGridViewOrderProducts.Location = new Point(627, 227);
             dataGridViewOrderProducts.Name = "dataGridViewOrderProducts";
-            dataGridViewOrderProducts.Size = new Size(435, 184);
+            dataGridViewOrderProducts.Size = new Size(435, 214);
             dataGridViewOrderProducts.TabIndex = 37;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(666, 417);
+            btnSave.Location = new Point(627, 447);
             btnSave.Margin = new Padding(4, 3, 4, 3);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(368, 38);
+            btnSave.Size = new Size(434, 38);
             btnSave.TabIndex = 38;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
