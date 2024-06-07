@@ -37,12 +37,12 @@ namespace Uttambsolutionsdesktop.Forms
             btnPrintReciept = new Button();
             lblVatTotal = new Label();
             txtVatTotal = new TextBox();
-            dataGridView1 = new DataGridView();
+            dataGridViewOrderProducts = new DataGridView();
             btnSave = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderProducts).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -250,12 +250,12 @@ namespace Uttambsolutionsdesktop.Forms
             txtVatTotal.Size = new Size(111, 23);
             txtVatTotal.TabIndex = 36;
             // 
-            // dataGridView1
+            // dataGridViewOrderProducts
             // 
-            dataGridView1.Location = new Point(627, 227);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(435, 184);
-            dataGridView1.TabIndex = 37;
+            dataGridViewOrderProducts.Location = new Point(627, 227);
+            dataGridViewOrderProducts.Name = "dataGridViewOrderProducts";
+            dataGridViewOrderProducts.Size = new Size(435, 184);
+            dataGridViewOrderProducts.TabIndex = 37;
             // 
             // btnSave
             // 
@@ -272,7 +272,7 @@ namespace Uttambsolutionsdesktop.Forms
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnSave);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewOrderProducts);
             Controls.Add(lblVatTotal);
             Controls.Add(txtVatTotal);
             Controls.Add(btnPrintReciept);
@@ -302,7 +302,7 @@ namespace Uttambsolutionsdesktop.Forms
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductSales).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewOrderProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -331,7 +331,7 @@ namespace Uttambsolutionsdesktop.Forms
         private DataGridView dataGridViewProductSales;
         private Label lblVatTotal;
         private TextBox txtVatTotal;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewOrderProducts;
         private Button button1;
         private Button btnSave;
     }

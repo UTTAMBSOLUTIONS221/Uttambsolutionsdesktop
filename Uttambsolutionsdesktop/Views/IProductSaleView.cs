@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,11 @@ namespace Uttambsolutionsdesktop.Views
         public decimal RetailSalePrice { get; set; }
         public decimal ProductSellTotal { get; set; }
         public decimal ProductVatTotal { get; set; }
-       
+
         // Events
         event EventHandler SearchProductEvent;
         event EventHandler SellProductEvent;
+        event EventHandler AddOrderProductEvent;
         event EventHandler PrintSaleEvent;
         event EventHandler SaveSaleDataEvent;
         event EventHandler CancelSaleEvent;
@@ -30,6 +32,7 @@ namespace Uttambsolutionsdesktop.Views
 
         // Methods
         void SetProductSearchDataListBindingSource(BindingSource productSearchDataList);
+        void SetOrderProductDataListBindingSource(BindingSource orderProductSearchDataList);
         //void SetFirstCategoryListBindingSource(BindingSource categoryList);
         void Show();
         void ShowMessage(string message);

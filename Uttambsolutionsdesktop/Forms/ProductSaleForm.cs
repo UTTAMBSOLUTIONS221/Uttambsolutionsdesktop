@@ -23,6 +23,7 @@ namespace Uttambsolutionsdesktop.Forms
         // Events
         public event EventHandler SearchProductEvent;
         public event EventHandler SellProductEvent;
+        public event EventHandler AddOrderProductEvent;
         public event EventHandler PrintSaleEvent;
         public event EventHandler SaveSaleDataEvent;
         public event EventHandler CancelSaleEvent;
@@ -96,7 +97,6 @@ namespace Uttambsolutionsdesktop.Forms
                 txtVatTotal.Text = productVatTotal.ToString();
             }
         }
-
         // Constructors
         public ProductSaleForm(string userId)
         {
@@ -106,6 +106,7 @@ namespace Uttambsolutionsdesktop.Forms
             AssociateAndRaiseViewEvents();
             txtProductSaleQuantity.TextChanged += TxtProductSaleQuantity_TextChanged;
             dataGridViewProducts.DataBindingComplete += DataGridView_ProductDataBindingComplete;
+            dataGridViewOrderProducts.DataBindingComplete += DataGridView_OrderProductDataBindingComplete;
             dataGridViewProductSales.DataBindingComplete += DataGridView_SalesDataBindingComplete;
         }
 
@@ -237,6 +238,60 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
+
+        private void DataGridView_OrderProductDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (sender is DataGridView dataGridView)
+            {
+                if (dataGridView.Columns.Contains("ProductId"))
+                {
+                    dataGridView.Columns["ProductId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("BrandId"))
+                {
+                    dataGridView.Columns["BrandId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("UomId"))
+                {
+                    dataGridView.Columns["UomId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("MainCategoryId"))
+                {
+                    dataGridView.Columns["MainCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("FirstCategoryId"))
+                {
+                    dataGridView.Columns["FirstCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("WholeSalePrice"))
+                {
+                    dataGridView.Columns["WholeSalePrice"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("ProfitMargin"))
+                {
+                    dataGridView.Columns["ProfitMargin"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("TaxCategoryId"))
+                {
+                    dataGridView.Columns["TaxCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("TaxCategoryValue"))
+                {
+                    dataGridView.Columns["TaxCategoryValue"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Modifiedby"))
+                {
+                    dataGridView.Columns["Modifiedby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Datemodified"))
+                {
+                    dataGridView.Columns["Datemodified"].Visible = false;
+                }
+            }
+        }
+
+
+
         private void ClearDetailFields()
         {
             // Clear the textboxes
@@ -256,7 +311,24 @@ namespace Uttambsolutionsdesktop.Forms
             dataGridViewProducts.DataSource = productSearchDataList;
 
             // Ensure the hidden CategoryId column is added
-            if (!dataGridViewProducts.Columns.Contains("MainCategoryId"))
+            if (!dataGridViewProducts.Columns.Contains("ProductId"))
+            {
+                dataGridViewProducts.Columns.Add(new DataGridViewTextBoxColumn
+                {
+                    Name = "ProductId",
+                    HeaderText = "ProductId",
+                    DataPropertyName = "ProductId", // Ensure this matches the property name in the data source
+                    Visible = false
+                });
+            }
+        }
+        // Interface Implementation
+        public void SetOrderProductDataListBindingSource(BindingSource productSearchDataList)
+        {
+            dataGridViewProducts.DataSource = productSearchDataList;
+
+            // Ensure the hidden CategoryId column is added
+            if (!dataGridViewProducts.Columns.Contains("ProductId"))
             {
                 dataGridViewProducts.Columns.Add(new DataGridViewTextBoxColumn
                 {
