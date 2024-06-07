@@ -150,7 +150,7 @@ namespace Uttambsolutionsdesktop.Forms
 
             btnAddOrder.Click += delegate
             {
-                SaveSaleDataEvent?.Invoke(this, EventArgs.Empty);
+                AddOrderProductEvent?.Invoke(this, EventArgs.Empty);
             };
 
             btnCancel.Click += delegate
@@ -323,14 +323,14 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
         // Interface Implementation
-        public void SetOrderProductDataListBindingSource(BindingSource productSearchDataList)
+        public void SetOrderProductDataListBindingSource(BindingSource orderProductDataList)
         {
-            dataGridViewProducts.DataSource = productSearchDataList;
+            dataGridViewOrderProducts.DataSource = orderProductDataList;
 
             // Ensure the hidden CategoryId column is added
-            if (!dataGridViewProducts.Columns.Contains("ProductId"))
+            if (!dataGridViewOrderProducts.Columns.Contains("ProductId"))
             {
-                dataGridViewProducts.Columns.Add(new DataGridViewTextBoxColumn
+                dataGridViewOrderProducts.Columns.Add(new DataGridViewTextBoxColumn
                 {
                     Name = "ProductId",
                     HeaderText = "ProductId",

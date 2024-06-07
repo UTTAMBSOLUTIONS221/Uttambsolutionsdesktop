@@ -357,7 +357,7 @@ namespace Uttambsolutionsdesktop
                                                            "Createdby INTEGER, " +
                                                            "Modifiedby INTEGER, " +
                                                            "DateCreated DATETIME, " +
-                                                           "DateModified DATETIME, " +
+                                                           "DateModified DATETIME " +
                                                            ")";
                 using (SQLiteCommand cmd = new SQLiteCommand(createOrderTableQuery, conn))
                 {
@@ -377,7 +377,7 @@ namespace Uttambsolutionsdesktop
                                                            "Createdby INTEGER, " +
                                                            "Modifiedby INTEGER, " +
                                                            "DateCreated DATETIME, " +
-                                                           "DateModified DATETIME, " +
+                                                           "DateModified DATETIME " +
                                                            ")";
                 using (SQLiteCommand cmd = new SQLiteCommand(createOrderItemsTableQuery, conn))
                 {

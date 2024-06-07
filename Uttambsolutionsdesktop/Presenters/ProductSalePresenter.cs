@@ -22,6 +22,7 @@ namespace Uttambsolutionsdesktop.Presenters
         private BindingSource orderProductsBindingSource;
         private BindingSource productsSaleBindingSource;
         private IEnumerable<SystemProductData> productSearchDataList;
+        private IEnumerable<CustomerOrderItems> orderProductDataList;
         private IEnumerable<FirstCategory> productSalesDataList;
 
         public ProductSalePresenter(IProductSaleView view, string userId, string connectionString)
@@ -53,6 +54,7 @@ namespace Uttambsolutionsdesktop.Presenters
         }
         private void OnAddItemClicked(object sender, EventArgs e)
         {
+            // Create a new item based on view data
             CustomerOrderItems newItem = new CustomerOrderItems
             {
                 ProductId = _view.ProductId,
@@ -61,12 +63,29 @@ namespace Uttambsolutionsdesktop.Presenters
                 ProductVat = _view.TaxCategoryValue,
                 ProductUnits = _view.ProductSellUnits,
                 ItemGrossTotal = _view.ProductSellTotal,
-                ItemNetTotal = _view.ProductSellTotal-_view.ProductVatTotal,
-                ItemVatTotal = _view.ProductVatTotal
+                ItemNetTotal = _view.ProductSellTotal - _view.ProductVatTotal,
+                ItemVatTotal = _view.ProductVatTotal,
+                Createdby = Convert.ToInt32(_userId),
+                Modifiedby = Convert.ToInt32(_userId),
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now
             };
-            // Add the new item to dataGridView1
-            _view.SetOrderProductDataListBindingSource(newItem);
-            dataGridViewOrderProducts.Rows.Add(newItem.OrderItemId, newItem.OrderId, newItem.ProductId, newItem.ProductName, newItem.ProductPrice, newItem.ProductVat, newItem.ProductUnits, newItem.ItemGrossTotal, newItem.ItemNetTotal, newItem.ItemVatTotal, newItem.Createdby, newItem.Modifiedby, newItem.DateCreated, newItem.DateModified);
+
+            // Ensure the data source is initialized as a list
+            if (orderProductsBindingSource.DataSource == null)
+            {
+                orderProductsBindingSource.DataSource = new List<CustomerOrderItems>();
+            }
+
+            // Cast the data source to a list and add the new item
+            var orderProductList = orderProductsBindingSource.DataSource as List<CustomerOrderItems>;
+            orderProductList.Add(newItem);
+
+            // Reset bindings to update the view
+            orderProductsBindingSource.ResetBindings(false);
+
+            // Update the view's data source
+            _view.SetOrderProductDataListBindingSource(orderProductsBindingSource);
         }
 
         private void OnSaveOrderClicked(object sender, EventArgs e)
