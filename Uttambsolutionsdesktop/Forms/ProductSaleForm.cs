@@ -217,34 +217,6 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-        private void DataGridView_SalesDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            if (sender is DataGridView dataGridView)
-            {
-                if (dataGridView.Columns.Contains("MainCategoryId"))
-                {
-                    dataGridView.Columns["MainCategoryId"].Visible = false;
-                }
-                if (dataGridView.Columns.Contains("FirstCategoryId"))
-                {
-                    dataGridView.Columns["FirstCategoryId"].Visible = false;
-                }
-                if (dataGridView.Columns.Contains("Createdby"))
-                {
-                    dataGridView.Columns["Createdby"].Visible = false;
-                }
-                if (dataGridView.Columns.Contains("Modifiedby"))
-                {
-                    dataGridView.Columns["Modifiedby"].Visible = false;
-                }
-                if (dataGridView.Columns.Contains("DateModified"))
-                {
-                    dataGridView.Columns["DateModified"].Visible = false;
-                }
-            }
-        }
-
-
         private void DataGridView_OrderProductDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             if (sender is DataGridView dataGridView)
@@ -313,6 +285,33 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
+        private void DataGridView_SalesDataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (sender is DataGridView dataGridView)
+            {
+                if (dataGridView.Columns.Contains("MainCategoryId"))
+                {
+                    dataGridView.Columns["MainCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("FirstCategoryId"))
+                {
+                    dataGridView.Columns["FirstCategoryId"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Createdby"))
+                {
+                    dataGridView.Columns["Createdby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("Modifiedby"))
+                {
+                    dataGridView.Columns["Modifiedby"].Visible = false;
+                }
+                if (dataGridView.Columns.Contains("DateModified"))
+                {
+                    dataGridView.Columns["DateModified"].Visible = false;
+                }
+            }
+        }
+
 
 
         private void ClearDetailFields()
@@ -363,22 +362,23 @@ namespace Uttambsolutionsdesktop.Forms
             }
         }
 
-        public void SetFirstCategoryListBindingSource(BindingSource categoryList)
+        public void SetProductSaleDataListBindingSource(BindingSource productSaleDataList)
         {
-            dataGridViewProductSales.DataSource = categoryList;
+            dataGridViewProductSales.DataSource = productSaleDataList;
 
-            if (!dataGridViewProductSales.Columns.Contains("FirstCategoryId"))
+            // Ensure the hidden CategoryId column is added
+            if (!dataGridViewProductSales.Columns.Contains("OrderId"))
             {
                 dataGridViewProductSales.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Name = "FirstCategoryId",
-                    HeaderText = "FirstCategoryId",
-                    DataPropertyName = "FirstCategoryId", // Ensure this matches the property name in the data source
+                    Name = "OrderId",
+                    HeaderText = "OrderId",
+                    DataPropertyName = "OrderId", // Ensure this matches the property name in the data source
                     Visible = false
                 });
             }
         }
-       
+
         // Optional method to show message boxes
         public void ShowMessage(string message)
         {

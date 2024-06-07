@@ -139,6 +139,7 @@ namespace Uttambsolutionsdesktop.Presenters
             if (resp.RespStatus == 0)
             {
                 MessageBox.Show(resp.RespMessage);
+                _view.SetProductSaleDataListBindingSource(productsSaleBindingSource);
             }
             else if (resp.RespStatus == 1)
             {

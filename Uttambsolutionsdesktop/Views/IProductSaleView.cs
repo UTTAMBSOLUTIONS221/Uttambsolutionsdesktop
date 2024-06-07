@@ -33,7 +33,8 @@ namespace Uttambsolutionsdesktop.Views
         // Methods
         void SetProductSearchDataListBindingSource(BindingSource productSearchDataList);
         void SetOrderProductDataListBindingSource(BindingSource orderProductSearchDataList);
-        //void SetFirstCategoryListBindingSource(BindingSource categoryList);
+        void SetProductSaleDataListBindingSource(BindingSource productSaleDataList);
+      
         void Show();
         void ShowMessage(string message);
     }
